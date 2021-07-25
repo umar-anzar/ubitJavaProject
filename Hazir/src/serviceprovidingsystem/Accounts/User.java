@@ -57,13 +57,13 @@ public class User extends Account {
                 +super.getContactNumber()+","+super.getAddress()+","+
                 super.getDate()+","+isOrderStatus();
     }
-    /*public static void main(String[] args) {
+    public static void main(String[] args) {
         User a= new User("aasd", "anas123", "03423", null, new Date());
         a.setOrderStatus("false");
         System.out.println(a.toString());
         System.out.println(System.currentTimeMillis());
         DatabaseConnection database = new DatabaseConnection();
-        database.INSERT(a.toString());
-    }*/
+        //database.INSERT(a.toString());
+    }
  
 }
