@@ -203,7 +203,7 @@ public class HomeWindow extends javax.swing.JFrame {
         );
 
         jLayeredPane1.add(tItleBar);
-        tItleBar.setBounds(250, 0, 569, 70);
+        tItleBar.setBounds(250, 0, 561, 70);
 
         sandwichSettingPanel.setkBorderRadius(15);
         sandwichSettingPanel.setkEndColor(new java.awt.Color(60, 156, 220));
@@ -382,7 +382,7 @@ public class HomeWindow extends javax.swing.JFrame {
             kGradientPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel12Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 433, Short.MAX_VALUE)
                 .addContainerGap())
         );
         kGradientPanel12Layout.setVerticalGroup(
@@ -794,7 +794,7 @@ public class HomeWindow extends javax.swing.JFrame {
         kGradientPanel10.getAccessibleContext().setAccessibleName("");
 
         jLayeredPane1.add(homeBackgroundPanel);
-        homeBackgroundPanel.setBounds(0, 50, 1070, 606);
+        homeBackgroundPanel.setBounds(0, 50, 1070, 552);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
