@@ -68,12 +68,11 @@ public class User extends Account {
                 super.getDate()+","+isOrderStatus();
     }
     public static void main(String[] args) {
-        User a= new User("aasd", "anas123", "03423", null, new Date());
+        User a= new User("omer", "omer123", "03333333333", null, new Date());
         a.setOrderStatus("false");
-        System.out.println(a.toString());
-        System.out.println(System.currentTimeMillis());
         DatabaseConnection database = new DatabaseConnection();
-        //database.INSERT(a.toString());
+        database.currentUser = a;
+        database.INSERT_USER();
     }
  
 }

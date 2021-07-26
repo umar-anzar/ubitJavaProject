@@ -84,7 +84,7 @@ public class DatabaseConnection {
     
     public void INSERT_USER(){
         
-        String sql = "INSERT INTO Users(name, password, contactNumber, address, dateOfBirth, orderStatus, cost) VALUES(?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO Users(name, password, contactNumber, address, dateOfRegisteration, orderStatus, cost) VALUES(?,?,?,?,?,?,?)";
         
         try {
             pst = connection.prepareStatement(sql);

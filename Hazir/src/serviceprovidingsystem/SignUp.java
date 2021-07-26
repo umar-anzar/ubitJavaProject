@@ -271,19 +271,22 @@ public class SignUp extends javax.swing.JFrame {
             return;
         }
         if (database.Exist(usernameField.getText())){
-        
-            System.out.println("true");
+            errorRegister.setText("Username Already exists!");
+            
+        } else {
+
+            System.out.println("not exist");
+            database.currentUser = new User(usernameField.getText(),passwordField.getText(),mobileNumberField.getText(),null,new Date());
+            database.INSERT_USER();
+            database.currentUser = null;
+            Animations.windowCloseAnimation(this, 1f);
+            new SignInWindow(database).setVisible(true);
+
         }
         
             
         
-        
-        
-        
-        
-        
-        
-        
+      
     }//GEN-LAST:event_btnSignUpActionPerformed
 
     private void confirmPasswordFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmPasswordFieldMouseClicked
