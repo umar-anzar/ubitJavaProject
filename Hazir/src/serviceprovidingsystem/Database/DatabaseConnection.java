@@ -6,6 +6,8 @@
 package serviceprovidingsystem.Database;
 import java.sql.*;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import serviceprovidingsystem.Accounts.*;
 
 /**
@@ -43,23 +45,24 @@ public class DatabaseConnection {
     }
     
     
-    public  boolean Exist(String Username) throws Exception{
+    public  boolean Exist(String Username)  {
+        
 
     
-        String sql = "select name FROM Users WHERE name ='" + Username + "'";
-
-        st = connection.createStatement();
-        FinalDb = st.executeQuery(sql);
-
-        return FinalDb.isBeforeFirst();
+        try {
+            String sql = "select name FROM Users WHERE name ='" + Username + "'";
+            
+            st = connection.createStatement();
+            FinalDb = st.executeQuery(sql);
+            
+            return FinalDb.isBeforeFirst();
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
 
     }
-    
-    
-    
-    
-    
-    
+     
     
     public void UPDATE_USER(String toStringMethodCSV){
         String sql = "UPDATE Users SET password = ? , contactNumber = ? , address = ? , orderStatus = ? , cost = ? WHERE name = ?";

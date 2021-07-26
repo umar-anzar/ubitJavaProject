@@ -270,6 +270,11 @@ public class SignUp extends javax.swing.JFrame {
             errorRegister.setText("Incorrect Contact Format !");
             return;
         }
+        if (database.Exist(usernameField.getText())){
+        
+            System.out.println("true");
+        }
+        
             
         
         
