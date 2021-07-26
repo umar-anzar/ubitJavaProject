@@ -41,7 +41,6 @@ public class MainIntro extends javax.swing.JFrame{
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         loading = new javax.swing.JLabel();
-        loadingNumber = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -66,10 +65,6 @@ public class MainIntro extends javax.swing.JFrame{
 
         loading.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/short/loading.gif"))); // NOI18N
 
-        loadingNumber.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        loadingNumber.setForeground(new java.awt.Color(255, 255, 255));
-        loadingNumber.setText("0");
-
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
@@ -84,9 +79,7 @@ public class MainIntro extends javax.swing.JFrame{
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(54, 54, 54))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(loadingNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(loading, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(loading, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(169, 169, 169))))
         );
         kGradientPanel1Layout.setVerticalGroup(
@@ -98,9 +91,7 @@ public class MainIntro extends javax.swing.JFrame{
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addComponent(loading, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(loadingNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -147,9 +138,7 @@ public class MainIntro extends javax.swing.JFrame{
                 try {
                     for (int i = 1; i < 101; i++) {
                         Thread.sleep(20);
-                        window.loadingNumber.setText(Integer.toString(i));
                     }
-                    Thread.sleep(1000);
                     Animations.windowCloseAnimation(window, 0.9f);
                     new SignInWindow(new DatabaseConnection()).setVisible(true);
                     } catch (Exception e) {
@@ -201,6 +190,5 @@ public class MainIntro extends javax.swing.JFrame{
     private javax.swing.JLabel jLabel2;
     private com.k33ptoo.components.KGradientPanel kGradientPanel1;
     private javax.swing.JLabel loading;
-    public javax.swing.JLabel loadingNumber;
     // End of variables declaration//GEN-END:variables
 }
