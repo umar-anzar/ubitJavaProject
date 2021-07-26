@@ -88,6 +88,7 @@ public class HomeWindow extends javax.swing.JFrame {
         signOutBtn13 = new com.k33ptoo.components.KButton();
         signOutBtn14 = new com.k33ptoo.components.KButton();
         signOutBtn15 = new com.k33ptoo.components.KButton();
+        workderJobLabel = new javax.swing.JLabel();
         kGradientPanel19 = new com.k33ptoo.components.KGradientPanel();
         jLabel8 = new javax.swing.JLabel();
         btnElectrician = new com.k33ptoo.components.KButton();
@@ -514,31 +515,41 @@ public class HomeWindow extends javax.swing.JFrame {
         signOutBtn15.setkHoverStartColor(new java.awt.Color(240, 239, 239));
         signOutBtn15.setkStartColor(new java.awt.Color(255, 255, 255));
 
+        workderJobLabel.setFont(new java.awt.Font("Microsoft YaHei UI Light", 0, 24)); // NOI18N
+        workderJobLabel.setForeground(new java.awt.Color(255, 255, 255));
+        workderJobLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout SelectOptionsWindowLayout = new javax.swing.GroupLayout(SelectOptionsWindow);
         SelectOptionsWindow.setLayout(SelectOptionsWindowLayout);
         SelectOptionsWindowLayout.setHorizontalGroup(
             SelectOptionsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SelectOptionsWindowLayout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+            .addGroup(SelectOptionsWindowLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
                 .addGroup(SelectOptionsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(signOutBtn15, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(signOutBtn14, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(signOutBtn13, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(signOutBtn12, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18))
+                .addContainerGap(21, Short.MAX_VALUE))
+            .addGroup(SelectOptionsWindowLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(workderJobLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         SelectOptionsWindowLayout.setVerticalGroup(
             SelectOptionsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SelectOptionsWindowLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(signOutBtn13, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68)
-                .addComponent(signOutBtn12, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67)
-                .addComponent(signOutBtn15, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SelectOptionsWindowLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(workderJobLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(signOutBtn13, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(signOutBtn12, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(signOutBtn15, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
                 .addComponent(signOutBtn14, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
+                .addGap(65, 65, 65))
         );
 
         kGradientPanel19.setkBorderRadius(20);
@@ -851,6 +862,7 @@ public class HomeWindow extends javax.swing.JFrame {
         } else {
             //code here
             
+            
         }
     }//GEN-LAST:event_btnElectricianActionPerformed
 
@@ -997,5 +1009,6 @@ public class HomeWindow extends javax.swing.JFrame {
     private com.k33ptoo.components.KButton signOutBtn4;
     private com.k33ptoo.components.KButton signOutBtn5;
     private com.k33ptoo.components.KGradientPanel tItleBar;
+    private javax.swing.JLabel workderJobLabel;
     // End of variables declaration//GEN-END:variables
 }
