@@ -15,6 +15,7 @@ import serviceprovidingsystem.Database.DatabaseConnection;
  */
 public class User extends Account {
     private Boolean orderStatus = false;
+    private double cost = 0.0;
     public User(String name, String password, String contactNumber, String address, Date dateOfBirth){
         super(name, password, contactNumber, address, dateOfBirth);
     }
@@ -42,6 +43,15 @@ public class User extends Account {
     public void setAddress(String address){
         super.setAddress(address);
     }
+    
+    public void setCost(double cost) {
+        this.cost = cost;
+    }
+    
+    public double getCost() {
+        return cost;
+    }
+
     
     public String getAddress() {
         return super.getAddress();

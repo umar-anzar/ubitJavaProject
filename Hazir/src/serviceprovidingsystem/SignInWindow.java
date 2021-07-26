@@ -55,7 +55,7 @@ public class SignInWindow extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         closeWindow = new javax.swing.JLabel();
         btnSignIn1 = new com.k33ptoo.components.KButton();
-        jLabel3 = new javax.swing.JLabel();
+        btnGotoRegister = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -161,16 +161,16 @@ public class SignInWindow extends javax.swing.JFrame {
         });
         kGradientPanel2.add(btnSignIn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, 280, 30));
 
-        jLabel3.setFont(new java.awt.Font("Microsoft YaHei UI Light", 0, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 102, 204));
-        jLabel3.setText("Register Now");
-        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnGotoRegister.setFont(new java.awt.Font("Microsoft YaHei UI Light", 0, 12)); // NOI18N
+        btnGotoRegister.setForeground(new java.awt.Color(0, 102, 204));
+        btnGotoRegister.setText("Register Now");
+        btnGotoRegister.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGotoRegister.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
+                btnGotoRegisterMouseClicked(evt);
             }
         });
-        kGradientPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 430, -1, -1));
+        kGradientPanel2.add(btnGotoRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 430, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Microsoft YaHei UI Light", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
@@ -220,11 +220,11 @@ public class SignInWindow extends javax.swing.JFrame {
         new HomeWindow().setVisible(true);
     }//GEN-LAST:event_btnSignIn1ActionPerformed
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+    private void btnGotoRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGotoRegisterMouseClicked
         // TODO add your handling code here:
         Animations.windowCloseAnimation(this, 1f);
         new SignUp(database).setVisible(true);
-    }//GEN-LAST:event_jLabel3MouseClicked
+    }//GEN-LAST:event_btnGotoRegisterMouseClicked
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
@@ -267,6 +267,7 @@ public class SignInWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btnGotoRegister;
     private com.k33ptoo.components.KButton btnSignIn1;
     private javax.swing.JLabel closeWindow;
     private javax.swing.JLabel jLabel1;
@@ -275,7 +276,6 @@ public class SignInWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel9;
     private com.k33ptoo.components.KGradientPanel kGradientPanel1;

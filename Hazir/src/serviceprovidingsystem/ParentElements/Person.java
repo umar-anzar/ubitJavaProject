@@ -29,8 +29,12 @@ public abstract class Person {
         return contactNumber;
     }
 
-    public Date getDate() {
-        return dateOfBirth;
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
+    }
+
+    public String getDate() {
+        return dateOfBirth.toString();
     }
 
     public String getAddress() {

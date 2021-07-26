@@ -7,6 +7,7 @@ package serviceprovidingsystem;
 import java.awt.*;
 import serviceprovidingsystem.Database.DatabaseConnection;
 import java.util.*;
+import serviceprovidingsystem.Accounts.User;
 /**
  *
  * @author omer
@@ -270,9 +271,6 @@ public class SignUp extends javax.swing.JFrame {
             return;
         }
             
-            
-        
-        
         
         
         
