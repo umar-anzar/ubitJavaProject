@@ -217,7 +217,7 @@ public class SignInWindow extends javax.swing.JFrame {
     private void btnSignIn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignIn1ActionPerformed
         // TODO add your handling code here:
         Animations.windowCloseAnimation(this, 1f);
-        new HomeWindow().setVisible(true);
+        new HomeWindow(database).setVisible(true);
     }//GEN-LAST:event_btnSignIn1ActionPerformed
 
     private void btnGotoRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGotoRegisterMouseClicked
