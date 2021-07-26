@@ -62,37 +62,23 @@ public class DatabaseConnection {
     }
      
     
-    public void UPDATE_USER(String toStringMethodCSV){
+    public void UPDATE_USER(){
         String sql = "UPDATE Users SET password = ? , contactNumber = ? , address = ? , orderStatus = ? , cost = ? WHERE name = ?";
-        try {
-            Scanner records = new Scanner(toStringMethodCSV);
-            String name=null,password=null,contactNumber=null,address=null,orderStatus=null;
-            double cost = 0.0;
-            records.useDelimiter(",");
-            while (records.hasNext()) {
-                records.next();//this is to remove User in ToStringMethod
-                name = records.next();
-                password = records.next();
-                contactNumber = records.next();
-                address = records.next();
-                records.next();//date
-                orderStatus = records.next();
-                cost = records.nextDouble();
-            }
+        
+        try{
             pst = connection.prepareStatement(sql);
             
-            pst.setString(1, password);
-            pst.setString(2, contactNumber);
-            pst.setString(3, address);
-            pst.setString(4, orderStatus);
-            pst.setDouble(5, cost);
-            pst.setString(6, name);
+            pst.setString(1, currentUser.getPassword());
+            pst.setString(2, currentUser.getContactNumber());
+            pst.setString(3, currentUser.getAddress());
+            pst.setString(4, currentUser.isOrderStatus());
+            pst.setDouble(5, currentUser.getCost());
+            pst.setString(6, currentUser.getName());
             pst.executeUpdate();
         } catch (Exception e) {
             System.out.println(e);
         }
         
-
     }
 
     
