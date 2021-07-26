@@ -531,19 +531,19 @@ public class HomeWindow extends javax.swing.JFrame {
         SelectOptionsWindow.add(btnJobType4, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 380, 76, -1));
 
         jobTypeLabel4.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 15)); // NOI18N
-        jobTypeLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jobTypeLabel4.setForeground(new java.awt.Color(28, 40, 51));
         SelectOptionsWindow.add(jobTypeLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 270, 40));
 
         jobTypeLabel1.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 15)); // NOI18N
-        jobTypeLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jobTypeLabel1.setForeground(new java.awt.Color(28, 40, 51));
         SelectOptionsWindow.add(jobTypeLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 270, 40));
 
         jobTypeLabel2.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 15)); // NOI18N
-        jobTypeLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jobTypeLabel2.setForeground(new java.awt.Color(28, 40, 51));
         SelectOptionsWindow.add(jobTypeLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 270, 40));
 
         jobTypeLabel3.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 15)); // NOI18N
-        jobTypeLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jobTypeLabel3.setForeground(new java.awt.Color(28, 40, 51));
         SelectOptionsWindow.add(jobTypeLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 320, 40));
 
         jSpinner1.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N

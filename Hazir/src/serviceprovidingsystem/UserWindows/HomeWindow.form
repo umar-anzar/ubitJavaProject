@@ -965,7 +965,7 @@
                       <Font name="Microsoft YaHei Light" size="15" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                      <Color blue="33" green="28" red="1c" type="rgb"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -980,7 +980,7 @@
                       <Font name="Microsoft YaHei Light" size="15" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                      <Color blue="33" green="28" red="1c" type="rgb"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -995,7 +995,7 @@
                       <Font name="Microsoft YaHei Light" size="15" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                      <Color blue="33" green="28" red="1c" type="rgb"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -1010,7 +1010,7 @@
                       <Font name="Microsoft YaHei Light" size="15" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                      <Color blue="33" green="28" red="1c" type="rgb"/>
                     </Property>
                   </Properties>
                   <Constraints>
