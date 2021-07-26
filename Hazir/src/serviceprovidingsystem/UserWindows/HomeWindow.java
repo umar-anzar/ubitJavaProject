@@ -879,8 +879,16 @@ public class HomeWindow extends javax.swing.JFrame {
         if(isSandwhichSettingPanelOpen){
             //dont code here
         } else {
-            //code here
-            
+            isElectrician = false;
+            isPlumber = true;
+            isMechanic = false;
+            isEventManager = false;
+            isLabour = false;
+            jobTypeLabel1.setText("Basic Plumbing(Taps and Piping)");
+            jobTypeLabel2.setText("Sanitary Ware Installation");
+            jobTypeLabel3.setText("Gas and Kitchen Piping");
+            jobTypeLabel4.setText("Full Room through wall Piping");
+ 
         }
     }//GEN-LAST:event_btnPlumberActionPerformed
 
@@ -891,7 +899,15 @@ public class HomeWindow extends javax.swing.JFrame {
         if(isSandwhichSettingPanelOpen){
             //dont code here
         } else {
-            //code here
+            isElectrician = false;
+            isPlumber = false;
+            isMechanic = true;
+            isEventManager = false;
+            isLabour = false;
+            jobTypeLabel1.setText("Car Fault Diagnosis");
+            jobTypeLabel2.setText("Petrol Delivery and Emergency Help");
+            jobTypeLabel3.setText("Car Battery/Tire/Oil Replacement");
+            jobTypeLabel4.setText("Full Car Service");
             
         }
     }//GEN-LAST:event_btnMechanicActionPerformed
@@ -903,7 +919,15 @@ public class HomeWindow extends javax.swing.JFrame {
         if(isSandwhichSettingPanelOpen){
             //dont code here
         } else {
-            //code here
+            isElectrician = false;
+            isPlumber = false;
+            isMechanic = false;
+            isEventManager = true;
+            isLabour = false;
+            jobTypeLabel1.setText("Houseparty Managment");
+            jobTypeLabel2.setText("Wedding Managment");
+            jobTypeLabel3.setText("University Event Managment");
+            jobTypeLabel4.setText("Public Event Management");
             
         }
     }//GEN-LAST:event_btnEventManagerActionPerformed
@@ -915,7 +939,15 @@ public class HomeWindow extends javax.swing.JFrame {
         if(isSandwhichSettingPanelOpen){
             //dont code here
         } else {
-            //code here
+            isElectrician = false;
+            isPlumber = false;
+            isMechanic = false;
+            isEventManager = false;
+            isLabour = true;
+            jobTypeLabel1.setText("House Structural Fixes");
+            jobTypeLabel2.setText("Full Room Tiling");
+            jobTypeLabel3.setText("Wall/Roof Construction(2 Labours)");
+            jobTypeLabel4.setText("Full Room Construction(4 Labours)");
             
         }
     }//GEN-LAST:event_btnLabourActionPerformed
