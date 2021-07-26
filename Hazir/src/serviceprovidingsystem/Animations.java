@@ -77,7 +77,7 @@ public class Animations {
                     int w=0,h=0;
                     for (int i = 0; i < 40; i++) {
                         try {
-                            Thread.sleep(3);
+                            Thread.sleep(1);
                             w += 10;
                             panel.setSize(new Dimension(w,height));
                         } catch (Exception e) {
@@ -100,7 +100,7 @@ public class Animations {
                 int h = tempHeight;
                 for (int i = 0; i < 40; i++) {
                     try {
-                        Thread.sleep(3);
+                        Thread.sleep(1);
                         w -= 10;
                         panel.setSize(new Dimension(w,height));
                     } catch (Exception e) {

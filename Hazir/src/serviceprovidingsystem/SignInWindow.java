@@ -261,7 +261,7 @@ public class SignInWindow extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SignInWindow().setVisible(true);
+                new SignInWindow(new DatabaseConnection()).setVisible(true);
             }
         });
     }

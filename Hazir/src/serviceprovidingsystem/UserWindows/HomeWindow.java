@@ -32,8 +32,13 @@ public class HomeWindow extends javax.swing.JFrame {
     //Movable HomeBarPanel
         int XMouse;
         int YMouse;
+    
         
-    public HomeWindow() {
+        
+    public HomeWindow(){
+        initComponents();
+    }
+    public HomeWindow(DatabaseConnection database) {
         initComponents();
         this.setBackground(new Color(0,0,0,0));
         this.setOpacity(0f);
@@ -222,12 +227,13 @@ public class HomeWindow extends javax.swing.JFrame {
         tItleBarLayout.setVerticalGroup(
             tItleBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tItleBarLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
                 .addComponent(homeBar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 3, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         jLayeredPane1.add(tItleBar);
-        tItleBar.setBounds(250, 30, 561, 40);
+        tItleBar.setBounds(250, 0, 561, 70);
 
         sandwichSettingPanel.setkBorderRadius(15);
         sandwichSettingPanel.setkEndColor(new java.awt.Color(60, 156, 220));
@@ -941,7 +947,7 @@ public class HomeWindow extends javax.swing.JFrame {
     private void homeBarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBarMousePressed
         // TODO add your handling code here:
         XMouse = evt.getX() + (int) homeBackgroundPanel.getX()+ 255;
-        YMouse = evt.getY() + (int) homeBackgroundPanel.getY() - 20;
+        YMouse = evt.getY() + (int) homeBackgroundPanel.getY() - 38;
     }//GEN-LAST:event_homeBarMousePressed
 
     /**
@@ -975,7 +981,7 @@ public class HomeWindow extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HomeWindow().setVisible(true);
+                new HomeWindow(new DatabaseConnection()).setVisible(true);
             }
         });
     }
