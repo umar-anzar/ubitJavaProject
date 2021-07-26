@@ -43,6 +43,7 @@ public class HomeWindow extends javax.swing.JFrame {
     }
     public HomeWindow(DatabaseConnection database) {
         initComponents();
+        this.database = database;
         this.setBackground(new Color(0,0,0,0));
         this.setOpacity(0f);
         this.setLocationRelativeTo(null);
@@ -548,7 +549,7 @@ public class HomeWindow extends javax.swing.JFrame {
 
         jSpinner1.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
         jSpinner1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        SelectOptionsWindow.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, -1, -1));
+        SelectOptionsWindow.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, -1, -1));
 
         kGradientPanel19.setkBorderRadius(20);
         kGradientPanel19.setkEndColor(new java.awt.Color(204, 204, 204));
@@ -842,6 +843,7 @@ public class HomeWindow extends javax.swing.JFrame {
 
     private void signOutBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signOutBtn1ActionPerformed
         // TODO add your handling code here:
+        
         Animations.windowCloseAnimation(this, 1f);
         new SignInWindow(database).setVisible(true);
     }//GEN-LAST:event_signOutBtn1ActionPerformed

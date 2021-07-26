@@ -6,6 +6,7 @@
 package serviceprovidingsystem.Database;
 import java.sql.*;
 import java.util.*;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import serviceprovidingsystem.Accounts.*;
@@ -14,7 +15,7 @@ import serviceprovidingsystem.Accounts.*;
  *
  * @author omer
  */
-public class DatabaseConnection {
+    public class DatabaseConnection {
     public Connection connection = null;
     public ResultSet FinalDb =null;
     public PreparedStatement pst = null;
@@ -30,19 +31,22 @@ public class DatabaseConnection {
         //FinalDb = pst.executeQuery();
 
     }
-    
+    public void setTonull(){
+        
+        currentUser = null;
+    }
     //INCASE WE CLOSE THE CONNECTION B/W SOME WINDOW SO WE CAN AGAIN CONNECT IT.
-    public void connectionOn(){
-        ConnectingDataBase();
-    }
-    //INCASE WE HAVE TO CLOSE CONNECTION EVERTIME WE END THE PROGRAM.
-    public void connectionOff(){
-        try {
-            this.connection.close();
-        } catch (Exception e) {
-        }
-
-    }
+//    public void connectionOn(){
+//        ConnectingDataBase();
+//    }
+//    //INCASE WE HAVE TO CLOSE CONNECTION EVERTIME WE END THE PROGRAM.
+//    public void connectionOff(){
+//        try {
+//            this.connection.close();
+//        } catch (Exception e) {
+//        }
+//
+//    }
     
     
     public  boolean Exist(String Username)  {
@@ -52,7 +56,6 @@ public class DatabaseConnection {
             
             st = connection.createStatement();
             FinalDb = st.executeQuery(sql);
-            
             return FinalDb.isBeforeFirst();
         } catch (SQLException ex) {
             Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
@@ -63,6 +66,7 @@ public class DatabaseConnection {
      
     
     public void UPDATE_USER(){
+
         String sql = "UPDATE Users SET password = ? , contactNumber = ? , address = ? , orderStatus = ? , cost = ? WHERE name = ?";
         
         try{
@@ -78,12 +82,12 @@ public class DatabaseConnection {
         } catch (Exception e) {
             System.out.println(e);
         }
-        
+
     }
 
     
     public void INSERT_USER(){
-        
+
         String sql = "INSERT INTO Users(name, password, contactNumber, address, dateOfRegisteration, orderStatus, cost) VALUES(?,?,?,?,?,?,?)";
         
         try {
@@ -99,18 +103,15 @@ public class DatabaseConnection {
         } catch (Exception e) {
             System.out.println(e);
         }
-        
+
     }
     
-     public static void  Login(String name , String password) {
+     public boolean Login(String name , String password) {
         
      
         try {
-            
-            Class.forName("org.sqlite.JDBC");
-            Connection connection = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Black Beard\\Documents\\NetBeansProjects\\JavaApplication6\\JavaApplication6.db");
-            
-            String sql = "select * from JavaApplication6 where UserName=? and Password=? ";
+
+            String sql = "select * from Users where name=? and password=? ";
             PreparedStatement pst = connection.prepareStatement(sql);
             
             pst.setString(1, name);
@@ -127,26 +128,27 @@ public class DatabaseConnection {
             }else   { if (FinalDb.next()){
             
                 System.out.println("User is working");
+                currentUser = new User(FinalDb.getString(1), FinalDb.getString(2), FinalDb.getString(3), FinalDb.getString(4), new Date());
+                currentUser.toString();
+                return true;
                 // available in database
             }else {
             
                 System.out.println("User not working");
                 // not available in database
+                return false;
             }
             
             }
-            
+
                
         } catch (SQLException ex) {
-            Logger.getLogger(JavaApplication6.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(JavaApplication6.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception e){
-        
             System.out.println(e);
         }
     
-    
+        return false;
     }
     
     

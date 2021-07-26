@@ -5,6 +5,8 @@
  */
 package serviceprovidingsystem;
 import java.awt.*;
+import java.util.Date;
+import serviceprovidingsystem.Accounts.User;
 import serviceprovidingsystem.Database.DatabaseConnection;
 import serviceprovidingsystem.UserWindows.HomeWindow;
 
@@ -28,6 +30,7 @@ public class SignInWindow extends javax.swing.JFrame {
     public SignInWindow(DatabaseConnection database) {
         initComponents();
         this.database = database;
+        this.database.currentUser=null;
         passwordAlreadyEmpty = false;
         this.setBackground(new Color(0, 0, 0, 0));//and tick off from opaque in Kgradient Panel
         this.setOpacity(0f);//set opacity transparency
@@ -57,6 +60,7 @@ public class SignInWindow extends javax.swing.JFrame {
         btnSignIn1 = new com.k33ptoo.components.KButton();
         btnGotoRegister = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        errorRegister = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         logoLabel = new javax.swing.JLabel();
 
@@ -177,6 +181,11 @@ public class SignInWindow extends javax.swing.JFrame {
         jLabel4.setText("Don't have an account?");
         kGradientPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 430, -1, -1));
 
+        errorRegister.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
+        errorRegister.setForeground(new java.awt.Color(193, 56, 56));
+        errorRegister.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        kGradientPanel2.add(errorRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 460, 250, 20));
+
         kGradientPanel1.add(kGradientPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 0, 460, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/SignInWindow/SignWindowpic1.png"))); // NOI18N
@@ -220,8 +229,24 @@ public class SignInWindow extends javax.swing.JFrame {
 
     private void btnSignIn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignIn1ActionPerformed
         // TODO add your handling code here:
-        Animations.windowCloseAnimation(this, 1f);
-        new HomeWindow(database).setVisible(true);
+        if (usernameField.getText().isEmpty()){
+            
+            errorRegister.setText("User name is empty !");
+            return;
+        }else if (passwordField.getText().isEmpty()){
+        
+            errorRegister.setText("Password is empty !");
+            return;
+        }  else if (database.Login(usernameField.getText(), passwordField.getText())){         
+
+            database.currentUser = null;
+            Animations.windowCloseAnimation(this, 1f);
+            new HomeWindow(database).setVisible(true);
+
+        } else {
+            errorRegister.setText("Username or password is incorrect!");
+        }
+
     }//GEN-LAST:event_btnSignIn1ActionPerformed
 
     private void btnGotoRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGotoRegisterMouseClicked
@@ -274,6 +299,7 @@ public class SignInWindow extends javax.swing.JFrame {
     private javax.swing.JLabel btnGotoRegister;
     private com.k33ptoo.components.KButton btnSignIn1;
     private javax.swing.JLabel closeWindow;
+    private javax.swing.JLabel errorRegister;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel14;
