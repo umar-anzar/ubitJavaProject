@@ -64,6 +64,7 @@ public class SignUp extends javax.swing.JFrame {
         backToSignInBtn = new javax.swing.JLabel();
         errorRegister = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        logoLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -90,7 +91,6 @@ public class SignUp extends javax.swing.JFrame {
         kGradientPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel8.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Confirm Password");
         kGradientPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, -1, 20));
 
@@ -103,7 +103,6 @@ public class SignUp extends javax.swing.JFrame {
         passwordField.setForeground(new java.awt.Color(102, 102, 102));
         passwordField.setText("jPasswor");
         passwordField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(230, 126, 34)));
-        passwordField.setEchoChar('\u25cf');
         passwordField.setOpaque(false);
         passwordField.setPreferredSize(new java.awt.Dimension(71, 17));
         passwordField.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -135,11 +134,9 @@ public class SignUp extends javax.swing.JFrame {
         kGradientPanel2.add(btnSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, 280, 30));
 
         jLabel14.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 18)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Register");
         kGradientPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, -1, 43));
 
-        usernameField.setBackground(new java.awt.Color(255, 255, 255));
         usernameField.setForeground(new java.awt.Color(102, 102, 102));
         usernameField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(230, 126, 34)));
         usernameField.setOpaque(false);
@@ -149,7 +146,6 @@ public class SignUp extends javax.swing.JFrame {
         confirmPasswordField.setForeground(new java.awt.Color(102, 102, 102));
         confirmPasswordField.setText("dField1j");
         confirmPasswordField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(230, 126, 34)));
-        confirmPasswordField.setEchoChar('\u25cf');
         confirmPasswordField.setOpaque(false);
         confirmPasswordField.setPreferredSize(new java.awt.Dimension(71, 17));
         confirmPasswordField.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -160,16 +156,13 @@ public class SignUp extends javax.swing.JFrame {
         kGradientPanel2.add(confirmPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 230, -1));
 
         jLabel15.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Username");
         kGradientPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, 20));
 
         jLabel16.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("Password");
         kGradientPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, -1, 20));
 
-        mobileNumberField.setBackground(new java.awt.Color(255, 255, 255));
         mobileNumberField.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
         mobileNumberField.setForeground(new java.awt.Color(102, 102, 102));
         mobileNumberField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(230, 126, 34)));
@@ -177,7 +170,6 @@ public class SignUp extends javax.swing.JFrame {
         kGradientPanel2.add(mobileNumberField, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, 230, -1));
 
         jLabel17.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setText("Mobile Number");
         kGradientPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, -1, 20));
 
@@ -223,6 +215,10 @@ public class SignUp extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/SignInWindow/SignWindowpic1.png"))); // NOI18N
         kGradientPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, -1, -1));
+
+        logoLabel.setForeground(new java.awt.Color(0, 0, 0));
+        logoLabel.setText("LOGO");
+        kGradientPanel1.add(logoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -371,6 +367,7 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private com.k33ptoo.components.KGradientPanel kGradientPanel1;
     private com.k33ptoo.components.KGradientPanel kGradientPanel2;
+    private javax.swing.JLabel logoLabel;
     private javax.swing.JTextField mobileNumberField;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JTextField usernameField;
