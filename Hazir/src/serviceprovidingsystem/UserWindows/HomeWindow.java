@@ -59,8 +59,6 @@ public class HomeWindow extends javax.swing.JFrame {
 
         jLayeredPane1 = new javax.swing.JLayeredPane();
         logoBar = new com.k33ptoo.components.KGradientPanel();
-        profileBar = new com.k33ptoo.components.KGradientPanel();
-        jLabel16 = new javax.swing.JLabel();
         closeBar = new com.k33ptoo.components.KGradientPanel();
         jLabel3 = new javax.swing.JLabel();
         tItleBar = new com.k33ptoo.components.KGradientPanel();
@@ -135,34 +133,6 @@ public class HomeWindow extends javax.swing.JFrame {
 
         jLayeredPane1.add(logoBar);
         logoBar.setBounds(10, 0, 50, 40);
-
-        profileBar.setkEndColor(new java.awt.Color(24, 25, 25));
-        profileBar.setkGradientFocus(50);
-        profileBar.setkStartColor(new java.awt.Color(28, 40, 51));
-        profileBar.setMinimumSize(new java.awt.Dimension(40, 40));
-        profileBar.setOpaque(false);
-        profileBar.setPreferredSize(new java.awt.Dimension(40, 40));
-
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/HomeWindow/profile_40x.png"))); // NOI18N
-
-        javax.swing.GroupLayout profileBarLayout = new javax.swing.GroupLayout(profileBar);
-        profileBar.setLayout(profileBarLayout);
-        profileBarLayout.setHorizontalGroup(
-            profileBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(profileBarLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel16)
-                .addContainerGap(27, Short.MAX_VALUE))
-        );
-        profileBarLayout.setVerticalGroup(
-            profileBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, profileBarLayout.createSequentialGroup()
-                .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        jLayeredPane1.add(profileBar);
-        profileBar.setBounds(870, 0, 90, 40);
 
         closeBar.setkEndColor(new java.awt.Color(24, 25, 25));
         closeBar.setkGradientFocus(50);
@@ -1003,7 +973,6 @@ public class HomeWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -1022,7 +991,6 @@ public class HomeWindow extends javax.swing.JFrame {
     private com.k33ptoo.components.KGradientPanel kGradientPanel19;
     private com.k33ptoo.components.KGradientPanel kGradientPanel5;
     private com.k33ptoo.components.KGradientPanel logoBar;
-    private com.k33ptoo.components.KGradientPanel profileBar;
     private com.k33ptoo.components.KGradientPanel sandwichSettingPanel;
     private com.k33ptoo.components.KButton signOutBtn1;
     private com.k33ptoo.components.KButton signOutBtn12;
