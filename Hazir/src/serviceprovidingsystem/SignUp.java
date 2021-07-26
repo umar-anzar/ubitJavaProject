@@ -103,6 +103,7 @@ public class SignUp extends javax.swing.JFrame {
         passwordField.setForeground(new java.awt.Color(102, 102, 102));
         passwordField.setText("jPasswor");
         passwordField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(230, 126, 34)));
+        passwordField.setEchoChar('\u25cf');
         passwordField.setOpaque(false);
         passwordField.setPreferredSize(new java.awt.Dimension(71, 17));
         passwordField.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -137,6 +138,7 @@ public class SignUp extends javax.swing.JFrame {
         jLabel14.setText("Register");
         kGradientPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, -1, 43));
 
+        usernameField.setBackground(new java.awt.Color(255, 255, 255));
         usernameField.setForeground(new java.awt.Color(102, 102, 102));
         usernameField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(230, 126, 34)));
         usernameField.setOpaque(false);
@@ -146,6 +148,7 @@ public class SignUp extends javax.swing.JFrame {
         confirmPasswordField.setForeground(new java.awt.Color(102, 102, 102));
         confirmPasswordField.setText("dField1j");
         confirmPasswordField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(230, 126, 34)));
+        confirmPasswordField.setEchoChar('\u25cf');
         confirmPasswordField.setOpaque(false);
         confirmPasswordField.setPreferredSize(new java.awt.Dimension(71, 17));
         confirmPasswordField.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -163,6 +166,7 @@ public class SignUp extends javax.swing.JFrame {
         jLabel16.setText("Password");
         kGradientPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, -1, 20));
 
+        mobileNumberField.setBackground(new java.awt.Color(255, 255, 255));
         mobileNumberField.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
         mobileNumberField.setForeground(new java.awt.Color(102, 102, 102));
         mobileNumberField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(230, 126, 34)));
