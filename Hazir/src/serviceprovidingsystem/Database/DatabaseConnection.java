@@ -102,6 +102,60 @@ public class DatabaseConnection {
         
     }
     
+     public static void  Login(String name , String password) {
+        
+     
+        try {
+            
+            Class.forName("org.sqlite.JDBC");
+            Connection connection = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Black Beard\\Documents\\NetBeansProjects\\JavaApplication6\\JavaApplication6.db");
+            
+            String sql = "select * from JavaApplication6 where UserName=? and Password=? ";
+            PreparedStatement pst = connection.prepareStatement(sql);
+            
+            pst.setString(1, name);
+            pst.setString(2, password);
+            
+            
+            
+            ResultSet FinalDb = pst.executeQuery();
+            
+            if (name == "Admin" && password=="Admin"){
+            
+                // new frame for owner
+                
+            }else   { if (FinalDb.next()){
+            
+                System.out.println("User is working");
+                // available in database
+            }else {
+            
+                System.out.println("User not working");
+                // not available in database
+            }
+            
+            }
+            
+               
+        } catch (SQLException ex) {
+            Logger.getLogger(JavaApplication6.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(JavaApplication6.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception e){
+        
+            System.out.println(e);
+        }
+    
+    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     public void ConnectingDataBase(){
         try {
             Class.forName("org.sqlite.JDBC");
