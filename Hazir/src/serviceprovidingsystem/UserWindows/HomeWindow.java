@@ -203,7 +203,7 @@ public class HomeWindow extends javax.swing.JFrame {
         );
 
         jLayeredPane1.add(tItleBar);
-        tItleBar.setBounds(250, 0, 561, 70);
+        tItleBar.setBounds(250, 0, 569, 70);
 
         sandwichSettingPanel.setkBorderRadius(15);
         sandwichSettingPanel.setkEndColor(new java.awt.Color(60, 156, 220));
@@ -373,7 +373,6 @@ public class HomeWindow extends javax.swing.JFrame {
         kGradientPanel12.setOpaque(false);
 
         jLabel4.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Name                   Job                   Experience                   Rating ");
 
@@ -682,32 +681,26 @@ public class HomeWindow extends javax.swing.JFrame {
         btnUnavailable.setPreferredSize(new java.awt.Dimension(119, 125));
 
         jLabel9.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Electrician");
 
         jLabel10.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Mechanic");
 
         jLabel11.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("Labour");
 
         jLabel12.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setText("Plumber");
 
         jLabel13.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 14)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setText("Event Manager");
 
         jLabel15.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 14)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel15.setText("Not Available");
 
@@ -741,7 +734,7 @@ public class HomeWindow extends javax.swing.JFrame {
                     .addComponent(kGradientPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(kGradientPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(kGradientPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(kGradientPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, 441, Short.MAX_VALUE)
+                    .addComponent(kGradientPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE)
                     .addComponent(kGradientPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
                 .addComponent(SelectOptionsWindow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -801,7 +794,7 @@ public class HomeWindow extends javax.swing.JFrame {
         kGradientPanel10.getAccessibleContext().setAccessibleName("");
 
         jLayeredPane1.add(homeBackgroundPanel);
-        homeBackgroundPanel.setBounds(0, 50, 1070, 552);
+        homeBackgroundPanel.setBounds(0, 50, 1070, 606);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -812,7 +805,7 @@ public class HomeWindow extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 655, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
