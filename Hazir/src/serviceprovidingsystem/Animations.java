@@ -74,7 +74,7 @@ public class Animations {
             Thread th = new Thread(){
                 @Override
                 public void run(){
-                    int w=0,h=0;
+                    int w=0;
                     for (int i = 0; i < 40; i++) {
                         try {
                             Thread.sleep(1);
