@@ -7,6 +7,8 @@ package serviceprovidingsystem.UserWindows;
 import serviceprovidingsystem.*;
 import java.awt.Color;
 import java.awt.Dimension;
+import javax.swing.SpinnerModel;
+import javax.swing.SpinnerNumberModel;
 import serviceprovidingsystem.Database.DatabaseConnection;
 
 /**
@@ -25,10 +27,11 @@ public class HomeWindow extends javax.swing.JFrame {
         private int widthOfSettingPanel;
         private int heightOfSettingPanel;
     //WorkerSelection
-        private boolean isElectrician;
-        private boolean isLabour;
-        private boolean isEventManager;
-        private boolean isMechanic;
+        private boolean isElectrician = false;
+        private boolean isLabour = false;
+        private boolean isEventManager = false;
+        private boolean isMechanic = false;
+        private boolean isPlumber = false;
     //Movable HomeBarPanel
         int XMouse;
         int YMouse;
@@ -84,11 +87,17 @@ public class HomeWindow extends javax.swing.JFrame {
         kGradientPanel17 = new com.k33ptoo.components.KGradientPanel();
         jLabel7 = new javax.swing.JLabel();
         SelectOptionsWindow = new com.k33ptoo.components.KGradientPanel();
-        signOutBtn12 = new com.k33ptoo.components.KButton();
-        signOutBtn13 = new com.k33ptoo.components.KButton();
-        signOutBtn14 = new com.k33ptoo.components.KButton();
-        signOutBtn15 = new com.k33ptoo.components.KButton();
+        btnJobType3 = new com.k33ptoo.components.KButton();
         workderJobLabel = new javax.swing.JLabel();
+        btnJobType1 = new com.k33ptoo.components.KButton();
+        btnJobType2 = new com.k33ptoo.components.KButton();
+        btnJobType4 = new com.k33ptoo.components.KButton();
+        jobTypeLabel4 = new javax.swing.JLabel();
+        jobTypeLabel1 = new javax.swing.JLabel();
+        jobTypeLabel2 = new javax.swing.JLabel();
+        jobTypeLabel3 = new javax.swing.JLabel();
+        SpinnerModel model = new SpinnerNumberModel(1, 1, 10, 1);
+        jSpinner1 = new javax.swing.JSpinner(model);
         kGradientPanel19 = new com.k33ptoo.components.KGradientPanel();
         jLabel8 = new javax.swing.JLabel();
         btnElectrician = new com.k33ptoo.components.KButton();
@@ -470,87 +479,76 @@ public class HomeWindow extends javax.swing.JFrame {
         SelectOptionsWindow.setkEndColor(new java.awt.Color(60, 156, 220));
         SelectOptionsWindow.setkStartColor(new java.awt.Color(180, 225, 255));
         SelectOptionsWindow.setOpaque(false);
+        SelectOptionsWindow.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        signOutBtn12.setText("Username                                                           Price");
-        signOutBtn12.setBorderPainted(false);
-        signOutBtn12.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
-        signOutBtn12.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        signOutBtn12.setkEndColor(new java.awt.Color(255, 255, 255));
-        signOutBtn12.setkForeGround(new java.awt.Color(0, 0, 0));
-        signOutBtn12.setkHoverEndColor(new java.awt.Color(204, 204, 204));
-        signOutBtn12.setkHoverForeGround(new java.awt.Color(0, 0, 0));
-        signOutBtn12.setkHoverStartColor(new java.awt.Color(240, 239, 239));
-        signOutBtn12.setkStartColor(new java.awt.Color(255, 255, 255));
-
-        signOutBtn13.setText(" Username                                                           Price");
-        signOutBtn13.setBorderPainted(false);
-        signOutBtn13.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
-        signOutBtn13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        signOutBtn13.setkEndColor(new java.awt.Color(255, 255, 255));
-        signOutBtn13.setkForeGround(new java.awt.Color(0, 0, 0));
-        signOutBtn13.setkHoverEndColor(new java.awt.Color(204, 204, 204));
-        signOutBtn13.setkHoverForeGround(new java.awt.Color(0, 0, 0));
-        signOutBtn13.setkHoverStartColor(new java.awt.Color(240, 239, 239));
-        signOutBtn13.setkStartColor(new java.awt.Color(255, 255, 255));
-
-        signOutBtn14.setText("Username                                                           Price");
-        signOutBtn14.setBorderPainted(false);
-        signOutBtn14.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
-        signOutBtn14.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        signOutBtn14.setkEndColor(new java.awt.Color(255, 255, 255));
-        signOutBtn14.setkForeGround(new java.awt.Color(0, 0, 0));
-        signOutBtn14.setkHoverEndColor(new java.awt.Color(204, 204, 204));
-        signOutBtn14.setkHoverForeGround(new java.awt.Color(0, 0, 0));
-        signOutBtn14.setkHoverStartColor(new java.awt.Color(240, 239, 239));
-        signOutBtn14.setkStartColor(new java.awt.Color(255, 255, 255));
-
-        signOutBtn15.setText("Username                                                           Price");
-        signOutBtn15.setBorderPainted(false);
-        signOutBtn15.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
-        signOutBtn15.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        signOutBtn15.setkEndColor(new java.awt.Color(255, 255, 255));
-        signOutBtn15.setkForeGround(new java.awt.Color(0, 0, 0));
-        signOutBtn15.setkHoverEndColor(new java.awt.Color(204, 204, 204));
-        signOutBtn15.setkHoverForeGround(new java.awt.Color(0, 0, 0));
-        signOutBtn15.setkHoverStartColor(new java.awt.Color(240, 239, 239));
-        signOutBtn15.setkStartColor(new java.awt.Color(255, 255, 255));
+        btnJobType3.setBorderPainted(false);
+        btnJobType3.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
+        btnJobType3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnJobType3.setkEndColor(new java.awt.Color(255, 255, 255));
+        btnJobType3.setkForeGround(new java.awt.Color(0, 0, 0));
+        btnJobType3.setkHoverEndColor(new java.awt.Color(204, 204, 204));
+        btnJobType3.setkHoverForeGround(new java.awt.Color(0, 0, 0));
+        btnJobType3.setkHoverStartColor(new java.awt.Color(240, 239, 239));
+        btnJobType3.setkStartColor(new java.awt.Color(255, 255, 255));
+        SelectOptionsWindow.add(btnJobType3, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 285, 76, -1));
 
         workderJobLabel.setFont(new java.awt.Font("Microsoft YaHei UI Light", 0, 24)); // NOI18N
         workderJobLabel.setForeground(new java.awt.Color(255, 255, 255));
         workderJobLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        SelectOptionsWindow.add(workderJobLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 33, 410, 33));
 
-        javax.swing.GroupLayout SelectOptionsWindowLayout = new javax.swing.GroupLayout(SelectOptionsWindow);
-        SelectOptionsWindow.setLayout(SelectOptionsWindowLayout);
-        SelectOptionsWindowLayout.setHorizontalGroup(
-            SelectOptionsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SelectOptionsWindowLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(SelectOptionsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(signOutBtn15, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(signOutBtn14, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(signOutBtn13, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(signOutBtn12, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(21, Short.MAX_VALUE))
-            .addGroup(SelectOptionsWindowLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(workderJobLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        SelectOptionsWindowLayout.setVerticalGroup(
-            SelectOptionsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SelectOptionsWindowLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(workderJobLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(signOutBtn13, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(signOutBtn12, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(signOutBtn15, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(signOutBtn14, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65))
-        );
+        btnJobType1.setBorderPainted(false);
+        btnJobType1.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
+        btnJobType1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnJobType1.setkEndColor(new java.awt.Color(255, 255, 255));
+        btnJobType1.setkForeGround(new java.awt.Color(0, 0, 0));
+        btnJobType1.setkHoverEndColor(new java.awt.Color(204, 204, 204));
+        btnJobType1.setkHoverForeGround(new java.awt.Color(0, 0, 0));
+        btnJobType1.setkHoverStartColor(new java.awt.Color(240, 239, 239));
+        btnJobType1.setkStartColor(new java.awt.Color(255, 255, 255));
+        SelectOptionsWindow.add(btnJobType1, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 105, 76, -1));
+
+        btnJobType2.setBorderPainted(false);
+        btnJobType2.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
+        btnJobType2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnJobType2.setkEndColor(new java.awt.Color(255, 255, 255));
+        btnJobType2.setkForeGround(new java.awt.Color(0, 0, 0));
+        btnJobType2.setkHoverEndColor(new java.awt.Color(204, 204, 204));
+        btnJobType2.setkHoverForeGround(new java.awt.Color(0, 0, 0));
+        btnJobType2.setkHoverStartColor(new java.awt.Color(240, 239, 239));
+        btnJobType2.setkStartColor(new java.awt.Color(255, 255, 255));
+        SelectOptionsWindow.add(btnJobType2, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 194, 76, -1));
+
+        btnJobType4.setBorderPainted(false);
+        btnJobType4.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
+        btnJobType4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnJobType4.setkEndColor(new java.awt.Color(255, 255, 255));
+        btnJobType4.setkForeGround(new java.awt.Color(0, 0, 0));
+        btnJobType4.setkHoverEndColor(new java.awt.Color(204, 204, 204));
+        btnJobType4.setkHoverForeGround(new java.awt.Color(0, 0, 0));
+        btnJobType4.setkHoverStartColor(new java.awt.Color(240, 239, 239));
+        btnJobType4.setkStartColor(new java.awt.Color(255, 255, 255));
+        SelectOptionsWindow.add(btnJobType4, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 380, 76, -1));
+
+        jobTypeLabel4.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 15)); // NOI18N
+        jobTypeLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        SelectOptionsWindow.add(jobTypeLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 270, 40));
+
+        jobTypeLabel1.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 15)); // NOI18N
+        jobTypeLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        SelectOptionsWindow.add(jobTypeLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 270, 40));
+
+        jobTypeLabel2.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 15)); // NOI18N
+        jobTypeLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        SelectOptionsWindow.add(jobTypeLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 270, 40));
+
+        jobTypeLabel3.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 15)); // NOI18N
+        jobTypeLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        SelectOptionsWindow.add(jobTypeLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 320, 40));
+
+        jSpinner1.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
+        jSpinner1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SelectOptionsWindow.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, -1, -1));
 
         kGradientPanel19.setkBorderRadius(20);
         kGradientPanel19.setkEndColor(new java.awt.Color(204, 204, 204));
@@ -747,7 +745,7 @@ public class HomeWindow extends javax.swing.JFrame {
                     .addComponent(kGradientPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(kGradientPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE)
                     .addComponent(kGradientPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
                 .addComponent(SelectOptionsWindow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
@@ -861,8 +859,16 @@ public class HomeWindow extends javax.swing.JFrame {
             //dont code here
         } else {
             //code here
-            
-            
+            isElectrician = true;
+            isPlumber = false;
+            isMechanic = false;
+            isEventManager = false;
+            isLabour = false;
+            jobTypeLabel1.setText("Fault Diagnosis");
+            jobTypeLabel2.setText("Device Installation");
+            jobTypeLabel3.setText("Replacement High Voltage Switch Board");
+            jobTypeLabel4.setText("Air Condition Installation");
+
         }
     }//GEN-LAST:event_btnElectricianActionPerformed
 
@@ -967,6 +973,10 @@ public class HomeWindow extends javax.swing.JFrame {
     private com.k33ptoo.components.KGradientPanel SelectOptionsWindow;
     private com.k33ptoo.components.KButton btnElectrician;
     private com.k33ptoo.components.KButton btnEventManager;
+    private com.k33ptoo.components.KButton btnJobType1;
+    private com.k33ptoo.components.KButton btnJobType2;
+    private com.k33ptoo.components.KButton btnJobType3;
+    private com.k33ptoo.components.KButton btnJobType4;
     private com.k33ptoo.components.KButton btnLabour;
     private com.k33ptoo.components.KButton btnMechanic;
     private com.k33ptoo.components.KButton btnPlumber;
@@ -990,6 +1000,11 @@ public class HomeWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JLabel jobTypeLabel1;
+    private javax.swing.JLabel jobTypeLabel2;
+    private javax.swing.JLabel jobTypeLabel3;
+    private javax.swing.JLabel jobTypeLabel4;
     private com.k33ptoo.components.KGradientPanel kGradientPanel10;
     private com.k33ptoo.components.KGradientPanel kGradientPanel12;
     private com.k33ptoo.components.KGradientPanel kGradientPanel13;
@@ -1000,10 +1015,6 @@ public class HomeWindow extends javax.swing.JFrame {
     private com.k33ptoo.components.KGradientPanel logoBar;
     private com.k33ptoo.components.KGradientPanel sandwichSettingPanel;
     private com.k33ptoo.components.KButton signOutBtn1;
-    private com.k33ptoo.components.KButton signOutBtn12;
-    private com.k33ptoo.components.KButton signOutBtn13;
-    private com.k33ptoo.components.KButton signOutBtn14;
-    private com.k33ptoo.components.KButton signOutBtn15;
     private com.k33ptoo.components.KButton signOutBtn2;
     private com.k33ptoo.components.KButton signOutBtn3;
     private com.k33ptoo.components.KButton signOutBtn4;
