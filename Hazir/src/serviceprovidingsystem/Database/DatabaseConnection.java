@@ -46,9 +46,7 @@ public class DatabaseConnection {
     
     
     public  boolean Exist(String Username)  {
-        
 
-    
         try {
             String sql = "select name FROM Users WHERE name ='" + Username + "'";
             
