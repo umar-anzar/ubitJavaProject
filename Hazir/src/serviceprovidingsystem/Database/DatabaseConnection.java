@@ -16,6 +16,7 @@ public class DatabaseConnection {
     public Connection connection = null;
     public ResultSet FinalDb =null;
     public PreparedStatement pst = null;
+    public Statement st = null;
     
     //User aggregation
     public User currentUser;
@@ -40,6 +41,25 @@ public class DatabaseConnection {
         }
 
     }
+    
+    
+    public  boolean Exist(String Username) throws Exception{
+
+    
+        String sql = "select name FROM Users WHERE name ='" + Username + "'";
+
+        st = connection.createStatement();
+        FinalDb = st.executeQuery(sql);
+
+        return FinalDb.isBeforeFirst();
+
+    }
+    
+    
+    
+    
+    
+    
     
     public void UPDATE_USER(String toStringMethodCSV){
         String sql = "UPDATE Users SET password = ? , contactNumber = ? , address = ? , orderStatus = ? , cost = ? WHERE name = ?";
