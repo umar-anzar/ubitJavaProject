@@ -430,7 +430,7 @@
                           <Component id="kGradientPanel10" alignment="0" pref="453" max="32767" attributes="0"/>
                           <Component id="kGradientPanel19" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="100" max="32767" attributes="0"/>
+                      <EmptySpace pref="92" max="32767" attributes="0"/>
                       <Component id="SelectOptionsWindow" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
@@ -818,13 +818,13 @@
                       <Font name="Microsoft YaHei UI Light" size="24" style="0"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                      <Color blue="33" green="28" red="1c" type="rgb"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="6" y="33" width="410" height="33"/>
+                      <AbsoluteConstraints x="6" y="43" width="410" height="40"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -1007,7 +1007,7 @@
                   </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="380" y="10" width="30" height="30"/>
+                      <AbsoluteConstraints x="370" y="10" width="30" height="30"/>
                     </Constraint>
                   </Constraints>
                 </Component>

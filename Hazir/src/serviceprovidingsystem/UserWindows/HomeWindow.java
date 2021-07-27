@@ -478,9 +478,9 @@ public class HomeWindow extends javax.swing.JFrame {
         SelectOptionsWindow.add(btnJobType3, new org.netbeans.lib.awtextra.AbsoluteConstraints(347, 285, 60, -1));
 
         workderJobLabel.setFont(new java.awt.Font("Microsoft YaHei UI Light", 0, 24)); // NOI18N
-        workderJobLabel.setForeground(new java.awt.Color(255, 255, 255));
+        workderJobLabel.setForeground(new java.awt.Color(28, 40, 51));
         workderJobLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        SelectOptionsWindow.add(workderJobLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 33, 410, 33));
+        SelectOptionsWindow.add(workderJobLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 43, 410, 40));
 
         btnJobType1.setBorderPainted(false);
         btnJobType1.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
@@ -553,7 +553,7 @@ public class HomeWindow extends javax.swing.JFrame {
                 btnCloseJobOptionsMouseClicked(evt);
             }
         });
-        SelectOptionsWindow.add(btnCloseJobOptions, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 30, 30));
+        SelectOptionsWindow.add(btnCloseJobOptions, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, 30, 30));
 
         jobSelectedShowLabel.setForeground(new java.awt.Color(28, 40, 51));
         jobSelectedShowLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -772,7 +772,7 @@ public class HomeWindow extends javax.swing.JFrame {
                     .addComponent(kGradientPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(kGradientPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, 453, Short.MAX_VALUE)
                     .addComponent(kGradientPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
                 .addComponent(SelectOptionsWindow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
@@ -887,6 +887,7 @@ public class HomeWindow extends javax.swing.JFrame {
             //dont code here
         } else {
             //code here
+            workderJobLabel.setText("Electrician");
             optionLabelsSetToFalse();
             btnCloseJobOptions.setVisible(true);
             isElectrician = true;
@@ -917,6 +918,8 @@ public class HomeWindow extends javax.swing.JFrame {
         if(isSandwhichSettingPanelOpen){
             //dont code here
         } else {
+            //coder here
+            workderJobLabel.setText("Plumber");
             optionLabelsSetToFalse();
             btnCloseJobOptions.setVisible(true);
             isElectrician = false;
@@ -947,6 +950,8 @@ public class HomeWindow extends javax.swing.JFrame {
         if(isSandwhichSettingPanelOpen){
             //dont code here
         } else {
+            //coder here
+            workderJobLabel.setText("Mechanic");
             optionLabelsSetToFalse();
             btnCloseJobOptions.setVisible(true);
             isElectrician = false;
@@ -977,6 +982,8 @@ public class HomeWindow extends javax.swing.JFrame {
         if(isSandwhichSettingPanelOpen){
             //dont code here
         } else {
+            //code here
+            workderJobLabel.setText("Event Manager");
             optionLabelsSetToFalse();
             btnCloseJobOptions.setVisible(true);
             isElectrician = false;
@@ -1007,6 +1014,7 @@ public class HomeWindow extends javax.swing.JFrame {
         if(isSandwhichSettingPanelOpen){
             //dont code here
         } else {
+            workderJobLabel.setText("Labour");
             optionLabelsSetToFalse();
             btnCloseJobOptions.setVisible(true);
             isElectrician = false;
@@ -1080,6 +1088,7 @@ public class HomeWindow extends javax.swing.JFrame {
             jobTypeLabelSetToNull();
             btnJobTypeSetToNull();
             optionLabelsSetToFalse();
+            workderJobLabel.setText("");
             btnCloseJobOptions.setVisible(false);
         }
     }//GEN-LAST:event_btnUnavailableActionPerformed
@@ -1098,6 +1107,7 @@ public class HomeWindow extends javax.swing.JFrame {
             jobTypeLabelSetToNull();
             btnJobTypeSetToNull();
             optionLabelsSetToFalse();
+            workderJobLabel.setText("");
             btnCloseJobOptions.setVisible(false);
         }
     }//GEN-LAST:event_btnCloseJobOptionsMouseClicked
@@ -1178,7 +1188,7 @@ public class HomeWindow extends javax.swing.JFrame {
         } else if(isPlumber) {
             optionLabel4.setVisible(true);
         } else if(isEventManager) {
-            
+            optionLabel4.setVisible(true);
         } else {
             return;
         }
