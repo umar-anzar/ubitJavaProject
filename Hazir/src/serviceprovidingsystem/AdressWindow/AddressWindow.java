@@ -9,7 +9,6 @@ import java.awt.Color;
 import serviceprovidingsystem.Animations;
 import serviceprovidingsystem.Database.DatabaseConnection;
 import serviceprovidingsystem.SignInWindow;
-
 /**
  *
  * @author omer
@@ -21,6 +20,7 @@ public class AddressWindow extends javax.swing.JFrame {
      */
     //attribute
     DatabaseConnection database;
+    GoogleMapsClass googleMap;
     //setting panel
         private boolean isSandwhichSettingPanelOpen = false;
         private int widthOfSettingPanel;
@@ -29,7 +29,7 @@ public class AddressWindow extends javax.swing.JFrame {
     //Movable HomeBarPanel
         int XMouse;
         int YMouse;
-    
+        
     public AddressWindow(){
         initComponents();
     }
@@ -334,7 +334,7 @@ public class AddressWindow extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(28, 40, 51));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("asdasd");
+        jLabel8.setText("mapLocationHere");
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/MapWindow/setMarkerIcon_32px.png"))); // NOI18N
 
@@ -490,7 +490,7 @@ public class AddressWindow extends javax.swing.JFrame {
                 .addComponent(kGradientPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(102, 102, 102)
                 .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addContainerGap(130, Short.MAX_VALUE))
         );
         homeBackgroundPanelLayout.setVerticalGroup(
             homeBackgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

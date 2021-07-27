@@ -14,7 +14,8 @@ import serviceprovidingsystem.Database.DatabaseConnection;
  * @author Ahmed
  */
 public class User extends Account {
-    private Boolean orderStatus = false;
+    public Boolean orderStatus = false;
+    private String addressLink = null;
     private double cost = 0.0;
     public User(String name, String password, String contactNumber, String address, Date dateOfBirth){
         super(name, password, contactNumber, address, dateOfBirth);
@@ -28,11 +29,7 @@ public class User extends Account {
     }
 
     public void setOrderStatus(String orderStatus) {
-        if(orderStatus.equals("true")){
-            this.orderStatus = true;
-        } else {
-            this.orderStatus = false;
-        }
+        this.orderStatus = orderStatus.equals("true");
     }
     
     public void setOrderStatus(boolean orderStatus) {
@@ -40,12 +37,16 @@ public class User extends Account {
     }
 
     
-    public void setAddress(String address){
-        super.setAddress(address);
-    }
-    
     public void setCost(double cost) {
         this.cost = cost;
+    }
+
+    public void setAddressLink(String addressLink) {
+        this.addressLink = addressLink;
+    }
+
+    public String getAddressLink() {
+        return addressLink;
     }
     
     public double getCost() {
@@ -60,13 +61,12 @@ public class User extends Account {
     public void giveTip(Worker worker, double tip){
         
     }
-    //toSting is like CSV comma separated
+
     @Override
     public String toString() {
-        return "User,"+super.getName()+","+super.getPassword()+","
-                +super.getContactNumber()+","+super.getAddress()+","+
-                super.getDate()+","+isOrderStatus();
+        return "User{" + "orderStatus=" + orderStatus + ", addressLink=" + addressLink + ", cost=" + cost + '}';
     }
+   
     public static void main(String[] args) {
         User a= new User("omer", "omer123", "03333333333", null, new Date());
         a.setOrderStatus("false");

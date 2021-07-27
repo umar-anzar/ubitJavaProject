@@ -84,7 +84,7 @@ import serviceprovidingsystem.Accounts.*;
     
     public void INSERT_USER(){
 
-        String sql = "INSERT INTO Users(name, password, contactNumber, address, dateOfRegisteration, orderStatus, cost) VALUES(?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO Users(name, password, contactNumber, address, dateOfRegisteration, orderStatus, cost, addressLink) VALUES(?,?,?,?,?,?,?,?)";
         
         try {
             pst = connection.prepareStatement(sql);
@@ -95,6 +95,7 @@ import serviceprovidingsystem.Accounts.*;
             pst.setString(5, currentUser.getDate());
             pst.setString(6, currentUser.isOrderStatus());
             pst.setDouble(7, currentUser.getCost());
+            pst.setString(8, currentUser.getAddressLink());
             pst.executeUpdate();
         } catch (Exception e) {
             System.out.println(e);
@@ -122,10 +123,10 @@ import serviceprovidingsystem.Accounts.*;
                 // new frame for owner
                 
             }else   { if (FinalDb.next()){
-            
+                //1name,2password,3contactNumber,4address,5dateOfRegistration,6orderStatus,7cost
                 System.out.println("User is working");
                 currentUser = new User(FinalDb.getString(1), FinalDb.getString(2), FinalDb.getString(3), FinalDb.getString(4), new Date());
-                currentUser.toString();
+                currentUser.setOrderStatus(FinalDb.getString(6));
                 return true;
                 // available in database
             }else {

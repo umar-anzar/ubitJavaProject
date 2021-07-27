@@ -7,6 +7,7 @@ package serviceprovidingsystem;
 import java.awt.*;
 import java.util.Date;
 import serviceprovidingsystem.Accounts.User;
+import serviceprovidingsystem.AdressWindow.AddressWindow;
 import serviceprovidingsystem.Database.DatabaseConnection;
 import serviceprovidingsystem.UserWindows.HomeWindow;
 
@@ -241,7 +242,7 @@ public class SignInWindow extends javax.swing.JFrame {
 
             database.currentUser = null;
             Animations.windowCloseAnimation(this, 1f);
-            new HomeWindow(database).setVisible(true);
+            new AddressWindow(database).setVisible(true);
 
         } else {
             errorRegister.setText("Username or password is incorrect!");

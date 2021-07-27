@@ -10,18 +10,29 @@ import javafx.scene.Scene;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javax.swing.*;
+import serviceprovidingsystem.Database.DatabaseConnection;
 /**
  *
  * @author omer
  */
-public class Address {
-    
+public class GoogleMapsClass {
+    DatabaseConnection database;
     private static WebEngine engineLink;
     private static String address;
     private static String coordinate;
-    
+    private String link = "https://www.google.com/maps/";
 
-    public static void showServiceArea() {
+    public GoogleMapsClass() {
+    }
+    
+    public GoogleMapsClass(DatabaseConnection database){
+        this.database = database;
+        if (database.currentUser.getAddressLink() != null){
+            this.link = database.currentUser.getAddressLink();
+        }
+    }
+    
+    public void showServiceArea() {
         final JFrame mapWindow=new JFrame("Google Map");//window bar name
         mapWindow.setIconImage(new ImageIcon("src\\serviceprovidingsystem\\images\\MapWindow\\mapIcon.png").getImage());//window Icon
         //mapWindow.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); //This will end program if only map window is close
@@ -45,7 +56,7 @@ public class Address {
         mapWindow.setVisible(true);
     }
     
-    public static void setPinLocation() {
+    public void setPinLocation() {
         final JFrame mapWindow=new JFrame("Google Map");//window bar name
         mapWindow.setIconImage(new ImageIcon("src\\serviceprovidingsystem\\images\\MapWindow\\mapIcon.png").getImage());//window Icon
         //mapWindow.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); //This will end program if only map window is close
@@ -53,30 +64,28 @@ public class Address {
         mapWindow.setLocationRelativeTo(null);//open in center
         final JFXPanel fxpanel=new JFXPanel();
         mapWindow.add(fxpanel);
-        
-
         Platform.runLater(new Runnable() {
         @Override
         public void run()
             {
-            
             WebView wv=new WebView();
             engineLink=wv.getEngine();
             fxpanel.setScene(new Scene(wv));
-            engineLink.load("https://www.google.com/maps/");
+            engineLink.load(link);
             }
             });
         mapWindow.setVisible(true);
-    }
-
-    private static void sliceLink() throws StringIndexOutOfBoundsException{
-        if (engineLink != null) {
+    }    
+    
+    
+    private void sliceLink() throws StringIndexOutOfBoundsException{
+        if (link != null) {
             try {
                 String location = engineLink.getLocation(); //get the current http link where we pinPoint on map
                 //for ex "www.google.com/maps/place/South+City+Hospital/@24.8142385,67.0049286,14z/data=!4m5!3m4!1s0x3eb33d"
 
                 int intialIndex = location.indexOf("place/") + 6;/*get location of p so we add 6 because "place/" are 6 characters 
-                                                                so we get the first element of Address*/
+                                                                so we get the first element of AddressClass*/
                 int finalIndex = location.indexOf("/data");
 
                 String slicedLink = location.substring(intialIndex, finalIndex); //slices example from South to 14z in example link
@@ -92,18 +101,26 @@ public class Address {
             
         }
         
+    }    
+    
+    public String getLink() {
+        return link;
     }
     
-    public static String getAddress() {
+    public String getAddress() {
         sliceLink();
         return address;
     }
 
-    public static String getCoordinate() {
+    public String getCoordinate() {
         sliceLink();
         return coordinate;
     }
     
-    
+    public void updateAddress(){
+        database.currentUser.setAddressLink(getLink());
+    }    
+
+
     
 }
