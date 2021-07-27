@@ -36,7 +36,7 @@ public class GoogleMapsClass {
         final JFrame mapWindow=new JFrame("Google Map");//window bar name
         mapWindow.setIconImage(new ImageIcon("src\\serviceprovidingsystem\\images\\MapWindow\\mapIcon.png").getImage());//window Icon
         mapWindow.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE); //This will end program if only map window is close
-        mapWindow.setSize(1000,800);//resolution size
+        mapWindow.setSize(1066,600);//resolution size
         mapWindow.setLocationRelativeTo(null);//open in center
         final JFXPanel fxpanel=new JFXPanel();
         mapWindow.add(fxpanel);
@@ -60,7 +60,7 @@ public class GoogleMapsClass {
         final JFrame mapWindow=new JFrame("Google Map");//window bar name
         mapWindow.setIconImage(new ImageIcon("src\\serviceprovidingsystem\\images\\MapWindow\\mapIcon.png").getImage());//window Icon
         mapWindow.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE); //DISPOSE HERE
-        mapWindow.setSize(1000,800);//resolution size
+        mapWindow.setSize(1066,600);//resolution size
         mapWindow.setLocationRelativeTo(null);//open in center
         final JFXPanel fxpanel=new JFXPanel();
         mapWindow.add(fxpanel);
