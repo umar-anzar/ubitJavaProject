@@ -453,7 +453,7 @@ public class HomeWindow extends javax.swing.JFrame {
         SelectOptionsWindow.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnJobType3.setBorderPainted(false);
-        btnJobType3.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
+        btnJobType3.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
         btnJobType3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnJobType3.setkEndColor(new java.awt.Color(255, 255, 255));
         btnJobType3.setkForeGround(new java.awt.Color(0, 0, 0));
@@ -474,7 +474,7 @@ public class HomeWindow extends javax.swing.JFrame {
         SelectOptionsWindow.add(workderJobLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 33, 410, 33));
 
         btnJobType1.setBorderPainted(false);
-        btnJobType1.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
+        btnJobType1.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
         btnJobType1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnJobType1.setkEndColor(new java.awt.Color(255, 255, 255));
         btnJobType1.setkForeGround(new java.awt.Color(0, 0, 0));
@@ -490,7 +490,7 @@ public class HomeWindow extends javax.swing.JFrame {
         SelectOptionsWindow.add(btnJobType1, new org.netbeans.lib.awtextra.AbsoluteConstraints(347, 105, 60, -1));
 
         btnJobType2.setBorderPainted(false);
-        btnJobType2.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
+        btnJobType2.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
         btnJobType2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnJobType2.setkEndColor(new java.awt.Color(255, 255, 255));
         btnJobType2.setkForeGround(new java.awt.Color(0, 0, 0));
@@ -506,7 +506,7 @@ public class HomeWindow extends javax.swing.JFrame {
         SelectOptionsWindow.add(btnJobType2, new org.netbeans.lib.awtextra.AbsoluteConstraints(347, 194, 60, -1));
 
         btnJobType4.setBorderPainted(false);
-        btnJobType4.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
+        btnJobType4.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
         btnJobType4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnJobType4.setkEndColor(new java.awt.Color(255, 255, 255));
         btnJobType4.setkForeGround(new java.awt.Color(0, 0, 0));
@@ -872,11 +872,18 @@ public class HomeWindow extends javax.swing.JFrame {
             isMechanic = false;
             isEventManager = false;
             isLabour = false;
+            option1 = 500;
+            option2 = 1000;
+            option3 = 1200;
+            option4 = 6000;
             jobTypeLabel1.setText("Fault Diagnosis");//500
-            //btnJobType1.setText(String.valueOf());
+            btnJobType1.setText(String.valueOf(option1));
             jobTypeLabel2.setText("Device Installation");//1000
+            btnJobType2.setText(String.valueOf(option2));
             jobTypeLabel3.setText("Replacement High Voltage Switch Board");//1200
+            btnJobType3.setText(String.valueOf(option3));
             jobTypeLabel4.setText("Air Condition Installation");//6000
+            btnJobType4.setText(String.valueOf(option4));
 
         }
     }//GEN-LAST:event_btnElectricianActionPerformed
