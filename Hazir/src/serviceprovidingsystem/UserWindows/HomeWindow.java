@@ -1032,6 +1032,10 @@ public class HomeWindow extends javax.swing.JFrame {
             jobTypeLabel2.setText("");
             jobTypeLabel3.setText("");
             jobTypeLabel4.setText("");
+            btnJobType1.setText(String.valueOf(""));
+            btnJobType2.setText(String.valueOf(""));
+            btnJobType3.setText(String.valueOf(""));
+            btnJobType4.setText(String.valueOf(""));
             btnCloseJobOptions.setVisible(false);
         }
     }//GEN-LAST:event_btnUnavailableActionPerformed
@@ -1051,6 +1055,10 @@ public class HomeWindow extends javax.swing.JFrame {
             jobTypeLabel2.setText("");
             jobTypeLabel3.setText("");
             jobTypeLabel4.setText("");
+            btnJobType1.setText(String.valueOf(""));
+            btnJobType2.setText(String.valueOf(""));
+            btnJobType3.setText(String.valueOf(""));
+            btnJobType4.setText(String.valueOf(""));
             btnCloseJobOptions.setVisible(false);
         }
     }//GEN-LAST:event_btnCloseJobOptionsMouseClicked
