@@ -71,7 +71,6 @@ public class HomeWindow extends javax.swing.JFrame {
         sandwichSettingPanel = new com.k33ptoo.components.KGradientPanel();
         signOutBtn1 = new com.k33ptoo.components.KButton();
         signOutBtn2 = new com.k33ptoo.components.KButton();
-        signOutBtn3 = new com.k33ptoo.components.KButton();
         signOutBtn4 = new com.k33ptoo.components.KButton();
         signOutBtn5 = new com.k33ptoo.components.KButton();
         jLabel1 = new javax.swing.JLabel();
@@ -248,16 +247,6 @@ public class HomeWindow extends javax.swing.JFrame {
         signOutBtn2.setkHoverStartColor(new java.awt.Color(240, 239, 239));
         signOutBtn2.setkStartColor(new java.awt.Color(255, 255, 255));
 
-        signOutBtn3.setText("Username");
-        signOutBtn3.setBorderPainted(false);
-        signOutBtn3.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
-        signOutBtn3.setkEndColor(new java.awt.Color(255, 255, 255));
-        signOutBtn3.setkForeGround(new java.awt.Color(0, 0, 0));
-        signOutBtn3.setkHoverEndColor(new java.awt.Color(204, 204, 204));
-        signOutBtn3.setkHoverForeGround(new java.awt.Color(0, 0, 0));
-        signOutBtn3.setkHoverStartColor(new java.awt.Color(240, 239, 239));
-        signOutBtn3.setkStartColor(new java.awt.Color(255, 255, 255));
-
         signOutBtn4.setText("Address");
         signOutBtn4.setBorderPainted(false);
         signOutBtn4.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
@@ -294,7 +283,6 @@ public class HomeWindow extends javax.swing.JFrame {
                         .addGroup(sandwichSettingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(signOutBtn5, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(signOutBtn4, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(signOutBtn3, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(signOutBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(signOutBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(sandwichSettingPanelLayout.createSequentialGroup()
@@ -307,9 +295,7 @@ public class HomeWindow extends javax.swing.JFrame {
             .addGroup(sandwichSettingPanelLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel1)
-                .addGap(85, 85, 85)
-                .addComponent(signOutBtn3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(103, 103, 103)
                 .addComponent(signOutBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(signOutBtn5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -317,7 +303,7 @@ public class HomeWindow extends javax.swing.JFrame {
                 .addComponent(signOutBtn4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(signOutBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addContainerGap(151, Short.MAX_VALUE))
         );
 
         jLayeredPane1.add(sandwichSettingPanel);
@@ -1110,7 +1096,6 @@ public class HomeWindow extends javax.swing.JFrame {
     private com.k33ptoo.components.KGradientPanel sandwichSettingPanel;
     private com.k33ptoo.components.KButton signOutBtn1;
     private com.k33ptoo.components.KButton signOutBtn2;
-    private com.k33ptoo.components.KButton signOutBtn3;
     private com.k33ptoo.components.KButton signOutBtn4;
     private com.k33ptoo.components.KButton signOutBtn5;
     private com.k33ptoo.components.KGradientPanel tItleBar;

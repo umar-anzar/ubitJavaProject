@@ -226,7 +226,6 @@
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="signOutBtn5" min="-2" pref="280" max="-2" attributes="0"/>
                                   <Component id="signOutBtn4" min="-2" pref="280" max="-2" attributes="0"/>
-                                  <Component id="signOutBtn3" min="-2" pref="280" max="-2" attributes="0"/>
                                   <Component id="signOutBtn2" min="-2" pref="280" max="-2" attributes="0"/>
                                   <Component id="signOutBtn1" min="-2" pref="280" max="-2" attributes="0"/>
                               </Group>
@@ -245,9 +244,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
-                      <Component id="signOutBtn3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
                       <Component id="signOutBtn2" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="signOutBtn5" min="-2" pref="30" max="-2" attributes="0"/>
@@ -255,7 +252,7 @@
                       <Component id="signOutBtn4" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="signOutBtn1" min="-2" pref="30" max="-2" attributes="0"/>
-                      <EmptySpace pref="121" max="32767" attributes="0"/>
+                      <EmptySpace pref="151" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -294,33 +291,6 @@
             <Component class="com.k33ptoo.components.KButton" name="signOutBtn2">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Password"/>
-                <Property name="borderPainted" type="boolean" value="false"/>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Microsoft YaHei Light" size="14" style="0"/>
-                </Property>
-                <Property name="kEndColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="kForeGround" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="0" type="rgb"/>
-                </Property>
-                <Property name="kHoverEndColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="cc" green="cc" red="cc" type="rgb"/>
-                </Property>
-                <Property name="kHoverForeGround" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="0" type="rgb"/>
-                </Property>
-                <Property name="kHoverStartColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ef" green="ef" red="f0" type="rgb"/>
-                </Property>
-                <Property name="kStartColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-              </Properties>
-            </Component>
-            <Component class="com.k33ptoo.components.KButton" name="signOutBtn3">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Username"/>
                 <Property name="borderPainted" type="boolean" value="false"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Microsoft YaHei Light" size="14" style="0"/>
