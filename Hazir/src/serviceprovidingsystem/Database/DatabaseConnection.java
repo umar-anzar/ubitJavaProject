@@ -63,7 +63,7 @@ import serviceprovidingsystem.Accounts.*;
     
     public void UPDATE_USER(){
 
-        String sql = "UPDATE Users SET password = ? , contactNumber = ? , address = ? , orderStatus = ? , cost = ? WHERE name = ?";
+        String sql = "UPDATE Users SET password = ? , contactNumber = ? , address = ? , orderStatus = ? , cost = ? , addressLink = ? WHERE name = ?";
         
         try{
             pst = connection.prepareStatement(sql);
@@ -73,7 +73,8 @@ import serviceprovidingsystem.Accounts.*;
             pst.setString(3, currentUser.getAddress());
             pst.setString(4, currentUser.isOrderStatus());
             pst.setDouble(5, currentUser.getCost());
-            pst.setString(6, currentUser.getName());
+            pst.setString(6, currentUser.getAddressLink());
+            pst.setString(7, currentUser.getName());
             pst.executeUpdate();
         } catch (Exception e) {
             System.out.println(e);
@@ -84,7 +85,7 @@ import serviceprovidingsystem.Accounts.*;
     
     public void INSERT_USER(){
 
-        String sql = "INSERT INTO Users(name, password, contactNumber, address, dateOfRegisteration, orderStatus, cost, addressLink) VALUES(?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO Users(name, password, contactNumber, address, dateOfRegisteration, orderStatus, cost) VALUES(?,?,?,?,?,?,?)";
         
         try {
             pst = connection.prepareStatement(sql);
@@ -95,7 +96,6 @@ import serviceprovidingsystem.Accounts.*;
             pst.setString(5, currentUser.getDate());
             pst.setString(6, currentUser.isOrderStatus());
             pst.setDouble(7, currentUser.getCost());
-            pst.setString(8, currentUser.getAddressLink());
             pst.executeUpdate();
         } catch (Exception e) {
             System.out.println(e);
@@ -127,6 +127,8 @@ import serviceprovidingsystem.Accounts.*;
                 System.out.println("User is working");
                 currentUser = new User(FinalDb.getString(1), FinalDb.getString(2), FinalDb.getString(3), FinalDb.getString(4), new Date());
                 currentUser.setOrderStatus(FinalDb.getString(6));
+                currentUser.setCost(FinalDb.getDouble(7));
+                currentUser.setAddressLink(FinalDb.getString(8));
                 return true;
                 // available in database
             }else {

@@ -240,7 +240,6 @@ public class SignInWindow extends javax.swing.JFrame {
             return;
         }  else if (database.Login(usernameField.getText(), passwordField.getText())){         
 
-            database.currentUser = null;
             Animations.windowCloseAnimation(this, 1f);
             new AddressWindow(database).setVisible(true);
 
