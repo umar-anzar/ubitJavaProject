@@ -254,7 +254,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="com.k33ptoo.components.KButton" name="signOutBtn2">
+            <Component class="com.k33ptoo.components.KButton" name="btnSettingPassword">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Password"/>
                 <Property name="borderPainted" type="boolean" value="false"/>
@@ -280,6 +280,9 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSettingPasswordActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="61" y="155" width="280" height="30"/>
@@ -318,7 +321,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="com.k33ptoo.components.KButton" name="signOutBtn5">
+            <Component class="com.k33ptoo.components.KButton" name="btnSettingNumber">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Mobile number"/>
                 <Property name="borderPainted" type="boolean" value="false"/>

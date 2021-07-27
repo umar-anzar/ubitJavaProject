@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package serviceprovidingsystem.UserWindows;
+import serviceprovidingsystem.MapAndAnimation.Animations;
 import serviceprovidingsystem.*;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -70,9 +71,9 @@ public class HomeWindow extends javax.swing.JFrame {
         homeBar = new javax.swing.JLabel();
         sandwichSettingPanel = new com.k33ptoo.components.KGradientPanel();
         signOutBtn1 = new com.k33ptoo.components.KButton();
-        signOutBtn2 = new com.k33ptoo.components.KButton();
+        btnSettingPassword = new com.k33ptoo.components.KButton();
         signOutBtn4 = new com.k33ptoo.components.KButton();
-        signOutBtn5 = new com.k33ptoo.components.KButton();
+        btnSettingNumber = new com.k33ptoo.components.KButton();
         jLabel1 = new javax.swing.JLabel();
         homeBackgroundPanel = new com.k33ptoo.components.KGradientPanel();
         kGradientPanel5 = new com.k33ptoo.components.KGradientPanel();
@@ -238,16 +239,21 @@ public class HomeWindow extends javax.swing.JFrame {
         });
         sandwichSettingPanel.add(signOutBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 280, 30));
 
-        signOutBtn2.setText("Password");
-        signOutBtn2.setBorderPainted(false);
-        signOutBtn2.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
-        signOutBtn2.setkEndColor(new java.awt.Color(255, 255, 255));
-        signOutBtn2.setkForeGround(new java.awt.Color(0, 0, 0));
-        signOutBtn2.setkHoverEndColor(new java.awt.Color(204, 204, 204));
-        signOutBtn2.setkHoverForeGround(new java.awt.Color(0, 0, 0));
-        signOutBtn2.setkHoverStartColor(new java.awt.Color(240, 239, 239));
-        signOutBtn2.setkStartColor(new java.awt.Color(255, 255, 255));
-        sandwichSettingPanel.add(signOutBtn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 155, 280, 30));
+        btnSettingPassword.setText("Password");
+        btnSettingPassword.setBorderPainted(false);
+        btnSettingPassword.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
+        btnSettingPassword.setkEndColor(new java.awt.Color(255, 255, 255));
+        btnSettingPassword.setkForeGround(new java.awt.Color(0, 0, 0));
+        btnSettingPassword.setkHoverEndColor(new java.awt.Color(204, 204, 204));
+        btnSettingPassword.setkHoverForeGround(new java.awt.Color(0, 0, 0));
+        btnSettingPassword.setkHoverStartColor(new java.awt.Color(240, 239, 239));
+        btnSettingPassword.setkStartColor(new java.awt.Color(255, 255, 255));
+        btnSettingPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSettingPasswordActionPerformed(evt);
+            }
+        });
+        sandwichSettingPanel.add(btnSettingPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 155, 280, 30));
 
         signOutBtn4.setText("Address");
         signOutBtn4.setBorderPainted(false);
@@ -260,16 +266,16 @@ public class HomeWindow extends javax.swing.JFrame {
         signOutBtn4.setkStartColor(new java.awt.Color(255, 255, 255));
         sandwichSettingPanel.add(signOutBtn4, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 251, 280, 30));
 
-        signOutBtn5.setText("Mobile number");
-        signOutBtn5.setBorderPainted(false);
-        signOutBtn5.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
-        signOutBtn5.setkEndColor(new java.awt.Color(255, 255, 255));
-        signOutBtn5.setkForeGround(new java.awt.Color(0, 0, 0));
-        signOutBtn5.setkHoverEndColor(new java.awt.Color(204, 204, 204));
-        signOutBtn5.setkHoverForeGround(new java.awt.Color(0, 0, 0));
-        signOutBtn5.setkHoverStartColor(new java.awt.Color(240, 239, 239));
-        signOutBtn5.setkStartColor(new java.awt.Color(255, 255, 255));
-        sandwichSettingPanel.add(signOutBtn5, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 203, 280, 30));
+        btnSettingNumber.setText("Mobile number");
+        btnSettingNumber.setBorderPainted(false);
+        btnSettingNumber.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
+        btnSettingNumber.setkEndColor(new java.awt.Color(255, 255, 255));
+        btnSettingNumber.setkForeGround(new java.awt.Color(0, 0, 0));
+        btnSettingNumber.setkHoverEndColor(new java.awt.Color(204, 204, 204));
+        btnSettingNumber.setkHoverForeGround(new java.awt.Color(0, 0, 0));
+        btnSettingNumber.setkHoverStartColor(new java.awt.Color(240, 239, 239));
+        btnSettingNumber.setkStartColor(new java.awt.Color(255, 255, 255));
+        sandwichSettingPanel.add(btnSettingNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 203, 280, 30));
 
         jLabel1.setFont(new java.awt.Font("Microsoft YaHei UI Light", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -983,6 +989,10 @@ public class HomeWindow extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnCloseJobOptionsMouseClicked
 
+    private void btnSettingPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSettingPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSettingPasswordActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1031,6 +1041,8 @@ public class HomeWindow extends javax.swing.JFrame {
     private com.k33ptoo.components.KButton btnLabour;
     private com.k33ptoo.components.KButton btnMechanic;
     private com.k33ptoo.components.KButton btnPlumber;
+    private com.k33ptoo.components.KButton btnSettingNumber;
+    private com.k33ptoo.components.KButton btnSettingPassword;
     private com.k33ptoo.components.KButton btnUnavailable;
     private com.k33ptoo.components.KGradientPanel closeBar;
     private com.k33ptoo.components.KGradientPanel homeBackgroundPanel;
@@ -1066,9 +1078,7 @@ public class HomeWindow extends javax.swing.JFrame {
     private com.k33ptoo.components.KGradientPanel logoBar;
     private com.k33ptoo.components.KGradientPanel sandwichSettingPanel;
     private com.k33ptoo.components.KButton signOutBtn1;
-    private com.k33ptoo.components.KButton signOutBtn2;
     private com.k33ptoo.components.KButton signOutBtn4;
-    private com.k33ptoo.components.KButton signOutBtn5;
     private com.k33ptoo.components.KGradientPanel tItleBar;
     private javax.swing.JLabel workderJobLabel;
     // End of variables declaration//GEN-END:variables

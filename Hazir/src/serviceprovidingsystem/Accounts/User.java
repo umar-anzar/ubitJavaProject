@@ -5,7 +5,6 @@
  */
 package serviceprovidingsystem.Accounts;
 import java.util.*;
-import serviceprovidingsystem.AdressWindow.*;
 import serviceprovidingsystem.ParentElements.*;
 import serviceprovidingsystem.Database.DatabaseConnection;
 

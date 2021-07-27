@@ -4,10 +4,11 @@
  * and open the template in the editor.
  */
 package serviceprovidingsystem;
+import serviceprovidingsystem.MapAndAnimation.Animations;
 import java.awt.*;
 import java.util.Date;
 import serviceprovidingsystem.Accounts.User;
-import serviceprovidingsystem.AdressWindow.AddressWindow;
+import serviceprovidingsystem.UserWindows.AddressWindow;
 import serviceprovidingsystem.Database.DatabaseConnection;
 import serviceprovidingsystem.UserWindows.HomeWindow;
 

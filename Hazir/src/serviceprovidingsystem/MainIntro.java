@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package serviceprovidingsystem;
+import serviceprovidingsystem.MapAndAnimation.Animations;
 import java.awt.Color;
 import serviceprovidingsystem.Database.DatabaseConnection;
 

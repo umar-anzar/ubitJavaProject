@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package serviceprovidingsystem.AdressWindow;
+package serviceprovidingsystem.UserWindows;
 
 import java.awt.Color;
-import serviceprovidingsystem.Animations;
+import serviceprovidingsystem.MapAndAnimation.GoogleMapsClass;
+import serviceprovidingsystem.MapAndAnimation.Animations;
 import serviceprovidingsystem.Database.DatabaseConnection;
 import serviceprovidingsystem.SignInWindow;
 /**
@@ -185,7 +186,7 @@ public class AddressWindow extends javax.swing.JFrame {
         );
 
         jLayeredPane1.add(tItleBar);
-        tItleBar.setBounds(250, 0, 561, 70);
+        tItleBar.setBounds(250, 0, 0, 70);
 
         sandwichSettingPanel.setkBorderRadius(15);
         sandwichSettingPanel.setkEndColor(new java.awt.Color(60, 156, 220));
@@ -321,7 +322,6 @@ public class AddressWindow extends javax.swing.JFrame {
         btnSetMarker.setkHoverForeGround(new java.awt.Color(0, 0, 0));
         btnSetMarker.setkHoverStartColor(new java.awt.Color(255, 255, 255));
         btnSetMarker.setkStartColor(new java.awt.Color(226, 226, 226));
-        btnSetMarker.setOpaque(true);
         btnSetMarker.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSetMarkerActionPerformed(evt);
@@ -520,7 +520,7 @@ public class AddressWindow extends javax.swing.JFrame {
         );
 
         jLayeredPane1.add(homeBackgroundPanel);
-        homeBackgroundPanel.setBounds(0, 50, 1070, 552);
+        homeBackgroundPanel.setBounds(0, 50, 1070, 0);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
