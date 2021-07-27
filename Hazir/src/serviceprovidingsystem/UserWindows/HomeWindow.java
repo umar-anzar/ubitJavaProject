@@ -44,6 +44,7 @@ public class HomeWindow extends javax.swing.JFrame {
     public HomeWindow(DatabaseConnection database) {
         initComponents();
         this.database = database;
+        btnCloseJobOptions.setVisible(false);//not show close btn until selection
         this.setBackground(new Color(0,0,0,0));
         this.setOpacity(0f);
         this.setLocationRelativeTo(null);
@@ -99,6 +100,7 @@ public class HomeWindow extends javax.swing.JFrame {
         jobTypeLabel3 = new javax.swing.JLabel();
         SpinnerModel model = new SpinnerNumberModel(1, 1, 10, 1);
         jSpinner1 = new javax.swing.JSpinner(model);
+        btnCloseJobOptions = new javax.swing.JLabel();
         kGradientPanel19 = new com.k33ptoo.components.KGradientPanel();
         jLabel8 = new javax.swing.JLabel();
         btnElectrician = new com.k33ptoo.components.KButton();
@@ -549,7 +551,16 @@ public class HomeWindow extends javax.swing.JFrame {
 
         jSpinner1.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
         jSpinner1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        SelectOptionsWindow.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, -1, -1));
+        SelectOptionsWindow.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, -1, -1));
+
+        btnCloseJobOptions.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/HomeWindow/closeJobIcon_32px.png"))); // NOI18N
+        btnCloseJobOptions.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCloseJobOptions.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCloseJobOptionsMouseClicked(evt);
+            }
+        });
+        SelectOptionsWindow.add(btnCloseJobOptions, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 30, 30));
 
         kGradientPanel19.setkBorderRadius(20);
         kGradientPanel19.setkEndColor(new java.awt.Color(204, 204, 204));
@@ -689,6 +700,11 @@ public class HomeWindow extends javax.swing.JFrame {
         btnUnavailable.setkPressedColor(new java.awt.Color(207, 233, 250));
         btnUnavailable.setkStartColor(new java.awt.Color(180, 225, 255));
         btnUnavailable.setPreferredSize(new java.awt.Dimension(119, 125));
+        btnUnavailable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUnavailableActionPerformed(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 14)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -861,6 +877,7 @@ public class HomeWindow extends javax.swing.JFrame {
             //dont code here
         } else {
             //code here
+            btnCloseJobOptions.setVisible(true);
             isElectrician = true;
             isPlumber = false;
             isMechanic = false;
@@ -881,6 +898,7 @@ public class HomeWindow extends javax.swing.JFrame {
         if(isSandwhichSettingPanelOpen){
             //dont code here
         } else {
+            btnCloseJobOptions.setVisible(true);
             isElectrician = false;
             isPlumber = true;
             isMechanic = false;
@@ -901,6 +919,7 @@ public class HomeWindow extends javax.swing.JFrame {
         if(isSandwhichSettingPanelOpen){
             //dont code here
         } else {
+            btnCloseJobOptions.setVisible(true);
             isElectrician = false;
             isPlumber = false;
             isMechanic = true;
@@ -921,6 +940,7 @@ public class HomeWindow extends javax.swing.JFrame {
         if(isSandwhichSettingPanelOpen){
             //dont code here
         } else {
+            btnCloseJobOptions.setVisible(true);
             isElectrician = false;
             isPlumber = false;
             isMechanic = false;
@@ -941,6 +961,7 @@ public class HomeWindow extends javax.swing.JFrame {
         if(isSandwhichSettingPanelOpen){
             //dont code here
         } else {
+            btnCloseJobOptions.setVisible(true);
             isElectrician = false;
             isPlumber = false;
             isMechanic = false;
@@ -966,6 +987,44 @@ public class HomeWindow extends javax.swing.JFrame {
         XMouse = evt.getX() + (int) homeBackgroundPanel.getX()+ 255;
         YMouse = evt.getY() + (int) homeBackgroundPanel.getY() - 38;
     }//GEN-LAST:event_homeBarMousePressed
+    
+    private void btnUnavailableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUnavailableActionPerformed
+        // TODO add your handling code here:
+        //CLOSE THE OPTIONS
+        if(isSandwhichSettingPanelOpen){
+            //dont code here
+        } else {
+            isElectrician = false;
+            isPlumber = false;
+            isMechanic = false;
+            isEventManager = false;
+            isLabour = false;
+            jobTypeLabel1.setText("");
+            jobTypeLabel2.setText("");
+            jobTypeLabel3.setText("");
+            jobTypeLabel4.setText("");
+            btnCloseJobOptions.setVisible(false);
+        }
+    }//GEN-LAST:event_btnUnavailableActionPerformed
+
+    private void btnCloseJobOptionsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseJobOptionsMouseClicked
+        // TODO add your handling code here:
+        //CLOSE THE OPTIONS
+        if(isSandwhichSettingPanelOpen){
+            //dont code here
+        } else {
+            isElectrician = false;
+            isPlumber = false;
+            isMechanic = false;
+            isEventManager = false;
+            isLabour = false;
+            jobTypeLabel1.setText("");
+            jobTypeLabel2.setText("");
+            jobTypeLabel3.setText("");
+            jobTypeLabel4.setText("");
+            btnCloseJobOptions.setVisible(false);
+        }
+    }//GEN-LAST:event_btnCloseJobOptionsMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1005,6 +1064,7 @@ public class HomeWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.k33ptoo.components.KGradientPanel SelectOptionsWindow;
+    private javax.swing.JLabel btnCloseJobOptions;
     private com.k33ptoo.components.KButton btnElectrician;
     private com.k33ptoo.components.KButton btnEventManager;
     private com.k33ptoo.components.KButton btnJobType1;
