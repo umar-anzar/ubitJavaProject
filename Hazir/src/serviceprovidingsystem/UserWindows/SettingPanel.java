@@ -52,6 +52,7 @@ public class SettingPanel extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         btnSettingAccept = new com.k33ptoo.components.KButton();
         passwordField = new javax.swing.JPasswordField();
+        errorLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Settings");
@@ -62,6 +63,11 @@ public class SettingPanel extends javax.swing.JFrame {
         kGradientPanel1.setkTransparentControls(false);
 
         mobileNumberField.setText("jTextField1");
+        mobileNumberField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mobileNumberFieldActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(28, 40, 51));
@@ -69,7 +75,7 @@ public class SettingPanel extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(28, 40, 51));
-        jLabel2.setText("Mobile no.");
+        jLabel2.setText("Mobile No.");
 
         btnSettingAccept.setText("OK");
         btnSettingAccept.setBorderPainted(false);
@@ -88,6 +94,14 @@ public class SettingPanel extends javax.swing.JFrame {
         });
 
         passwordField.setText("jPasswordField1");
+        passwordField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordFieldActionPerformed(evt);
+            }
+        });
+
+        errorLabel.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
+        errorLabel.setForeground(new java.awt.Color(193, 56, 56));
 
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
@@ -95,17 +109,18 @@ public class SettingPanel extends javax.swing.JFrame {
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnSettingAccept, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1))
+                .addGap(118, 118, 118)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1))
-                        .addGap(118, 118, 118)
-                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(mobileNumberField)
-                            .addComponent(passwordField, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE))))
-                .addContainerGap(76, Short.MAX_VALUE))
+                        .addComponent(errorLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSettingAccept, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(mobileNumberField, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(passwordField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,7 +136,9 @@ public class SettingPanel extends javax.swing.JFrame {
                         .addGap(2, 2, 2)
                         .addComponent(mobileNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addComponent(btnSettingAccept, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnSettingAccept, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
@@ -141,14 +158,29 @@ public class SettingPanel extends javax.swing.JFrame {
 
     private void btnSettingAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSettingAcceptActionPerformed
         // TODO add your handling code here:
-        if (passwordField.getText().isEmpty() && mobileNumberField.getText().isEmpty()) {
+        System.out.println(passwordField.getText().isEmpty());
+        if (passwordField.getText().isEmpty() || mobileNumberField.getText().isEmpty()) {
+            errorLabel.setText("Fields are empty");
+        } else if(mobileNumberField.getText().length() != 11) {
+            errorLabel.setText("Mobile Number is incorrect");
         } else {
             this.database.currentUser.setPassword(passwordField.getText());
             this.database.currentUser.setContactNumber(mobileNumberField.getText());
             this.database.UPDATE_USER();
+            System.out.println("UPDATED_USER");
             this.dispose();
         }
     }//GEN-LAST:event_btnSettingAcceptActionPerformed
+
+    private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
+        // TODO add your handling code here:
+        errorLabel.setText("");
+    }//GEN-LAST:event_passwordFieldActionPerformed
+
+    private void mobileNumberFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mobileNumberFieldActionPerformed
+        // TODO add your handling code here:
+        errorLabel.setText("");
+    }//GEN-LAST:event_mobileNumberFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -187,6 +219,7 @@ public class SettingPanel extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.k33ptoo.components.KButton btnSettingAccept;
+    private javax.swing.JLabel errorLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private com.k33ptoo.components.KGradientPanel kGradientPanel1;

@@ -36,8 +36,9 @@ public class HomeWindow extends javax.swing.JFrame {
     //Movable HomeBarPanel
         int XMouse;
         int YMouse;
-    
-        
+    //Option button Pricing
+        double option1=0, option2=0, option3=0, option4=0;
+
         
     public HomeWindow(){
         initComponents();
@@ -98,9 +99,8 @@ public class HomeWindow extends javax.swing.JFrame {
         jobTypeLabel1 = new javax.swing.JLabel();
         jobTypeLabel2 = new javax.swing.JLabel();
         jobTypeLabel3 = new javax.swing.JLabel();
-        SpinnerModel model = new SpinnerNumberModel(1, 1, 10, 1);
-        jSpinner1 = new javax.swing.JSpinner(model);
         btnCloseJobOptions = new javax.swing.JLabel();
+        jobSelectedShowLabel = new javax.swing.JLabel();
         kGradientPanel19 = new com.k33ptoo.components.KGradientPanel();
         jLabel8 = new javax.swing.JLabel();
         btnElectrician = new com.k33ptoo.components.KButton();
@@ -275,6 +275,11 @@ public class HomeWindow extends javax.swing.JFrame {
         btnSettingNumber.setkHoverForeGround(new java.awt.Color(0, 0, 0));
         btnSettingNumber.setkHoverStartColor(new java.awt.Color(240, 239, 239));
         btnSettingNumber.setkStartColor(new java.awt.Color(255, 255, 255));
+        btnSettingNumber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSettingNumberActionPerformed(evt);
+            }
+        });
         sandwichSettingPanel.add(btnSettingNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 203, 280, 30));
 
         jLabel1.setFont(new java.awt.Font("Microsoft YaHei UI Light", 1, 18)); // NOI18N
@@ -456,7 +461,12 @@ public class HomeWindow extends javax.swing.JFrame {
         btnJobType3.setkHoverForeGround(new java.awt.Color(0, 0, 0));
         btnJobType3.setkHoverStartColor(new java.awt.Color(240, 239, 239));
         btnJobType3.setkStartColor(new java.awt.Color(255, 255, 255));
-        SelectOptionsWindow.add(btnJobType3, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 285, 76, -1));
+        btnJobType3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnJobType3ActionPerformed(evt);
+            }
+        });
+        SelectOptionsWindow.add(btnJobType3, new org.netbeans.lib.awtextra.AbsoluteConstraints(347, 285, 60, -1));
 
         workderJobLabel.setFont(new java.awt.Font("Microsoft YaHei UI Light", 0, 24)); // NOI18N
         workderJobLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -472,7 +482,12 @@ public class HomeWindow extends javax.swing.JFrame {
         btnJobType1.setkHoverForeGround(new java.awt.Color(0, 0, 0));
         btnJobType1.setkHoverStartColor(new java.awt.Color(240, 239, 239));
         btnJobType1.setkStartColor(new java.awt.Color(255, 255, 255));
-        SelectOptionsWindow.add(btnJobType1, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 105, 76, -1));
+        btnJobType1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnJobType1ActionPerformed(evt);
+            }
+        });
+        SelectOptionsWindow.add(btnJobType1, new org.netbeans.lib.awtextra.AbsoluteConstraints(347, 105, 60, -1));
 
         btnJobType2.setBorderPainted(false);
         btnJobType2.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
@@ -483,7 +498,12 @@ public class HomeWindow extends javax.swing.JFrame {
         btnJobType2.setkHoverForeGround(new java.awt.Color(0, 0, 0));
         btnJobType2.setkHoverStartColor(new java.awt.Color(240, 239, 239));
         btnJobType2.setkStartColor(new java.awt.Color(255, 255, 255));
-        SelectOptionsWindow.add(btnJobType2, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 194, 76, -1));
+        btnJobType2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnJobType2ActionPerformed(evt);
+            }
+        });
+        SelectOptionsWindow.add(btnJobType2, new org.netbeans.lib.awtextra.AbsoluteConstraints(347, 194, 60, -1));
 
         btnJobType4.setBorderPainted(false);
         btnJobType4.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
@@ -494,7 +514,12 @@ public class HomeWindow extends javax.swing.JFrame {
         btnJobType4.setkHoverForeGround(new java.awt.Color(0, 0, 0));
         btnJobType4.setkHoverStartColor(new java.awt.Color(240, 239, 239));
         btnJobType4.setkStartColor(new java.awt.Color(255, 255, 255));
-        SelectOptionsWindow.add(btnJobType4, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 380, 76, -1));
+        btnJobType4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnJobType4ActionPerformed(evt);
+            }
+        });
+        SelectOptionsWindow.add(btnJobType4, new org.netbeans.lib.awtextra.AbsoluteConstraints(347, 380, 60, -1));
 
         jobTypeLabel4.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 15)); // NOI18N
         jobTypeLabel4.setForeground(new java.awt.Color(28, 40, 51));
@@ -512,10 +537,6 @@ public class HomeWindow extends javax.swing.JFrame {
         jobTypeLabel3.setForeground(new java.awt.Color(28, 40, 51));
         SelectOptionsWindow.add(jobTypeLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 320, 40));
 
-        jSpinner1.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
-        jSpinner1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        SelectOptionsWindow.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, -1, -1));
-
         btnCloseJobOptions.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/HomeWindow/closeJobIcon_32px.png"))); // NOI18N
         btnCloseJobOptions.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCloseJobOptions.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -524,6 +545,11 @@ public class HomeWindow extends javax.swing.JFrame {
             }
         });
         SelectOptionsWindow.add(btnCloseJobOptions, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 30, 30));
+
+        jobSelectedShowLabel.setForeground(new java.awt.Color(28, 40, 51));
+        jobSelectedShowLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jobSelectedShowLabel.setText("-");
+        SelectOptionsWindow.add(jobSelectedShowLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 456, 380, 40));
 
         kGradientPanel19.setkBorderRadius(20);
         kGradientPanel19.setkEndColor(new java.awt.Color(204, 204, 204));
@@ -846,10 +872,11 @@ public class HomeWindow extends javax.swing.JFrame {
             isMechanic = false;
             isEventManager = false;
             isLabour = false;
-            jobTypeLabel1.setText("Fault Diagnosis");
-            jobTypeLabel2.setText("Device Installation");
-            jobTypeLabel3.setText("Replacement High Voltage Switch Board");
-            jobTypeLabel4.setText("Air Condition Installation");
+            jobTypeLabel1.setText("Fault Diagnosis");//500
+            //btnJobType1.setText(String.valueOf());
+            jobTypeLabel2.setText("Device Installation");//1000
+            jobTypeLabel3.setText("Replacement High Voltage Switch Board");//1200
+            jobTypeLabel4.setText("Air Condition Installation");//6000
 
         }
     }//GEN-LAST:event_btnElectricianActionPerformed
@@ -867,10 +894,10 @@ public class HomeWindow extends javax.swing.JFrame {
             isMechanic = false;
             isEventManager = false;
             isLabour = false;
-            jobTypeLabel1.setText("Basic Plumbing(Taps and Piping)");
-            jobTypeLabel2.setText("Sanitary Ware Installation");
-            jobTypeLabel3.setText("Gas and Kitchen Piping");
-            jobTypeLabel4.setText("Full Room through wall Piping");
+            jobTypeLabel1.setText("Basic Plumbing(Taps and Piping)");//500
+            jobTypeLabel2.setText("Sanitary Ware Installation");//2000
+            jobTypeLabel3.setText("Gas and Kitchen Piping");//6000
+            jobTypeLabel4.setText("Full Room through wall Piping");//15,000
  
         }
     }//GEN-LAST:event_btnPlumberActionPerformed
@@ -888,10 +915,10 @@ public class HomeWindow extends javax.swing.JFrame {
             isMechanic = true;
             isEventManager = false;
             isLabour = false;
-            jobTypeLabel1.setText("Car Fault Diagnosis");
-            jobTypeLabel2.setText("Petrol Delivery and Emergency Help");
-            jobTypeLabel3.setText("Car Battery/Tire/Oil Replacement");
-            jobTypeLabel4.setText("Full Car Service");
+            jobTypeLabel1.setText("Car Fault Diagnosis");//1000
+            jobTypeLabel2.setText("Petrol Delivery and Emergency Help");//800
+            jobTypeLabel3.setText("Car Battery/Tire/Oil Replacement");//2000
+            jobTypeLabel4.setText("Full Car Service");//4000
             
         }
     }//GEN-LAST:event_btnMechanicActionPerformed
@@ -909,10 +936,10 @@ public class HomeWindow extends javax.swing.JFrame {
             isMechanic = false;
             isEventManager = true;
             isLabour = false;
-            jobTypeLabel1.setText("Houseparty Managment");
-            jobTypeLabel2.setText("Wedding Managment");
-            jobTypeLabel3.setText("University Event Managment");
-            jobTypeLabel4.setText("Public Event Management");
+            jobTypeLabel1.setText("Houseparty Managment");//20000
+            jobTypeLabel2.setText("Wedding Managment");//50000
+            jobTypeLabel3.setText("University Event Managment");//30000
+            jobTypeLabel4.setText("Public Event Management");//40000
             
         }
     }//GEN-LAST:event_btnEventManagerActionPerformed
@@ -930,10 +957,10 @@ public class HomeWindow extends javax.swing.JFrame {
             isMechanic = false;
             isEventManager = false;
             isLabour = true;
-            jobTypeLabel1.setText("House Structural Fixes");
-            jobTypeLabel2.setText("Full Room Tiling");
-            jobTypeLabel3.setText("Wall/Roof Construction(2 Labours)");
-            jobTypeLabel4.setText("Full Room Construction(4 Labours)");
+            jobTypeLabel1.setText("House Structural Fixes");//
+            jobTypeLabel2.setText("Full Room Tiling");//30000
+            jobTypeLabel3.setText("Wall/Roof Construction(2 Labours)");//20000
+            jobTypeLabel4.setText("Full Room Construction(4 Labours)");//40000
             
         }
     }//GEN-LAST:event_btnLabourActionPerformed
@@ -991,7 +1018,81 @@ public class HomeWindow extends javax.swing.JFrame {
 
     private void btnSettingPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSettingPasswordActionPerformed
         // TODO add your handling code here:
+        new SettingPanel(database).setVisible(true);//open setting panel
     }//GEN-LAST:event_btnSettingPasswordActionPerformed
+
+    private void btnSettingNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSettingNumberActionPerformed
+        // TODO add your handling code here:
+        btnSettingPasswordActionPerformed(evt);//open same setting panel
+    }//GEN-LAST:event_btnSettingNumberActionPerformed
+
+    private void btnJobType1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJobType1ActionPerformed
+        // TODO add your handling code here:
+        if(isElectrician){
+            
+        } else if(isMechanic) {
+            
+        } else if(isLabour) {
+            
+        } else if(isPlumber) {
+            
+        } else if(isEventManager) {
+            
+        } else {
+            return;
+        }
+    }//GEN-LAST:event_btnJobType1ActionPerformed
+
+    private void btnJobType2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJobType2ActionPerformed
+        // TODO add your handling code here:
+        if(isElectrician){
+            
+        } else if(isMechanic) {
+            
+        } else if(isLabour) {
+            
+        } else if(isPlumber) {
+            
+        } else if(isEventManager) {
+            
+        } else {
+            return;
+        }
+    }//GEN-LAST:event_btnJobType2ActionPerformed
+
+    private void btnJobType3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJobType3ActionPerformed
+        // TODO add your handling code here:
+        if(isElectrician){
+            
+        } else if(isMechanic) {
+            
+        } else if(isLabour) {
+            
+        } else if(isPlumber) {
+            
+        } else if(isEventManager) {
+            
+        } else {
+            return;
+        }
+    }//GEN-LAST:event_btnJobType3ActionPerformed
+
+    private void btnJobType4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJobType4ActionPerformed
+        // TODO add your handling code here:
+        if(isElectrician){
+            
+        } else if(isMechanic) {
+            
+        } else if(isLabour) {
+            
+        } else if(isPlumber) {
+            
+        } else if(isEventManager) {
+            
+        } else {
+            return;
+        }
+    }//GEN-LAST:event_btnJobType4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1063,7 +1164,7 @@ public class HomeWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JLabel jobSelectedShowLabel;
     private javax.swing.JLabel jobTypeLabel1;
     private javax.swing.JLabel jobTypeLabel2;
     private javax.swing.JLabel jobTypeLabel3;

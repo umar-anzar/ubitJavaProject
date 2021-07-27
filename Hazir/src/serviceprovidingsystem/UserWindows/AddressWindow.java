@@ -208,6 +208,11 @@ public class AddressWindow extends javax.swing.JFrame {
         btnSettingPassword.setkHoverForeGround(new java.awt.Color(0, 0, 0));
         btnSettingPassword.setkHoverStartColor(new java.awt.Color(240, 239, 239));
         btnSettingPassword.setkStartColor(new java.awt.Color(255, 255, 255));
+        btnSettingPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSettingPasswordActionPerformed(evt);
+            }
+        });
         sandwichSettingPanel.add(btnSettingPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 280, 30));
 
         btnSettingNumber.setText("Mobile number");
@@ -219,6 +224,11 @@ public class AddressWindow extends javax.swing.JFrame {
         btnSettingNumber.setkHoverForeGround(new java.awt.Color(0, 0, 0));
         btnSettingNumber.setkHoverStartColor(new java.awt.Color(240, 239, 239));
         btnSettingNumber.setkStartColor(new java.awt.Color(255, 255, 255));
+        btnSettingNumber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSettingNumberActionPerformed(evt);
+            }
+        });
         sandwichSettingPanel.add(btnSettingNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 280, 30));
 
         signOutBtn1.setText("Sign Out");
@@ -596,6 +606,16 @@ public class AddressWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
         GoogleMapsClass.showServiceArea();
     }//GEN-LAST:event_btnAvailableAreasActionPerformed
+
+    private void btnSettingPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSettingPasswordActionPerformed
+        // TODO add your handling code here:
+        new SettingPanel(database).setVisible(true);//open setting panel
+    }//GEN-LAST:event_btnSettingPasswordActionPerformed
+
+    private void btnSettingNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSettingNumberActionPerformed
+        // TODO add your handling code here:
+        btnSettingPasswordActionPerformed(evt);//open same setting panel
+    }//GEN-LAST:event_btnSettingNumberActionPerformed
 
     /**
      * @param args the command line arguments
