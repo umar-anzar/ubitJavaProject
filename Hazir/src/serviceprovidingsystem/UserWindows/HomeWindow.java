@@ -876,13 +876,13 @@ public class HomeWindow extends javax.swing.JFrame {
             option2 = 1000;
             option3 = 1200;
             option4 = 6000;
-            jobTypeLabel1.setText("Fault Diagnosis");//500
+            jobTypeLabel1.setText("Fault Diagnosis");
             btnJobType1.setText(String.valueOf(option1));
-            jobTypeLabel2.setText("Device Installation");//1000
+            jobTypeLabel2.setText("Device Installation");
             btnJobType2.setText(String.valueOf(option2));
-            jobTypeLabel3.setText("Replacement High Voltage Switch Board");//1200
+            jobTypeLabel3.setText("Replacement High Voltage Switch Board");
             btnJobType3.setText(String.valueOf(option3));
-            jobTypeLabel4.setText("Air Condition Installation");//6000
+            jobTypeLabel4.setText("Air Condition Installation");
             btnJobType4.setText(String.valueOf(option4));
 
         }
@@ -901,10 +901,18 @@ public class HomeWindow extends javax.swing.JFrame {
             isMechanic = false;
             isEventManager = false;
             isLabour = false;
-            jobTypeLabel1.setText("Basic Plumbing(Taps and Piping)");//500
-            jobTypeLabel2.setText("Sanitary Ware Installation");//2000
-            jobTypeLabel3.setText("Gas and Kitchen Piping");//6000
-            jobTypeLabel4.setText("Full Room through wall Piping");//15,000
+            option1 = 1000;
+            option2 = 2000;
+            option3 = 6000;
+            option4 = 15000;
+            jobTypeLabel1.setText("Basic Plumbing(Taps and Piping)");
+            btnJobType1.setText(String.valueOf(option1));
+            jobTypeLabel2.setText("Sanitary Ware Installation");
+            btnJobType2.setText(String.valueOf(option2));
+            jobTypeLabel3.setText("Gas and Kitchen Piping");
+            btnJobType3.setText(String.valueOf(option3));
+            jobTypeLabel4.setText("Full Room through wall Piping");
+            btnJobType4.setText(String.valueOf(option4));
  
         }
     }//GEN-LAST:event_btnPlumberActionPerformed
@@ -922,10 +930,18 @@ public class HomeWindow extends javax.swing.JFrame {
             isMechanic = true;
             isEventManager = false;
             isLabour = false;
-            jobTypeLabel1.setText("Car Fault Diagnosis");//1000
-            jobTypeLabel2.setText("Petrol Delivery and Emergency Help");//800
-            jobTypeLabel3.setText("Car Battery/Tire/Oil Replacement");//2000
-            jobTypeLabel4.setText("Full Car Service");//4000
+            option1 = 1000;
+            option2 = 800;
+            option3 = 2000;
+            option4 = 4000;
+            jobTypeLabel1.setText("Car Fault Diagnosis");
+            btnJobType1.setText(String.valueOf(option1));
+            jobTypeLabel2.setText("Petrol Delivery and Emergency Help");
+            btnJobType2.setText(String.valueOf(option2));
+            jobTypeLabel3.setText("Car Battery/Tire/Oil Replacement");
+            btnJobType3.setText(String.valueOf(option3));
+            jobTypeLabel4.setText("Full Car Service");
+            btnJobType4.setText(String.valueOf(option4));
             
         }
     }//GEN-LAST:event_btnMechanicActionPerformed
@@ -943,10 +959,18 @@ public class HomeWindow extends javax.swing.JFrame {
             isMechanic = false;
             isEventManager = true;
             isLabour = false;
-            jobTypeLabel1.setText("Houseparty Managment");//20000
-            jobTypeLabel2.setText("Wedding Managment");//50000
-            jobTypeLabel3.setText("University Event Managment");//30000
-            jobTypeLabel4.setText("Public Event Management");//40000
+            option1 = 20000;
+            option2 = 50000;
+            option3 = 30000;
+            option4 = 40000;
+            jobTypeLabel1.setText("Houseparty Managment");
+            btnJobType1.setText(String.valueOf(option1));
+            jobTypeLabel2.setText("Wedding Managment");
+            btnJobType2.setText(String.valueOf(option2));
+            jobTypeLabel3.setText("University Event Managment");
+            btnJobType3.setText(String.valueOf(option3));
+            jobTypeLabel4.setText("Public Event Management");
+            btnJobType4.setText(String.valueOf(option4));
             
         }
     }//GEN-LAST:event_btnEventManagerActionPerformed
@@ -964,10 +988,18 @@ public class HomeWindow extends javax.swing.JFrame {
             isMechanic = false;
             isEventManager = false;
             isLabour = true;
-            jobTypeLabel1.setText("House Structural Fixes");//
-            jobTypeLabel2.setText("Full Room Tiling");//30000
-            jobTypeLabel3.setText("Wall/Roof Construction(2 Labours)");//20000
-            jobTypeLabel4.setText("Full Room Construction(4 Labours)");//40000
+            option1 = 5000;
+            option2 = 30000;
+            option3 = 40000;
+            option4 = 60000;
+            jobTypeLabel1.setText("House Structural Fixes");
+            btnJobType1.setText(String.valueOf(option1));
+            jobTypeLabel2.setText("Full Room Tiling");
+            btnJobType2.setText(String.valueOf(option2));
+            jobTypeLabel3.setText("Wall/Roof Construction(2 Labours)");
+            btnJobType3.setText(String.valueOf(option3));
+            jobTypeLabel4.setText("Full Room Construction(4 Labours)");
+            btnJobType4.setText(String.valueOf(option4));
             
         }
     }//GEN-LAST:event_btnLabourActionPerformed
