@@ -208,10 +208,9 @@ public class HomeWindow extends javax.swing.JFrame {
         );
         tItleBarLayout.setVerticalGroup(
             tItleBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tItleBarLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(homeBar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tItleBarLayout.createSequentialGroup()
+                .addComponent(homeBar, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jLayeredPane1.add(tItleBar);
@@ -221,6 +220,7 @@ public class HomeWindow extends javax.swing.JFrame {
         sandwichSettingPanel.setkEndColor(new java.awt.Color(60, 156, 220));
         sandwichSettingPanel.setkStartColor(new java.awt.Color(180, 225, 255));
         sandwichSettingPanel.setOpaque(false);
+        sandwichSettingPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         signOutBtn1.setText("Sign Out");
         signOutBtn1.setBorderPainted(false);
@@ -236,6 +236,7 @@ public class HomeWindow extends javax.swing.JFrame {
                 signOutBtn1ActionPerformed(evt);
             }
         });
+        sandwichSettingPanel.add(signOutBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 280, 30));
 
         signOutBtn2.setText("Password");
         signOutBtn2.setBorderPainted(false);
@@ -246,6 +247,7 @@ public class HomeWindow extends javax.swing.JFrame {
         signOutBtn2.setkHoverForeGround(new java.awt.Color(0, 0, 0));
         signOutBtn2.setkHoverStartColor(new java.awt.Color(240, 239, 239));
         signOutBtn2.setkStartColor(new java.awt.Color(255, 255, 255));
+        sandwichSettingPanel.add(signOutBtn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 155, 280, 30));
 
         signOutBtn4.setText("Address");
         signOutBtn4.setBorderPainted(false);
@@ -256,6 +258,7 @@ public class HomeWindow extends javax.swing.JFrame {
         signOutBtn4.setkHoverForeGround(new java.awt.Color(0, 0, 0));
         signOutBtn4.setkHoverStartColor(new java.awt.Color(240, 239, 239));
         signOutBtn4.setkStartColor(new java.awt.Color(255, 255, 255));
+        sandwichSettingPanel.add(signOutBtn4, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 251, 280, 30));
 
         signOutBtn5.setText("Mobile number");
         signOutBtn5.setBorderPainted(false);
@@ -266,45 +269,13 @@ public class HomeWindow extends javax.swing.JFrame {
         signOutBtn5.setkHoverForeGround(new java.awt.Color(0, 0, 0));
         signOutBtn5.setkHoverStartColor(new java.awt.Color(240, 239, 239));
         signOutBtn5.setkStartColor(new java.awt.Color(255, 255, 255));
+        sandwichSettingPanel.add(signOutBtn5, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 203, 280, 30));
 
         jLabel1.setFont(new java.awt.Font("Microsoft YaHei UI Light", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/HomeWindow/settings_32px.png"))); // NOI18N
         jLabel1.setText("Settings");
-
-        javax.swing.GroupLayout sandwichSettingPanelLayout = new javax.swing.GroupLayout(sandwichSettingPanel);
-        sandwichSettingPanel.setLayout(sandwichSettingPanelLayout);
-        sandwichSettingPanelLayout.setHorizontalGroup(
-            sandwichSettingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(sandwichSettingPanelLayout.createSequentialGroup()
-                .addGroup(sandwichSettingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(sandwichSettingPanelLayout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addGroup(sandwichSettingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(signOutBtn5, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(signOutBtn4, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(signOutBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(signOutBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(sandwichSettingPanelLayout.createSequentialGroup()
-                        .addGap(146, 146, 146)
-                        .addComponent(jLabel1)))
-                .addContainerGap(69, Short.MAX_VALUE))
-        );
-        sandwichSettingPanelLayout.setVerticalGroup(
-            sandwichSettingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(sandwichSettingPanelLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel1)
-                .addGap(103, 103, 103)
-                .addComponent(signOutBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(signOutBtn5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(signOutBtn4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(signOutBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(151, Short.MAX_VALUE))
-        );
+        sandwichSettingPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(146, 20, -1, -1));
 
         jLayeredPane1.add(sandwichSettingPanel);
         sandwichSettingPanel.setBounds(62, 80, 410, 480);
@@ -971,7 +942,7 @@ public class HomeWindow extends javax.swing.JFrame {
     private void homeBarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBarMousePressed
         // TODO add your handling code here:
         XMouse = evt.getX() + (int) homeBackgroundPanel.getX()+ 255;
-        YMouse = evt.getY() + (int) homeBackgroundPanel.getY() - 38;
+        YMouse = evt.getY() + (int) homeBackgroundPanel.getY() - 50;
     }//GEN-LAST:event_homeBarMousePressed
     
     private void btnUnavailableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUnavailableActionPerformed
