@@ -38,6 +38,7 @@ public class HomeWindow extends javax.swing.JFrame {
         int YMouse;
     //Option button Pricing
         double option1=0, option2=0, option3=0, option4=0;
+        double totalCost;
 
         
     public HomeWindow(){
@@ -53,6 +54,10 @@ public class HomeWindow extends javax.swing.JFrame {
         this.sandwichSettingPanel.setVisible(false);
         widthOfSettingPanel =  this.sandwichSettingPanel.getWidth();
         heightOfSettingPanel = this.sandwichSettingPanel.getHeight();
+        optionLabel1.setVisible(false);
+        optionLabel2.setVisible(false);
+        optionLabel3.setVisible(false);
+        optionLabel4.setVisible(false);
     }
 
     /**
@@ -101,6 +106,10 @@ public class HomeWindow extends javax.swing.JFrame {
         jobTypeLabel3 = new javax.swing.JLabel();
         btnCloseJobOptions = new javax.swing.JLabel();
         jobSelectedShowLabel = new javax.swing.JLabel();
+        optionLabel4 = new javax.swing.JLabel();
+        optionLabel1 = new javax.swing.JLabel();
+        optionLabel2 = new javax.swing.JLabel();
+        optionLabel3 = new javax.swing.JLabel();
         kGradientPanel19 = new com.k33ptoo.components.KGradientPanel();
         jLabel8 = new javax.swing.JLabel();
         btnElectrician = new com.k33ptoo.components.KButton();
@@ -363,7 +372,7 @@ public class HomeWindow extends javax.swing.JFrame {
             kGradientPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel12Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 433, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 441, Short.MAX_VALUE)
                 .addContainerGap())
         );
         kGradientPanel12Layout.setVerticalGroup(
@@ -535,7 +544,7 @@ public class HomeWindow extends javax.swing.JFrame {
 
         jobTypeLabel3.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 15)); // NOI18N
         jobTypeLabel3.setForeground(new java.awt.Color(28, 40, 51));
-        SelectOptionsWindow.add(jobTypeLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 320, 40));
+        SelectOptionsWindow.add(jobTypeLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 310, 40));
 
         btnCloseJobOptions.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/HomeWindow/closeJobIcon_32px.png"))); // NOI18N
         btnCloseJobOptions.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -550,6 +559,18 @@ public class HomeWindow extends javax.swing.JFrame {
         jobSelectedShowLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jobSelectedShowLabel.setText("-");
         SelectOptionsWindow.add(jobSelectedShowLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 456, 380, 40));
+
+        optionLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/HomeWindow/checkmark_16px.png"))); // NOI18N
+        SelectOptionsWindow.add(optionLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 380, -1, 40));
+
+        optionLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/HomeWindow/checkmark_16px.png"))); // NOI18N
+        SelectOptionsWindow.add(optionLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, -1, 40));
+
+        optionLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/HomeWindow/checkmark_16px.png"))); // NOI18N
+        SelectOptionsWindow.add(optionLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, -1, 40));
+
+        optionLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/HomeWindow/checkmark_16px.png"))); // NOI18N
+        SelectOptionsWindow.add(optionLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, -1, 40));
 
         kGradientPanel19.setkBorderRadius(20);
         kGradientPanel19.setkEndColor(new java.awt.Color(204, 204, 204));
@@ -749,7 +770,7 @@ public class HomeWindow extends javax.swing.JFrame {
                     .addComponent(kGradientPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(kGradientPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(kGradientPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(kGradientPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE)
+                    .addComponent(kGradientPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, 453, Short.MAX_VALUE)
                     .addComponent(kGradientPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
                 .addComponent(SelectOptionsWindow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -866,6 +887,7 @@ public class HomeWindow extends javax.swing.JFrame {
             //dont code here
         } else {
             //code here
+            optionLabelsSetToFalse();
             btnCloseJobOptions.setVisible(true);
             isElectrician = true;
             isPlumber = false;
@@ -895,6 +917,7 @@ public class HomeWindow extends javax.swing.JFrame {
         if(isSandwhichSettingPanelOpen){
             //dont code here
         } else {
+            optionLabelsSetToFalse();
             btnCloseJobOptions.setVisible(true);
             isElectrician = false;
             isPlumber = true;
@@ -924,6 +947,7 @@ public class HomeWindow extends javax.swing.JFrame {
         if(isSandwhichSettingPanelOpen){
             //dont code here
         } else {
+            optionLabelsSetToFalse();
             btnCloseJobOptions.setVisible(true);
             isElectrician = false;
             isPlumber = false;
@@ -953,6 +977,7 @@ public class HomeWindow extends javax.swing.JFrame {
         if(isSandwhichSettingPanelOpen){
             //dont code here
         } else {
+            optionLabelsSetToFalse();
             btnCloseJobOptions.setVisible(true);
             isElectrician = false;
             isPlumber = false;
@@ -982,6 +1007,7 @@ public class HomeWindow extends javax.swing.JFrame {
         if(isSandwhichSettingPanelOpen){
             //dont code here
         } else {
+            optionLabelsSetToFalse();
             btnCloseJobOptions.setVisible(true);
             isElectrician = false;
             isPlumber = false;
@@ -1001,6 +1027,8 @@ public class HomeWindow extends javax.swing.JFrame {
             jobTypeLabel4.setText("Full Room Construction(4 Labours)");
             btnJobType4.setText(String.valueOf(option4));
             
+            
+            
         }
     }//GEN-LAST:event_btnLabourActionPerformed
 
@@ -1016,7 +1044,28 @@ public class HomeWindow extends javax.swing.JFrame {
         XMouse = evt.getX() + (int) homeBackgroundPanel.getX()+ 255;
         YMouse = evt.getY() + (int) homeBackgroundPanel.getY() - 50;
     }//GEN-LAST:event_homeBarMousePressed
+     
+    private void optionLabelsSetToFalse(){
+            optionLabel1.setVisible(false);
+            optionLabel2.setVisible(false);
+            optionLabel3.setVisible(false);
+            optionLabel4.setVisible(false);
+    }
     
+    private void btnJobTypeSetToNull(){
+            btnJobType1.setText(String.valueOf(""));
+            btnJobType2.setText(String.valueOf(""));
+            btnJobType3.setText(String.valueOf(""));
+            btnJobType4.setText(String.valueOf(""));
+    }
+    
+    private void jobTypeLabelSetToNull(){
+            jobTypeLabel1.setText("");
+            jobTypeLabel2.setText("");
+            jobTypeLabel3.setText("");
+            jobTypeLabel4.setText("");
+    }
+       
     private void btnUnavailableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUnavailableActionPerformed
         // TODO add your handling code here:
         //CLOSE THE OPTIONS
@@ -1028,14 +1077,9 @@ public class HomeWindow extends javax.swing.JFrame {
             isMechanic = false;
             isEventManager = false;
             isLabour = false;
-            jobTypeLabel1.setText("");
-            jobTypeLabel2.setText("");
-            jobTypeLabel3.setText("");
-            jobTypeLabel4.setText("");
-            btnJobType1.setText(String.valueOf(""));
-            btnJobType2.setText(String.valueOf(""));
-            btnJobType3.setText(String.valueOf(""));
-            btnJobType4.setText(String.valueOf(""));
+            jobTypeLabelSetToNull();
+            btnJobTypeSetToNull();
+            optionLabelsSetToFalse();
             btnCloseJobOptions.setVisible(false);
         }
     }//GEN-LAST:event_btnUnavailableActionPerformed
@@ -1051,14 +1095,9 @@ public class HomeWindow extends javax.swing.JFrame {
             isMechanic = false;
             isEventManager = false;
             isLabour = false;
-            jobTypeLabel1.setText("");
-            jobTypeLabel2.setText("");
-            jobTypeLabel3.setText("");
-            jobTypeLabel4.setText("");
-            btnJobType1.setText(String.valueOf(""));
-            btnJobType2.setText(String.valueOf(""));
-            btnJobType3.setText(String.valueOf(""));
-            btnJobType4.setText(String.valueOf(""));
+            jobTypeLabelSetToNull();
+            btnJobTypeSetToNull();
+            optionLabelsSetToFalse();
             btnCloseJobOptions.setVisible(false);
         }
     }//GEN-LAST:event_btnCloseJobOptionsMouseClicked
@@ -1075,16 +1114,17 @@ public class HomeWindow extends javax.swing.JFrame {
 
     private void btnJobType1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJobType1ActionPerformed
         // TODO add your handling code here:
+        
         if(isElectrician){
-            
+            optionLabel1.setVisible(true);
         } else if(isMechanic) {
-            
+            optionLabel1.setVisible(true);
         } else if(isLabour) {
-            
+            optionLabel1.setVisible(true);
         } else if(isPlumber) {
-            
+            optionLabel1.setVisible(true);
         } else if(isEventManager) {
-            
+            optionLabel1.setVisible(true);
         } else {
             return;
         }
@@ -1092,16 +1132,17 @@ public class HomeWindow extends javax.swing.JFrame {
 
     private void btnJobType2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJobType2ActionPerformed
         // TODO add your handling code here:
+        
         if(isElectrician){
-            
+            optionLabel2.setVisible(true);
         } else if(isMechanic) {
-            
+            optionLabel2.setVisible(true);
         } else if(isLabour) {
-            
+            optionLabel2.setVisible(true);
         } else if(isPlumber) {
-            
+            optionLabel2.setVisible(true);
         } else if(isEventManager) {
-            
+            optionLabel2.setVisible(true);
         } else {
             return;
         }
@@ -1109,16 +1150,17 @@ public class HomeWindow extends javax.swing.JFrame {
 
     private void btnJobType3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJobType3ActionPerformed
         // TODO add your handling code here:
+        
         if(isElectrician){
-            
+            optionLabel3.setVisible(true);
         } else if(isMechanic) {
-            
+            optionLabel3.setVisible(true);
         } else if(isLabour) {
-            
+            optionLabel3.setVisible(true);
         } else if(isPlumber) {
-            
+            optionLabel3.setVisible(true);
         } else if(isEventManager) {
-            
+            optionLabel3.setVisible(true);
         } else {
             return;
         }
@@ -1126,14 +1168,15 @@ public class HomeWindow extends javax.swing.JFrame {
 
     private void btnJobType4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJobType4ActionPerformed
         // TODO add your handling code here:
+        
         if(isElectrician){
-            
+            optionLabel4.setVisible(true);
         } else if(isMechanic) {
-            
+            optionLabel4.setVisible(true);
         } else if(isLabour) {
-            
+            optionLabel4.setVisible(true);
         } else if(isPlumber) {
-            
+            optionLabel4.setVisible(true);
         } else if(isEventManager) {
             
         } else {
@@ -1224,6 +1267,10 @@ public class HomeWindow extends javax.swing.JFrame {
     private com.k33ptoo.components.KGradientPanel kGradientPanel19;
     private com.k33ptoo.components.KGradientPanel kGradientPanel5;
     private com.k33ptoo.components.KGradientPanel logoBar;
+    private javax.swing.JLabel optionLabel1;
+    private javax.swing.JLabel optionLabel2;
+    private javax.swing.JLabel optionLabel3;
+    private javax.swing.JLabel optionLabel4;
     private com.k33ptoo.components.KGradientPanel sandwichSettingPanel;
     private com.k33ptoo.components.KButton signOutBtn1;
     private com.k33ptoo.components.KButton signOutBtn4;
