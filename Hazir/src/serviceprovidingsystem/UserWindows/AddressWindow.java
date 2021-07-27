@@ -63,9 +63,8 @@ public class AddressWindow extends javax.swing.JFrame {
         homeBar = new javax.swing.JLabel();
         sandwichSettingPanel = new com.k33ptoo.components.KGradientPanel();
         jLabel1 = new javax.swing.JLabel();
-        signOutBtn2 = new com.k33ptoo.components.KButton();
-        signOutBtn5 = new com.k33ptoo.components.KButton();
-        signOutBtn4 = new com.k33ptoo.components.KButton();
+        btnSettingPassword = new com.k33ptoo.components.KButton();
+        btnSettingNumber = new com.k33ptoo.components.KButton();
         signOutBtn1 = new com.k33ptoo.components.KButton();
         homeBackgroundPanel = new com.k33ptoo.components.KGradientPanel();
         kGradientPanel5 = new com.k33ptoo.components.KGradientPanel();
@@ -186,7 +185,7 @@ public class AddressWindow extends javax.swing.JFrame {
         );
 
         jLayeredPane1.add(tItleBar);
-        tItleBar.setBounds(250, 0, 0, 70);
+        tItleBar.setBounds(250, 0, 561, 70);
 
         sandwichSettingPanel.setkBorderRadius(15);
         sandwichSettingPanel.setkEndColor(new java.awt.Color(60, 156, 220));
@@ -200,38 +199,27 @@ public class AddressWindow extends javax.swing.JFrame {
         jLabel1.setText("Settings");
         sandwichSettingPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(146, 20, -1, -1));
 
-        signOutBtn2.setText("Password");
-        signOutBtn2.setBorderPainted(false);
-        signOutBtn2.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
-        signOutBtn2.setkEndColor(new java.awt.Color(255, 255, 255));
-        signOutBtn2.setkForeGround(new java.awt.Color(0, 0, 0));
-        signOutBtn2.setkHoverEndColor(new java.awt.Color(204, 204, 204));
-        signOutBtn2.setkHoverForeGround(new java.awt.Color(0, 0, 0));
-        signOutBtn2.setkHoverStartColor(new java.awt.Color(240, 239, 239));
-        signOutBtn2.setkStartColor(new java.awt.Color(255, 255, 255));
-        sandwichSettingPanel.add(signOutBtn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 154, 280, 30));
+        btnSettingPassword.setText("Password");
+        btnSettingPassword.setBorderPainted(false);
+        btnSettingPassword.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
+        btnSettingPassword.setkEndColor(new java.awt.Color(255, 255, 255));
+        btnSettingPassword.setkForeGround(new java.awt.Color(0, 0, 0));
+        btnSettingPassword.setkHoverEndColor(new java.awt.Color(204, 204, 204));
+        btnSettingPassword.setkHoverForeGround(new java.awt.Color(0, 0, 0));
+        btnSettingPassword.setkHoverStartColor(new java.awt.Color(240, 239, 239));
+        btnSettingPassword.setkStartColor(new java.awt.Color(255, 255, 255));
+        sandwichSettingPanel.add(btnSettingPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 280, 30));
 
-        signOutBtn5.setText("Mobile number");
-        signOutBtn5.setBorderPainted(false);
-        signOutBtn5.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
-        signOutBtn5.setkEndColor(new java.awt.Color(255, 255, 255));
-        signOutBtn5.setkForeGround(new java.awt.Color(0, 0, 0));
-        signOutBtn5.setkHoverEndColor(new java.awt.Color(204, 204, 204));
-        signOutBtn5.setkHoverForeGround(new java.awt.Color(0, 0, 0));
-        signOutBtn5.setkHoverStartColor(new java.awt.Color(240, 239, 239));
-        signOutBtn5.setkStartColor(new java.awt.Color(255, 255, 255));
-        sandwichSettingPanel.add(signOutBtn5, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 202, 280, 30));
-
-        signOutBtn4.setText("Address");
-        signOutBtn4.setBorderPainted(false);
-        signOutBtn4.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
-        signOutBtn4.setkEndColor(new java.awt.Color(255, 255, 255));
-        signOutBtn4.setkForeGround(new java.awt.Color(0, 0, 0));
-        signOutBtn4.setkHoverEndColor(new java.awt.Color(204, 204, 204));
-        signOutBtn4.setkHoverForeGround(new java.awt.Color(0, 0, 0));
-        signOutBtn4.setkHoverStartColor(new java.awt.Color(240, 239, 239));
-        signOutBtn4.setkStartColor(new java.awt.Color(255, 255, 255));
-        sandwichSettingPanel.add(signOutBtn4, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 250, 280, 30));
+        btnSettingNumber.setText("Mobile number");
+        btnSettingNumber.setBorderPainted(false);
+        btnSettingNumber.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
+        btnSettingNumber.setkEndColor(new java.awt.Color(255, 255, 255));
+        btnSettingNumber.setkForeGround(new java.awt.Color(0, 0, 0));
+        btnSettingNumber.setkHoverEndColor(new java.awt.Color(204, 204, 204));
+        btnSettingNumber.setkHoverForeGround(new java.awt.Color(0, 0, 0));
+        btnSettingNumber.setkHoverStartColor(new java.awt.Color(240, 239, 239));
+        btnSettingNumber.setkStartColor(new java.awt.Color(255, 255, 255));
+        sandwichSettingPanel.add(btnSettingNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 280, 30));
 
         signOutBtn1.setText("Sign Out");
         signOutBtn1.setBorderPainted(false);
@@ -307,7 +295,7 @@ public class AddressWindow extends javax.swing.JFrame {
         locationShowLabel.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
         locationShowLabel.setForeground(new java.awt.Color(28, 40, 51));
         locationShowLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        locationShowLabel.setText("mapLocationHere");
+        locationShowLabel.setText("map location here");
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/MapWindow/setMarkerIcon_32px.png"))); // NOI18N
 
@@ -520,7 +508,7 @@ public class AddressWindow extends javax.swing.JFrame {
         );
 
         jLayeredPane1.add(homeBackgroundPanel);
-        homeBackgroundPanel.setBounds(0, 50, 1070, 0);
+        homeBackgroundPanel.setBounds(0, 50, 1070, 552);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -650,6 +638,8 @@ public class AddressWindow extends javax.swing.JFrame {
     private com.k33ptoo.components.KButton btnAccept;
     private com.k33ptoo.components.KButton btnAvailableAreas;
     private com.k33ptoo.components.KButton btnSetMarker;
+    private com.k33ptoo.components.KButton btnSettingNumber;
+    private com.k33ptoo.components.KButton btnSettingPassword;
     private com.k33ptoo.components.KButton btnShowLocatio;
     private com.k33ptoo.components.KGradientPanel closeBar;
     private com.k33ptoo.components.KGradientPanel homeBackgroundPanel;
@@ -673,9 +663,6 @@ public class AddressWindow extends javax.swing.JFrame {
     private javax.swing.JTextField phaseField;
     private com.k33ptoo.components.KGradientPanel sandwichSettingPanel;
     private com.k33ptoo.components.KButton signOutBtn1;
-    private com.k33ptoo.components.KButton signOutBtn2;
-    private com.k33ptoo.components.KButton signOutBtn4;
-    private com.k33ptoo.components.KButton signOutBtn5;
     private javax.swing.JTextField streetField;
     private com.k33ptoo.components.KGradientPanel tItleBar;
     // End of variables declaration//GEN-END:variables

@@ -32,37 +32,39 @@ import serviceprovidingsystem.Accounts.*;
 
     }
     //INCASE WE CLOSE THE CONNECTION B/W SOME WINDOW SO WE CAN AGAIN CONNECT IT.
-//    public void connectionOn(){
-//        ConnectingDataBase();
-//    }
-//    //INCASE WE HAVE TO CLOSE CONNECTION EVERTIME WE END THE PROGRAM.
-//    public void connectionOff(){
-//        try {
-//            this.connection.close();
-//        } catch (Exception e) {
-//        }
-//
-//    }
+    public void connectionOn(){
+        ConnectingDataBase();
+    }
+    //INCASE WE HAVE TO CLOSE CONNECTION EVERTIME WE END THE PROGRAM.
+    public void connectionOff(){
+        try {
+            this.connection.close();
+        } catch (Exception e) {
+        }
+
+    }
     
     
     public  boolean Exist(String Username)  {
-
+        connectionOn();
         try {
             String sql = "select name FROM Users WHERE name ='" + Username + "'";
             
             st = connection.createStatement();
             FinalDb = st.executeQuery(sql);
+            connectionOff();
             return FinalDb.isBeforeFirst();
         } catch (SQLException ex) {
             Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
         }
+        connectionOff();
         return false;
 
     }
      
     
     public void UPDATE_USER(){
-
+        connectionOn();
         String sql = "UPDATE Users SET password = ? , contactNumber = ? , address = ? , orderStatus = ? , cost = ? , addressLink = ? WHERE name = ?";
         
         try{
@@ -79,12 +81,12 @@ import serviceprovidingsystem.Accounts.*;
         } catch (Exception e) {
             System.out.println(e);
         }
-
+        connectionOff();
     }
 
     
     public void INSERT_USER(){
-
+        connectionOn();
         String sql = "INSERT INTO Users(name, password, contactNumber, address, dateOfRegisteration, orderStatus, cost) VALUES(?,?,?,?,?,?,?)";
         
         try {
@@ -100,11 +102,11 @@ import serviceprovidingsystem.Accounts.*;
         } catch (Exception e) {
             System.out.println(e);
         }
-
+        connectionOff();
     }
     
      public boolean Login(String name , String password) {
-        
+        connectionOn();
      
         try {
 
@@ -129,12 +131,14 @@ import serviceprovidingsystem.Accounts.*;
                 currentUser.setOrderStatus(FinalDb.getString(6));
                 currentUser.setCost(FinalDb.getDouble(7));
                 currentUser.setAddressLink(FinalDb.getString(8));
+                connectionOff();
                 return true;
                 // available in database
             }else {
             
                 System.out.println("User not working");
                 // not available in database
+                connectionOff();
                 return false;
             }
             
@@ -146,7 +150,7 @@ import serviceprovidingsystem.Accounts.*;
         } catch (Exception e){
             System.out.println(e);
         }
-    
+        connectionOff();
         return false;
     }
     

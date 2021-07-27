@@ -141,10 +141,13 @@ public class SettingPanel extends javax.swing.JFrame {
 
     private void btnSettingAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSettingAcceptActionPerformed
         // TODO add your handling code here:
-        this.database.currentUser.setPassword(passwordField.getText());
-        this.database.currentUser.setContactNumber(mobileNumberField.getText());
-        this.database.UPDATE_USER();
-        this.dispose();
+        if (passwordField.getText().isEmpty() && mobileNumberField.getText().isEmpty()) {
+        } else {
+            this.database.currentUser.setPassword(passwordField.getText());
+            this.database.currentUser.setContactNumber(mobileNumberField.getText());
+            this.database.UPDATE_USER();
+            this.dispose();
+        }
     }//GEN-LAST:event_btnSettingAcceptActionPerformed
 
     /**
