@@ -31,10 +31,6 @@ import serviceprovidingsystem.Accounts.*;
         //FinalDb = pst.executeQuery();
 
     }
-    public void setTonull(){
-        
-        currentUser = null;
-    }
     //INCASE WE CLOSE THE CONNECTION B/W SOME WINDOW SO WE CAN AGAIN CONNECT IT.
 //    public void connectionOn(){
 //        ConnectingDataBase();
