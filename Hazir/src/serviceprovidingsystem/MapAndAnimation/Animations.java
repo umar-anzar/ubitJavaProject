@@ -69,6 +69,25 @@ public class Animations {
         };th.start();
     }
     
+    public static void windowExitAnimation(javax.swing.JFrame window, float opty){
+        Thread th = new Thread(){
+            @Override
+            public void run(){
+                float op = opty;
+                try{
+                  for(int i=0; i<10; i++){
+                      Thread.sleep(20);
+                      window.setOpacity(op);
+                      op = op - 0.1f;
+                  }
+                } catch(Exception e){  
+                }
+                window.setOpacity(0f);
+                System.exit(0);
+            }
+        };th.start();
+    }
+    
     public static void panelAppearAnimation(javax.swing.JPanel panel, int width, int height) {
         panel.setSize(new Dimension(0,0));
             Thread th = new Thread(){

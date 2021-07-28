@@ -864,7 +864,7 @@ public class HomeWindow extends javax.swing.JFrame {
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         // TODO add your handling code here:
-        Animations.windowCloseAnimation(this, 1f);
+        Animations.windowExitAnimation(this, 1f);
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void signOutBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signOutBtn1ActionPerformed

@@ -215,7 +215,7 @@ public class SignInWindow extends javax.swing.JFrame {
 
     private void closeWindowMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeWindowMouseClicked
         // TODO add your handling code here:
-        Animations.windowCloseAnimation(this, 1f);
+        Animations.windowExitAnimation(this, 1f);
     }//GEN-LAST:event_closeWindowMouseClicked
 
     private void passwordFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordFieldMouseClicked
