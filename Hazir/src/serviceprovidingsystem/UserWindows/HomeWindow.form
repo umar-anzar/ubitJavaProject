@@ -428,7 +428,7 @@
                           <Component id="kGradientPanel17" alignment="0" max="32767" attributes="0"/>
                           <Component id="kGradientPanel13" alignment="0" max="32767" attributes="0"/>
                           <Component id="kGradientPanel10" alignment="0" pref="453" max="32767" attributes="0"/>
-                          <Component id="kGradientPanel19" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="kGradientPanel19" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace pref="92" max="32767" attributes="0"/>
                       <Component id="SelectOptionsWindow" min="-2" max="-2" attributes="0"/>
@@ -1091,7 +1091,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="335" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
