@@ -51,7 +51,7 @@ public class MainIntro extends javax.swing.JFrame{
             }
         });
 
-        kGradientPanel1.setkBorderRadius(100);
+        kGradientPanel1.setkBorderRadius(400);
         kGradientPanel1.setkEndColor(new java.awt.Color(60, 156, 220));
         kGradientPanel1.setkGradientFocus(400);
         kGradientPanel1.setkStartColor(new java.awt.Color(180, 225, 255));
@@ -71,7 +71,7 @@ public class MainIntro extends javax.swing.JFrame{
         kGradientPanel1Layout.setHorizontalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                .addContainerGap(61, Short.MAX_VALUE)
+                .addContainerGap(62, Short.MAX_VALUE)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)

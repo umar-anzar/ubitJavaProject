@@ -78,7 +78,6 @@ public class AddressWindow extends javax.swing.JFrame {
         btnSetMarker = new com.k33ptoo.components.KButton();
         btnAvailableAreas = new com.k33ptoo.components.KButton();
         btnShowLocatio = new com.k33ptoo.components.KButton();
-        btnAccept = new com.k33ptoo.components.KButton();
         houseField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -87,6 +86,7 @@ public class AddressWindow extends javax.swing.JFrame {
         phaseField = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         areaField = new javax.swing.JTextField();
+        btnAvailableAreas1 = new com.k33ptoo.components.KButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -398,18 +398,6 @@ public class AddressWindow extends javax.swing.JFrame {
                 .addGap(23, 23, 23))
         );
 
-        btnAccept.setText("GO");
-        btnAccept.setToolTipText("");
-        btnAccept.setBorderPainted(false);
-        btnAccept.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
-        btnAccept.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnAccept.setkEndColor(new java.awt.Color(255, 255, 255));
-        btnAccept.setkForeGround(new java.awt.Color(0, 0, 0));
-        btnAccept.setkHoverEndColor(new java.awt.Color(204, 204, 204));
-        btnAccept.setkHoverForeGround(new java.awt.Color(0, 0, 0));
-        btnAccept.setkHoverStartColor(new java.awt.Color(255, 255, 255));
-        btnAccept.setkStartColor(new java.awt.Color(255, 255, 255));
-
         houseField.setBackground(new java.awt.Color(231, 231, 231));
         houseField.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
         houseField.setForeground(new java.awt.Color(28, 40, 51));
@@ -446,6 +434,21 @@ public class AddressWindow extends javax.swing.JFrame {
         areaField.setForeground(new java.awt.Color(28, 40, 51));
         areaField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(230, 126, 34)));
 
+        btnAvailableAreas1.setBorderPainted(false);
+        btnAvailableAreas1.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
+        btnAvailableAreas1.setkEndColor(new java.awt.Color(255, 255, 255));
+        btnAvailableAreas1.setkForeGround(new java.awt.Color(0, 0, 0));
+        btnAvailableAreas1.setkHoverEndColor(new java.awt.Color(204, 204, 204));
+        btnAvailableAreas1.setkHoverForeGround(new java.awt.Color(0, 0, 0));
+        btnAvailableAreas1.setkHoverStartColor(new java.awt.Color(255, 255, 255));
+        btnAvailableAreas1.setkStartColor(new java.awt.Color(255, 255, 255));
+        btnAvailableAreas1.setLabel("GO");
+        btnAvailableAreas1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAvailableAreas1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
@@ -467,8 +470,8 @@ public class AddressWindow extends javax.swing.JFrame {
                         .addComponent(SelectOptionsWindow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(60, 60, 60))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                        .addComponent(btnAccept, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(136, 136, 136))))
+                        .addComponent(btnAvailableAreas1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(141, 141, 141))))
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -480,7 +483,7 @@ public class AddressWindow extends javax.swing.JFrame {
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
                         .addComponent(SelectOptionsWindow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnAccept, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnAvailableAreas1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
                         .addComponent(houseField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -495,7 +498,7 @@ public class AddressWindow extends javax.swing.JFrame {
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(areaField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout homeBackgroundPanelLayout = new javax.swing.GroupLayout(homeBackgroundPanel);
@@ -617,6 +620,10 @@ public class AddressWindow extends javax.swing.JFrame {
         btnSettingPasswordActionPerformed(evt);//open same setting panel
     }//GEN-LAST:event_btnSettingNumberActionPerformed
 
+    private void btnAvailableAreas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvailableAreas1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAvailableAreas1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -655,8 +662,8 @@ public class AddressWindow extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.k33ptoo.components.KGradientPanel SelectOptionsWindow;
     private javax.swing.JTextField areaField;
-    private com.k33ptoo.components.KButton btnAccept;
     private com.k33ptoo.components.KButton btnAvailableAreas;
+    private com.k33ptoo.components.KButton btnAvailableAreas1;
     private com.k33ptoo.components.KButton btnSetMarker;
     private com.k33ptoo.components.KButton btnSettingNumber;
     private com.k33ptoo.components.KButton btnSettingPassword;

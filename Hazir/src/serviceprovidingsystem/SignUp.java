@@ -92,6 +92,7 @@ public class SignUp extends javax.swing.JFrame {
         kGradientPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel8.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Confirm Password");
         kGradientPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, -1, 20));
 
@@ -136,6 +137,7 @@ public class SignUp extends javax.swing.JFrame {
         kGradientPanel2.add(btnSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, 280, 30));
 
         jLabel14.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Register");
         kGradientPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, -1, 43));
 
@@ -160,10 +162,12 @@ public class SignUp extends javax.swing.JFrame {
         kGradientPanel2.add(confirmPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 230, -1));
 
         jLabel15.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Username");
         kGradientPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, 20));
 
         jLabel16.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("Password");
         kGradientPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, -1, 20));
 
@@ -175,6 +179,7 @@ public class SignUp extends javax.swing.JFrame {
         kGradientPanel2.add(mobileNumberField, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, 230, -1));
 
         jLabel17.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setText("Mobile Number");
         kGradientPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, -1, 20));
 

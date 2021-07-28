@@ -38,7 +38,7 @@ public class HomeWindow extends javax.swing.JFrame {
         int YMouse;
     //Option button Pricing
         double option1=0, option2=0, option3=0, option4=0;
-        double totalCost;
+        double totalCost = 0;
 
         
     public HomeWindow(){
@@ -47,7 +47,7 @@ public class HomeWindow extends javax.swing.JFrame {
     public HomeWindow(DatabaseConnection database) {
         initComponents();
         this.database = database;
-        btnCloseJobOptions.setVisible(false);//not show close btn until selection
+        btnRefreshJobOptions.setVisible(false);//not show close btn until selection
         this.setBackground(new Color(0,0,0,0));
         this.setOpacity(0f);
         this.setLocationRelativeTo(null);
@@ -104,7 +104,7 @@ public class HomeWindow extends javax.swing.JFrame {
         jobTypeLabel1 = new javax.swing.JLabel();
         jobTypeLabel2 = new javax.swing.JLabel();
         jobTypeLabel3 = new javax.swing.JLabel();
-        btnCloseJobOptions = new javax.swing.JLabel();
+        btnRefreshJobOptions = new javax.swing.JLabel();
         jobSelectedShowLabel = new javax.swing.JLabel();
         optionLabel4 = new javax.swing.JLabel();
         optionLabel1 = new javax.swing.JLabel();
@@ -546,16 +546,17 @@ public class HomeWindow extends javax.swing.JFrame {
         jobTypeLabel3.setForeground(new java.awt.Color(28, 40, 51));
         SelectOptionsWindow.add(jobTypeLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 310, 40));
 
-        btnCloseJobOptions.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/HomeWindow/closeJobIcon_32px.png"))); // NOI18N
-        btnCloseJobOptions.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnCloseJobOptions.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnRefreshJobOptions.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/HomeWindow/closeJobIcon_32px.png"))); // NOI18N
+        btnRefreshJobOptions.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRefreshJobOptions.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCloseJobOptionsMouseClicked(evt);
+                btnRefreshJobOptionsMouseClicked(evt);
             }
         });
-        SelectOptionsWindow.add(btnCloseJobOptions, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, 30, 30));
+        SelectOptionsWindow.add(btnRefreshJobOptions, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, 30, 30));
 
-        jobSelectedShowLabel.setForeground(new java.awt.Color(28, 40, 51));
+        jobSelectedShowLabel.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
+        jobSelectedShowLabel.setForeground(new java.awt.Color(255, 255, 255));
         jobSelectedShowLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jobSelectedShowLabel.setText("-");
         SelectOptionsWindow.add(jobSelectedShowLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 456, 380, 40));
@@ -889,7 +890,8 @@ public class HomeWindow extends javax.swing.JFrame {
             //code here
             workderJobLabel.setText("Electrician");
             optionLabelsSetToFalse();
-            btnCloseJobOptions.setVisible(true);
+            optionSelectedShow();
+            btnRefreshJobOptions.setVisible(true);
             isElectrician = true;
             isPlumber = false;
             isMechanic = false;
@@ -921,7 +923,8 @@ public class HomeWindow extends javax.swing.JFrame {
             //coder here
             workderJobLabel.setText("Plumber");
             optionLabelsSetToFalse();
-            btnCloseJobOptions.setVisible(true);
+            optionSelectedShow();
+            btnRefreshJobOptions.setVisible(true);
             isElectrician = false;
             isPlumber = true;
             isMechanic = false;
@@ -953,7 +956,8 @@ public class HomeWindow extends javax.swing.JFrame {
             //coder here
             workderJobLabel.setText("Mechanic");
             optionLabelsSetToFalse();
-            btnCloseJobOptions.setVisible(true);
+            optionSelectedShow();
+            btnRefreshJobOptions.setVisible(true);
             isElectrician = false;
             isPlumber = false;
             isMechanic = true;
@@ -985,7 +989,8 @@ public class HomeWindow extends javax.swing.JFrame {
             //code here
             workderJobLabel.setText("Event Manager");
             optionLabelsSetToFalse();
-            btnCloseJobOptions.setVisible(true);
+            optionSelectedShow();
+            btnRefreshJobOptions.setVisible(true);
             isElectrician = false;
             isPlumber = false;
             isMechanic = false;
@@ -1016,7 +1021,8 @@ public class HomeWindow extends javax.swing.JFrame {
         } else {
             workderJobLabel.setText("Labour");
             optionLabelsSetToFalse();
-            btnCloseJobOptions.setVisible(true);
+            optionSelectedShow();
+            btnRefreshJobOptions.setVisible(true);
             isElectrician = false;
             isPlumber = false;
             isMechanic = false;
@@ -1073,7 +1079,14 @@ public class HomeWindow extends javax.swing.JFrame {
             jobTypeLabel3.setText("");
             jobTypeLabel4.setText("");
     }
-       
+    
+    //Set price to null
+    private void costSetToNull(){
+            option1 = 0;
+            option2 = 0;
+            option3 = 0;
+            option4 = 0;
+    }
     private void btnUnavailableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUnavailableActionPerformed
         // TODO add your handling code here:
         //CLOSE THE OPTIONS
@@ -1089,11 +1102,13 @@ public class HomeWindow extends javax.swing.JFrame {
             btnJobTypeSetToNull();
             optionLabelsSetToFalse();
             workderJobLabel.setText("");
-            btnCloseJobOptions.setVisible(false);
+            btnRefreshJobOptions.setVisible(false);
+            optionSelectedShow();
+            costSetToNull();
         }
     }//GEN-LAST:event_btnUnavailableActionPerformed
 
-    private void btnCloseJobOptionsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseJobOptionsMouseClicked
+    private void btnRefreshJobOptionsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshJobOptionsMouseClicked
         // TODO add your handling code here:
         //CLOSE THE OPTIONS
         if(isSandwhichSettingPanelOpen){
@@ -1108,9 +1123,11 @@ public class HomeWindow extends javax.swing.JFrame {
             btnJobTypeSetToNull();
             optionLabelsSetToFalse();
             workderJobLabel.setText("");
-            btnCloseJobOptions.setVisible(false);
+            btnRefreshJobOptions.setVisible(false);
+            optionSelectedShow();
+            costSetToNull();
         }
-    }//GEN-LAST:event_btnCloseJobOptionsMouseClicked
+    }//GEN-LAST:event_btnRefreshJobOptionsMouseClicked
 
     private void btnSettingPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSettingPasswordActionPerformed
         // TODO add your handling code here:
@@ -1122,6 +1139,18 @@ public class HomeWindow extends javax.swing.JFrame {
         btnSettingPasswordActionPerformed(evt);//open same setting panel
     }//GEN-LAST:event_btnSettingNumberActionPerformed
 
+    //OPTION SELECTED SHOW ON SCREEN FUNCTION
+    private void optionSelectedShow(){
+        totalCost = ((optionLabel1.isVisible())? option1 : 0.0) + ((optionLabel2.isVisible())? option2 : 0.0) + 
+                    ((optionLabel3.isVisible())? option3 : 0.0) + ((optionLabel4.isVisible())? option4 : 0.0);
+        //label
+        jobSelectedShowLabel.setText(((optionLabel1.isVisible())? "Option1 " : "") + 
+                                    ((optionLabel2.isVisible())? "Option2 " : "") + ((optionLabel3.isVisible())? "Option3 " : "") + 
+                                    ((optionLabel4.isVisible())? "Option4" : "") 
+        + ((optionLabel1.isVisible() || optionLabel2.isVisible() || optionLabel3.isVisible() || optionLabel4.isVisible())? " Total: "+String.valueOf(totalCost) : "")); 
+        
+    }
+    
     private void btnJobType1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJobType1ActionPerformed
         // TODO add your handling code here:
         
@@ -1138,11 +1167,12 @@ public class HomeWindow extends javax.swing.JFrame {
         } else {
             return;
         }
+        optionSelectedShow();
     }//GEN-LAST:event_btnJobType1ActionPerformed
 
     private void btnJobType2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJobType2ActionPerformed
         // TODO add your handling code here:
-        
+
         if(isElectrician){
             optionLabel2.setVisible(true);
         } else if(isMechanic) {
@@ -1156,11 +1186,12 @@ public class HomeWindow extends javax.swing.JFrame {
         } else {
             return;
         }
+        optionSelectedShow();
     }//GEN-LAST:event_btnJobType2ActionPerformed
 
     private void btnJobType3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJobType3ActionPerformed
         // TODO add your handling code here:
-        
+
         if(isElectrician){
             optionLabel3.setVisible(true);
         } else if(isMechanic) {
@@ -1174,11 +1205,12 @@ public class HomeWindow extends javax.swing.JFrame {
         } else {
             return;
         }
+        optionSelectedShow();
     }//GEN-LAST:event_btnJobType3ActionPerformed
 
     private void btnJobType4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJobType4ActionPerformed
         // TODO add your handling code here:
-        
+
         if(isElectrician){
             optionLabel4.setVisible(true);
         } else if(isMechanic) {
@@ -1192,6 +1224,7 @@ public class HomeWindow extends javax.swing.JFrame {
         } else {
             return;
         }
+        optionSelectedShow();
     }//GEN-LAST:event_btnJobType4ActionPerformed
 
     /**
@@ -1232,7 +1265,6 @@ public class HomeWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.k33ptoo.components.KGradientPanel SelectOptionsWindow;
-    private javax.swing.JLabel btnCloseJobOptions;
     private com.k33ptoo.components.KButton btnElectrician;
     private com.k33ptoo.components.KButton btnEventManager;
     private com.k33ptoo.components.KButton btnJobType1;
@@ -1242,6 +1274,7 @@ public class HomeWindow extends javax.swing.JFrame {
     private com.k33ptoo.components.KButton btnLabour;
     private com.k33ptoo.components.KButton btnMechanic;
     private com.k33ptoo.components.KButton btnPlumber;
+    private javax.swing.JLabel btnRefreshJobOptions;
     private com.k33ptoo.components.KButton btnSettingNumber;
     private com.k33ptoo.components.KButton btnSettingPassword;
     private com.k33ptoo.components.KButton btnUnavailable;
