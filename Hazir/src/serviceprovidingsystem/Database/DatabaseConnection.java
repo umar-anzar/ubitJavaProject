@@ -131,6 +131,7 @@ import serviceprovidingsystem.Accounts.*;
                 currentUser.setOrderStatus(FinalDb.getString(6));
                 currentUser.setCost(FinalDb.getDouble(7));
                 currentUser.setAddressLink(FinalDb.getString(8));
+                System.out.println(currentUser.toString());
                 connectionOff();
                 return true;
                 // available in database
