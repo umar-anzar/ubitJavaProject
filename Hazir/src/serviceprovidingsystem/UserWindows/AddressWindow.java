@@ -371,7 +371,7 @@ public class AddressWindow extends javax.swing.JFrame {
                         .addGroup(SelectOptionsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(SelectOptionsWindowLayout.createSequentialGroup()
                                 .addComponent(jLabel10)
-                                .addGap(37, 37, 37)
+                                .addGap(39, 39, 39)
                                 .addComponent(btnAvailableAreas, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(SelectOptionsWindowLayout.createSequentialGroup()
                                 .addComponent(jLabel9)
