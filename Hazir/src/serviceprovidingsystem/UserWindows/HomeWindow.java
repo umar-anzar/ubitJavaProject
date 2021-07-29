@@ -110,6 +110,7 @@ public class HomeWindow extends javax.swing.JFrame {
         optionLabel1 = new javax.swing.JLabel();
         optionLabel2 = new javax.swing.JLabel();
         optionLabel3 = new javax.swing.JLabel();
+        btnGoToReceipt = new com.k33ptoo.components.KButton();
         kGradientPanel19 = new com.k33ptoo.components.KGradientPanel();
         jLabel8 = new javax.swing.JLabel();
         btnElectrician = new com.k33ptoo.components.KButton();
@@ -564,7 +565,7 @@ public class HomeWindow extends javax.swing.JFrame {
         jobSelectedShowLabel.setForeground(new java.awt.Color(28, 40, 51));
         jobSelectedShowLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jobSelectedShowLabel.setText("-");
-        SelectOptionsWindow.add(jobSelectedShowLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 456, 380, 40));
+        SelectOptionsWindow.add(jobSelectedShowLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 456, 300, 40));
 
         optionLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/HomeWindow/checkmark_16px.png"))); // NOI18N
         SelectOptionsWindow.add(optionLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 380, -1, 40));
@@ -577,6 +578,22 @@ public class HomeWindow extends javax.swing.JFrame {
 
         optionLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/HomeWindow/checkmark_16px.png"))); // NOI18N
         SelectOptionsWindow.add(optionLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, -1, 40));
+
+        btnGoToReceipt.setBorderPainted(false);
+        btnGoToReceipt.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 14)); // NOI18N
+        btnGoToReceipt.setkEndColor(new java.awt.Color(255, 255, 255));
+        btnGoToReceipt.setkForeGround(new java.awt.Color(0, 0, 0));
+        btnGoToReceipt.setkHoverEndColor(new java.awt.Color(204, 204, 204));
+        btnGoToReceipt.setkHoverForeGround(new java.awt.Color(0, 0, 0));
+        btnGoToReceipt.setkHoverStartColor(new java.awt.Color(255, 255, 255));
+        btnGoToReceipt.setkStartColor(new java.awt.Color(255, 255, 255));
+        btnGoToReceipt.setLabel("GO");
+        btnGoToReceipt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGoToReceiptActionPerformed(evt);
+            }
+        });
+        SelectOptionsWindow.add(btnGoToReceipt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 460, 70, 30));
 
         kGradientPanel19.setkBorderRadius(20);
         kGradientPanel19.setkEndColor(new java.awt.Color(204, 204, 204));
@@ -1238,6 +1255,11 @@ public class HomeWindow extends javax.swing.JFrame {
         new AddressWindow(database).setVisible(true);
     }//GEN-LAST:event_btnAddressWindowActionPerformed
 
+    private void btnGoToReceiptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGoToReceiptActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnGoToReceiptActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1279,6 +1301,7 @@ public class HomeWindow extends javax.swing.JFrame {
     private com.k33ptoo.components.KButton btnAddressWindow;
     private com.k33ptoo.components.KButton btnElectrician;
     private com.k33ptoo.components.KButton btnEventManager;
+    private com.k33ptoo.components.KButton btnGoToReceipt;
     private com.k33ptoo.components.KButton btnJobType1;
     private com.k33ptoo.components.KButton btnJobType2;
     private com.k33ptoo.components.KButton btnJobType3;
