@@ -26,7 +26,7 @@ public class MainIntro extends javax.swing.JFrame{
         initComponents();
         //code
         this.setBackground(new Color(0, 0, 0, 0));//and tik off from opaque in Kgradient Panel
-        this.setOpacity(0.9f);//set opacity transparency
+        this.setOpacity(0f);//set opacity transparency
         this.setLocationRelativeTo(null);//Centered the window
     }
 
@@ -141,6 +141,7 @@ public class MainIntro extends javax.swing.JFrame{
                 try {
                     int width = 0;
                     window.setSize(1,tempHeight);
+                    window.setOpacity(0.9f);
                     for (int i = 0; i < 24; i++) {
                         Thread.sleep(15);
                         width += 15;

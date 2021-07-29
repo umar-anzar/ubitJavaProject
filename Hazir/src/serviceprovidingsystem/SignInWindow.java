@@ -342,9 +342,9 @@ public class SignInWindow extends javax.swing.JFrame {
                 try {
                     signInMovablePanel.setVisible(true);
                     int X = backGroundPanel.getX();
-                    for (int i = 0; i < 92; i++) {
+                    for (int i = 0; i < 156; i++) {
                         signInMovablePanel.setLocation(X, 0);
-                        X += 5;                 
+                        X += 3;                 
                         Thread.sleep(1);
                     } 
                 } catch (Exception e) {
