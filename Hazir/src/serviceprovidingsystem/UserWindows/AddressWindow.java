@@ -6,6 +6,7 @@
 package serviceprovidingsystem.UserWindows;
 
 import java.awt.Color;
+import java.util.Scanner;
 import serviceprovidingsystem.MapAndAnimation.GoogleMapsClass;
 import serviceprovidingsystem.MapAndAnimation.Animations;
 import serviceprovidingsystem.Database.DatabaseConnection;
@@ -31,6 +32,10 @@ public class AddressWindow extends javax.swing.JFrame {
         int XMouse;
         int YMouse;
         
+    //marklocation and fields
+        boolean markLocation = false;
+        String addressField = "";
+        
     public AddressWindow(){
         initComponents();
     }
@@ -44,6 +49,11 @@ public class AddressWindow extends javax.swing.JFrame {
         this.sandwichSettingPanel.setVisible(false);
         widthOfSettingPanel =  this.sandwichSettingPanel.getWidth();
         heightOfSettingPanel = this.sandwichSettingPanel.getHeight();
+        if(database.currentUser != null) {
+            if (database.currentUser.getAddress() != null) {
+                addressAlreadyFilled(database.currentUser.getAddress());
+            }
+        }
     }
 
     /**
@@ -86,7 +96,9 @@ public class AddressWindow extends javax.swing.JFrame {
         phaseField = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         areaField = new javax.swing.JTextField();
-        btnAvailableAreas1 = new com.k33ptoo.components.KButton();
+        btnGoToHome = new com.k33ptoo.components.KButton();
+        errorLabel1 = new javax.swing.JLabel();
+        errorLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -305,7 +317,7 @@ public class AddressWindow extends javax.swing.JFrame {
         locationShowLabel.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
         locationShowLabel.setForeground(new java.awt.Color(28, 40, 51));
         locationShowLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        locationShowLabel.setText("map location here");
+        locationShowLabel.setText("Pin location here");
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/MapWindow/setMarkerIcon_32px.png"))); // NOI18N
 
@@ -403,11 +415,11 @@ public class AddressWindow extends javax.swing.JFrame {
         houseField.setForeground(new java.awt.Color(28, 40, 51));
         houseField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(230, 126, 34)));
 
-        jLabel4.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(28, 40, 51));
         jLabel4.setText("House/Flat no.");
 
-        jLabel5.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(28, 40, 51));
         jLabel5.setText("Street no.");
 
@@ -416,7 +428,7 @@ public class AddressWindow extends javax.swing.JFrame {
         streetField.setForeground(new java.awt.Color(28, 40, 51));
         streetField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(230, 126, 34)));
 
-        jLabel6.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(28, 40, 51));
         jLabel6.setText("Block/Phase no.");
 
@@ -425,7 +437,7 @@ public class AddressWindow extends javax.swing.JFrame {
         phaseField.setForeground(new java.awt.Color(28, 40, 51));
         phaseField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(230, 126, 34)));
 
-        jLabel7.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(28, 40, 51));
         jLabel7.setText("Area name");
 
@@ -434,20 +446,28 @@ public class AddressWindow extends javax.swing.JFrame {
         areaField.setForeground(new java.awt.Color(28, 40, 51));
         areaField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(230, 126, 34)));
 
-        btnAvailableAreas1.setBorderPainted(false);
-        btnAvailableAreas1.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
-        btnAvailableAreas1.setkEndColor(new java.awt.Color(255, 255, 255));
-        btnAvailableAreas1.setkForeGround(new java.awt.Color(0, 0, 0));
-        btnAvailableAreas1.setkHoverEndColor(new java.awt.Color(204, 204, 204));
-        btnAvailableAreas1.setkHoverForeGround(new java.awt.Color(0, 0, 0));
-        btnAvailableAreas1.setkHoverStartColor(new java.awt.Color(255, 255, 255));
-        btnAvailableAreas1.setkStartColor(new java.awt.Color(255, 255, 255));
-        btnAvailableAreas1.setLabel("GO");
-        btnAvailableAreas1.addActionListener(new java.awt.event.ActionListener() {
+        btnGoToHome.setBorderPainted(false);
+        btnGoToHome.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 14)); // NOI18N
+        btnGoToHome.setkEndColor(new java.awt.Color(255, 255, 255));
+        btnGoToHome.setkForeGround(new java.awt.Color(0, 0, 0));
+        btnGoToHome.setkHoverEndColor(new java.awt.Color(204, 204, 204));
+        btnGoToHome.setkHoverForeGround(new java.awt.Color(0, 0, 0));
+        btnGoToHome.setkHoverStartColor(new java.awt.Color(255, 255, 255));
+        btnGoToHome.setkStartColor(new java.awt.Color(255, 255, 255));
+        btnGoToHome.setLabel("GO");
+        btnGoToHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAvailableAreas1ActionPerformed(evt);
+                btnGoToHomeActionPerformed(evt);
             }
         });
+
+        errorLabel1.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
+        errorLabel1.setForeground(new java.awt.Color(193, 56, 56));
+        errorLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        errorLabel2.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
+        errorLabel2.setForeground(new java.awt.Color(193, 56, 56));
+        errorLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
@@ -455,14 +475,15 @@ public class AddressWindow extends javax.swing.JFrame {
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addGap(82, 82, 82)
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(houseField, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(errorLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(houseField, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
                     .addComponent(jLabel5)
-                    .addComponent(streetField, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(streetField, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
                     .addComponent(jLabel6)
-                    .addComponent(phaseField, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(phaseField, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
                     .addComponent(jLabel7)
-                    .addComponent(areaField, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(areaField, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -470,35 +491,44 @@ public class AddressWindow extends javax.swing.JFrame {
                         .addComponent(SelectOptionsWindow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(60, 60, 60))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                        .addComponent(btnAvailableAreas1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btnGoToHome, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
+                            .addComponent(errorLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(141, 141, 141))))
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addGap(85, 85, 85)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addComponent(SelectOptionsWindow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnAvailableAreas1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(errorLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addComponent(houseField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel5)
+                        .addGap(85, 85, 85)
+                        .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(streetField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(phaseField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(areaField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(80, Short.MAX_VALUE))
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                                .addComponent(SelectOptionsWindow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnGoToHome, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                                .addComponent(houseField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(streetField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(phaseField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(areaField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                        .addComponent(errorLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(23, 23, 23))
         );
 
         javax.swing.GroupLayout homeBackgroundPanelLayout = new javax.swing.GroupLayout(homeBackgroundPanel);
@@ -601,6 +631,7 @@ public class AddressWindow extends javax.swing.JFrame {
             if (googleMap.getLink() != null){
                 googleMap.updateAddress();
                 database.UPDATE_USER();
+                markLocation = true;
             }
         }
     }//GEN-LAST:event_btnShowLocatioActionPerformed
@@ -620,10 +651,40 @@ public class AddressWindow extends javax.swing.JFrame {
         btnSettingPasswordActionPerformed(evt);//open same setting panel
     }//GEN-LAST:event_btnSettingNumberActionPerformed
 
-    private void btnAvailableAreas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvailableAreas1ActionPerformed
+    private void btnGoToHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGoToHomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnAvailableAreas1ActionPerformed
+        if (houseField.getText().isEmpty() || streetField.getText().isEmpty() || phaseField.getText().isEmpty()
+                 || areaField.getText().isEmpty()) {
+            System.out.println("Field(s) are empty");
+            errorLabel1.setText("Field(s) are empty");
+        } else {
+            if(markLocation){
+                //CODE HERE
+                errorLabel1.setText("");
+                addressField = houseField.getText() + "," + streetField.getText() + "," + phaseField.getText() + "," + areaField.getText();
+                System.out.println(addressField);
+                database.currentUser.setAddress(addressField);
+                database.UPDATE_USER();
+                Animations.windowCloseAnimation(this, 1f);
+                new HomeWindow(database).setVisible(true);
+            } else {
+                System.out.println("Location not marked");
+                errorLabel2.setText("Location not marked");
+                
+            }
+        }
+    }//GEN-LAST:event_btnGoToHomeActionPerformed
 
+    public void addressAlreadyFilled(String address){
+        Scanner input = new Scanner(address);
+        input.useDelimiter(",");
+        while(input.hasNext()){
+            houseField.setText(input.next());
+            streetField.setText(input.next());
+            phaseField.setText(input.next());
+            areaField.setText(input.next());
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -663,12 +724,14 @@ public class AddressWindow extends javax.swing.JFrame {
     private com.k33ptoo.components.KGradientPanel SelectOptionsWindow;
     private javax.swing.JTextField areaField;
     private com.k33ptoo.components.KButton btnAvailableAreas;
-    private com.k33ptoo.components.KButton btnAvailableAreas1;
+    private com.k33ptoo.components.KButton btnGoToHome;
     private com.k33ptoo.components.KButton btnSetMarker;
     private com.k33ptoo.components.KButton btnSettingNumber;
     private com.k33ptoo.components.KButton btnSettingPassword;
     private com.k33ptoo.components.KButton btnShowLocatio;
     private com.k33ptoo.components.KGradientPanel closeBar;
+    private javax.swing.JLabel errorLabel1;
+    private javax.swing.JLabel errorLabel2;
     private com.k33ptoo.components.KGradientPanel homeBackgroundPanel;
     private javax.swing.JLabel homeBar;
     private javax.swing.JTextField houseField;

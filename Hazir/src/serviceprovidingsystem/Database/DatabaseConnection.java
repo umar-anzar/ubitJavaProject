@@ -81,6 +81,7 @@ import serviceprovidingsystem.Accounts.*;
         } catch (Exception e) {
             System.out.println(e);
         }
+        System.out.println("USER UPDATED");
         connectionOff();
     }
 
@@ -102,6 +103,7 @@ import serviceprovidingsystem.Accounts.*;
         } catch (Exception e) {
             System.out.println(e);
         }
+        System.out.println("USER INSERTED");
         connectionOff();
     }
     

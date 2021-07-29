@@ -78,7 +78,7 @@ public class HomeWindow extends javax.swing.JFrame {
         sandwichSettingPanel = new com.k33ptoo.components.KGradientPanel();
         signOutBtn1 = new com.k33ptoo.components.KButton();
         btnSettingPassword = new com.k33ptoo.components.KButton();
-        signOutBtn4 = new com.k33ptoo.components.KButton();
+        btnAddressWindow = new com.k33ptoo.components.KButton();
         btnSettingNumber = new com.k33ptoo.components.KButton();
         jLabel1 = new javax.swing.JLabel();
         homeBackgroundPanel = new com.k33ptoo.components.KGradientPanel();
@@ -264,16 +264,21 @@ public class HomeWindow extends javax.swing.JFrame {
         });
         sandwichSettingPanel.add(btnSettingPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 155, 280, 30));
 
-        signOutBtn4.setText("Address");
-        signOutBtn4.setBorderPainted(false);
-        signOutBtn4.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
-        signOutBtn4.setkEndColor(new java.awt.Color(255, 255, 255));
-        signOutBtn4.setkForeGround(new java.awt.Color(0, 0, 0));
-        signOutBtn4.setkHoverEndColor(new java.awt.Color(204, 204, 204));
-        signOutBtn4.setkHoverForeGround(new java.awt.Color(0, 0, 0));
-        signOutBtn4.setkHoverStartColor(new java.awt.Color(240, 239, 239));
-        signOutBtn4.setkStartColor(new java.awt.Color(255, 255, 255));
-        sandwichSettingPanel.add(signOutBtn4, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 251, 280, 30));
+        btnAddressWindow.setText("Address");
+        btnAddressWindow.setBorderPainted(false);
+        btnAddressWindow.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
+        btnAddressWindow.setkEndColor(new java.awt.Color(255, 255, 255));
+        btnAddressWindow.setkForeGround(new java.awt.Color(0, 0, 0));
+        btnAddressWindow.setkHoverEndColor(new java.awt.Color(204, 204, 204));
+        btnAddressWindow.setkHoverForeGround(new java.awt.Color(0, 0, 0));
+        btnAddressWindow.setkHoverStartColor(new java.awt.Color(240, 239, 239));
+        btnAddressWindow.setkStartColor(new java.awt.Color(255, 255, 255));
+        btnAddressWindow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddressWindowActionPerformed(evt);
+            }
+        });
+        sandwichSettingPanel.add(btnAddressWindow, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 251, 280, 30));
 
         btnSettingNumber.setText("Mobile number");
         btnSettingNumber.setBorderPainted(false);
@@ -1227,6 +1232,12 @@ public class HomeWindow extends javax.swing.JFrame {
         optionSelectedShow();
     }//GEN-LAST:event_btnJobType4ActionPerformed
 
+    private void btnAddressWindowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddressWindowActionPerformed
+        // TODO add your handling code here:
+        Animations.windowCloseAnimation(this, 1f);
+        new AddressWindow(database).setVisible(true);
+    }//GEN-LAST:event_btnAddressWindowActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1265,6 +1276,7 @@ public class HomeWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.k33ptoo.components.KGradientPanel SelectOptionsWindow;
+    private com.k33ptoo.components.KButton btnAddressWindow;
     private com.k33ptoo.components.KButton btnElectrician;
     private com.k33ptoo.components.KButton btnEventManager;
     private com.k33ptoo.components.KButton btnJobType1;
@@ -1316,7 +1328,6 @@ public class HomeWindow extends javax.swing.JFrame {
     private javax.swing.JLabel optionLabel4;
     private com.k33ptoo.components.KGradientPanel sandwichSettingPanel;
     private com.k33ptoo.components.KButton signOutBtn1;
-    private com.k33ptoo.components.KButton signOutBtn4;
     private com.k33ptoo.components.KGradientPanel tItleBar;
     private javax.swing.JLabel workderJobLabel;
     // End of variables declaration//GEN-END:variables
