@@ -39,11 +39,9 @@ public class SignInWindow extends javax.swing.JFrame {
         this.database.currentUser=null;
         this.movablePanelX = signInMovablePanel.getX();
         this.movablePanelY = signInMovablePanel.getY();
-        signInMovablePanel.setLocation(backGroundPanel.getX(), backGroundPanel.getY());
-        //IN CUSTOMIZE CODE I HAVE SET SIGN IN PANEL TO FALSE
         passwordAlreadyEmpty = false;
         this.setBackground(new Color(0, 0, 0, 0));//and tick off from opaque in Kgradient Panel
-        this.setOpacity(1f);//set opacity transparency
+        this.setOpacity(0f);//set opacity transparency
         this.setLocationRelativeTo(null);
     }
 
@@ -92,7 +90,6 @@ public class SignInWindow extends javax.swing.JFrame {
         signInMovablePanel.setkStartColor(new java.awt.Color(255, 255, 255));
         signInMovablePanel.setOpaque(false);
         signInMovablePanel.setPreferredSize(new java.awt.Dimension(360, 503));
-        signInMovablePanel.setVisible(false);
 
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/SignInWindow/SignInIcon_50x.png"))); // NOI18N
@@ -265,13 +262,13 @@ public class SignInWindow extends javax.swing.JFrame {
         backGroundPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/SignInWindow/SignWindowpic1.png"))); // NOI18N
-        backGroundPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, -1, -1));
+        backGroundPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, -1, -1));
 
         logoLabel.setForeground(new java.awt.Color(0, 0, 0));
         logoLabel.setText("LOGO");
-        backGroundPanel.add(logoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, -1, -1));
+        backGroundPanel.add(logoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, -1, -1));
 
-        jLayeredPane1.add(backGroundPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, -1));
+        jLayeredPane1.add(backGroundPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 13, 930, 480));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -289,8 +286,7 @@ public class SignInWindow extends javax.swing.JFrame {
 
     private void closeWindowMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeWindowMouseClicked
         // TODO add your handling code here:
-        //Animations.windowExitAnimation(this, 1f);
-        this.dispose();
+        Animations.windowExitAnimation(this, 1f);
     }//GEN-LAST:event_closeWindowMouseClicked
 
     private void passwordFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordFieldMouseClicked
@@ -309,11 +305,9 @@ public class SignInWindow extends javax.swing.JFrame {
         if (usernameField.getText().isEmpty()){
             
             errorRegister.setText("User name is empty !");
-            return;
         }else if (passwordField.getText().isEmpty()){
         
             errorRegister.setText("Password is empty !");
-            return;
         }  else if (database.Login(usernameField.getText(), passwordField.getText())){         
 
             //Animations.windowCloseAnimation(this, 1f);
@@ -323,6 +317,20 @@ public class SignInWindow extends javax.swing.JFrame {
         } else {
             errorRegister.setText("Username or password is incorrect!");
         }
+        SignInWindow window = this;
+        Thread th = new Thread(){
+            @Override
+            public void run(){
+                
+                try {
+                    for (int i = 0; i < 1; i++) {
+                        Thread.sleep(1);
+                    }
+                } catch (Exception e) {
+                }
+                signInMovablePanel.setLocation(470, 0);
+            }
+        };th.start();
 
     }//GEN-LAST:event_btnSignIn1ActionPerformed
 
@@ -336,13 +344,14 @@ public class SignInWindow extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         //Animations.windowAppearAnimation(this, 1f);
+        SignInWindow window = this;
         Thread th = new Thread(){
             @Override
             public void run(){
                 try {
-                    signInMovablePanel.setVisible(true);
                     int X = backGroundPanel.getX();
                     for (int i = 0; i < 156; i++) {
+                        if (i < 11){window.setOpacity(i/10);}//might delete
                         signInMovablePanel.setLocation(X, 0);
                         X += 3;                 
                         Thread.sleep(1);

@@ -21,7 +21,10 @@ public class SignUp extends javax.swing.JFrame {
     DatabaseConnection database;
     boolean passwordAlreadyEmpty; //for password field password
     boolean passwordConfirmAlreadyEmpty; //for password field confirm
-    
+    // Original Location
+        int movablePanelX;
+        int movablePanelY;
+        
     public SignUp(){
         initComponents();
     }
@@ -30,6 +33,8 @@ public class SignUp extends javax.swing.JFrame {
         this.database = database;
         passwordAlreadyEmpty = false;
         passwordConfirmAlreadyEmpty = false;
+        this.movablePanelX = movingRegisterPanel.getX();
+        this.movablePanelY = movingRegisterPanel.getY();
         this.setBackground(new Color(0, 0, 0, 0));//and tick off from opaque in Kgradient Panel
         this.setOpacity(0f);
         this.setLocationRelativeTo(null);
@@ -44,8 +49,8 @@ public class SignUp extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        kGradientPanel1 = new com.k33ptoo.components.KGradientPanel();
-        kGradientPanel2 = new com.k33ptoo.components.KGradientPanel();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
+        movingRegisterPanel = new com.k33ptoo.components.KGradientPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         passwordField = new javax.swing.JPasswordField();
@@ -64,6 +69,7 @@ public class SignUp extends javax.swing.JFrame {
         closeWindow = new javax.swing.JLabel();
         backToSignInBtn = new javax.swing.JLabel();
         errorRegister = new javax.swing.JLabel();
+        backgroundPanel = new com.k33ptoo.components.KGradientPanel();
         jLabel1 = new javax.swing.JLabel();
         logoLabel = new javax.swing.JLabel();
 
@@ -75,31 +81,25 @@ public class SignUp extends javax.swing.JFrame {
             }
         });
 
-        kGradientPanel1.setkBorderRadius(60);
-        kGradientPanel1.setkEndColor(new java.awt.Color(60, 156, 220));
-        kGradientPanel1.setkGradientFocus(400);
-        kGradientPanel1.setkStartColor(new java.awt.Color(180, 225, 255));
-        kGradientPanel1.setOpaque(false);
-        kGradientPanel1.setPreferredSize(new java.awt.Dimension(926, 503));
-        kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLayeredPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        kGradientPanel2.setkBorderRadius(60);
-        kGradientPanel2.setkEndColor(new java.awt.Color(255, 255, 255));
-        kGradientPanel2.setkGradientFocus(400);
-        kGradientPanel2.setkStartColor(new java.awt.Color(255, 255, 255));
-        kGradientPanel2.setOpaque(false);
-        kGradientPanel2.setPreferredSize(new java.awt.Dimension(360, 503));
-        kGradientPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        movingRegisterPanel.setkBorderRadius(60);
+        movingRegisterPanel.setkEndColor(new java.awt.Color(255, 255, 255));
+        movingRegisterPanel.setkGradientFocus(400);
+        movingRegisterPanel.setkStartColor(new java.awt.Color(255, 255, 255));
+        movingRegisterPanel.setOpaque(false);
+        movingRegisterPanel.setPreferredSize(new java.awt.Dimension(360, 503));
+        movingRegisterPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel8.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Confirm Password");
-        kGradientPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, -1, 20));
+        movingRegisterPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, -1, 20));
 
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/RegisterWindow/RegisterIcon_50x.png"))); // NOI18N
         jLabel9.setText("jLabel3");
-        kGradientPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 60, 60));
+        movingRegisterPanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 60, 60));
 
         passwordField.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
         passwordField.setForeground(new java.awt.Color(102, 102, 102));
@@ -113,11 +113,11 @@ public class SignUp extends javax.swing.JFrame {
                 passwordFieldMouseClicked(evt);
             }
         });
-        kGradientPanel2.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 230, -1));
+        movingRegisterPanel.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 230, -1));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/RegisterWindow/mobileNumber_40px.png"))); // NOI18N
         jLabel10.setPreferredSize(new java.awt.Dimension(50, 50));
-        kGradientPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 40, 40));
+        movingRegisterPanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 40, 40));
 
         btnSignUp.setText("Register");
         btnSignUp.setBorderPainted(false);
@@ -134,18 +134,18 @@ public class SignUp extends javax.swing.JFrame {
                 btnSignUpActionPerformed(evt);
             }
         });
-        kGradientPanel2.add(btnSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, 280, 30));
+        movingRegisterPanel.add(btnSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, 280, 30));
 
         jLabel14.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Register");
-        kGradientPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, -1, 43));
+        movingRegisterPanel.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, -1, 43));
 
         usernameField.setBackground(new java.awt.Color(255, 255, 255));
         usernameField.setForeground(new java.awt.Color(102, 102, 102));
         usernameField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(230, 126, 34)));
         usernameField.setOpaque(false);
-        kGradientPanel2.add(usernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 230, -1));
+        movingRegisterPanel.add(usernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 230, -1));
 
         confirmPasswordField.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
         confirmPasswordField.setForeground(new java.awt.Color(102, 102, 102));
@@ -159,41 +159,41 @@ public class SignUp extends javax.swing.JFrame {
                 confirmPasswordFieldMouseClicked(evt);
             }
         });
-        kGradientPanel2.add(confirmPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 230, -1));
+        movingRegisterPanel.add(confirmPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 230, -1));
 
         jLabel15.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Username");
-        kGradientPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, 20));
+        movingRegisterPanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, 20));
 
         jLabel16.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("Password");
-        kGradientPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, -1, 20));
+        movingRegisterPanel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, -1, 20));
 
         mobileNumberField.setBackground(new java.awt.Color(255, 255, 255));
         mobileNumberField.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
         mobileNumberField.setForeground(new java.awt.Color(102, 102, 102));
         mobileNumberField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(230, 126, 34)));
         mobileNumberField.setOpaque(false);
-        kGradientPanel2.add(mobileNumberField, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, 230, -1));
+        movingRegisterPanel.add(mobileNumberField, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, 230, -1));
 
         jLabel17.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setText("Mobile Number");
-        kGradientPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, -1, 20));
+        movingRegisterPanel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, -1, 20));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/RegisterWindow/SignUp_Customer_40px.png"))); // NOI18N
         jLabel11.setPreferredSize(new java.awt.Dimension(50, 50));
-        kGradientPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 40, 30));
+        movingRegisterPanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 40, 30));
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/RegisterWindow/password_40px.png"))); // NOI18N
         jLabel12.setPreferredSize(new java.awt.Dimension(50, 50));
-        kGradientPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 40, 50));
+        movingRegisterPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 40, 50));
 
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/RegisterWindow/password_40px.png"))); // NOI18N
         jLabel18.setPreferredSize(new java.awt.Dimension(50, 50));
-        kGradientPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 40, 50));
+        movingRegisterPanel.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 40, 50));
 
         closeWindow.setFont(new java.awt.Font("Microsoft YaHei", 1, 14)); // NOI18N
         closeWindow.setForeground(new java.awt.Color(204, 204, 204));
@@ -204,7 +204,7 @@ public class SignUp extends javax.swing.JFrame {
                 closeWindowMouseClicked(evt);
             }
         });
-        kGradientPanel2.add(closeWindow, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, 20, -1));
+        movingRegisterPanel.add(closeWindow, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, 20, -1));
 
         backToSignInBtn.setBackground(new java.awt.Color(0, 102, 255));
         backToSignInBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/RegisterWindow/backToSignIn_32px.png"))); // NOI18N
@@ -214,32 +214,46 @@ public class SignUp extends javax.swing.JFrame {
                 backToSignInBtnMouseClicked(evt);
             }
         });
-        kGradientPanel2.add(backToSignInBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, -1, -1));
+        movingRegisterPanel.add(backToSignInBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, -1, -1));
 
         errorRegister.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
         errorRegister.setForeground(new java.awt.Color(193, 56, 56));
         errorRegister.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        kGradientPanel2.add(errorRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 460, 250, 20));
+        movingRegisterPanel.add(errorRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 460, 250, 20));
 
-        kGradientPanel1.add(kGradientPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 0, 460, -1));
+        jLayeredPane1.add(movingRegisterPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 0, 460, -1));
+
+        backgroundPanel.setkBorderRadius(60);
+        backgroundPanel.setkEndColor(new java.awt.Color(60, 156, 220));
+        backgroundPanel.setkGradientFocus(400);
+        backgroundPanel.setkStartColor(new java.awt.Color(180, 225, 255));
+        backgroundPanel.setOpaque(false);
+        backgroundPanel.setPreferredSize(new java.awt.Dimension(926, 503));
+        backgroundPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/SignInWindow/SignWindowpic1.png"))); // NOI18N
-        kGradientPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, -1, -1));
+        backgroundPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 120, -1, -1));
 
         logoLabel.setForeground(new java.awt.Color(0, 0, 0));
         logoLabel.setText("LOGO");
-        kGradientPanel1.add(logoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, -1, -1));
+        backgroundPanel.add(logoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 50, -1, -1));
+
+        jLayeredPane1.add(backgroundPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 13, 930, 480));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 930, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -259,24 +273,24 @@ public class SignUp extends javax.swing.JFrame {
     private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed
         // TODO add your handling code here:
         if (usernameField.getText().isEmpty()){
-            
             errorRegister.setText("User name is empty !");
-            return;
         }else if (passwordField.getText().isEmpty()){
         
             errorRegister.setText("Password is empty !");
-            return;
+            movingRegisterPanel.setLocation(backgroundPanel.getX(), 0);
+
         }else if (!confirmPasswordField.getText().equals(passwordField.getText())){
         
              errorRegister.setText("Password Mismatch");
-            return;
+             movingRegisterPanel.setLocation(backgroundPanel.getX(), 0);
+
             
         }else if (mobileNumberField.getText().isEmpty() || mobileNumberField.getText().length() < 11 || mobileNumberField.getText().length() > 11){
         
             errorRegister.setText("Incorrect Contact Format !");
-            return;
-        }
-        if (database.Exist(usernameField.getText())){
+            movingRegisterPanel.setLocation(backgroundPanel.getX(), 0);
+
+        } else if (database.Exist(usernameField.getText())){
             errorRegister.setText("Username Already exists!");
             
         } else {
@@ -285,11 +299,25 @@ public class SignUp extends javax.swing.JFrame {
             database.currentUser = new User(usernameField.getText(),passwordField.getText(),mobileNumberField.getText(),null,new Date());
             database.INSERT_USER();
             database.currentUser = null;
-            Animations.windowCloseAnimation(this, 1f);
+            //Animations.windowCloseAnimation(this, 1f);
+            this.dispose();
             new SignInWindow(database).setVisible(true);
 
         }
-        
+        SignUp window = this;
+        Thread th = new Thread(){
+            @Override
+            public void run(){
+                
+                try {
+                    for (int i = 0; i < 1; i++) {
+                        Thread.sleep(1);
+                    }
+                } catch (Exception e) {
+                }
+                movingRegisterPanel.setLocation(backgroundPanel.getX(), 0);
+            }
+        };th.start();
             
         
       
@@ -313,13 +341,31 @@ public class SignUp extends javax.swing.JFrame {
 
     private void backToSignInBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backToSignInBtnMouseClicked
         // TODO add your handling code here:
-        Animations.windowCloseAnimation(this, 1f);
+        //Animations.windowCloseAnimation(this, 1f);
+        this.dispose();
         new SignInWindow(database).setVisible(true);
     }//GEN-LAST:event_backToSignInBtnMouseClicked
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-        Animations.windowAppearAnimation(this, 1f);
+        //Animations.windowAppearAnimation(this, 1f);
+        SignUp window = this;
+        Thread th = new Thread(){
+            @Override
+            public void run(){
+                try {
+                    int X = movingRegisterPanel.getX();
+                    for (int i = 0; i < 156; i++) {
+                        if (i < 11){window.setOpacity(i/10);}
+                        movingRegisterPanel.setLocation(X, 0);
+                        X -= 3;                 
+                        Thread.sleep(1);
+                    } 
+                } catch (Exception e) {
+                }
+                movingRegisterPanel.setLocation(backgroundPanel.getX(), 0);//REMEMBER
+            }
+        };th.start();
     }//GEN-LAST:event_formWindowOpened
 
     /**
@@ -360,6 +406,7 @@ public class SignUp extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel backToSignInBtn;
+    private com.k33ptoo.components.KGradientPanel backgroundPanel;
     private com.k33ptoo.components.KButton btnSignUp;
     private javax.swing.JLabel closeWindow;
     private javax.swing.JPasswordField confirmPasswordField;
@@ -375,10 +422,10 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private com.k33ptoo.components.KGradientPanel kGradientPanel1;
-    private com.k33ptoo.components.KGradientPanel kGradientPanel2;
+    private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JLabel logoLabel;
     private javax.swing.JTextField mobileNumberField;
+    private com.k33ptoo.components.KGradientPanel movingRegisterPanel;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JTextField usernameField;
     // End of variables declaration//GEN-END:variables

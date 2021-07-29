@@ -129,27 +129,13 @@ public class MainIntro extends javax.swing.JFrame{
         then an override run function is created to run the bigger loops in gui*/
         
         //Window Appear Animation
-        //Animations.windowAppearAnimation(this, 0.9f);
+        Animations.windowAppearAnimation(this, 0.9f);
         
         MainIntro window = this;//necessary before any animation in my code
         //open window from 0,0
-        Dimension realDimension = window.getSize();
-        int tempHeight = window.getHeight();
         Thread th1 = new Thread(){
             @Override
             public void run(){
-                try {
-                    int width = 0;
-                    window.setSize(1,tempHeight);
-                    window.setOpacity(0.9f);
-                    for (int i = 0; i < 24; i++) {
-                        Thread.sleep(15);
-                        width += 15;
-                        window.setSize(width,tempHeight);
-                    }
-                } catch (Exception e) {
-                }
-                window.setSize(realDimension);
                 try {
                     for (int i = 1; i < 101; i++) {
                         Thread.sleep(20);
