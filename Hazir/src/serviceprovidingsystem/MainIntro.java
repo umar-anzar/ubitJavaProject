@@ -6,6 +6,7 @@
 package serviceprovidingsystem;
 import serviceprovidingsystem.MapAndAnimation.Animations;
 import java.awt.Color;
+import java.awt.Dimension;
 import serviceprovidingsystem.Database.DatabaseConnection;
 
 
@@ -25,7 +26,7 @@ public class MainIntro extends javax.swing.JFrame{
         initComponents();
         //code
         this.setBackground(new Color(0, 0, 0, 0));//and tik off from opaque in Kgradient Panel
-        this.setOpacity(0f);//set opacity transparency
+        this.setOpacity(0.9f);//set opacity transparency
         this.setLocationRelativeTo(null);//Centered the window
     }
 
@@ -51,7 +52,7 @@ public class MainIntro extends javax.swing.JFrame{
             }
         });
 
-        kGradientPanel1.setkBorderRadius(400);
+        kGradientPanel1.setkBorderRadius(100);
         kGradientPanel1.setkEndColor(new java.awt.Color(60, 156, 220));
         kGradientPanel1.setkGradientFocus(400);
         kGradientPanel1.setkStartColor(new java.awt.Color(180, 225, 255));
@@ -128,14 +129,26 @@ public class MainIntro extends javax.swing.JFrame{
         then an override run function is created to run the bigger loops in gui*/
         
         //Window Appear Animation
-        Animations.windowAppearAnimation(this, 0.9f);
+        //Animations.windowAppearAnimation(this, 0.9f);
         
         MainIntro window = this;//necessary before any animation in my code
-
-        //Loading Numbers
-        Thread th2 = new Thread(){
+        //open window from 0,0
+        Dimension realDimension = window.getSize();
+        int tempHeight = window.getHeight();
+        Thread th1 = new Thread(){
             @Override
             public void run(){
+                try {
+                    int width = 0;
+                    window.setSize(1,tempHeight);
+                    for (int i = 0; i < 24; i++) {
+                        Thread.sleep(15);
+                        width += 15;
+                        window.setSize(width,tempHeight);
+                    }
+                } catch (Exception e) {
+                }
+                window.setSize(realDimension);
                 try {
                     for (int i = 1; i < 101; i++) {
                         Thread.sleep(20);
@@ -145,7 +158,21 @@ public class MainIntro extends javax.swing.JFrame{
                     } catch (Exception e) {
                 }
             }
-        };th2.start();
+        };th1.start();
+        //Loading Timer
+//        Thread th2 = new Thread(){
+//            @Override
+//            public void run(){
+//                try {
+//                    for (int i = 1; i < 101; i++) {
+//                        Thread.sleep(20);
+//                    }
+//                    Animations.windowCloseAnimation(window, 0.9f);
+//                    new SignInWindow(new DatabaseConnection()).setVisible(true);
+//                    } catch (Exception e) {
+//                }
+//            }
+//        };th2.start();
     }//GEN-LAST:event_formWindowOpened
          
     /**
