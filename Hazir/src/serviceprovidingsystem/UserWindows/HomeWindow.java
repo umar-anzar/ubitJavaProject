@@ -482,7 +482,7 @@ public class HomeWindow extends javax.swing.JFrame {
         });
         SelectOptionsWindow.add(btnJobType3, new org.netbeans.lib.awtextra.AbsoluteConstraints(347, 285, 60, -1));
 
-        workderJobLabel.setFont(new java.awt.Font("Microsoft YaHei UI Light", 0, 24)); // NOI18N
+        workderJobLabel.setFont(new java.awt.Font("Microsoft YaHei UI Light", 1, 24)); // NOI18N
         workderJobLabel.setForeground(new java.awt.Color(28, 40, 51));
         workderJobLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         SelectOptionsWindow.add(workderJobLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 43, 410, 40));
@@ -537,19 +537,19 @@ public class HomeWindow extends javax.swing.JFrame {
 
         jobTypeLabel4.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 15)); // NOI18N
         jobTypeLabel4.setForeground(new java.awt.Color(28, 40, 51));
-        SelectOptionsWindow.add(jobTypeLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 270, 40));
+        SelectOptionsWindow.add(jobTypeLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 270, 40));
 
         jobTypeLabel1.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 15)); // NOI18N
         jobTypeLabel1.setForeground(new java.awt.Color(28, 40, 51));
-        SelectOptionsWindow.add(jobTypeLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 270, 40));
+        SelectOptionsWindow.add(jobTypeLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 270, 40));
 
         jobTypeLabel2.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 15)); // NOI18N
         jobTypeLabel2.setForeground(new java.awt.Color(28, 40, 51));
-        SelectOptionsWindow.add(jobTypeLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 270, 40));
+        SelectOptionsWindow.add(jobTypeLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 270, 40));
 
         jobTypeLabel3.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 15)); // NOI18N
         jobTypeLabel3.setForeground(new java.awt.Color(28, 40, 51));
-        SelectOptionsWindow.add(jobTypeLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 310, 40));
+        SelectOptionsWindow.add(jobTypeLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 300, 40));
 
         btnRefreshJobOptions.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/HomeWindow/closeJobIcon_32px.png"))); // NOI18N
         btnRefreshJobOptions.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -561,7 +561,7 @@ public class HomeWindow extends javax.swing.JFrame {
         SelectOptionsWindow.add(btnRefreshJobOptions, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, 30, 30));
 
         jobSelectedShowLabel.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
-        jobSelectedShowLabel.setForeground(new java.awt.Color(255, 255, 255));
+        jobSelectedShowLabel.setForeground(new java.awt.Color(28, 40, 51));
         jobSelectedShowLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jobSelectedShowLabel.setText("-");
         SelectOptionsWindow.add(jobSelectedShowLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 456, 380, 40));
@@ -1155,7 +1155,7 @@ public class HomeWindow extends javax.swing.JFrame {
         + ((optionLabel1.isVisible() || optionLabel2.isVisible() || optionLabel3.isVisible() || optionLabel4.isVisible())? " Total: "+String.valueOf(totalCost) : "")); 
         
     }
-    
+
     private void btnJobType1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJobType1ActionPerformed
         // TODO add your handling code here:
         

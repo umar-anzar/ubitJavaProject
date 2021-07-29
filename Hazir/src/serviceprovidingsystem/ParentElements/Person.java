@@ -13,6 +13,7 @@ import java.util.*;
 public abstract class Person {
     private String name, contactNumber, address;
     private Date dateOfBirth;
+    private String addressLink = null;
 
     public Person(String name, String contactNumber, String address, Date dateOfBirth) {
         this.name = name;
@@ -31,6 +32,14 @@ public abstract class Person {
 
     public void setContactNumber(String contactNumber) {
         this.contactNumber = contactNumber;
+    }
+
+    public void setAddressLink(String addressLink) {
+        this.addressLink = addressLink;
+    }
+
+    public String getAddressLink() {
+        return addressLink;
     }
 
     public String getDate() {

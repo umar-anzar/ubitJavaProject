@@ -14,7 +14,6 @@ import serviceprovidingsystem.Database.DatabaseConnection;
  */
 public class User extends Account {
     public Boolean orderStatus = false;
-    private String addressLink = null;
     private double cost = 0.0;
     public User(String name, String password, String contactNumber, String address, Date dateOfBirth){
         super(name, password, contactNumber, address, dateOfBirth);
@@ -40,14 +39,6 @@ public class User extends Account {
         this.cost = cost;
     }
 
-    public void setAddressLink(String addressLink) {
-        this.addressLink = addressLink;
-    }
-
-    public String getAddressLink() {
-        return addressLink;
-    }
-    
     public double getCost() {
         return cost;
     }
@@ -63,7 +54,7 @@ public class User extends Account {
 
     @Override
     public String toString() {
-        return "User{" + "orderStatus=" + orderStatus + ", addressLink=" + addressLink + ", cost=" + cost + '}';
+        return "User{" + "orderStatus=" + orderStatus + ", addressLink=" + super.getAddress() + ", cost=" + cost + '}';
     }
    
     public static void main(String[] args) {
