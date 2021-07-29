@@ -25,6 +25,10 @@ public class SignInWindow extends javax.swing.JFrame {
     DatabaseConnection database;
     boolean passwordAlreadyEmpty; //for password field
     
+    // Original Location
+        int movablePanelX;
+        int movablePanelY;
+    
     public SignInWindow() {
         initComponents();
     }
@@ -33,9 +37,13 @@ public class SignInWindow extends javax.swing.JFrame {
         initComponents();
         this.database = database;
         this.database.currentUser=null;
+        this.movablePanelX = signInMovablePanel.getX();
+        this.movablePanelY = signInMovablePanel.getY();
+        signInMovablePanel.setLocation(backGroundPanel.getX(), backGroundPanel.getY());
+        //IN CUSTOMIZE CODE I HAVE SET SIGN IN PANEL TO FALSE
         passwordAlreadyEmpty = false;
         this.setBackground(new Color(0, 0, 0, 0));//and tick off from opaque in Kgradient Panel
-        this.setOpacity(0f);//set opacity transparency
+        this.setOpacity(1f);//set opacity transparency
         this.setLocationRelativeTo(null);
     }
 
@@ -48,8 +56,8 @@ public class SignInWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        kGradientPanel1 = new com.k33ptoo.components.KGradientPanel();
-        kGradientPanel2 = new com.k33ptoo.components.KGradientPanel();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
+        signInMovablePanel = new com.k33ptoo.components.KGradientPanel();
         jLabel9 = new javax.swing.JLabel();
         passwordField = new javax.swing.JPasswordField();
         jLabel14 = new javax.swing.JLabel();
@@ -63,6 +71,7 @@ public class SignInWindow extends javax.swing.JFrame {
         btnGotoRegister = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         errorRegister = new javax.swing.JLabel();
+        backGroundPanel = new com.k33ptoo.components.KGradientPanel();
         jLabel1 = new javax.swing.JLabel();
         logoLabel = new javax.swing.JLabel();
 
@@ -75,26 +84,19 @@ public class SignInWindow extends javax.swing.JFrame {
             }
         });
 
-        kGradientPanel1.setkBorderRadius(60);
-        kGradientPanel1.setkEndColor(new java.awt.Color(60, 156, 220));
-        kGradientPanel1.setkGradientFocus(400);
-        kGradientPanel1.setkStartColor(new java.awt.Color(180, 225, 255));
-        kGradientPanel1.setOpaque(false);
-        kGradientPanel1.setPreferredSize(new java.awt.Dimension(926, 503));
-        kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLayeredPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        kGradientPanel2.setkBorderRadius(60);
-        kGradientPanel2.setkEndColor(new java.awt.Color(255, 255, 255));
-        kGradientPanel2.setkGradientFocus(400);
-        kGradientPanel2.setkStartColor(new java.awt.Color(255, 255, 255));
-        kGradientPanel2.setOpaque(false);
-        kGradientPanel2.setPreferredSize(new java.awt.Dimension(360, 503));
-        kGradientPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        signInMovablePanel.setkBorderRadius(60);
+        signInMovablePanel.setkEndColor(new java.awt.Color(255, 255, 255));
+        signInMovablePanel.setkGradientFocus(400);
+        signInMovablePanel.setkStartColor(new java.awt.Color(255, 255, 255));
+        signInMovablePanel.setOpaque(false);
+        signInMovablePanel.setPreferredSize(new java.awt.Dimension(360, 503));
+        signInMovablePanel.setVisible(false);
 
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/SignInWindow/SignInIcon_50x.png"))); // NOI18N
         jLabel9.setText("jLabel3");
-        kGradientPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 60, 60));
 
         passwordField.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
         passwordField.setForeground(new java.awt.Color(102, 102, 102));
@@ -108,36 +110,29 @@ public class SignInWindow extends javax.swing.JFrame {
                 passwordFieldMouseClicked(evt);
             }
         });
-        kGradientPanel2.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 230, -1));
 
         jLabel14.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Sign In");
-        kGradientPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, -1, 43));
 
         usernameField.setBackground(new java.awt.Color(255, 255, 255));
         usernameField.setForeground(new java.awt.Color(102, 102, 102));
         usernameField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(230, 126, 34)));
         usernameField.setOpaque(false);
-        kGradientPanel2.add(usernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 230, -1));
 
         jLabel15.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Username");
-        kGradientPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, -1, 20));
 
         jLabel16.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("Password");
-        kGradientPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, -1, 20));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/RegisterWindow/SignUp_Customer_40px.png"))); // NOI18N
         jLabel11.setPreferredSize(new java.awt.Dimension(50, 50));
-        kGradientPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 40, 30));
 
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/RegisterWindow/password_40px.png"))); // NOI18N
         jLabel18.setPreferredSize(new java.awt.Dimension(50, 50));
-        kGradientPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 40, 50));
 
         closeWindow.setFont(new java.awt.Font("Microsoft YaHei", 1, 14)); // NOI18N
         closeWindow.setForeground(new java.awt.Color(204, 204, 204));
@@ -148,7 +143,6 @@ public class SignInWindow extends javax.swing.JFrame {
                 closeWindowMouseClicked(evt);
             }
         });
-        kGradientPanel2.add(closeWindow, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, 20, -1));
 
         btnSignIn1.setText("Sign In");
         btnSignIn1.setBorderPainted(false);
@@ -165,7 +159,6 @@ public class SignInWindow extends javax.swing.JFrame {
                 btnSignIn1ActionPerformed(evt);
             }
         });
-        kGradientPanel2.add(btnSignIn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, 280, 30));
 
         btnGotoRegister.setFont(new java.awt.Font("Microsoft YaHei UI Light", 0, 12)); // NOI18N
         btnGotoRegister.setForeground(new java.awt.Color(0, 102, 204));
@@ -176,38 +169,119 @@ public class SignInWindow extends javax.swing.JFrame {
                 btnGotoRegisterMouseClicked(evt);
             }
         });
-        kGradientPanel2.add(btnGotoRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 430, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Microsoft YaHei UI Light", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Don't have an account?");
-        kGradientPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 430, -1, -1));
 
         errorRegister.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
         errorRegister.setForeground(new java.awt.Color(193, 56, 56));
         errorRegister.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        kGradientPanel2.add(errorRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 460, 250, 20));
 
-        kGradientPanel1.add(kGradientPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 0, 460, -1));
+        javax.swing.GroupLayout signInMovablePanelLayout = new javax.swing.GroupLayout(signInMovablePanel);
+        signInMovablePanel.setLayout(signInMovablePanelLayout);
+        signInMovablePanelLayout.setHorizontalGroup(
+            signInMovablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(signInMovablePanelLayout.createSequentialGroup()
+                .addGap(430, 430, 430)
+                .addComponent(closeWindow, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(signInMovablePanelLayout.createSequentialGroup()
+                .addGap(200, 200, 200)
+                .addGroup(signInMovablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(signInMovablePanelLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jLabel15))
+            .addGroup(signInMovablePanelLayout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(signInMovablePanelLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jLabel16))
+            .addGroup(signInMovablePanelLayout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(signInMovablePanelLayout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addComponent(btnSignIn1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(signInMovablePanelLayout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addComponent(jLabel4)
+                .addGap(8, 8, 8)
+                .addComponent(btnGotoRegister))
+            .addGroup(signInMovablePanelLayout.createSequentialGroup()
+                .addGap(90, 90, 90)
+                .addComponent(errorRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        signInMovablePanelLayout.setVerticalGroup(
+            signInMovablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(signInMovablePanelLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(closeWindow)
+                .addGap(1, 1, 1)
+                .addGroup(signInMovablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(signInMovablePanelLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(47, 47, 47)
+                .addGroup(signInMovablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(signInMovablePanelLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(10, 10, 10)
+                .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addGroup(signInMovablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(signInMovablePanelLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(63, 63, 63)
+                .addComponent(btnSignIn1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addGroup(signInMovablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(btnGotoRegister))
+                .addGap(13, 13, 13)
+                .addComponent(errorRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jLayeredPane1.add(signInMovablePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, -1));
+
+        backGroundPanel.setkBorderRadius(60);
+        backGroundPanel.setkEndColor(new java.awt.Color(60, 156, 220));
+        backGroundPanel.setkGradientFocus(400);
+        backGroundPanel.setkStartColor(new java.awt.Color(180, 225, 255));
+        backGroundPanel.setOpaque(false);
+        backGroundPanel.setPreferredSize(new java.awt.Dimension(926, 503));
+        backGroundPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/SignInWindow/SignWindowpic1.png"))); // NOI18N
-        kGradientPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, -1, -1));
+        backGroundPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, -1, -1));
 
         logoLabel.setForeground(new java.awt.Color(0, 0, 0));
         logoLabel.setText("LOGO");
-        kGradientPanel1.add(logoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, -1, -1));
+        backGroundPanel.add(logoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, -1, -1));
+
+        jLayeredPane1.add(backGroundPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLayeredPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jLayeredPane1)
         );
 
         pack();
@@ -215,7 +289,8 @@ public class SignInWindow extends javax.swing.JFrame {
 
     private void closeWindowMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeWindowMouseClicked
         // TODO add your handling code here:
-        Animations.windowExitAnimation(this, 1f);
+        //Animations.windowExitAnimation(this, 1f);
+        this.dispose();
     }//GEN-LAST:event_closeWindowMouseClicked
 
     private void passwordFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordFieldMouseClicked
@@ -241,7 +316,8 @@ public class SignInWindow extends javax.swing.JFrame {
             return;
         }  else if (database.Login(usernameField.getText(), passwordField.getText())){         
 
-            Animations.windowCloseAnimation(this, 1f);
+            //Animations.windowCloseAnimation(this, 1f);
+            this.dispose();
             new AddressWindow(database).setVisible(true);
 
         } else {
@@ -252,13 +328,30 @@ public class SignInWindow extends javax.swing.JFrame {
 
     private void btnGotoRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGotoRegisterMouseClicked
         // TODO add your handling code here:
-        Animations.windowCloseAnimation(this, 1f);
+        //Animations.windowCloseAnimation(this,1f);
+        this.dispose();
         new SignUp(database).setVisible(true);
     }//GEN-LAST:event_btnGotoRegisterMouseClicked
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-        Animations.windowAppearAnimation(this, 1f);
+        //Animations.windowAppearAnimation(this, 1f);
+        Thread th = new Thread(){
+            @Override
+            public void run(){
+                try {
+                    signInMovablePanel.setVisible(true);
+                    int X = backGroundPanel.getX();
+                    for (int i = 0; i < 92; i++) {
+                        signInMovablePanel.setLocation(X, 0);
+                        X += 5;                 
+                        Thread.sleep(1);
+                    } 
+                } catch (Exception e) {
+                }
+                signInMovablePanel.setLocation(470, 0);//REMEMBER
+            }
+        };th.start();
     }//GEN-LAST:event_formWindowOpened
 
     /**
@@ -297,6 +390,7 @@ public class SignInWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.k33ptoo.components.KGradientPanel backGroundPanel;
     private javax.swing.JLabel btnGotoRegister;
     private com.k33ptoo.components.KButton btnSignIn1;
     private javax.swing.JLabel closeWindow;
@@ -309,10 +403,10 @@ public class SignInWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel9;
-    private com.k33ptoo.components.KGradientPanel kGradientPanel1;
-    private com.k33ptoo.components.KGradientPanel kGradientPanel2;
+    private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JLabel logoLabel;
     private javax.swing.JPasswordField passwordField;
+    private com.k33ptoo.components.KGradientPanel signInMovablePanel;
     private javax.swing.JTextField usernameField;
     // End of variables declaration//GEN-END:variables
 }
