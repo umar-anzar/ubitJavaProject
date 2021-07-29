@@ -317,15 +317,15 @@ public class SignInWindow extends javax.swing.JFrame {
         } else {
             errorRegister.setText("Username or password is incorrect!");
         }
+        
+        //ERROR FREE STILL ANIMATION
         SignInWindow window = this;
         Thread th = new Thread(){
             @Override
             public void run(){
                 
                 try {
-                    for (int i = 0; i < 1; i++) {
-                        Thread.sleep(1);
-                    }
+                    Thread.sleep(1);
                 } catch (Exception e) {
                 }
                 signInMovablePanel.setLocation(470, 0);
@@ -337,8 +337,9 @@ public class SignInWindow extends javax.swing.JFrame {
     private void btnGotoRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGotoRegisterMouseClicked
         // TODO add your handling code here:
         //Animations.windowCloseAnimation(this,1f);
-        this.dispose();
+        
         new SignUp(database).setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnGotoRegisterMouseClicked
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
