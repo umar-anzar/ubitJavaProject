@@ -5,6 +5,11 @@
  */
 package serviceprovidingsystem.UserWindows;
 
+import serviceprovidingsystem.Database.DatabaseConnection;
+import serviceprovidingsystem.MapAndAnimation.Animations;
+import serviceprovidingsystem.MapAndAnimation.GoogleMapsClass;
+import serviceprovidingsystem.SignInWindow;
+
 
 /**
  *
@@ -15,10 +20,29 @@ public class StatusAndFee extends javax.swing.JFrame {
     /**
      * Creates new form StatusAndFee
      */
+    //Movable HomeBarPanel
+    DatabaseConnection database;
+    GoogleMapsClass googleMap;
+    //setting panel
+        private boolean isSandwhichSettingPanelOpen = false;
+        private int widthOfSettingPanel;
+        private int heightOfSettingPanel;
+
+    //Movable HomeBarPanel
+        int XMouse;
+        int YMouse;
+        
+    //marklocation and fields
+        boolean markLocation = false;
+        String addressField = "";
     public StatusAndFee() {
         initComponents();
     }
 
+    public StatusAndFee(DatabaseConnection database) {
+        initComponents();
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -44,22 +68,7 @@ public class StatusAndFee extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         kGradientPanel1 = new com.k33ptoo.components.KGradientPanel();
-        SelectOptionsWindow = new com.k33ptoo.components.KGradientPanel();
-        locationShowLabel = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        btnSetMarker = new com.k33ptoo.components.KButton();
-        btnAvailableAreas = new com.k33ptoo.components.KButton();
-        btnShowLocatio = new com.k33ptoo.components.KButton();
         houseField = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        streetField = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        phaseField = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        areaField = new javax.swing.JTextField();
-        btnGoToHome = new com.k33ptoo.components.KButton();
         errorLabel1 = new javax.swing.JLabel();
         errorLabel2 = new javax.swing.JLabel();
 
@@ -266,157 +275,10 @@ public class StatusAndFee extends javax.swing.JFrame {
         kGradientPanel1.setkStartColor(new java.awt.Color(231, 231, 231));
         kGradientPanel1.setOpaque(false);
 
-        SelectOptionsWindow.setkBorderRadius(20);
-        SelectOptionsWindow.setkEndColor(new java.awt.Color(60, 156, 220));
-        SelectOptionsWindow.setkStartColor(new java.awt.Color(180, 225, 255));
-        SelectOptionsWindow.setOpaque(false);
-
-        locationShowLabel.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
-        locationShowLabel.setForeground(new java.awt.Color(28, 40, 51));
-        locationShowLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        locationShowLabel.setText("Pin location here");
-
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/MapWindow/setMarkerIcon_32px.png"))); // NOI18N
-
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/MapWindow/availabeAreasIcon_32px.png"))); // NOI18N
-
-        btnSetMarker.setText("Mark Location");
-        btnSetMarker.setBorderPainted(false);
-        btnSetMarker.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
-        btnSetMarker.setkEndColor(new java.awt.Color(226, 226, 226));
-        btnSetMarker.setkForeGround(new java.awt.Color(0, 0, 0));
-        btnSetMarker.setkHoverEndColor(new java.awt.Color(204, 204, 204));
-        btnSetMarker.setkHoverForeGround(new java.awt.Color(0, 0, 0));
-        btnSetMarker.setkHoverStartColor(new java.awt.Color(255, 255, 255));
-        btnSetMarker.setkStartColor(new java.awt.Color(226, 226, 226));
-        btnSetMarker.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSetMarkerActionPerformed(evt);
-            }
-        });
-
-        btnAvailableAreas.setText("Available Areas");
-        btnAvailableAreas.setBorderPainted(false);
-        btnAvailableAreas.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
-        btnAvailableAreas.setkEndColor(new java.awt.Color(226, 226, 226));
-        btnAvailableAreas.setkForeGround(new java.awt.Color(0, 0, 0));
-        btnAvailableAreas.setkHoverEndColor(new java.awt.Color(204, 204, 204));
-        btnAvailableAreas.setkHoverForeGround(new java.awt.Color(0, 0, 0));
-        btnAvailableAreas.setkHoverStartColor(new java.awt.Color(255, 255, 255));
-        btnAvailableAreas.setkStartColor(new java.awt.Color(226, 226, 226));
-        btnAvailableAreas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAvailableAreasActionPerformed(evt);
-            }
-        });
-
-        btnShowLocatio.setText("Done");
-        btnShowLocatio.setBorderPainted(false);
-        btnShowLocatio.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
-        btnShowLocatio.setkEndColor(new java.awt.Color(226, 226, 226));
-        btnShowLocatio.setkForeGround(new java.awt.Color(0, 0, 0));
-        btnShowLocatio.setkHoverEndColor(new java.awt.Color(204, 204, 204));
-        btnShowLocatio.setkHoverForeGround(new java.awt.Color(0, 0, 0));
-        btnShowLocatio.setkHoverStartColor(new java.awt.Color(255, 255, 255));
-        btnShowLocatio.setkStartColor(new java.awt.Color(226, 226, 226));
-        btnShowLocatio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnShowLocatioActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout SelectOptionsWindowLayout = new javax.swing.GroupLayout(SelectOptionsWindow);
-        SelectOptionsWindow.setLayout(SelectOptionsWindowLayout);
-        SelectOptionsWindowLayout.setHorizontalGroup(
-            SelectOptionsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SelectOptionsWindowLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(SelectOptionsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SelectOptionsWindowLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(locationShowLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(17, 17, 17))
-                    .addGroup(SelectOptionsWindowLayout.createSequentialGroup()
-                        .addGroup(SelectOptionsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(SelectOptionsWindowLayout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addGap(39, 39, 39)
-                                .addComponent(btnAvailableAreas, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(SelectOptionsWindowLayout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addGap(39, 39, 39)
-                                .addComponent(btnSetMarker, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnShowLocatio, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
-        SelectOptionsWindowLayout.setVerticalGroup(
-            SelectOptionsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SelectOptionsWindowLayout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addGroup(SelectOptionsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(btnSetMarker, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnShowLocatio, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(locationShowLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(SelectOptionsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addComponent(btnAvailableAreas, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23))
-        );
-
         houseField.setBackground(new java.awt.Color(231, 231, 231));
         houseField.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
         houseField.setForeground(new java.awt.Color(28, 40, 51));
         houseField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(230, 126, 34)));
-
-        jLabel4.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(28, 40, 51));
-        jLabel4.setText("House/Flat no.");
-
-        jLabel5.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(28, 40, 51));
-        jLabel5.setText("Street no.");
-
-        streetField.setBackground(new java.awt.Color(231, 231, 231));
-        streetField.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
-        streetField.setForeground(new java.awt.Color(28, 40, 51));
-        streetField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(230, 126, 34)));
-
-        jLabel6.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(28, 40, 51));
-        jLabel6.setText("Block/Phase no.");
-
-        phaseField.setBackground(new java.awt.Color(231, 231, 231));
-        phaseField.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
-        phaseField.setForeground(new java.awt.Color(28, 40, 51));
-        phaseField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(230, 126, 34)));
-
-        jLabel7.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(28, 40, 51));
-        jLabel7.setText("Area name");
-
-        areaField.setBackground(new java.awt.Color(231, 231, 231));
-        areaField.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
-        areaField.setForeground(new java.awt.Color(28, 40, 51));
-        areaField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(230, 126, 34)));
-
-        btnGoToHome.setBorderPainted(false);
-        btnGoToHome.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 14)); // NOI18N
-        btnGoToHome.setkEndColor(new java.awt.Color(255, 255, 255));
-        btnGoToHome.setkForeGround(new java.awt.Color(0, 0, 0));
-        btnGoToHome.setkHoverEndColor(new java.awt.Color(204, 204, 204));
-        btnGoToHome.setkHoverForeGround(new java.awt.Color(0, 0, 0));
-        btnGoToHome.setkHoverStartColor(new java.awt.Color(255, 255, 255));
-        btnGoToHome.setkStartColor(new java.awt.Color(255, 255, 255));
-        btnGoToHome.setLabel("GO");
-        btnGoToHome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGoToHomeActionPerformed(evt);
-            }
-        });
 
         errorLabel1.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
         errorLabel1.setForeground(new java.awt.Color(193, 56, 56));
@@ -434,24 +296,10 @@ public class StatusAndFee extends javax.swing.JFrame {
                 .addGap(82, 82, 82)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(errorLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(houseField, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
-                    .addComponent(jLabel5)
-                    .addComponent(streetField, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
-                    .addComponent(jLabel6)
-                    .addComponent(phaseField, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
-                    .addComponent(jLabel7)
-                    .addComponent(areaField, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                        .addComponent(SelectOptionsWindow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btnGoToHome, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
-                            .addComponent(errorLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(141, 141, 141))))
+                    .addComponent(houseField, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 184, Short.MAX_VALUE)
+                .addComponent(errorLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(141, 141, 141))
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -461,29 +309,9 @@ public class StatusAndFee extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(errorLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                                .addComponent(SelectOptionsWindow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnGoToHome, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                                .addComponent(houseField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(streetField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(phaseField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(areaField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                        .addGap(111, 111, 111)
+                        .addComponent(houseField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 260, Short.MAX_VALUE)
                         .addComponent(errorLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(23, 23, 23))
         );
@@ -574,58 +402,6 @@ public class StatusAndFee extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jLabel2MouseClicked
 
-    private void btnSetMarkerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSetMarkerActionPerformed
-        // TODO add your handling code here:
-        if (this.database.currentUser != null){
-            //CODE HERE
-            googleMap = new GoogleMapsClass(database);
-            googleMap.setPinLocation();
-        }
-    }//GEN-LAST:event_btnSetMarkerActionPerformed
-
-    private void btnAvailableAreasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvailableAreasActionPerformed
-        // TODO add your handling code here:
-        GoogleMapsClass.showServiceArea();
-    }//GEN-LAST:event_btnAvailableAreasActionPerformed
-
-    private void btnShowLocatioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowLocatioActionPerformed
-        // TODO add your handling code here:
-        // TODO add your handling code here:
-        if(googleMap != null){
-            locationShowLabel.setText(googleMap.getAddress());
-            System.out.println(database.currentUser.toString());
-            if (googleMap.getLink() != null){
-                googleMap.updateAddress();
-                database.UPDATE_USER();
-                markLocation = true;
-            }
-        }
-    }//GEN-LAST:event_btnShowLocatioActionPerformed
-
-    private void btnGoToHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGoToHomeActionPerformed
-        // TODO add your handling code here:
-        if (houseField.getText().isEmpty() || streetField.getText().isEmpty() || phaseField.getText().isEmpty()
-            || areaField.getText().isEmpty()) {
-            System.out.println("Field(s) are empty");
-            errorLabel1.setText("Field(s) are empty");
-        } else {
-            if(markLocation){
-                //CODE HERE
-                errorLabel1.setText("");
-                addressField = houseField.getText() + "," + streetField.getText() + "," + phaseField.getText() + "," + areaField.getText();
-                System.out.println(addressField);
-                database.currentUser.setAddress(addressField);
-                database.UPDATE_USER();
-                Animations.windowCloseAnimation(this, 1f);
-                new HomeWindow(database).setVisible(true);
-            } else {
-                System.out.println("Location not marked");
-                errorLabel2.setText("Location not marked");
-
-            }
-        }
-    }//GEN-LAST:event_btnGoToHomeActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -663,38 +439,23 @@ public class StatusAndFee extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Receipt;
-    private com.k33ptoo.components.KGradientPanel SelectOptionsWindow;
-    private javax.swing.JTextField areaField;
-    private com.k33ptoo.components.KButton btnAvailableAreas;
-    private com.k33ptoo.components.KButton btnGoToHome;
-    private com.k33ptoo.components.KButton btnSetMarker;
     private com.k33ptoo.components.KButton btnSettingNumber;
     private com.k33ptoo.components.KButton btnSettingPassword;
-    private com.k33ptoo.components.KButton btnShowLocatio;
     private com.k33ptoo.components.KGradientPanel closeBar;
     private javax.swing.JLabel errorLabel1;
     private javax.swing.JLabel errorLabel2;
     private com.k33ptoo.components.KGradientPanel homeBackgroundPanel;
     private javax.swing.JTextField houseField;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
     private com.k33ptoo.components.KGradientPanel kGradientPanel1;
     private com.k33ptoo.components.KGradientPanel kGradientPanel5;
-    private javax.swing.JLabel locationShowLabel;
     private com.k33ptoo.components.KGradientPanel logoBar;
-    private javax.swing.JTextField phaseField;
     private com.k33ptoo.components.KGradientPanel sandwichSettingPanel;
     private com.k33ptoo.components.KButton signOutBtn1;
-    private javax.swing.JTextField streetField;
     private com.k33ptoo.components.KGradientPanel tItleBar;
     // End of variables declaration//GEN-END:variables
 }
