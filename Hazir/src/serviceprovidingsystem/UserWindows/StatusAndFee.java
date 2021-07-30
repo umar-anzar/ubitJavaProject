@@ -28,21 +28,603 @@ public class StatusAndFee extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLayeredPane1 = new javax.swing.JLayeredPane();
+        logoBar = new com.k33ptoo.components.KGradientPanel();
+        closeBar = new com.k33ptoo.components.KGradientPanel();
+        jLabel3 = new javax.swing.JLabel();
+        tItleBar = new com.k33ptoo.components.KGradientPanel();
+        Receipt = new javax.swing.JLabel();
+        sandwichSettingPanel = new com.k33ptoo.components.KGradientPanel();
+        jLabel1 = new javax.swing.JLabel();
+        btnSettingPassword = new com.k33ptoo.components.KButton();
+        btnSettingNumber = new com.k33ptoo.components.KButton();
+        signOutBtn1 = new com.k33ptoo.components.KButton();
+        homeBackgroundPanel = new com.k33ptoo.components.KGradientPanel();
+        kGradientPanel5 = new com.k33ptoo.components.KGradientPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        kGradientPanel1 = new com.k33ptoo.components.KGradientPanel();
+        SelectOptionsWindow = new com.k33ptoo.components.KGradientPanel();
+        locationShowLabel = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        btnSetMarker = new com.k33ptoo.components.KButton();
+        btnAvailableAreas = new com.k33ptoo.components.KButton();
+        btnShowLocatio = new com.k33ptoo.components.KButton();
+        houseField = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        streetField = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        phaseField = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        areaField = new javax.swing.JTextField();
+        btnGoToHome = new com.k33ptoo.components.KButton();
+        errorLabel1 = new javax.swing.JLabel();
+        errorLabel2 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLayeredPane1.setPreferredSize(new java.awt.Dimension(1066, 600));
+
+        logoBar.setkEndColor(new java.awt.Color(24, 25, 25));
+        logoBar.setkGradientFocus(50);
+        logoBar.setkStartColor(new java.awt.Color(28, 40, 51));
+        logoBar.setOpaque(false);
+
+        javax.swing.GroupLayout logoBarLayout = new javax.swing.GroupLayout(logoBar);
+        logoBar.setLayout(logoBarLayout);
+        logoBarLayout.setHorizontalGroup(
+            logoBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 50, Short.MAX_VALUE)
+        );
+        logoBarLayout.setVerticalGroup(
+            logoBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+
+        jLayeredPane1.add(logoBar);
+        logoBar.setBounds(10, 0, 50, 40);
+
+        closeBar.setkEndColor(new java.awt.Color(24, 25, 25));
+        closeBar.setkGradientFocus(50);
+        closeBar.setkStartColor(new java.awt.Color(28, 40, 51));
+        closeBar.setOpaque(false);
+
+        jLabel3.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/HomeWindow/close_window_32px.png"))); // NOI18N
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel3.setPreferredSize(new java.awt.Dimension(21, 19));
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout closeBarLayout = new javax.swing.GroupLayout(closeBar);
+        closeBar.setLayout(closeBarLayout);
+        closeBarLayout.setHorizontalGroup(
+            closeBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+        closeBarLayout.setVerticalGroup(
+            closeBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        jLayeredPane1.add(closeBar);
+        closeBar.setBounds(1010, 0, 40, 40);
+
+        tItleBar.setkEndColor(new java.awt.Color(24, 25, 25));
+        tItleBar.setkGradientFocus(1000);
+        tItleBar.setkStartColor(new java.awt.Color(28, 40, 51));
+        tItleBar.setOpaque(false);
+
+        Receipt.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 24)); // NOI18N
+        Receipt.setForeground(new java.awt.Color(255, 255, 255));
+        Receipt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Receipt.setText("Receipt");
+        Receipt.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                ReceiptMouseDragged(evt);
+            }
+        });
+        Receipt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                ReceiptMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout tItleBarLayout = new javax.swing.GroupLayout(tItleBar);
+        tItleBar.setLayout(tItleBarLayout);
+        tItleBarLayout.setHorizontalGroup(
+            tItleBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tItleBarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Receipt, javax.swing.GroupLayout.DEFAULT_SIZE, 549, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        tItleBarLayout.setVerticalGroup(
+            tItleBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tItleBarLayout.createSequentialGroup()
+                .addComponent(Receipt, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jLayeredPane1.add(tItleBar);
+        tItleBar.setBounds(250, 0, 561, 70);
+
+        sandwichSettingPanel.setkBorderRadius(15);
+        sandwichSettingPanel.setkEndColor(new java.awt.Color(60, 156, 220));
+        sandwichSettingPanel.setkStartColor(new java.awt.Color(180, 225, 255));
+        sandwichSettingPanel.setOpaque(false);
+        sandwichSettingPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Microsoft YaHei UI Light", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/HomeWindow/settings_32px.png"))); // NOI18N
+        jLabel1.setText("Settings");
+        sandwichSettingPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(146, 20, -1, -1));
+
+        btnSettingPassword.setText("Password");
+        btnSettingPassword.setBorderPainted(false);
+        btnSettingPassword.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
+        btnSettingPassword.setkEndColor(new java.awt.Color(255, 255, 255));
+        btnSettingPassword.setkForeGround(new java.awt.Color(0, 0, 0));
+        btnSettingPassword.setkHoverEndColor(new java.awt.Color(204, 204, 204));
+        btnSettingPassword.setkHoverForeGround(new java.awt.Color(0, 0, 0));
+        btnSettingPassword.setkHoverStartColor(new java.awt.Color(240, 239, 239));
+        btnSettingPassword.setkStartColor(new java.awt.Color(255, 255, 255));
+        btnSettingPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSettingPasswordActionPerformed(evt);
+            }
+        });
+        sandwichSettingPanel.add(btnSettingPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 280, 30));
+
+        btnSettingNumber.setText("Mobile number");
+        btnSettingNumber.setBorderPainted(false);
+        btnSettingNumber.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
+        btnSettingNumber.setkEndColor(new java.awt.Color(255, 255, 255));
+        btnSettingNumber.setkForeGround(new java.awt.Color(0, 0, 0));
+        btnSettingNumber.setkHoverEndColor(new java.awt.Color(204, 204, 204));
+        btnSettingNumber.setkHoverForeGround(new java.awt.Color(0, 0, 0));
+        btnSettingNumber.setkHoverStartColor(new java.awt.Color(240, 239, 239));
+        btnSettingNumber.setkStartColor(new java.awt.Color(255, 255, 255));
+        btnSettingNumber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSettingNumberActionPerformed(evt);
+            }
+        });
+        sandwichSettingPanel.add(btnSettingNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 280, 30));
+
+        signOutBtn1.setText("Sign Out");
+        signOutBtn1.setBorderPainted(false);
+        signOutBtn1.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
+        signOutBtn1.setkEndColor(new java.awt.Color(255, 255, 255));
+        signOutBtn1.setkForeGround(new java.awt.Color(0, 0, 0));
+        signOutBtn1.setkHoverEndColor(new java.awt.Color(204, 204, 204));
+        signOutBtn1.setkHoverForeGround(new java.awt.Color(0, 0, 0));
+        signOutBtn1.setkHoverStartColor(new java.awt.Color(240, 239, 239));
+        signOutBtn1.setkStartColor(new java.awt.Color(255, 255, 255));
+        signOutBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                signOutBtn1ActionPerformed(evt);
+            }
+        });
+        sandwichSettingPanel.add(signOutBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 398, 280, 30));
+
+        jLayeredPane1.add(sandwichSettingPanel);
+        sandwichSettingPanel.setBounds(62, 80, 410, 480);
+
+        homeBackgroundPanel.setkBorderRadius(60);
+        homeBackgroundPanel.setkEndColor(new java.awt.Color(255, 255, 255));
+        homeBackgroundPanel.setkStartColor(new java.awt.Color(255, 255, 255));
+        homeBackgroundPanel.setOpaque(false);
+
+        kGradientPanel5.setkBorderRadius(50);
+        kGradientPanel5.setkEndColor(new java.awt.Color(0, 0, 0));
+        kGradientPanel5.setkStartColor(new java.awt.Color(28, 40, 51));
+        kGradientPanel5.setOpaque(false);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/HomeWindow/sandwichMenu_32x.png"))); // NOI18N
+        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
+
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/HomeWindow/contactUs_32x.png"))); // NOI18N
+
+        javax.swing.GroupLayout kGradientPanel5Layout = new javax.swing.GroupLayout(kGradientPanel5);
+        kGradientPanel5.setLayout(kGradientPanel5Layout);
+        kGradientPanel5Layout.setHorizontalGroup(
+            kGradientPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel5Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(kGradientPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel2))
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+        kGradientPanel5Layout.setVerticalGroup(
+            kGradientPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel5Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 444, Short.MAX_VALUE)
+                .addComponent(jLabel17)
+                .addGap(25, 25, 25))
+        );
+
+        kGradientPanel1.setkBorderRadius(20);
+        kGradientPanel1.setkEndColor(new java.awt.Color(231, 231, 231));
+        kGradientPanel1.setkGradientFocus(100);
+        kGradientPanel1.setkStartColor(new java.awt.Color(231, 231, 231));
+        kGradientPanel1.setOpaque(false);
+
+        SelectOptionsWindow.setkBorderRadius(20);
+        SelectOptionsWindow.setkEndColor(new java.awt.Color(60, 156, 220));
+        SelectOptionsWindow.setkStartColor(new java.awt.Color(180, 225, 255));
+        SelectOptionsWindow.setOpaque(false);
+
+        locationShowLabel.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
+        locationShowLabel.setForeground(new java.awt.Color(28, 40, 51));
+        locationShowLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        locationShowLabel.setText("Pin location here");
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/MapWindow/setMarkerIcon_32px.png"))); // NOI18N
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/MapWindow/availabeAreasIcon_32px.png"))); // NOI18N
+
+        btnSetMarker.setText("Mark Location");
+        btnSetMarker.setBorderPainted(false);
+        btnSetMarker.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
+        btnSetMarker.setkEndColor(new java.awt.Color(226, 226, 226));
+        btnSetMarker.setkForeGround(new java.awt.Color(0, 0, 0));
+        btnSetMarker.setkHoverEndColor(new java.awt.Color(204, 204, 204));
+        btnSetMarker.setkHoverForeGround(new java.awt.Color(0, 0, 0));
+        btnSetMarker.setkHoverStartColor(new java.awt.Color(255, 255, 255));
+        btnSetMarker.setkStartColor(new java.awt.Color(226, 226, 226));
+        btnSetMarker.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSetMarkerActionPerformed(evt);
+            }
+        });
+
+        btnAvailableAreas.setText("Available Areas");
+        btnAvailableAreas.setBorderPainted(false);
+        btnAvailableAreas.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
+        btnAvailableAreas.setkEndColor(new java.awt.Color(226, 226, 226));
+        btnAvailableAreas.setkForeGround(new java.awt.Color(0, 0, 0));
+        btnAvailableAreas.setkHoverEndColor(new java.awt.Color(204, 204, 204));
+        btnAvailableAreas.setkHoverForeGround(new java.awt.Color(0, 0, 0));
+        btnAvailableAreas.setkHoverStartColor(new java.awt.Color(255, 255, 255));
+        btnAvailableAreas.setkStartColor(new java.awt.Color(226, 226, 226));
+        btnAvailableAreas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAvailableAreasActionPerformed(evt);
+            }
+        });
+
+        btnShowLocatio.setText("Done");
+        btnShowLocatio.setBorderPainted(false);
+        btnShowLocatio.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
+        btnShowLocatio.setkEndColor(new java.awt.Color(226, 226, 226));
+        btnShowLocatio.setkForeGround(new java.awt.Color(0, 0, 0));
+        btnShowLocatio.setkHoverEndColor(new java.awt.Color(204, 204, 204));
+        btnShowLocatio.setkHoverForeGround(new java.awt.Color(0, 0, 0));
+        btnShowLocatio.setkHoverStartColor(new java.awt.Color(255, 255, 255));
+        btnShowLocatio.setkStartColor(new java.awt.Color(226, 226, 226));
+        btnShowLocatio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShowLocatioActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout SelectOptionsWindowLayout = new javax.swing.GroupLayout(SelectOptionsWindow);
+        SelectOptionsWindow.setLayout(SelectOptionsWindowLayout);
+        SelectOptionsWindowLayout.setHorizontalGroup(
+            SelectOptionsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SelectOptionsWindowLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(SelectOptionsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SelectOptionsWindowLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(locationShowLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(17, 17, 17))
+                    .addGroup(SelectOptionsWindowLayout.createSequentialGroup()
+                        .addGroup(SelectOptionsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(SelectOptionsWindowLayout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addGap(39, 39, 39)
+                                .addComponent(btnAvailableAreas, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(SelectOptionsWindowLayout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addGap(39, 39, 39)
+                                .addComponent(btnSetMarker, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnShowLocatio, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+        SelectOptionsWindowLayout.setVerticalGroup(
+            SelectOptionsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SelectOptionsWindowLayout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addGroup(SelectOptionsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(btnSetMarker, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnShowLocatio, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(locationShowLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(SelectOptionsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10)
+                    .addComponent(btnAvailableAreas, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23))
+        );
+
+        houseField.setBackground(new java.awt.Color(231, 231, 231));
+        houseField.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
+        houseField.setForeground(new java.awt.Color(28, 40, 51));
+        houseField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(230, 126, 34)));
+
+        jLabel4.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(28, 40, 51));
+        jLabel4.setText("House/Flat no.");
+
+        jLabel5.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(28, 40, 51));
+        jLabel5.setText("Street no.");
+
+        streetField.setBackground(new java.awt.Color(231, 231, 231));
+        streetField.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
+        streetField.setForeground(new java.awt.Color(28, 40, 51));
+        streetField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(230, 126, 34)));
+
+        jLabel6.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(28, 40, 51));
+        jLabel6.setText("Block/Phase no.");
+
+        phaseField.setBackground(new java.awt.Color(231, 231, 231));
+        phaseField.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
+        phaseField.setForeground(new java.awt.Color(28, 40, 51));
+        phaseField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(230, 126, 34)));
+
+        jLabel7.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(28, 40, 51));
+        jLabel7.setText("Area name");
+
+        areaField.setBackground(new java.awt.Color(231, 231, 231));
+        areaField.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
+        areaField.setForeground(new java.awt.Color(28, 40, 51));
+        areaField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(230, 126, 34)));
+
+        btnGoToHome.setBorderPainted(false);
+        btnGoToHome.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 14)); // NOI18N
+        btnGoToHome.setkEndColor(new java.awt.Color(255, 255, 255));
+        btnGoToHome.setkForeGround(new java.awt.Color(0, 0, 0));
+        btnGoToHome.setkHoverEndColor(new java.awt.Color(204, 204, 204));
+        btnGoToHome.setkHoverForeGround(new java.awt.Color(0, 0, 0));
+        btnGoToHome.setkHoverStartColor(new java.awt.Color(255, 255, 255));
+        btnGoToHome.setkStartColor(new java.awt.Color(255, 255, 255));
+        btnGoToHome.setLabel("GO");
+        btnGoToHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGoToHomeActionPerformed(evt);
+            }
+        });
+
+        errorLabel1.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
+        errorLabel1.setForeground(new java.awt.Color(193, 56, 56));
+        errorLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        errorLabel2.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
+        errorLabel2.setForeground(new java.awt.Color(193, 56, 56));
+        errorLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
+        kGradientPanel1.setLayout(kGradientPanel1Layout);
+        kGradientPanel1Layout.setHorizontalGroup(
+            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                .addGap(82, 82, 82)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(errorLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(houseField, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+                    .addComponent(jLabel5)
+                    .addComponent(streetField, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+                    .addComponent(jLabel6)
+                    .addComponent(phaseField, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+                    .addComponent(jLabel7)
+                    .addComponent(areaField, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
+                        .addComponent(SelectOptionsWindow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btnGoToHome, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
+                            .addComponent(errorLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(141, 141, 141))))
+        );
+        kGradientPanel1Layout.setVerticalGroup(
+            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(errorLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                        .addGap(85, 85, 85)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                                .addComponent(SelectOptionsWindow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnGoToHome, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                                .addComponent(houseField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(streetField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(phaseField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(areaField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                        .addComponent(errorLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(23, 23, 23))
+        );
+
+        javax.swing.GroupLayout homeBackgroundPanelLayout = new javax.swing.GroupLayout(homeBackgroundPanel);
+        homeBackgroundPanel.setLayout(homeBackgroundPanelLayout);
+        homeBackgroundPanelLayout.setHorizontalGroup(
+            homeBackgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(homeBackgroundPanelLayout.createSequentialGroup()
+                .addComponent(kGradientPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(102, 102, 102)
+                .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(130, Short.MAX_VALUE))
+        );
+        homeBackgroundPanelLayout.setVerticalGroup(
+            homeBackgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(kGradientPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(homeBackgroundPanelLayout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jLayeredPane1.add(homeBackgroundPanel);
+        homeBackgroundPanel.setBounds(0, 50, 1070, 552);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1081, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 655, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        // TODO add your handling code here:
+        Animations.windowExitAnimation(this, 1f);
+    }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void ReceiptMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReceiptMouseDragged
+        // TODO add your handling code here:
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x - XMouse, y - YMouse);
+    }//GEN-LAST:event_ReceiptMouseDragged
+
+    private void ReceiptMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReceiptMousePressed
+        // TODO add your handling code here:
+        XMouse = evt.getX() + (int) homeBackgroundPanel.getX()+ 255;
+        YMouse = evt.getY() + (int) homeBackgroundPanel.getY() - 50;
+    }//GEN-LAST:event_ReceiptMousePressed
+
+    private void btnSettingPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSettingPasswordActionPerformed
+        // TODO add your handling code here:
+        new SettingPanel(database).setVisible(true);//open setting panel
+    }//GEN-LAST:event_btnSettingPasswordActionPerformed
+
+    private void btnSettingNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSettingNumberActionPerformed
+        // TODO add your handling code here:
+        btnSettingPasswordActionPerformed(evt);//open same setting panel
+    }//GEN-LAST:event_btnSettingNumberActionPerformed
+
+    private void signOutBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signOutBtn1ActionPerformed
+        // TODO add your handling code here:
+
+        Animations.windowCloseAnimation(this, 1f);
+        new SignInWindow(database).setVisible(true);
+    }//GEN-LAST:event_signOutBtn1ActionPerformed
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        // TODO add your handling code here:
+        if(isSandwhichSettingPanelOpen){
+            Animations.panelCloseAnimation(this.sandwichSettingPanel,widthOfSettingPanel,heightOfSettingPanel);
+            isSandwhichSettingPanelOpen = false;
+        } else{
+            Animations.panelAppearAnimation(this.sandwichSettingPanel,widthOfSettingPanel,heightOfSettingPanel);
+            isSandwhichSettingPanelOpen = true;
+        }
+    }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void btnSetMarkerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSetMarkerActionPerformed
+        // TODO add your handling code here:
+        if (this.database.currentUser != null){
+            //CODE HERE
+            googleMap = new GoogleMapsClass(database);
+            googleMap.setPinLocation();
+        }
+    }//GEN-LAST:event_btnSetMarkerActionPerformed
+
+    private void btnAvailableAreasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvailableAreasActionPerformed
+        // TODO add your handling code here:
+        GoogleMapsClass.showServiceArea();
+    }//GEN-LAST:event_btnAvailableAreasActionPerformed
+
+    private void btnShowLocatioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowLocatioActionPerformed
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        if(googleMap != null){
+            locationShowLabel.setText(googleMap.getAddress());
+            System.out.println(database.currentUser.toString());
+            if (googleMap.getLink() != null){
+                googleMap.updateAddress();
+                database.UPDATE_USER();
+                markLocation = true;
+            }
+        }
+    }//GEN-LAST:event_btnShowLocatioActionPerformed
+
+    private void btnGoToHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGoToHomeActionPerformed
+        // TODO add your handling code here:
+        if (houseField.getText().isEmpty() || streetField.getText().isEmpty() || phaseField.getText().isEmpty()
+            || areaField.getText().isEmpty()) {
+            System.out.println("Field(s) are empty");
+            errorLabel1.setText("Field(s) are empty");
+        } else {
+            if(markLocation){
+                //CODE HERE
+                errorLabel1.setText("");
+                addressField = houseField.getText() + "," + streetField.getText() + "," + phaseField.getText() + "," + areaField.getText();
+                System.out.println(addressField);
+                database.currentUser.setAddress(addressField);
+                database.UPDATE_USER();
+                Animations.windowCloseAnimation(this, 1f);
+                new HomeWindow(database).setVisible(true);
+            } else {
+                System.out.println("Location not marked");
+                errorLabel2.setText("Location not marked");
+
+            }
+        }
+    }//GEN-LAST:event_btnGoToHomeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -80,5 +662,39 @@ public class StatusAndFee extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Receipt;
+    private com.k33ptoo.components.KGradientPanel SelectOptionsWindow;
+    private javax.swing.JTextField areaField;
+    private com.k33ptoo.components.KButton btnAvailableAreas;
+    private com.k33ptoo.components.KButton btnGoToHome;
+    private com.k33ptoo.components.KButton btnSetMarker;
+    private com.k33ptoo.components.KButton btnSettingNumber;
+    private com.k33ptoo.components.KButton btnSettingPassword;
+    private com.k33ptoo.components.KButton btnShowLocatio;
+    private com.k33ptoo.components.KGradientPanel closeBar;
+    private javax.swing.JLabel errorLabel1;
+    private javax.swing.JLabel errorLabel2;
+    private com.k33ptoo.components.KGradientPanel homeBackgroundPanel;
+    private javax.swing.JTextField houseField;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLayeredPane jLayeredPane1;
+    private com.k33ptoo.components.KGradientPanel kGradientPanel1;
+    private com.k33ptoo.components.KGradientPanel kGradientPanel5;
+    private javax.swing.JLabel locationShowLabel;
+    private com.k33ptoo.components.KGradientPanel logoBar;
+    private javax.swing.JTextField phaseField;
+    private com.k33ptoo.components.KGradientPanel sandwichSettingPanel;
+    private com.k33ptoo.components.KButton signOutBtn1;
+    private javax.swing.JTextField streetField;
+    private com.k33ptoo.components.KGradientPanel tItleBar;
     // End of variables declaration//GEN-END:variables
 }
