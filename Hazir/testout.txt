@@ -1,0 +1,15 @@
+Your Details
+
+Username        name
+Mobile Number   customerNumber
+Address         address
+_________________________________________________________
+
+Your Worker's Details
+
+Name            name
+Cnic no.        cnic
+profession      jobType
+Fee             cost
+Experience      experience
+Rating          rating

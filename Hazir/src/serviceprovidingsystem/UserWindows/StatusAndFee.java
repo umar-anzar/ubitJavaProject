@@ -5,11 +5,16 @@
  */
 package serviceprovidingsystem.UserWindows;
 
-import serviceprovidingsystem.Database.DatabaseConnection;
+import java.awt.Color;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import serviceprovidingsystem.MapAndAnimation.Animations;
-import serviceprovidingsystem.MapAndAnimation.GoogleMapsClass;
+import serviceprovidingsystem.Database.DatabaseConnection;
 import serviceprovidingsystem.SignInWindow;
-
 
 /**
  *
@@ -18,9 +23,9 @@ import serviceprovidingsystem.SignInWindow;
 public class StatusAndFee extends javax.swing.JFrame {
 
     /**
-     * Creates new form StatusAndFee
+     * Creates new form AddressWindow
      */
-    //Movable HomeBarPanel
+    //attribute
     DatabaseConnection database;
     //setting panel
         private boolean isSandwhichSettingPanelOpen = false;
@@ -31,14 +36,35 @@ public class StatusAndFee extends javax.swing.JFrame {
         int XMouse;
         int YMouse;
         
-    public StatusAndFee() {
+        
+    public StatusAndFee(){
         initComponents();
     }
-
+        
     public StatusAndFee(DatabaseConnection database) {
         initComponents();
+        this.database = database;
+        this.setBackground(new Color(0,0,0,0));
+        this.setOpacity(0f);
+        this.setLocationRelativeTo(null);
+        this.sandwichSettingPanel.setVisible(false);
+        widthOfSettingPanel =  this.sandwichSettingPanel.getWidth();
+        heightOfSettingPanel = this.sandwichSettingPanel.getHeight();
+        jTextArea1.setText("Your Details\n\n" +
+"Username\t\t"+"name"+"\n" +
+"Mobile Number\t"+"customerNumber"+"\n" +
+"Address\t\t"+"address"+"\n\n" +
+"_________________________________________________________\n\n" +
+"Your Worker's Details\n\n" +
+"Name\t\t"+"name"+"\n" +
+"Cnic no.\t\t"+"cnic"+"\n" +
+"profession\t\t"+"jobType"+"\n" +
+"Fee\t\tcost\n" +
+"Experience\t\t"+"experience"+"\n" +
+"Rating\t\t"+"rating");
         
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -53,7 +79,7 @@ public class StatusAndFee extends javax.swing.JFrame {
         closeBar = new com.k33ptoo.components.KGradientPanel();
         jLabel3 = new javax.swing.JLabel();
         tItleBar = new com.k33ptoo.components.KGradientPanel();
-        Receipt = new javax.swing.JLabel();
+        homeBar = new javax.swing.JLabel();
         sandwichSettingPanel = new com.k33ptoo.components.KGradientPanel();
         jLabel1 = new javax.swing.JLabel();
         btnSettingPassword = new com.k33ptoo.components.KButton();
@@ -64,12 +90,18 @@ public class StatusAndFee extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         kGradientPanel1 = new com.k33ptoo.components.KGradientPanel();
-        houseField = new javax.swing.JTextField();
-        errorLabel1 = new javax.swing.JLabel();
-        errorLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jLayeredPane1.setPreferredSize(new java.awt.Dimension(1066, 600));
 
@@ -128,18 +160,18 @@ public class StatusAndFee extends javax.swing.JFrame {
         tItleBar.setkStartColor(new java.awt.Color(28, 40, 51));
         tItleBar.setOpaque(false);
 
-        Receipt.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 24)); // NOI18N
-        Receipt.setForeground(new java.awt.Color(255, 255, 255));
-        Receipt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Receipt.setText("Status");
-        Receipt.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        homeBar.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 24)); // NOI18N
+        homeBar.setForeground(new java.awt.Color(255, 255, 255));
+        homeBar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        homeBar.setText("Status And Fee");
+        homeBar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
-                ReceiptMouseDragged(evt);
+                homeBarMouseDragged(evt);
             }
         });
-        Receipt.addMouseListener(new java.awt.event.MouseAdapter() {
+        homeBar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                ReceiptMousePressed(evt);
+                homeBarMousePressed(evt);
             }
         });
 
@@ -149,13 +181,13 @@ public class StatusAndFee extends javax.swing.JFrame {
             tItleBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tItleBarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Receipt, javax.swing.GroupLayout.DEFAULT_SIZE, 549, Short.MAX_VALUE)
+                .addComponent(homeBar, javax.swing.GroupLayout.DEFAULT_SIZE, 549, Short.MAX_VALUE)
                 .addContainerGap())
         );
         tItleBarLayout.setVerticalGroup(
             tItleBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tItleBarLayout.createSequentialGroup()
-                .addComponent(Receipt, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
+                .addComponent(homeBar, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -229,6 +261,7 @@ public class StatusAndFee extends javax.swing.JFrame {
         homeBackgroundPanel.setkEndColor(new java.awt.Color(255, 255, 255));
         homeBackgroundPanel.setkStartColor(new java.awt.Color(255, 255, 255));
         homeBackgroundPanel.setOpaque(false);
+        homeBackgroundPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         kGradientPanel5.setkBorderRadius(50);
         kGradientPanel5.setkEndColor(new java.awt.Color(0, 0, 0));
@@ -266,71 +299,44 @@ public class StatusAndFee extends javax.swing.JFrame {
                 .addGap(25, 25, 25))
         );
 
+        homeBackgroundPanel.add(kGradientPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
         kGradientPanel1.setkBorderRadius(20);
         kGradientPanel1.setkEndColor(new java.awt.Color(231, 231, 231));
         kGradientPanel1.setkGradientFocus(100);
         kGradientPanel1.setkStartColor(new java.awt.Color(231, 231, 231));
         kGradientPanel1.setOpaque(false);
+        kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        houseField.setBackground(new java.awt.Color(231, 231, 231));
-        houseField.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
-        houseField.setForeground(new java.awt.Color(28, 40, 51));
-        houseField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(230, 126, 34)));
+        jTextArea1.setEditable(false);
+        jTextArea1.setBackground(new java.awt.Color(231, 231, 231));
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 18)); // NOI18N
+        jTextArea1.setForeground(new java.awt.Color(0, 0, 0));
+        jTextArea1.setRows(5);
+        jTextArea1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(231, 231, 231)));
+        jTextArea1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jScrollPane1.setViewportView(jTextArea1);
 
-        errorLabel1.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
-        errorLabel1.setForeground(new java.awt.Color(193, 56, 56));
-        errorLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        kGradientPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(434, 41, 340, 355));
 
-        errorLabel2.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
-        errorLabel2.setForeground(new java.awt.Color(193, 56, 56));
-        errorLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        kGradientPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, -1, -1));
 
-        javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
-        kGradientPanel1.setLayout(kGradientPanel1Layout);
-        kGradientPanel1Layout.setHorizontalGroup(
-            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addGap(82, 82, 82)
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(errorLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(houseField, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 184, Short.MAX_VALUE)
-                .addComponent(errorLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(141, 141, 141))
-        );
-        kGradientPanel1Layout.setVerticalGroup(
-            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(errorLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addGap(111, 111, 111)
-                        .addComponent(houseField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 260, Short.MAX_VALUE)
-                        .addComponent(errorLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(23, 23, 23))
-        );
+        jButton2.setText("jButton2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        kGradientPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 370, -1, -1));
 
-        javax.swing.GroupLayout homeBackgroundPanelLayout = new javax.swing.GroupLayout(homeBackgroundPanel);
-        homeBackgroundPanel.setLayout(homeBackgroundPanelLayout);
-        homeBackgroundPanelLayout.setHorizontalGroup(
-            homeBackgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(homeBackgroundPanelLayout.createSequentialGroup()
-                .addComponent(kGradientPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(102, 102, 102)
-                .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(130, Short.MAX_VALUE))
-        );
-        homeBackgroundPanelLayout.setVerticalGroup(
-            homeBackgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(kGradientPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(homeBackgroundPanelLayout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        homeBackgroundPanel.add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 52, 800, 440));
 
         jLayeredPane1.add(homeBackgroundPanel);
         homeBackgroundPanel.setBounds(0, 50, 1070, 552);
@@ -358,18 +364,46 @@ public class StatusAndFee extends javax.swing.JFrame {
         Animations.windowExitAnimation(this, 1f);
     }//GEN-LAST:event_jLabel3MouseClicked
 
-    private void ReceiptMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReceiptMouseDragged
+    private void homeBarMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBarMouseDragged
         // TODO add your handling code here:
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
         this.setLocation(x - XMouse, y - YMouse);
-    }//GEN-LAST:event_ReceiptMouseDragged
+    }//GEN-LAST:event_homeBarMouseDragged
 
-    private void ReceiptMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReceiptMousePressed
+    private void homeBarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBarMousePressed
         // TODO add your handling code here:
         XMouse = evt.getX() + (int) homeBackgroundPanel.getX()+ 255;
         YMouse = evt.getY() + (int) homeBackgroundPanel.getY() - 50;
-    }//GEN-LAST:event_ReceiptMousePressed
+    }//GEN-LAST:event_homeBarMousePressed
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        // TODO add your handling code here:
+        if(isSandwhichSettingPanelOpen){
+            Animations.panelCloseAnimation(this.sandwichSettingPanel,widthOfSettingPanel,heightOfSettingPanel);
+            isSandwhichSettingPanelOpen = false;
+            jButton2.setVisible(true);
+            jButton1.setVisible(true);
+        } else{
+            Animations.panelAppearAnimation(this.sandwichSettingPanel,widthOfSettingPanel,heightOfSettingPanel);
+            isSandwhichSettingPanelOpen = true;
+            jButton2.setVisible(false);
+            jButton1.setVisible(false);
+        }
+
+    }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        Animations.windowAppearAnimation(this, 1f);
+    }//GEN-LAST:event_formWindowOpened
+
+    private void signOutBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signOutBtn1ActionPerformed
+        // TODO add your handling code here:
+
+        Animations.windowCloseAnimation(this, 1f);
+        new SignInWindow(database).setVisible(true);
+    }//GEN-LAST:event_signOutBtn1ActionPerformed
 
     private void btnSettingPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSettingPasswordActionPerformed
         // TODO add your handling code here:
@@ -381,23 +415,46 @@ public class StatusAndFee extends javax.swing.JFrame {
         btnSettingPasswordActionPerformed(evt);//open same setting panel
     }//GEN-LAST:event_btnSettingNumberActionPerformed
 
-    private void signOutBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signOutBtn1ActionPerformed
-        // TODO add your handling code here:
-
-        Animations.windowCloseAnimation(this, 1f);
-        new SignInWindow(database).setVisible(true);
-    }//GEN-LAST:event_signOutBtn1ActionPerformed
-
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        // TODO add your handling code here:
-        if(isSandwhichSettingPanelOpen){
-            Animations.panelCloseAnimation(this.sandwichSettingPanel,widthOfSettingPanel,heightOfSettingPanel);
-            isSandwhichSettingPanelOpen = false;
-        } else{
-            Animations.panelAppearAnimation(this.sandwichSettingPanel,widthOfSettingPanel,heightOfSettingPanel);
-            isSandwhichSettingPanelOpen = true;
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            // TODO add your handling code here:
+            PrintWriter writer1 = new PrintWriter(new File("testout.txt"));
+            writer1.write("Your Details\n" +
+                "\n" +
+                "Username        name\n" +
+                "Mobile Number   customerNumber\n" +
+                "Address         address\n" +
+                "_________________________________________________________\n" +
+                "\n" +
+                "Your Worker's Details\n" +
+                "\n" +
+                "Name            name\n" +
+                "Cnic no.        cnic\n" +
+                "profession      jobType\n" +
+                "Fee             cost\n" +
+                "Experience      experience\n" +
+                "Rating          rating");
+            writer1.flush();
+            writer1.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(StatusAndFee.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jLabel2MouseClicked
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        File file = new File("testout.txt");
+        try {
+            if(file.exists()){
+                Desktop desktop = Desktop.getDesktop();
+                desktop.open(file);
+            } else {
+                throw new NullPointerException("file not exist");
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -410,7 +467,7 @@ public class StatusAndFee extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -425,29 +482,31 @@ public class StatusAndFee extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(StatusAndFee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new StatusAndFee().setVisible(true);
+                new StatusAndFee(new DatabaseConnection()).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Receipt;
     private com.k33ptoo.components.KButton btnSettingNumber;
     private com.k33ptoo.components.KButton btnSettingPassword;
     private com.k33ptoo.components.KGradientPanel closeBar;
-    private javax.swing.JLabel errorLabel1;
-    private javax.swing.JLabel errorLabel2;
     private com.k33ptoo.components.KGradientPanel homeBackgroundPanel;
-    private javax.swing.JTextField houseField;
+    private javax.swing.JLabel homeBar;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private com.k33ptoo.components.KGradientPanel kGradientPanel1;
     private com.k33ptoo.components.KGradientPanel kGradientPanel5;
     private com.k33ptoo.components.KGradientPanel logoBar;
