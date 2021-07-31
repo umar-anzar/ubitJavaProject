@@ -13,8 +13,8 @@ import serviceprovidingsystem.ParentElements.Worker;
  */
 public class Mechanic extends Worker {
     
-    public Mechanic(String name, String cnic, String contactNumber, String address, Date dateofbirth, int experience) {
-        super(name, cnic, contactNumber, address, dateofbirth, experience);
+    public Mechanic(int id, String name, String cnic, String contactNumber, String address, Date dateofbirth, int experience) {
+        super(id, name, cnic, contactNumber, address, dateofbirth, experience);
     }
     
 

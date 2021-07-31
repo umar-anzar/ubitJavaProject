@@ -14,11 +14,9 @@ import serviceprovidingsystem.ParentElements.Worker;
  */
 public class Labour extends Worker {
 
-    public Labour(String name, String cnic, String contactNumber, String address, Date dateofbirth, int experience) {
-        super(name, cnic, contactNumber, address, dateofbirth, experience);
+    public Labour(int id, String name, String cnic, String contactNumber, String address, Date dateofbirth, int experience) {
+        super(id, name, cnic, contactNumber, address, dateofbirth, experience);
     }
 
 
-    
-    
 }

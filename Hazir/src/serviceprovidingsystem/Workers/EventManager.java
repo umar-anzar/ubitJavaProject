@@ -11,11 +11,10 @@ import serviceprovidingsystem.ParentElements.Worker;
  *
  * @author Ahmed
  */
-public class Event_Manager extends Worker  {
-    
-    public Event_Manager(String name, String cnic, String contactNumber, String address, Date dateofbirth, int experience) {
-        super(name, cnic, contactNumber, address, dateofbirth, experience);
+public class EventManager extends Worker  {
+
+    public EventManager(int id, String name, String cnic, String contactNumber, String address, Date dateofbirth, int experience) {
+        super(id, name, cnic, contactNumber, address, dateofbirth, experience);
     }
-    
 
 }

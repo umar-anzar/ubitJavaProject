@@ -13,10 +13,9 @@ import serviceprovidingsystem.ParentElements.Worker;
  */
 public class Electrician extends Worker {
     
-    public Electrician(String name, String cnic, String contactNumber, String address, Date dateofbirth, int experience) {
-        super(name, cnic, contactNumber, address, dateofbirth, experience);
+    public Electrician(int id, String name, String cnic, String contactNumber, String address, Date dateofbirth, int experience) {
+        super(id, name, cnic, contactNumber, address, dateofbirth, experience);
     }
-    
 
     
 }

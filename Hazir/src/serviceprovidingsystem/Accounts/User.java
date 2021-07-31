@@ -14,9 +14,9 @@ import serviceprovidingsystem.Database.DatabaseConnection;
  */
 public class User extends Account {
     
-    public Boolean orderStatus = false;
+    private Boolean orderStatus = false;
     private double cost = 0.0;
-    private Worker hiredWorker;
+    public Worker hiredWorker;
     
     public User(String name, String password, String contactNumber, String address, Date dateOfBirth){
         super(name, password, contactNumber, address, dateOfBirth);

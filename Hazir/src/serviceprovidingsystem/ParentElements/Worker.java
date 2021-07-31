@@ -18,8 +18,9 @@ public abstract class Worker extends Person {
     private boolean available = true, hireStatus = false;
     private double payPercentage = 0.8, rating;
 
-    public Worker(String name, String cnic, String contactNumber, String address, Date dateofbirth, int experience){
+    public Worker(int id, String name, String cnic, String contactNumber, String address, Date dateofbirth, int experience){
         super(name, contactNumber, address, dateofbirth);
+        this.id = id;
         this.cnic = cnic;
         this.experience = experience;
     }

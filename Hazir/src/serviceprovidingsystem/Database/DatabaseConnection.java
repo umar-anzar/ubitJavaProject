@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import serviceprovidingsystem.Accounts.*;
+import serviceprovidingsystem.Workers.*;
 
 /**
  *
@@ -65,7 +66,7 @@ import serviceprovidingsystem.Accounts.*;
     
     public void UPDATE_USER(){
         connectionOn();
-        String sql = "UPDATE Users SET password = ? , contactNumber = ? , address = ? , orderStatus = ? , cost = ? , addressLink = ? WHERE name = ?";
+        String sql = "UPDATE Users SET password = ? , contactNumber = ? , address = ? , orderStatus = ? , cost = ? , addressLink = ? , worderId = ? WHERE name = ?";
         
         try{
             pst = connection.prepareStatement(sql);
@@ -76,8 +77,14 @@ import serviceprovidingsystem.Accounts.*;
             pst.setString(4, currentUser.getOrderStatus());
             pst.setDouble(5, currentUser.getCost());
             pst.setString(6, currentUser.getAddressLink());
-            pst.setString(7, currentUser.getName());
-            pst.executeUpdate();
+            //if worker is hired and created in current user then id is saved in FIELD of user
+            if (currentUser.hiredWorker != null) {
+                pst.setInt(7, currentUser.hiredWorker.getId());
+            } else {
+                pst.setInt(7, 0);
+            }
+            pst.setString(8, currentUser.getName());
+            pst.executeUpdate();//send to database
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -88,7 +95,7 @@ import serviceprovidingsystem.Accounts.*;
     
     public void INSERT_USER(){
         connectionOn();
-        String sql = "INSERT INTO Users(name, password, contactNumber, address, dateOfRegisteration, orderStatus, cost) VALUES(?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO Users(name, password, contactNumber, address, dateOfRegisteration, orderStatus, cost, workerId) VALUES(?,?,?,?,?,?,?,?)";
         
         try {
             pst = connection.prepareStatement(sql);
@@ -99,7 +106,7 @@ import serviceprovidingsystem.Accounts.*;
             pst.setString(5, currentUser.getDate());
             pst.setString(6, currentUser.getOrderStatus());
             pst.setDouble(7, currentUser.getCost());
-            
+            pst.setInt(8, 0);//workerid
             pst.executeUpdate();
         } catch (Exception e) {
             System.out.println(e);
@@ -128,12 +135,37 @@ import serviceprovidingsystem.Accounts.*;
                 // new frame for owner
                 
             }else   { if (FinalDb.next()){
-                //1name,2password,3contactNumber,4address,5dateOfRegistration,6orderStatus,7cost
+                //1name,2password,3contactNumber,4address,5dateOfRegistration,6orderStatus,7cost,8address,9workerId
                 System.out.println("User is working");
                 currentUser = new User(FinalDb.getString(1), FinalDb.getString(2), FinalDb.getString(3), FinalDb.getString(4), new Date());
                 currentUser.setOrderStatus(FinalDb.getString(6));
                 currentUser.setCost(FinalDb.getDouble(7));
                 currentUser.setAddressLink(FinalDb.getString(8));
+                
+//                if(currentUser.hiredWorker != null) {
+//                    String workerName = currentUser.hiredWorker.getClass().getSimpleName();
+//                    switch (workerName) {
+//                        case "Electrician":
+//                            //currentUser.hiredWorker = new Electrician(FinalDb.getInt(9),);
+//                            break;
+//                        case "EventManager":
+//                            //currentUser.hiredWorker = new EventManager(FinalDb.getInt(9),);
+//                            break;
+//                        case "Labour":
+//                            //currentUser.hiredWorker = new Labour(FinalDb.getInt(9),);
+//                            break;
+//                        case "Mechanic":
+//                            //currentUser.hiredWorker = new Mechanic(FinalDb.getInt(9),);
+//                            break;
+//                        case "Plumber":
+//                            //currentUser.hiredWorker = new Plumber(FinalDb.getInt(9),);
+//                            break;
+//                        default:
+//                            break;
+//                    }
+//                    
+//                }
+
                 System.out.println(currentUser.toString());
                 connectionOff();
                 return true;
