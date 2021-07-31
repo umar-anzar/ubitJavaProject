@@ -22,7 +22,6 @@ public class StatusAndFee extends javax.swing.JFrame {
      */
     //Movable HomeBarPanel
     DatabaseConnection database;
-    GoogleMapsClass googleMap;
     //setting panel
         private boolean isSandwhichSettingPanelOpen = false;
         private int widthOfSettingPanel;
@@ -32,9 +31,6 @@ public class StatusAndFee extends javax.swing.JFrame {
         int XMouse;
         int YMouse;
         
-    //marklocation and fields
-        boolean markLocation = false;
-        String addressField = "";
     public StatusAndFee() {
         initComponents();
     }
@@ -73,6 +69,7 @@ public class StatusAndFee extends javax.swing.JFrame {
         errorLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jLayeredPane1.setPreferredSize(new java.awt.Dimension(1066, 600));
 
@@ -134,7 +131,7 @@ public class StatusAndFee extends javax.swing.JFrame {
         Receipt.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 24)); // NOI18N
         Receipt.setForeground(new java.awt.Color(255, 255, 255));
         Receipt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Receipt.setText("Receipt");
+        Receipt.setText("Status");
         Receipt.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 ReceiptMouseDragged(evt);
