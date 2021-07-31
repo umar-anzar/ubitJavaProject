@@ -66,7 +66,7 @@ import serviceprovidingsystem.Workers.*;
     
     public void UPDATE_USER(){
         connectionOn();
-        String sql = "UPDATE Users SET password = ? , contactNumber = ? , address = ? , orderStatus = ? , cost = ? , addressLink = ? , worderId = ? WHERE name = ?";
+        String sql = "UPDATE Users SET password = ? , contactNumber = ? , address = ? , orderStatus = ? , cost = ? , addressLink = ? , workerId = ? WHERE name = ?";
         
         try{
             pst = connection.prepareStatement(sql);

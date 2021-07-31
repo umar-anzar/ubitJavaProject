@@ -328,7 +328,6 @@ public class SignInWindow extends javax.swing.JFrame {
         }
         
         //ERROR FREE STILL ANIMATION
-        SignInWindow window = this;
         Thread th = new Thread(){
             @Override
             public void run(){

@@ -1259,8 +1259,10 @@ public class HomeWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(optionLabel1.isVisible() || optionLabel2.isVisible() || optionLabel3.isVisible() || optionLabel4.isVisible()) {
             database.currentUser.setCost(totalCost);
-            new StatusAndFee(database).setVisible(isLabour);
+            database.currentUser.setOrderStatus(true);
+            database.UPDATE_USER();
             Animations.windowCloseAnimation(this, 1f);
+            new StatusAndFee(database).setVisible(true);
         } else {
             System.out.println("You havent selected anything");
         }
