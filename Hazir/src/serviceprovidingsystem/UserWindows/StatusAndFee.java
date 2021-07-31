@@ -50,7 +50,7 @@ public class StatusAndFee extends javax.swing.JFrame {
         this.sandwichSettingPanel.setVisible(false);
         widthOfSettingPanel =  this.sandwichSettingPanel.getWidth();
         heightOfSettingPanel = this.sandwichSettingPanel.getHeight();
-        jTextArea1.setText("Your Details\n\n" +
+        receiptTextArea.setText("Your Details\n\n" +
 "Username\t\t"+"name"+"\n" +
 "Mobile Number\t"+"customerNumber"+"\n" +
 "Address\t\t"+"address"+"\n\n" +
@@ -85,13 +85,18 @@ public class StatusAndFee extends javax.swing.JFrame {
         btnSettingPassword = new com.k33ptoo.components.KButton();
         btnSettingNumber = new com.k33ptoo.components.KButton();
         signOutBtn1 = new com.k33ptoo.components.KButton();
+        PendingBackground = new com.k33ptoo.components.KGradientPanel();
+        pendingLoading = new javax.swing.JLabel();
+        PendingLabel = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         homeBackgroundPanel = new com.k33ptoo.components.KGradientPanel();
         kGradientPanel5 = new com.k33ptoo.components.KGradientPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        kGradientPanel1 = new com.k33ptoo.components.KGradientPanel();
+        receiptBackground = new com.k33ptoo.components.KGradientPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        receiptTextArea = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
@@ -257,6 +262,65 @@ public class StatusAndFee extends javax.swing.JFrame {
         jLayeredPane1.add(sandwichSettingPanel);
         sandwichSettingPanel.setBounds(62, 80, 410, 480);
 
+        PendingBackground.setkBorderRadius(20);
+        PendingBackground.setkEndColor(new java.awt.Color(231, 231, 231));
+        PendingBackground.setkGradientFocus(100);
+        PendingBackground.setkStartColor(new java.awt.Color(231, 231, 231));
+        PendingBackground.setOpaque(false);
+
+        pendingLoading.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/short/loading.gif"))); // NOI18N
+        pendingLoading.setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
+
+        PendingLabel.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 24)); // NOI18N
+        PendingLabel.setForeground(new java.awt.Color(93, 173, 226));
+        PendingLabel.setText("Pending");
+        PendingLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/SlipWindow/reloadWindowIcon_32px.png"))); // NOI18N
+        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("a");
+
+        javax.swing.GroupLayout PendingBackgroundLayout = new javax.swing.GroupLayout(PendingBackground);
+        PendingBackground.setLayout(PendingBackgroundLayout);
+        PendingBackgroundLayout.setHorizontalGroup(
+            PendingBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PendingBackgroundLayout.createSequentialGroup()
+                .addGroup(PendingBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PendingBackgroundLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel4))
+                    .addGroup(PendingBackgroundLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(PendingBackgroundLayout.createSequentialGroup()
+                .addGap(353, 353, 353)
+                .addGroup(PendingBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PendingLabel)
+                    .addGroup(PendingBackgroundLayout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(pendingLoading)))
+                .addContainerGap(352, Short.MAX_VALUE))
+        );
+        PendingBackgroundLayout.setVerticalGroup(
+            PendingBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PendingBackgroundLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
+                .addComponent(PendingLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pendingLoading, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(156, 156, 156)
+                .addComponent(jLabel5)
+                .addGap(39, 39, 39))
+        );
+
+        jLayeredPane1.add(PendingBackground);
+        PendingBackground.setBounds(140, 100, 800, 440);
+
         homeBackgroundPanel.setkBorderRadius(60);
         homeBackgroundPanel.setkEndColor(new java.awt.Color(255, 255, 255));
         homeBackgroundPanel.setkStartColor(new java.awt.Color(255, 255, 255));
@@ -301,24 +365,24 @@ public class StatusAndFee extends javax.swing.JFrame {
 
         homeBackgroundPanel.add(kGradientPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        kGradientPanel1.setkBorderRadius(20);
-        kGradientPanel1.setkEndColor(new java.awt.Color(231, 231, 231));
-        kGradientPanel1.setkGradientFocus(100);
-        kGradientPanel1.setkStartColor(new java.awt.Color(231, 231, 231));
-        kGradientPanel1.setOpaque(false);
-        kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        receiptBackground.setkBorderRadius(20);
+        receiptBackground.setkEndColor(new java.awt.Color(231, 231, 231));
+        receiptBackground.setkGradientFocus(100);
+        receiptBackground.setkStartColor(new java.awt.Color(231, 231, 231));
+        receiptBackground.setOpaque(false);
+        receiptBackground.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setBackground(new java.awt.Color(231, 231, 231));
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 18)); // NOI18N
-        jTextArea1.setForeground(new java.awt.Color(0, 0, 0));
-        jTextArea1.setRows(5);
-        jTextArea1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(231, 231, 231)));
-        jTextArea1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jScrollPane1.setViewportView(jTextArea1);
+        receiptTextArea.setEditable(false);
+        receiptTextArea.setBackground(new java.awt.Color(231, 231, 231));
+        receiptTextArea.setColumns(20);
+        receiptTextArea.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 18)); // NOI18N
+        receiptTextArea.setForeground(new java.awt.Color(0, 0, 0));
+        receiptTextArea.setRows(5);
+        receiptTextArea.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(231, 231, 231)));
+        receiptTextArea.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jScrollPane1.setViewportView(receiptTextArea);
 
-        kGradientPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(434, 41, 340, 355));
+        receiptBackground.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(434, 41, 340, 355));
 
         jButton1.setText("jButton1");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -326,7 +390,7 @@ public class StatusAndFee extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        kGradientPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, -1, -1));
+        receiptBackground.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, -1, -1));
 
         jButton2.setText("jButton2");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -334,9 +398,9 @@ public class StatusAndFee extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        kGradientPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 370, -1, -1));
+        receiptBackground.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 370, -1, -1));
 
-        homeBackgroundPanel.add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 52, 800, 440));
+        homeBackgroundPanel.add(receiptBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 52, 800, 440));
 
         jLayeredPane1.add(homeBackgroundPanel);
         homeBackgroundPanel.setBounds(0, 50, 1070, 552);
@@ -396,6 +460,7 @@ public class StatusAndFee extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         Animations.windowAppearAnimation(this, 1f);
+        
     }//GEN-LAST:event_formWindowOpened
 
     private void signOutBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signOutBtn1ActionPerformed
@@ -493,6 +558,8 @@ public class StatusAndFee extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.k33ptoo.components.KGradientPanel PendingBackground;
+    private javax.swing.JLabel PendingLabel;
     private com.k33ptoo.components.KButton btnSettingNumber;
     private com.k33ptoo.components.KButton btnSettingPassword;
     private com.k33ptoo.components.KGradientPanel closeBar;
@@ -504,12 +571,15 @@ public class StatusAndFee extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private com.k33ptoo.components.KGradientPanel kGradientPanel1;
     private com.k33ptoo.components.KGradientPanel kGradientPanel5;
     private com.k33ptoo.components.KGradientPanel logoBar;
+    private javax.swing.JLabel pendingLoading;
+    private com.k33ptoo.components.KGradientPanel receiptBackground;
+    private javax.swing.JTextArea receiptTextArea;
     private com.k33ptoo.components.KGradientPanel sandwichSettingPanel;
     private com.k33ptoo.components.KButton signOutBtn1;
     private com.k33ptoo.components.KGradientPanel tItleBar;

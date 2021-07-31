@@ -73,7 +73,7 @@ import serviceprovidingsystem.Accounts.*;
             pst.setString(1, currentUser.getPassword());
             pst.setString(2, currentUser.getContactNumber());
             pst.setString(3, currentUser.getAddress());
-            pst.setString(4, currentUser.isOrderStatus());
+            pst.setString(4, currentUser.getOrderStatus());
             pst.setDouble(5, currentUser.getCost());
             pst.setString(6, currentUser.getAddressLink());
             pst.setString(7, currentUser.getName());
@@ -97,8 +97,9 @@ import serviceprovidingsystem.Accounts.*;
             pst.setString(3, currentUser.getContactNumber());
             pst.setString(4, currentUser.getAddress());
             pst.setString(5, currentUser.getDate());
-            pst.setString(6, currentUser.isOrderStatus());
+            pst.setString(6, currentUser.getOrderStatus());
             pst.setDouble(7, currentUser.getCost());
+            
             pst.executeUpdate();
         } catch (Exception e) {
             System.out.println(e);

@@ -11,6 +11,7 @@ import serviceprovidingsystem.Accounts.User;
 import serviceprovidingsystem.UserWindows.AddressWindow;
 import serviceprovidingsystem.Database.DatabaseConnection;
 import serviceprovidingsystem.UserWindows.HomeWindow;
+import serviceprovidingsystem.UserWindows.StatusAndFee;
 
 /**
  *
@@ -311,8 +312,16 @@ public class SignInWindow extends javax.swing.JFrame {
         }  else if (database.Login(usernameField.getText(), passwordField.getText())){         
 
             //Animations.windowCloseAnimation(this, 1f);
-            this.dispose();
-            new AddressWindow(database).setVisible(true);
+            
+            //IF ORDER STATUS IS TRUE THEN JUMP TO STATUS FEE WINDOW ELSE HOME WINDOW
+            if(database.currentUser.isOrderStatus()) {
+                this.dispose();         //if true then open slip window
+                new StatusAndFee(database).setVisible(true);
+            } else { 
+                this.dispose();         //if false then open home window
+                new AddressWindow(database).setVisible(true);
+            }
+            
 
         } else {
             errorRegister.setText("Username or password is incorrect!");

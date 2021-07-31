@@ -13,10 +13,10 @@ import serviceprovidingsystem.ParentElements.Worker;
  */
 public class Plumber extends Worker {
     
-        public Plumber(String cnic, int experience, boolean status, double pay, double rating, String name, String contactNumber, String address, Date dateofbirth) {
-        
-        super(cnic, experience, status, pay, rating, name, contactNumber, address, dateofbirth);
-   
+    public Plumber(String name, String cnic, String contactNumber, String address, Date dateofbirth, int experience) {
+        super(name, cnic, contactNumber, address, dateofbirth, experience);
     }
+    
+
     
 }

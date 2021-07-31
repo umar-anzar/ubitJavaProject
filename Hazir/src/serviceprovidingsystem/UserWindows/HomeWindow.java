@@ -593,7 +593,7 @@ public class HomeWindow extends javax.swing.JFrame {
                 btnGoToReceiptActionPerformed(evt);
             }
         });
-        SelectOptionsWindow.add(btnGoToReceipt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 460, 70, 30));
+        SelectOptionsWindow.add(btnGoToReceipt, new org.netbeans.lib.awtextra.AbsoluteConstraints(347, 460, 60, 30));
 
         kGradientPanel19.setkBorderRadius(20);
         kGradientPanel19.setkEndColor(new java.awt.Color(204, 204, 204));
@@ -1257,6 +1257,13 @@ public class HomeWindow extends javax.swing.JFrame {
 
     private void btnGoToReceiptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGoToReceiptActionPerformed
         // TODO add your handling code here:
+        if(optionLabel1.isVisible() || optionLabel2.isVisible() || optionLabel3.isVisible() || optionLabel4.isVisible()) {
+            database.currentUser.setCost(totalCost);
+            new StatusAndFee(database).setVisible(isLabour);
+            Animations.windowCloseAnimation(this, 1f);
+        } else {
+            System.out.println("You havent selected anything");
+        }
         
     }//GEN-LAST:event_btnGoToReceiptActionPerformed
 

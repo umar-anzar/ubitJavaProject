@@ -13,19 +13,28 @@ import serviceprovidingsystem.Database.DatabaseConnection;
  * @author Ahmed
  */
 public class User extends Account {
+    
     public Boolean orderStatus = false;
     private double cost = 0.0;
+    private Worker hiredWorker;
+    
     public User(String name, String password, String contactNumber, String address, Date dateOfBirth){
         super(name, password, contactNumber, address, dateOfBirth);
     }
-
-    public String isOrderStatus() {
+    
+    //used in database function
+    public String getOrderStatus() {
         if(orderStatus){
             return "true";
         }
         return "false";
     }
-
+    
+    public boolean isOrderStatus() {
+        return orderStatus;
+    }
+    
+    //used in database function
     public void setOrderStatus(String orderStatus) {
         this.orderStatus = orderStatus.equals("true");
     }
@@ -54,8 +63,10 @@ public class User extends Account {
 
     @Override
     public String toString() {
-        return "User{" + "orderStatus=" + orderStatus + ", addressLink=" + super.getAddress() + ", cost=" + cost + '}';
+        return "User{" + "orderStatus=" + orderStatus + ", cost=" + cost + ", hiredWorker=" + hiredWorker + "addressLink=" + super.getAddressLink() + '}';
     }
+
+    
    
     public static void main(String[] args) {
         User a= new User("omer", "omer123", "03333333333", null, new Date());

@@ -13,10 +13,10 @@ import serviceprovidingsystem.ParentElements.Worker;
  */
 public class Electrician extends Worker {
     
-        public Electrician(String cnic, int experience, boolean status, double pay, double rating, String name, String contactNumber, String address, Date dateofbirth) {
-        
-        super(cnic, experience, status, pay, rating, name, contactNumber, address, dateofbirth);
-   
+    public Electrician(String name, String cnic, String contactNumber, String address, Date dateofbirth, int experience) {
+        super(name, cnic, contactNumber, address, dateofbirth, experience);
     }
+    
+
     
 }
