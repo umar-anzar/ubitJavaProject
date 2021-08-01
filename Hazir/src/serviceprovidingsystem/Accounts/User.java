@@ -67,13 +67,12 @@ public class User extends Account {
     }
 
     
-   /*
+   
     public static void main(String[] args) {
-        User a= new User("omer", "omer123", "03333333333", null, new Date());
-        a.setOrderStatus("false");
+        
         DatabaseConnection database = new DatabaseConnection();
-        database.currentUser = a;
-        database.INSERT_USER();
-    }*/
+        database.GET_WORKER_BY_ID(1);
+        
+    }
  
 }

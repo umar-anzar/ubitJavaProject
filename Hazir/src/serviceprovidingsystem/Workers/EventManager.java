@@ -13,5 +13,9 @@ import serviceprovidingsystem.ParentElements.Worker;
  */
 public class EventManager extends Worker  {
 
+    public EventManager(String name, String cnic, String contactNumber, int experience, Date dateofbirth) {
+        super(name, cnic, contactNumber, experience, dateofbirth);
+    }
+
 
 }

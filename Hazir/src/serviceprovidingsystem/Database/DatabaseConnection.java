@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import serviceprovidingsystem.Accounts.*;
-import serviceprovidingsystem.Workers.*;
+import serviceprovidingsystem.ParentElements.Worker;
 
 /**
  *
@@ -22,8 +22,10 @@ import serviceprovidingsystem.Workers.*;
     public PreparedStatement pst = null;
     public Statement st = null;
     
-    //User aggregation
+    //aggregation
     public User currentUser;
+    public Worker worker;
+    
 
     public DatabaseConnection(){
         ConnectingDataBase();
@@ -32,10 +34,22 @@ import serviceprovidingsystem.Workers.*;
         //FinalDb = pst.executeQuery();
 
     }
+    
+    //ConnectingDatabase function
+    public void ConnectingDataBase(){
+        try {
+            Class.forName("org.sqlite.JDBC");
+            this.connection = DriverManager.getConnection("jdbc:sqlite:database\\databaseFile.db");
+        } catch (Exception e) {
+        }
+
+    }
+    
     //INCASE WE CLOSE THE CONNECTION B/W SOME WINDOW SO WE CAN AGAIN CONNECT IT.
     public void connectionOn(){
         ConnectingDataBase();
     }
+    
     //INCASE WE HAVE TO CLOSE CONNECTION EVERTIME WE END THE PROGRAM.
     public void connectionOff(){
         try {
@@ -53,13 +67,13 @@ import serviceprovidingsystem.Workers.*;
             
             st = connection.createStatement();
             FinalDb = st.executeQuery(sql);
-            connectionOff();
             return FinalDb.isBeforeFirst();
         } catch (SQLException ex) {
             Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        } finally {
+            connectionOff();
         }
-        connectionOff();
-        return false;
 
     }
      
@@ -85,11 +99,13 @@ import serviceprovidingsystem.Workers.*;
             }
             pst.setString(8, currentUser.getName());
             pst.executeUpdate();//send to database
+            System.out.println("USER UPDATED");
         } catch (Exception e) {
             System.out.println(e);
+        } finally {
+            connectionOff();
         }
-        System.out.println("USER UPDATED");
-        connectionOff();
+
     }
 
     
@@ -108,11 +124,15 @@ import serviceprovidingsystem.Workers.*;
             pst.setDouble(7, currentUser.getCost());
             pst.setInt(8, 0);//workerid
             pst.executeUpdate();
+            System.out.println("USER INSERTED");
         } catch (Exception e) {
             System.out.println(e);
+            System.out.println("NOT INSERTED");
+        } finally {
+           connectionOff(); 
         }
-        System.out.println("USER INSERTED");
-        connectionOff();
+        
+        
     }
     
      public boolean LOGIN(String name , String password) {
@@ -121,14 +141,14 @@ import serviceprovidingsystem.Workers.*;
         try {
 
             String sql = "select * from Users where name=? and password=? ";
-            PreparedStatement pst = connection.prepareStatement(sql);
+            pst = connection.prepareStatement(sql);
             
             pst.setString(1, name);
             pst.setString(2, password);
             
             
             
-            ResultSet FinalDb = pst.executeQuery();
+            FinalDb = pst.executeQuery();
             
             if (name == "admin" && password=="admin"){
             
@@ -143,39 +163,20 @@ import serviceprovidingsystem.Workers.*;
                 currentUser.setCost(FinalDb.getDouble(7));
                 currentUser.setAddressLink(FinalDb.getString(8));
                 
-//                if(currentUser.hiredWorker != null) {
-//                    String workerName = currentUser.hiredWorker.getClass().getSimpleName();
-//                    switch (workerName) {
-//                        case "Electrician":
-//                            //currentUser.hiredWorker = new Electrician(FinalDb.getInt(9),);
-//                            break;
-//                        case "EventManager":
-//                            //currentUser.hiredWorker = new EventManager(FinalDb.getInt(9),);
-//                            break;
-//                        case "Labour":
-//                            //currentUser.hiredWorker = new Labour(FinalDb.getInt(9),);
-//                            break;
-//                        case "Mechanic":
-//                            //currentUser.hiredWorker = new Mechanic(FinalDb.getInt(9),);
-//                            break;
-//                        case "Plumber":
-//                            //currentUser.hiredWorker = new Plumber(FinalDb.getInt(9),);
-//                            break;
-//                        default:
-//                            break;
-//                    }
-//                    
-//                }
-
+                if(FinalDb.getInt(9) != 0) {
+                
+                    GET_WORKER_BY_ID(FinalDb.getInt(9));
+                    
+                } else {
+                    //noting id in user database table is already 0
+                }
                 System.out.println(currentUser.toString());
-                connectionOff();
                 return true;
                 // available in database
             }else {
             
-                System.out.println("User not working");
+                System.out.println("User not working,not available in database");
                 // not available in database
-                connectionOff();
                 return false;
             }
             
@@ -186,24 +187,66 @@ import serviceprovidingsystem.Workers.*;
             Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception e){
             System.out.println(e);
+        } finally {
+           connectionOff(); 
         }
-        connectionOff();
         return false;
+        
     }
     
     
-    
-    
-    
-    
-    
-    
-    public void ConnectingDataBase(){
+    public void GET_WORKER_BY_ID(int id) {
+        connectionOn();
+        //1id,2profession,3name,4cnic,5contactNumber,6experience,7date,8addressLink,9rating,10hireStatus,11available,12pocket,13paidTotal
         try {
-            Class.forName("org.sqlite.JDBC");
-            this.connection = DriverManager.getConnection("jdbc:sqlite:database\\databaseFile.db");
+            String sql = "SELECT * FROM Workers WHERE id ='" + id + "'";
+            st = connection.createStatement();
+            FinalDb = st.executeQuery(sql);
+  
+            
+            System.out.println(FinalDb.getString(1));
+            System.out.println(FinalDb.getString(2));
+            System.out.println(FinalDb.getString(3));
+            System.out.println(FinalDb.getString(4));
+            System.out.println(FinalDb.getString(5));
+            //SWITCH ON PROFESSIONS ON FIELD 2
+            switch(FinalDb.getString(2)){
+                case "Electrician" -> {
+                    //currentUser.hiredWorker = new Electrician(FinalDb.getInt(9),);
+                }
+                case "EventManager" -> {
+                    //currentUser.hiredWorker = new EventManager(FinalDb.getInt(9),);
+                }
+                case "Labour" -> {
+                    //currentUser.hiredWorker = new Labour(FinalDb.getInt(9),);
+                }
+                case "Mechanic" -> {
+                    //currentUser.hiredWorker = new Mechanic(FinalDb.getInt(9),);
+                }
+                case "Plumber" -> {
+                    //currentUser.hiredWorker = new Plumber(FinalDb.getInt(9),);
+                }
+                default -> {
+                }
+            }
+            
+            
+            
+            
+            
+                        
+            
         } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            connectionOff();
         }
         
     }
+    
+    
+    
+    
+    
+
 }

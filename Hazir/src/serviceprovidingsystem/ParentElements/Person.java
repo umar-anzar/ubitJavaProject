@@ -15,7 +15,7 @@ public abstract class Person {
     private Date dateOfBirth;
     private String addressLink = null;
 
-    public Person(String name, String contactNumber, String address, Date dateOfBirth) {
+    public Person(String name, String contactNumber, Date dateOfBirth) {
         this.name = name;
         this.contactNumber = contactNumber;
         this.address = address;

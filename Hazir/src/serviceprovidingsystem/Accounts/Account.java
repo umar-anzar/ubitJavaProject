@@ -14,8 +14,8 @@ import serviceprovidingsystem.ParentElements.Person;
 public abstract class Account extends Person {
     private String password;
     
-    public Account( String name, String password, String contactNumber, String address, Date dateOfBirth){
-        super(name, contactNumber, address, dateOfBirth);
+    public Account( String name, String password, String contactNumber, Date dateOfBirth){
+        super(name, contactNumber, dateOfBirth);
         this.password = password;
     }
 
