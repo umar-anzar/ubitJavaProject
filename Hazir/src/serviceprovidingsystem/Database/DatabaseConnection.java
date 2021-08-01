@@ -46,7 +46,7 @@ import serviceprovidingsystem.Workers.*;
     }
     
     
-    public  boolean Exist(String Username)  {
+    public  boolean EXIST(String Username)  {
         connectionOn();
         try {
             String sql = "select name FROM Users WHERE name ='" + Username + "'";
@@ -115,7 +115,7 @@ import serviceprovidingsystem.Workers.*;
         connectionOff();
     }
     
-     public boolean Login(String name , String password) {
+     public boolean LOGIN(String name , String password) {
         connectionOn();
      
         try {
@@ -130,14 +130,15 @@ import serviceprovidingsystem.Workers.*;
             
             ResultSet FinalDb = pst.executeQuery();
             
-            if (name == "Admin" && password=="Admin"){
+            if (name == "admin" && password=="admin"){
             
                 // new frame for owner
                 
             }else   { if (FinalDb.next()){
                 //1name,2password,3contactNumber,4address,5dateOfRegistration,6orderStatus,7cost,8address,9workerId
                 System.out.println("User is working");
-                currentUser = new User(FinalDb.getString(1), FinalDb.getString(2), FinalDb.getString(3), FinalDb.getString(4), new Date());
+                currentUser = new User(FinalDb.getString(1), FinalDb.getString(2), FinalDb.getString(3), new Date());
+                currentUser.setAddress(FinalDb.getString(4));
                 currentUser.setOrderStatus(FinalDb.getString(6));
                 currentUser.setCost(FinalDb.getDouble(7));
                 currentUser.setAddressLink(FinalDb.getString(8));

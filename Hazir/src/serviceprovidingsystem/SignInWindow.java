@@ -309,7 +309,7 @@ public class SignInWindow extends javax.swing.JFrame {
         }else if (passwordField.getText().isEmpty()){
         
             errorRegister.setText("Password is empty !");
-        }  else if (database.Login(usernameField.getText(), passwordField.getText())){         
+        }  else if (database.LOGIN(usernameField.getText(), passwordField.getText())){         
 
             //Animations.windowCloseAnimation(this, 1f);
             

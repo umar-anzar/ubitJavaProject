@@ -18,8 +18,8 @@ public class User extends Account {
     private double cost = 0.0;
     public Worker hiredWorker;
     
-    public User(String name, String password, String contactNumber, String address, Date dateOfBirth){
-        super(name, password, contactNumber, address, dateOfBirth);
+    public User(String name, String password, String contactNumber, Date dateOfBirth){
+        super(name, password, contactNumber, dateOfBirth);
     }
     
     //used in database function
@@ -67,13 +67,13 @@ public class User extends Account {
     }
 
     
-   
+   /*
     public static void main(String[] args) {
         User a= new User("omer", "omer123", "03333333333", null, new Date());
         a.setOrderStatus("false");
         DatabaseConnection database = new DatabaseConnection();
         database.currentUser = a;
         database.INSERT_USER();
-    }
+    }*/
  
 }

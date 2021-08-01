@@ -12,8 +12,8 @@ import java.util.*;
  */
 public class Owner extends Account {
     
-    public Owner(String name, String password, String contactNumber, String address, Date dateOfBirth){
-        super(name, password, contactNumber, address, dateOfBirth);
+    public Owner(String name, String password, String contactNumber, Date dateOfBirth){
+        super(name, password, contactNumber, dateOfBirth);
     }
     public String toString() {
         return "User,"+super.getName()+","+super.getPassword()+","

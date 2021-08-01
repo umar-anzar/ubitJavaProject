@@ -13,9 +13,5 @@ import serviceprovidingsystem.ParentElements.Worker;
  */
 public class Plumber extends Worker {
     
-    public Plumber(int id, String name, String cnic, String contactNumber, String address, Date dateofbirth, int experience) {
-        super(id, name, cnic, contactNumber, address, dateofbirth, experience);
-    }
-    
 
 }

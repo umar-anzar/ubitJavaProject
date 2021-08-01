@@ -290,13 +290,13 @@ public class SignUp extends javax.swing.JFrame {
             errorRegister.setText("Incorrect Contact Format !");
             movingRegisterPanel.setLocation(backgroundPanel.getX(), 0);
 
-        } else if (database.Exist(usernameField.getText())){
+        } else if (database.EXIST(usernameField.getText())){
             errorRegister.setText("Username Already exists!");
             
         } else {
 
             System.out.println("not exist");
-            database.currentUser = new User(usernameField.getText(),passwordField.getText(),mobileNumberField.getText(),null,new Date());
+            database.currentUser = new User(usernameField.getText(),passwordField.getText(),mobileNumberField.getText(),new Date());
             database.INSERT_USER();
             database.currentUser = null;
             //Animations.windowCloseAnimation(this, 1f);

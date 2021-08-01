@@ -18,9 +18,8 @@ public abstract class Worker extends Person {
     private boolean available = true, hireStatus = false;
     private double payPercentage = 0.8, rating;
 
-    public Worker(int id, String name, String cnic, String contactNumber, String address, Date dateofbirth, int experience){
-        super(name, contactNumber, address, dateofbirth);
-        this.id = id;
+    public Worker(String name, String cnic, String contactNumber,  int experience, Date dateofbirth){
+        super(name, contactNumber, dateofbirth);
         this.cnic = cnic;
         this.experience = experience;
     }
@@ -54,6 +53,10 @@ public abstract class Worker extends Person {
     //For database
     public void setAvailable(String available) {
         this.available = available.equals("true");
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
     
     public String getCnic() {
