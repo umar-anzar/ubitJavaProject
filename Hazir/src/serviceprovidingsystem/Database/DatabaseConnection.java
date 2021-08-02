@@ -11,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import serviceprovidingsystem.Accounts.*;
 import serviceprovidingsystem.ParentElements.Worker;
+import serviceprovidingsystem.Workers.*;
 
 /**
  *
@@ -36,7 +37,7 @@ import serviceprovidingsystem.ParentElements.Worker;
     }
     
     //ConnectingDatabase function
-    public void ConnectingDataBase(){
+    private void ConnectingDataBase(){
         try {
             Class.forName("org.sqlite.JDBC");
             this.connection = DriverManager.getConnection("jdbc:sqlite:database\\databaseFile.db");
@@ -46,12 +47,12 @@ import serviceprovidingsystem.ParentElements.Worker;
     }
     
     //INCASE WE CLOSE THE CONNECTION B/W SOME WINDOW SO WE CAN AGAIN CONNECT IT.
-    public void connectionOn(){
+    private void connectionOn(){
         ConnectingDataBase();
     }
     
     //INCASE WE HAVE TO CLOSE CONNECTION EVERTIME WE END THE PROGRAM.
-    public void connectionOff(){
+    private void connectionOff(){
         try {
             this.connection.close();
         } catch (Exception e) {
@@ -60,7 +61,7 @@ import serviceprovidingsystem.ParentElements.Worker;
     }
     
     
-    public  boolean EXIST(String Username)  {
+    public boolean EXIST(String Username)  {
         connectionOn();
         try {
             String sql = "select name FROM Users WHERE name ='" + Username + "'";
@@ -162,7 +163,7 @@ import serviceprovidingsystem.ParentElements.Worker;
                 currentUser.setOrderStatus(FinalDb.getString(6));
                 currentUser.setCost(FinalDb.getDouble(7));
                 currentUser.setAddressLink(FinalDb.getString(8));
-                
+                // if id isn't 0 then it means it has worker hired of that id
                 if(FinalDb.getInt(9) != 0) {
                 
                     GET_WORKER_BY_ID(FinalDb.getInt(9));
@@ -194,8 +195,21 @@ import serviceprovidingsystem.ParentElements.Worker;
         
     }
     
+     private void settingWorkerInGetWorkerById(Worker worker) { //used in GET_WORKER_BY_ID
+        try {
+            currentUser.hiredWorker.setId(FinalDb.getInt(1));
+            currentUser.hiredWorker.setAddressLink(FinalDb.getString(8));
+            currentUser.hiredWorker.setRating(FinalDb.getDouble(9));
+            currentUser.hiredWorker.setHireStatus(FinalDb.getString(10));
+            currentUser.hiredWorker.setAvailable(FinalDb.getString(11));
+            currentUser.hiredWorker.setPocket(FinalDb.getDouble(12));
+            currentUser.hiredWorker.setPaidTotal(FinalDb.getDouble(13));
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+     }
     
-    public void GET_WORKER_BY_ID(int id) {
+    private void GET_WORKER_BY_ID(int id) { //used in login
         connectionOn();
         //1id,2profession,3name,4cnic,5contactNumber,6experience,7date,8addressLink,9rating,10hireStatus,11available,12pocket,13paidTotal
         try {
@@ -209,33 +223,35 @@ import serviceprovidingsystem.ParentElements.Worker;
             System.out.println(FinalDb.getString(3));
             System.out.println(FinalDb.getString(4));
             System.out.println(FinalDb.getString(5));
+            
+            
+            
             //SWITCH ON PROFESSIONS ON FIELD 2
             switch(FinalDb.getString(2)){
                 case "Electrician" -> {
-                    //currentUser.hiredWorker = new Electrician(FinalDb.getInt(9),);
+                    currentUser.hiredWorker = new Electrician(FinalDb.getString(3),FinalDb.getString(4),FinalDb.getString(5),FinalDb.getInt(6),null);
+                    settingWorkerInGetWorkerById(currentUser.hiredWorker);
                 }
                 case "EventManager" -> {
-                    //currentUser.hiredWorker = new EventManager(FinalDb.getInt(9),);
+                    currentUser.hiredWorker = new EventManager(FinalDb.getString(3),FinalDb.getString(4),FinalDb.getString(5),FinalDb.getInt(6),null);
+                    settingWorkerInGetWorkerById(currentUser.hiredWorker);
                 }
                 case "Labour" -> {
-                    //currentUser.hiredWorker = new Labour(FinalDb.getInt(9),);
+                    currentUser.hiredWorker = new Labour(FinalDb.getString(3),FinalDb.getString(4),FinalDb.getString(5),FinalDb.getInt(6),null);
+                    settingWorkerInGetWorkerById(currentUser.hiredWorker);
                 }
                 case "Mechanic" -> {
-                    //currentUser.hiredWorker = new Mechanic(FinalDb.getInt(9),);
+                    currentUser.hiredWorker = new Mechanic(FinalDb.getString(3),FinalDb.getString(4),FinalDb.getString(5),FinalDb.getInt(6),null);
+                    settingWorkerInGetWorkerById(currentUser.hiredWorker);
                 }
                 case "Plumber" -> {
-                    //currentUser.hiredWorker = new Plumber(FinalDb.getInt(9),);
+                    currentUser.hiredWorker = new Plumber(FinalDb.getString(3),FinalDb.getString(4),FinalDb.getString(5),FinalDb.getInt(6),null);
+                    settingWorkerInGetWorkerById(currentUser.hiredWorker);
                 }
                 default -> {
                 }
             }
-            
-            
-            
-            
-            
-                        
-            
+
         } catch (Exception e) {
             System.out.println(e);
         } finally {

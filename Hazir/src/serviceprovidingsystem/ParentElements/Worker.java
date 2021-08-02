@@ -16,7 +16,7 @@ public abstract class Worker extends Person {
     private String cnic;
     private int experience;
     private boolean available = true, hireStatus = false;
-    private double payPercentage = 0.8, rating;
+    private double payPercentage = 0.8, rating, pocket=0, paidTotal=0;
 
     public Worker(String name, String cnic, String contactNumber,  int experience, Date dateofbirth){
         super(name, contactNumber, dateofbirth);
@@ -55,14 +55,34 @@ public abstract class Worker extends Person {
         this.available = available.equals("true");
     }
 
+    public void setPaidTotal(double paidTotal) {
+        this.paidTotal = paidTotal;
+    }
+    
+    public void setPocket(double pocket) {
+        this.pocket = pocket;
+    }
+
     public void setId(int id) {
         this.id = id;
+    }
+    
+    public String getProfession() {
+        return this.getClass().getSimpleName();
     }
     
     public String getCnic() {
         return cnic;
     }
 
+    public double getPocket() {
+        return pocket;
+    }
+
+    public double getPaidTotal() {
+        return paidTotal;
+    }
+    
     public int getId() {
         return id;
     }
@@ -99,6 +119,15 @@ public abstract class Worker extends Person {
 
     public double getRating() {
         return rating;
+    }
+    
+    public void giveRating(double r) {
+        if (this.rating != 0) {
+            this.rating = (this.rating + r)/2;
+        } else {
+            this.rating = r;
+        }
+        
     }
 
     @Override
