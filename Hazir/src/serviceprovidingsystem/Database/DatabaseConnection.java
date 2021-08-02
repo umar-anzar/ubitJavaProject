@@ -195,7 +195,7 @@ import serviceprovidingsystem.Workers.*;
         
     }
     
-     private void settingWorkerInGetWorkerById(Worker worker) { //used in GET_WORKER_BY_ID
+     private void settingWorkerInGetWorkerById() { //used in GET_WORKER_BY_ID
         try {
             currentUser.hiredWorker.setId(FinalDb.getInt(1));
             currentUser.hiredWorker.setAddressLink(FinalDb.getString(8));
@@ -230,23 +230,23 @@ import serviceprovidingsystem.Workers.*;
             switch(FinalDb.getString(2)){
                 case "Electrician" -> {
                     currentUser.hiredWorker = new Electrician(FinalDb.getString(3),FinalDb.getString(4),FinalDb.getString(5),FinalDb.getInt(6),null);
-                    settingWorkerInGetWorkerById(currentUser.hiredWorker);
+                    settingWorkerInGetWorkerById();
                 }
                 case "EventManager" -> {
                     currentUser.hiredWorker = new EventManager(FinalDb.getString(3),FinalDb.getString(4),FinalDb.getString(5),FinalDb.getInt(6),null);
-                    settingWorkerInGetWorkerById(currentUser.hiredWorker);
+                    settingWorkerInGetWorkerById();
                 }
                 case "Labour" -> {
                     currentUser.hiredWorker = new Labour(FinalDb.getString(3),FinalDb.getString(4),FinalDb.getString(5),FinalDb.getInt(6),null);
-                    settingWorkerInGetWorkerById(currentUser.hiredWorker);
+                    settingWorkerInGetWorkerById();
                 }
                 case "Mechanic" -> {
                     currentUser.hiredWorker = new Mechanic(FinalDb.getString(3),FinalDb.getString(4),FinalDb.getString(5),FinalDb.getInt(6),null);
-                    settingWorkerInGetWorkerById(currentUser.hiredWorker);
+                    settingWorkerInGetWorkerById();
                 }
                 case "Plumber" -> {
                     currentUser.hiredWorker = new Plumber(FinalDb.getString(3),FinalDb.getString(4),FinalDb.getString(5),FinalDb.getInt(6),null);
-                    settingWorkerInGetWorkerById(currentUser.hiredWorker);
+                    settingWorkerInGetWorkerById();
                 }
                 default -> {
                 }
