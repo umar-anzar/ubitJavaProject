@@ -67,12 +67,6 @@ public class User extends Account {
     }
 
     
-   
-    public static void main(String[] args) {
-        
-        DatabaseConnection database = new DatabaseConnection();
-        database.GET_WORKER_BY_ID(1);
-        
-    }
+
  
 }
