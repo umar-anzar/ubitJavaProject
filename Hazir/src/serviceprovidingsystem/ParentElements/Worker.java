@@ -42,9 +42,6 @@ public abstract class Worker extends Person {
         this.rating = rating;
     }
 
-    public boolean isAvailable() {
-        return available;
-    }
     
     public void setAvailable(boolean available) {
         this.available = available;
@@ -98,6 +95,10 @@ public abstract class Worker extends Person {
         } else {
             return "false";
         }
+    }
+    
+    public boolean isAvailable() {
+        return available;
     }
     
     public boolean isHireStatus() {
