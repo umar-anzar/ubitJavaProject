@@ -36,6 +36,7 @@ public class OwnerWindow extends javax.swing.JFrame {
     public ResultSet FinalDb =null;
     public PreparedStatement pst = null;
     public Statement st = null;
+    
  
    
     DatabaseConnection database;
@@ -73,6 +74,8 @@ public class OwnerWindow extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        Delete_ID_Text = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -92,6 +95,11 @@ public class OwnerWindow extends javax.swing.JFrame {
         ));
         WorkerTable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         WorkerTable.setFillsViewportHeight(true);
+        WorkerTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                WorkerTableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(WorkerTable);
 
         jButton1.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
@@ -140,20 +148,30 @@ public class OwnerWindow extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Name");
 
         jLabel2.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Cnic");
 
         jLabel3.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Contact ");
 
         jLabel4.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Experience");
+
+        Delete_ID_Text.setOpaque(false);
+        Delete_ID_Text.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Delete_ID_TextActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Delete");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -179,6 +197,12 @@ public class OwnerWindow extends javax.swing.JFrame {
                     .addComponent(Contact_Text)
                     .addComponent(Experience_Text, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(Delete_ID_Text, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(333, 333, 333))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,7 +226,11 @@ public class OwnerWindow extends javax.swing.JFrame {
                     .addComponent(jLabel4))
                 .addGap(30, 30, 30)
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Delete_ID_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -290,6 +318,114 @@ public class OwnerWindow extends javax.swing.JFrame {
         if(!(Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE) ||(c == KeyEvent.VK_DELETE)     )){
             evt.consume();}
     }//GEN-LAST:event_Contact_TextKeyTyped
+
+    private void WorkerTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_WorkerTableMouseClicked
+
+
+
+                                       
+            try {
+                
+                Class.forName("org.sqlite.JDBC");
+            this.connection = DriverManager.getConnection("jdbc:sqlite:database\\databaseFile.db");
+                
+                int row_of_table = WorkerTable.getSelectedRow();
+                // Selecting row by clicking on table
+                
+                String Row_click = (WorkerTable.getModel().getValueAt(row_of_table, 0).toString());
+                String sql = "select * from Workers where id = '" + Row_click + "' ";
+                
+                pst = connection.prepareStatement(sql);
+                FinalDb = pst.executeQuery();
+                
+                if (FinalDb.next()){
+                    int Column_id = FinalDb.getInt("id");
+                    Delete_ID_Text.setText("Delete ID No  : " + Column_id  );
+                    
+
+
+                }
+                
+                
+                
+            }
+         
+        catch(Exception ex){
+        
+            
+        } try {
+            connection.close();
+          } catch (SQLException ex) {
+              Logger.getLogger(OwnerWindow.class.getName()).log(Level.SEVERE, null, ex);
+          }
+
+                   
+        
+        
+    }//GEN-LAST:event_WorkerTableMouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+           
+
+            try {
+                
+                Class.forName("org.sqlite.JDBC");
+            this.connection = DriverManager.getConnection("jdbc:sqlite:database\\databaseFile.db");
+                
+                int row_of_table = WorkerTable.getSelectedRow();
+                // Selecting row by clicking on table
+                
+                int Row_click = (int) (WorkerTable.getModel().getValueAt(row_of_table, 0));
+                
+//                System.out.println("Delete from Workers where id = " + Row_click + " ");
+                
+                String sql = "Delete from Workers where id = ? ";
+                
+                pst = connection.prepareStatement(sql);
+                
+                pst.setInt(1, Row_click);
+                
+                pst.execute();
+                
+               
+                
+                
+                
+            }
+         
+        catch(Exception ex){
+        
+            
+        } 
+        database.UpdateWorkerTable(WorkerTable);
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void Delete_ID_TextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Delete_ID_TextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Delete_ID_TextActionPerformed
     
     /**
      * @param args the command line arguments
@@ -333,10 +469,12 @@ public class OwnerWindow extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Cnic_Text;
     private javax.swing.JTextField Contact_Text;
+    private javax.swing.JTextField Delete_ID_Text;
     private javax.swing.JTextField Experience_Text;
     private javax.swing.JTextField Name_Text;
     private javax.swing.JTable WorkerTable;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
