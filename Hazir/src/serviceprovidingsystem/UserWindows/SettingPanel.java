@@ -119,7 +119,7 @@ public class SettingPanel extends javax.swing.JFrame {
 
         errorLabel.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
         errorLabel.setForeground(new java.awt.Color(193, 56, 56));
-        kGradientPanel1.add(errorLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(637, 112, 179, 26));
+        kGradientPanel1.add(errorLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 190, 30));
 
         jPanel2.setBackground(new java.awt.Color(102, 102, 102));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
