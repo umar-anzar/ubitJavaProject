@@ -9,6 +9,8 @@ import java.util.*;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JTable;
+import net.proteanit.sql.DbUtils;
 import serviceprovidingsystem.Accounts.*;
 import serviceprovidingsystem.ParentElements.Worker;
 import serviceprovidingsystem.Workers.*;
@@ -261,7 +263,63 @@ import serviceprovidingsystem.Workers.*;
         
     }
     
+    //OWNER WINDOW FUNCTIONS
     
+    public void UpdateWorkerTable(JTable table){
+    
+     try {
+         
+          connectionOn();
+           
+         String sql = "select * from Workers";
+         pst = connection.prepareStatement(sql);
+         FinalDb = pst.executeQuery();
+         
+         //Adding all element of database worker(Table)
+         
+         table.setModel(DbUtils.resultSetToTableModel(FinalDb));
+         
+         
+         
+            
+     
+     } catch (Exception ex) {
+         System.out.println(ex);
+     } 
+    
+    
+    
+    }
+    
+    public void INSERT_WORKER(JTable table){
+    
+          try {
+              String sql = "Insert into Workers (profession,name,cnic,contactNumber,experience,dateOfRegisteration,rating,hireStatus,available,pocket,paidTotal) values (?,?,?,?,?,?,?,?,?,?,?)";
+              pst = connection.prepareStatement(sql);
+              
+              
+              pst.setString(1, worker.getProfession());
+              pst.setString(2, worker.getName());
+              pst.setString(3, worker.getCnic());
+              pst.setString(4, worker.getContactNumber());
+              pst.setInt(5, worker.getExperience());
+              pst.setString(6, worker.getDate());
+              pst.setDouble(7, worker.getRating());
+              pst.setString(8, worker.getHireStatus());
+              pst.setString(9, worker.getAvailable());
+              pst.setDouble(10, worker.getPocket());
+              pst.setDouble(11, worker.getPaidTotal());
+              
+              pst.execute();
+              
+              
+              
+              
+          } catch (Exception ex) {
+              System.out.println(ex);
+          }UpdateWorkerTable(table);
+
+    }
    
     
     

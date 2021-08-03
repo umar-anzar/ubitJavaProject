@@ -36,77 +36,20 @@ public class OwnerWindow extends javax.swing.JFrame {
     public ResultSet FinalDb =null;
     public PreparedStatement pst = null;
     public Statement st = null;
- DatabaseConnection OwnerData ;
  
-   //aggregation
-    public User currentUser;
-    public Worker worker;
+   
+    DatabaseConnection database;
+
     /**
      * Creates new form OwnerWindow
      */
-    public OwnerWindow() throws Exception {
+    
+    public OwnerWindow(DatabaseConnection database) {
         initComponents();
-        UpdateWorkerTable();
-        
+        this.database = database;
+        database.UpdateWorkerTable(WorkerTable);
     }
-     
-    public void UpdateWorkerTable(){
-    
-     try {
-         
-          Class.forName("org.sqlite.JDBC");
-          connection = DriverManager.getConnection("jdbc:sqlite:database\\databaseFile.db");
-           
-         String sql = "select * from Workers";
-         pst = connection.prepareStatement(sql);
-         FinalDb = pst.executeQuery();
-         
-         //Adding all element of database worker(Table)
-         
-         WorkerTable.setModel(DbUtils.resultSetToTableModel(FinalDb));
-         
-         
-         
-            
-     } catch (SQLException ex) {
-         Logger.getLogger(OwnerWindow.class.getName()).log(Level.SEVERE, null, ex);
-     } catch (Exception ex) {
-         Logger.getLogger(OwnerWindow.class.getName()).log(Level.SEVERE, null, ex);
-     }
-    
-    
-    
-    }
-    
-    public void InsertWorker(){
-    
-          try {
-              String sql = "Insert into Workers (profession,name,cnic,contactNumber,experience,dateOfRegisteration,rating,hireStatus,available,pocket,paidTotal) values (?,?,?,?,?,?,?,?,?,?,?)";
-              pst = connection.prepareStatement(sql);
-              
-              
-              pst.setString(1, worker.getProfession());
-              pst.setString(2, worker.getName());
-              pst.setString(3, worker.getCnic());
-              pst.setString(4, worker.getContactNumber());
-              pst.setInt(5, worker.getExperience());
-              pst.setString(6, worker.getDate());
-              pst.setDouble(7, worker.getRating());
-              pst.setString(8, worker.getHireStatus());
-              pst.setString(9, worker.getAvailable());
-              pst.setDouble(10, worker.getPocket());
-              pst.setDouble(11, worker.getPaidTotal());
-              
-              pst.execute();
-              
-              
-              
-              
-          } catch (SQLException ex) {
-              Logger.getLogger(OwnerWindow.class.getName()).log(Level.SEVERE, null, ex);
-          }UpdateWorkerTable();
 
-    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -292,33 +235,33 @@ public class OwnerWindow extends javax.swing.JFrame {
       
         if ((String)jComboBox1.getSelectedItem() == "Electrician"){
         
-            worker = new Electrician (Name_Text.getText(),Cnic_Text.getText(),Contact_Text.getText(), Integer.parseInt(Experience_Text.getText()) ,new Date());
+            database.worker = new Electrician (Name_Text.getText(),Cnic_Text.getText(),Contact_Text.getText(), Integer.parseInt(Experience_Text.getText()) ,new Date());
             
         }
         
         
         if ((String)jComboBox1.getSelectedItem() == "Plumber"){
         
-           worker = new Plumber (Name_Text.getText(),Cnic_Text.getText(),Contact_Text.getText(), Integer.parseInt(Experience_Text.getText()) ,new Date());
+           database.worker = new Plumber (Name_Text.getText(),Cnic_Text.getText(),Contact_Text.getText(), Integer.parseInt(Experience_Text.getText()) ,new Date());
            
         }
         if ((String)jComboBox1.getSelectedItem() == "Mechanic"){
         
-           worker = new Mechanic (Name_Text.getText(),Cnic_Text.getText(),Contact_Text.getText(), Integer.parseInt(Experience_Text.getText()) ,new Date());
+           database.worker = new Mechanic (Name_Text.getText(),Cnic_Text.getText(),Contact_Text.getText(), Integer.parseInt(Experience_Text.getText()) ,new Date());
            
         }
         if ((String)jComboBox1.getSelectedItem() == "EventManager"){
         
-           worker = new EventManager (Name_Text.getText(),Cnic_Text.getText(),Contact_Text.getText(), Integer.parseInt(Experience_Text.getText()) ,new Date());
+           database.worker = new EventManager (Name_Text.getText(),Cnic_Text.getText(),Contact_Text.getText(), Integer.parseInt(Experience_Text.getText()) ,new Date());
 
         }
         if ((String)jComboBox1.getSelectedItem() == "Labour"){
         
-            worker = new Labour (Name_Text.getText(),Cnic_Text.getText(),Contact_Text.getText(), Integer.parseInt(Experience_Text.getText()) ,new Date());
+            database.worker = new Labour (Name_Text.getText(),Cnic_Text.getText(),Contact_Text.getText(), Integer.parseInt(Experience_Text.getText()) ,new Date());
             
         }
-        InsertWorker();
-        worker = null;
+        database.INSERT_WORKER(WorkerTable);
+        database.worker = null;
                
         
         }
@@ -379,7 +322,7 @@ public class OwnerWindow extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new OwnerWindow().setVisible(true);
+                    new OwnerWindow(new DatabaseConnection()).setVisible(true);
                 } catch (Exception ex) {
                     Logger.getLogger(OwnerWindow.class.getName()).log(Level.SEVERE, null, ex);
                 }
