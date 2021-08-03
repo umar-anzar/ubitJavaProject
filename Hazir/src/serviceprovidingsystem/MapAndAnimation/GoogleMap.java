@@ -15,17 +15,17 @@ import serviceprovidingsystem.Database.DatabaseConnection;
  *
  * @author omer
  */
-public class GoogleMapsClass {
+public class GoogleMap {
     DatabaseConnection database;
     private static WebEngine engineLink;
     private static String address;
     private static String coordinate;
     private String link = "https://www.google.com/maps/";
 
-    public GoogleMapsClass() {
+    public GoogleMap() {
     }
     
-    public GoogleMapsClass(DatabaseConnection database){
+    public GoogleMap(DatabaseConnection database){
         this.database = database;
         if (database.currentUser.getAddressLink() != null){
             this.link = database.currentUser.getAddressLink();

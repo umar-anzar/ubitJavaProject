@@ -21,25 +21,22 @@ import javax.swing.WindowConstants;
  */
 public class NewClass {
     public static void main(String[] args) {
-        final JFrame mapWindow=new JFrame("webview");//window bar name
-        mapWindow.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); //This will end program if only map window is close
-        mapWindow.setSize(1066,600);//resolution size
-        mapWindow.setLocationRelativeTo(null);//open in center
-        final JFXPanel fxpanel=new JFXPanel();
-        mapWindow.add(fxpanel);
+        A c = new A();
+        System.out.println(c.a);
+        A d = c;
+        c = null;
+        System.out.println(d.a);
+        try {
+            System.out.println(c.a);
+        } catch (Exception e) {
+            c = d;
+            System.out.println(c.a);
+        }
         
-
-        Platform.runLater(new Runnable() {
-        @Override
-        public void run()
-            {
-            WebEngine engine;
-            WebView wv=new WebView();
-            engine=wv.getEngine();
-            fxpanel.setScene(new Scene(wv));
-            engine.load("https://www.google.com/maps/");
-            }
-            });
-        mapWindow.setVisible(true);
+    
+    
     }
+}
+class A{
+    public int a=5;
 }

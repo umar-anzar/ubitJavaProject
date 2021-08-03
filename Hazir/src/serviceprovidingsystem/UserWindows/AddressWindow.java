@@ -8,7 +8,7 @@ package serviceprovidingsystem.UserWindows;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.util.Scanner;
-import serviceprovidingsystem.MapAndAnimation.GoogleMapsClass;
+import serviceprovidingsystem.MapAndAnimation.GoogleMap;
 import serviceprovidingsystem.MapAndAnimation.Animations;
 import serviceprovidingsystem.Database.DatabaseConnection;
 import serviceprovidingsystem.SignInWindow;
@@ -23,7 +23,7 @@ public class AddressWindow extends javax.swing.JFrame {
      */
     //attribute
     DatabaseConnection database;
-    GoogleMapsClass googleMap;
+    GoogleMap googleMap;
     //setting panel
         private boolean isSandwhichSettingPanelOpen = false;
         private int widthOfSettingPanel;
@@ -653,7 +653,7 @@ public class AddressWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (this.database.currentUser != null){
             //CODE HERE
-            googleMap = new GoogleMapsClass(database);
+            googleMap = new GoogleMap(database);
             googleMap.setPinLocation();
         }
     }//GEN-LAST:event_btnSetMarkerActionPerformed
@@ -674,7 +674,7 @@ public class AddressWindow extends javax.swing.JFrame {
 
     private void btnAvailableAreasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvailableAreasActionPerformed
         // TODO add your handling code here:
-        GoogleMapsClass.showServiceArea();
+        GoogleMap.showServiceArea();
     }//GEN-LAST:event_btnAvailableAreasActionPerformed
 
     private void btnSettingPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSettingPasswordActionPerformed

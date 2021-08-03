@@ -13,10 +13,10 @@ import java.util.*;
  */
 public abstract class Worker extends Person {
     private int id;
-    private String cnic;
-    private int experience;
+    private final String cnic;
+    private final int experience;
     private boolean available = true, hireStatus = false;
-    private double payPercentage = 0.8, rating, pocket=0, paidTotal=0;
+    private double payPercentage = 0.7, rating, pocket=0, paidTotal=0;
 
     public Worker(String name, String cnic, String contactNumber,  int experience, Date dateofbirth){
         super(name, contactNumber, dateofbirth);
@@ -131,6 +131,14 @@ public abstract class Worker extends Person {
         
     }
 
+    public double pay() {
+        this.paidTotal += pocket * payPercentage;
+        double owner_return = pocket - pocket * payPercentage;
+        pocket = 0;
+        return owner_return;
+
+    }
+    
     @Override
     public String toString() {
         return "Worker{" + "cnic=" + cnic + ", experience=" + experience + ", status=" + hireStatus + ", pay=" + payPercentage + ", rating=" + rating + '}';

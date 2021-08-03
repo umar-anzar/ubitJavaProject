@@ -19,7 +19,7 @@ import serviceprovidingsystem.Workers.*;
  *
  * @author omer
  */
-    public class DatabaseConnection {
+public class DatabaseConnection{
     public Connection connection = null;
     public ResultSet FinalDb =null;
     public PreparedStatement pst = null;
@@ -63,6 +63,7 @@ import serviceprovidingsystem.Workers.*;
 
     }
     
+    //USER WINDOW FUNCTIONS
     
     public boolean EXIST(String Username)  {
         connectionOn();
@@ -169,7 +170,9 @@ import serviceprovidingsystem.Workers.*;
                 // if id isn't 0 then it means it has worker hired of that id
                 if(FinalDb.getInt(9) != 0) {
                 
-                    GET_WORKER_BY_ID(FinalDb.getInt(9));
+                    GET_WORKER_BY_ID(FinalDb.getInt(9));//creates worker by id
+                    currentUser.hiredWorker = worker; //then saving it in attribute of user
+                    worker = null;
                     
                 } else {
                     //noting id in user database table is already 0
@@ -200,13 +203,13 @@ import serviceprovidingsystem.Workers.*;
     
      private void settingWorkerInGetWorkerById() { //used in GET_WORKER_BY_ID
         try {
-            currentUser.hiredWorker.setId(FinalDb.getInt(1));
-            currentUser.hiredWorker.setAddressLink(FinalDb.getString(8));
-            currentUser.hiredWorker.setRating(FinalDb.getDouble(9));
-            currentUser.hiredWorker.setHireStatus(FinalDb.getString(10));
-            currentUser.hiredWorker.setAvailable(FinalDb.getString(11));
-            currentUser.hiredWorker.setPocket(FinalDb.getDouble(12));
-            currentUser.hiredWorker.setPaidTotal(FinalDb.getDouble(13));
+            worker.setId(FinalDb.getInt(1));
+            worker.setAddressLink(FinalDb.getString(8));
+            worker.setRating(FinalDb.getDouble(9));
+            worker.setHireStatus(FinalDb.getString(10));
+            worker.setAvailable(FinalDb.getString(11));
+            worker.setPocket(FinalDb.getDouble(12));
+            worker.setPaidTotal(FinalDb.getDouble(13));
         } catch (Exception ex) {
             System.out.println(ex);
         }
@@ -232,23 +235,23 @@ import serviceprovidingsystem.Workers.*;
             //SWITCH ON PROFESSIONS ON FIELD 2
             switch(FinalDb.getString(2)){
                 case "Electrician" -> {
-                    currentUser.hiredWorker = new Electrician(FinalDb.getString(3),FinalDb.getString(4),FinalDb.getString(5),FinalDb.getInt(6),null);
+                    worker = new Electrician(FinalDb.getString(3),FinalDb.getString(4),FinalDb.getString(5),FinalDb.getInt(6),null);
                     settingWorkerInGetWorkerById();
                 }
                 case "EventManager" -> {
-                    currentUser.hiredWorker = new EventManager(FinalDb.getString(3),FinalDb.getString(4),FinalDb.getString(5),FinalDb.getInt(6),null);
+                    worker = new EventManager(FinalDb.getString(3),FinalDb.getString(4),FinalDb.getString(5),FinalDb.getInt(6),null);
                     settingWorkerInGetWorkerById();
                 }
                 case "Labour" -> {
-                    currentUser.hiredWorker = new Labour(FinalDb.getString(3),FinalDb.getString(4),FinalDb.getString(5),FinalDb.getInt(6),null);
+                    worker = new Labour(FinalDb.getString(3),FinalDb.getString(4),FinalDb.getString(5),FinalDb.getInt(6),null);
                     settingWorkerInGetWorkerById();
                 }
                 case "Mechanic" -> {
-                    currentUser.hiredWorker = new Mechanic(FinalDb.getString(3),FinalDb.getString(4),FinalDb.getString(5),FinalDb.getInt(6),null);
+                    worker = new Mechanic(FinalDb.getString(3),FinalDb.getString(4),FinalDb.getString(5),FinalDb.getInt(6),null);
                     settingWorkerInGetWorkerById();
                 }
                 case "Plumber" -> {
-                    currentUser.hiredWorker = new Plumber(FinalDb.getString(3),FinalDb.getString(4),FinalDb.getString(5),FinalDb.getInt(6),null);
+                    worker = new Plumber(FinalDb.getString(3),FinalDb.getString(4),FinalDb.getString(5),FinalDb.getInt(6),null);
                     settingWorkerInGetWorkerById();
                 }
                 default -> {
@@ -262,14 +265,38 @@ import serviceprovidingsystem.Workers.*;
         }
         
     }
+
+    public void UPDATE_WORKER(Worker w) {
+        //1id,2profession,3name,4cnic,5contactNumber,6experience,7date,8addressLink,9rating,10hireStatus,11available,12pocket,13paidTotal
+        connectionOn();
+        try {
+            String sql = "UPDATE Workers SET addressLink = ? , rating = ? , hireStatus = ? , available = ? , pocket = ? , paidTotal = ? WHERE id = '"+ w.getId() +"'";
+            
+            pst = connection.prepareStatement(sql);
+            
+            pst.setString(1, w.getAddressLink());
+            pst.setDouble(2, w.getRating());
+            pst.setString(3, w.getHireStatus());
+            pst.setString(4, w.getAvailable());
+            pst.setDouble(5, w.getPocket());
+            pst.setDouble(2, w.getPaidTotal());
+            
+            FinalDb = pst.executeQuery();
+
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            connectionOff();
+        }
+    }
     
     //OWNER WINDOW FUNCTIONS
     
     public void UpdateWorkerTable(JTable table){
-    
+    connectionOn();
      try {
          
-          connectionOn();
+          
            
          String sql = "select * from Workers";
          pst = connection.prepareStatement(sql);
@@ -285,14 +312,16 @@ import serviceprovidingsystem.Workers.*;
      
      } catch (Exception ex) {
          System.out.println(ex);
-     } 
+     } finally {
+         connectionOff();
+     }
     
     
     
     }
     
     public void INSERT_WORKER(JTable table){
-    
+        connectionOn();
           try {
               String sql = "Insert into Workers (profession,name,cnic,contactNumber,experience,dateOfRegisteration,rating,hireStatus,available,pocket,paidTotal) values (?,?,?,?,?,?,?,?,?,?,?)";
               pst = connection.prepareStatement(sql);
@@ -313,15 +342,37 @@ import serviceprovidingsystem.Workers.*;
               pst.execute();
               
               
-              
+              UpdateWorkerTable(table);
               
           } catch (Exception ex) {
               System.out.println(ex);
-          }UpdateWorkerTable(table);
+          } finally {
+              connectionOff();
+          }
 
     }
    
-    
-    
+    public void DELETE_USER(JTable table) {
+        connectionOn();
+        try {
+           int row_of_table = table.getSelectedRow();
+            int Row_click = (int) (table.getModel().getValueAt(row_of_table, 0));
+
+
+            String sql = "Delete from Workers where id = ? ";
+
+            pst = connection.prepareStatement(sql);
+
+            pst.setInt(1, Row_click);
+
+            pst.execute();
+            
+            UpdateWorkerTable(table);
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            connectionOff();
+        }
+    }
 
 }
