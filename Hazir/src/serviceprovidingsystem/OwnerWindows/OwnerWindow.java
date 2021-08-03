@@ -4,20 +4,105 @@
  * and open the template in the editor.
  */
 package serviceprovidingsystem.OwnerWindows;
+import java.awt.event.KeyEvent;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.*;
+import net.proteanit.sql.DbUtils;
+import serviceprovidingsystem.Accounts.User;
+import serviceprovidingsystem.Database.DatabaseConnection;
+import serviceprovidingsystem.ParentElements.Worker;
+import serviceprovidingsystem.Workers.Electrician;
+import serviceprovidingsystem.Workers.EventManager;
+import serviceprovidingsystem.Workers.Labour;
+import serviceprovidingsystem.Workers.Mechanic;
+import serviceprovidingsystem.Workers.Plumber;
 
 /**
  *
  * @author Black Beard
  */
-public class OwnerWindow extends javax.swing.JFrame {
 
+
+public class OwnerWindow extends javax.swing.JFrame {
+      public Connection connection = null;
+    public ResultSet FinalDb =null;
+    public PreparedStatement pst = null;
+    public Statement st = null;
+ DatabaseConnection OwnerData ;
+ 
+   //aggregation
+    public User currentUser;
+    public Worker worker;
     /**
      * Creates new form OwnerWindow
      */
-    public OwnerWindow() {
+    public OwnerWindow() throws Exception {
         initComponents();
+        UpdateWorkerTable();
+        
     }
+     
+    public void UpdateWorkerTable(){
+    
+     try {
+         
+          Class.forName("org.sqlite.JDBC");
+          connection = DriverManager.getConnection("jdbc:sqlite:database\\databaseFile.db");
+           
+         String sql = "select * from Workers";
+         pst = connection.prepareStatement(sql);
+         FinalDb = pst.executeQuery();
+         
+         //Adding all element of database worker(Table)
+         
+         WorkerTable.setModel(DbUtils.resultSetToTableModel(FinalDb));
+         
+         
+         
+            
+     } catch (SQLException ex) {
+         Logger.getLogger(OwnerWindow.class.getName()).log(Level.SEVERE, null, ex);
+     } catch (Exception ex) {
+         Logger.getLogger(OwnerWindow.class.getName()).log(Level.SEVERE, null, ex);
+     }
+    
+    
+    
+    }
+    
+    public void InsertWorker(){
+    
+          try {
+              String sql = "Insert into Workers (profession,name,cnic,contactNumber,experience,dateOfRegisteration) values (?,?,?,?,?,?)";
+              pst = connection.prepareStatement(sql);
+              
+              
+              pst.setString(1, (String)jComboBox1.getSelectedItem());
+              pst.setString(2, worker.getName());
+              pst.setString(3, worker.getCnic());
+              pst.setString(4, worker.getContactNumber());
+              pst.setInt(5, worker.getExperience());
+              pst.setString(6, worker.getDate());
+              
+              pst.execute();
+              
+              
+              
+              
+          } catch (SQLException ex) {
+              Logger.getLogger(OwnerWindow.class.getName()).log(Level.SEVERE, null, ex);
+          }UpdateWorkerTable();
 
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,15 +114,23 @@ public class OwnerWindow extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        WorkerTable = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
+        Name_Text = new javax.swing.JTextField();
+        Cnic_Text = new javax.swing.JTextField();
+        Contact_Text = new javax.swing.JTextField();
+        Experience_Text = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        WorkerTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -48,12 +141,42 @@ public class OwnerWindow extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(WorkerTable);
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Add New Worker");
         jButton1.setOpaque(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Electrician", "Plumber", "Mechanic", "EventManager", "Labour" }));
+
+        Name_Text.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Name_TextActionPerformed(evt);
+            }
+        });
+
+        Experience_Text.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Experience_TextActionPerformed(evt);
+            }
+        });
+        Experience_Text.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                Experience_TextKeyTyped(evt);
+            }
+        });
+
+        jLabel1.setText("Name");
+
+        jLabel2.setText("Cnic");
+
+        jLabel3.setText("Contact ");
+
+        jLabel4.setText("Experience");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -62,24 +185,50 @@ public class OwnerWindow extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(123, 123, 123)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(68, 68, 68)))
+                        .addContainerGap()
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+                            .addComponent(Name_Text)
+                            .addComponent(Cnic_Text)
+                            .addComponent(Contact_Text)
+                            .addComponent(Experience_Text))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 663, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(139, 139, 139)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(50, 50, 50)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Name_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addGap(24, 24, 24)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Cnic_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(24, 24, 24)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Contact_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(25, 25, 25)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Experience_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addGap(30, 30, 30)
                         .addComponent(jButton1)))
                 .addGap(0, 250, Short.MAX_VALUE))
         );
@@ -97,6 +246,71 @@ public class OwnerWindow extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Name_TextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Name_TextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Name_TextActionPerformed
+
+    private void Experience_TextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Experience_TextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Experience_TextActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        try{
+      
+        if ((String)jComboBox1.getSelectedItem() == "Electrician"){
+        
+            worker = new Electrician (Name_Text.getText(),Cnic_Text.getText(),Contact_Text.getText(), Integer.parseInt(Experience_Text.getText()) ,new Date());
+            
+        }
+        
+        
+        if ((String)jComboBox1.getSelectedItem() == "Plumber"){
+        
+           worker = new Plumber (Name_Text.getText(),Cnic_Text.getText(),Contact_Text.getText(), Integer.parseInt(Experience_Text.getText()) ,new Date());
+           
+        }
+        if ((String)jComboBox1.getSelectedItem() == "Mechanic"){
+        
+           worker = new Mechanic (Name_Text.getText(),Cnic_Text.getText(),Contact_Text.getText(), Integer.parseInt(Experience_Text.getText()) ,new Date());
+           
+        }
+        if ((String)jComboBox1.getSelectedItem() == "EventManager"){
+        
+           worker = new EventManager (Name_Text.getText(),Cnic_Text.getText(),Contact_Text.getText(), Integer.parseInt(Experience_Text.getText()) ,new Date());
+
+        }
+        if ((String)jComboBox1.getSelectedItem() == "Labour"){
+        
+            worker = new Labour (Name_Text.getText(),Cnic_Text.getText(),Contact_Text.getText(), Integer.parseInt(Experience_Text.getText()) ,new Date());
+            
+        }
+        InsertWorker();
+        worker = null;
+               
+        
+        }
+        catch(Exception e){}    
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void Experience_TextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Experience_TextKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(!(Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE) ||(c == KeyEvent.VK_DELETE)     )){
+            evt.consume();
+        }
+            
+        
+        
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_Experience_TextKeyTyped
 
     /**
      * @param args the command line arguments
@@ -128,16 +342,28 @@ public class OwnerWindow extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new OwnerWindow().setVisible(true);
+                try {
+                    new OwnerWindow().setVisible(true);
+                } catch (Exception ex) {
+                    Logger.getLogger(OwnerWindow.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Cnic_Text;
+    private javax.swing.JTextField Contact_Text;
+    private javax.swing.JTextField Experience_Text;
+    private javax.swing.JTextField Name_Text;
+    private javax.swing.JTable WorkerTable;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

@@ -23,6 +23,7 @@ import serviceprovidingsystem.Workers.*;
     public PreparedStatement pst = null;
     public Statement st = null;
     
+    
     //aggregation
     public User currentUser;
     public Worker worker;
@@ -37,7 +38,7 @@ import serviceprovidingsystem.Workers.*;
     }
     
     //ConnectingDatabase function
-    private void ConnectingDataBase(){
+    public void ConnectingDataBase(){
         try {
             Class.forName("org.sqlite.JDBC");
             this.connection = DriverManager.getConnection("jdbc:sqlite:database\\databaseFile.db");
@@ -261,7 +262,7 @@ import serviceprovidingsystem.Workers.*;
     }
     
     
-    
+   
     
     
 
