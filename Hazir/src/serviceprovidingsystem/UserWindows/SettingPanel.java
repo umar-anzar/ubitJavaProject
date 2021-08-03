@@ -5,6 +5,7 @@
  */
 package serviceprovidingsystem.UserWindows;
 
+import java.awt.Cursor;
 import serviceprovidingsystem.Database.DatabaseConnection;
 import serviceprovidingsystem.MapAndAnimation.Animations;
 
@@ -100,6 +101,11 @@ public class SettingPanel extends javax.swing.JFrame {
         btnSettingAccept.setkHoverForeGround(new java.awt.Color(0, 0, 0));
         btnSettingAccept.setkHoverStartColor(new java.awt.Color(240, 239, 239));
         btnSettingAccept.setkStartColor(new java.awt.Color(204, 204, 204));
+        btnSettingAccept.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSettingAcceptMouseEntered(evt);
+            }
+        });
         btnSettingAccept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSettingAcceptActionPerformed(evt);
@@ -219,6 +225,12 @@ public class SettingPanel extends javax.swing.JFrame {
         // TODO add your handling code here:
         Animations.windowCloseAnimation(this, this.getOpacity());
     }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void btnSettingAcceptMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSettingAcceptMouseEntered
+        // TODO add your handling code here:
+        Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
+        btnSettingAccept.setCursor(cursor);
+    }//GEN-LAST:event_btnSettingAcceptMouseEntered
 
     /**
      * @param args the command line arguments

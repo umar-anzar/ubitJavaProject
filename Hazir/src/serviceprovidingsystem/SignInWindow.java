@@ -152,6 +152,11 @@ public class SignInWindow extends javax.swing.JFrame {
         btnSignIn1.setkHoverForeGround(new java.awt.Color(0, 0, 0));
         btnSignIn1.setkHoverStartColor(new java.awt.Color(240, 239, 239));
         btnSignIn1.setkStartColor(new java.awt.Color(255, 255, 255));
+        btnSignIn1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSignIn1MouseEntered(evt);
+            }
+        });
         btnSignIn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSignIn1ActionPerformed(evt);
@@ -371,6 +376,12 @@ public class SignInWindow extends javax.swing.JFrame {
             }
         };th.start();
     }//GEN-LAST:event_formWindowOpened
+
+    private void btnSignIn1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSignIn1MouseEntered
+        // TODO add your handling code here:
+        Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
+        btnSignIn1.setCursor(cursor);
+    }//GEN-LAST:event_btnSignIn1MouseEntered
 
     /**
      * @param args the command line arguments

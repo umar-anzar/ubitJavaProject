@@ -129,6 +129,11 @@ public class SignUp extends javax.swing.JFrame {
         btnSignUp.setkHoverForeGround(new java.awt.Color(0, 0, 0));
         btnSignUp.setkHoverStartColor(new java.awt.Color(240, 239, 239));
         btnSignUp.setkStartColor(new java.awt.Color(255, 255, 255));
+        btnSignUp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSignUpMouseEntered(evt);
+            }
+        });
         btnSignUp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSignUpActionPerformed(evt);
@@ -367,6 +372,12 @@ public class SignUp extends javax.swing.JFrame {
             }
         };th.start();
     }//GEN-LAST:event_formWindowOpened
+
+    private void btnSignUpMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSignUpMouseEntered
+        // TODO add your handling code here:
+        Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
+        btnSignUp.setCursor(cursor);
+    }//GEN-LAST:event_btnSignUpMouseEntered
 
     /**
      * @param args the command line arguments
