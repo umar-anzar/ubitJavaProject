@@ -497,6 +497,11 @@ public class HomeWindow extends javax.swing.JFrame {
         btnJobType3.setkHoverForeGround(new java.awt.Color(0, 0, 0));
         btnJobType3.setkHoverStartColor(new java.awt.Color(240, 239, 239));
         btnJobType3.setkStartColor(new java.awt.Color(255, 255, 255));
+        btnJobType3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnJobType3MouseEntered(evt);
+            }
+        });
         btnJobType3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnJobType3ActionPerformed(evt);
@@ -518,6 +523,11 @@ public class HomeWindow extends javax.swing.JFrame {
         btnJobType1.setkHoverForeGround(new java.awt.Color(0, 0, 0));
         btnJobType1.setkHoverStartColor(new java.awt.Color(240, 239, 239));
         btnJobType1.setkStartColor(new java.awt.Color(255, 255, 255));
+        btnJobType1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnJobType1MouseEntered(evt);
+            }
+        });
         btnJobType1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnJobType1ActionPerformed(evt);
@@ -534,6 +544,11 @@ public class HomeWindow extends javax.swing.JFrame {
         btnJobType2.setkHoverForeGround(new java.awt.Color(0, 0, 0));
         btnJobType2.setkHoverStartColor(new java.awt.Color(240, 239, 239));
         btnJobType2.setkStartColor(new java.awt.Color(255, 255, 255));
+        btnJobType2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnJobType2MouseEntered(evt);
+            }
+        });
         btnJobType2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnJobType2ActionPerformed(evt);
@@ -550,6 +565,11 @@ public class HomeWindow extends javax.swing.JFrame {
         btnJobType4.setkHoverForeGround(new java.awt.Color(0, 0, 0));
         btnJobType4.setkHoverStartColor(new java.awt.Color(240, 239, 239));
         btnJobType4.setkStartColor(new java.awt.Color(255, 255, 255));
+        btnJobType4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnJobType4MouseEntered(evt);
+            }
+        });
         btnJobType4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnJobType4ActionPerformed(evt);
@@ -609,6 +629,11 @@ public class HomeWindow extends javax.swing.JFrame {
         btnGoToReceipt.setkHoverStartColor(new java.awt.Color(255, 255, 255));
         btnGoToReceipt.setkStartColor(new java.awt.Color(255, 255, 255));
         btnGoToReceipt.setLabel("GO");
+        btnGoToReceipt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGoToReceiptMouseEntered(evt);
+            }
+        });
         btnGoToReceipt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGoToReceiptActionPerformed(evt);
@@ -654,6 +679,11 @@ public class HomeWindow extends javax.swing.JFrame {
         btnElectrician.setkPressedColor(new java.awt.Color(207, 233, 250));
         btnElectrician.setkStartColor(new java.awt.Color(180, 225, 255));
         btnElectrician.setPreferredSize(new java.awt.Dimension(119, 125));
+        btnElectrician.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnElectricianMouseEntered(evt);
+            }
+        });
         btnElectrician.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnElectricianActionPerformed(evt);
@@ -674,6 +704,11 @@ public class HomeWindow extends javax.swing.JFrame {
         btnPlumber.setkPressedColor(new java.awt.Color(207, 233, 250));
         btnPlumber.setkStartColor(new java.awt.Color(180, 225, 255));
         btnPlumber.setPreferredSize(new java.awt.Dimension(119, 125));
+        btnPlumber.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnPlumberMouseEntered(evt);
+            }
+        });
         btnPlumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPlumberActionPerformed(evt);
@@ -694,6 +729,11 @@ public class HomeWindow extends javax.swing.JFrame {
         btnMechanic.setkPressedColor(new java.awt.Color(207, 233, 250));
         btnMechanic.setkStartColor(new java.awt.Color(180, 225, 255));
         btnMechanic.setPreferredSize(new java.awt.Dimension(119, 125));
+        btnMechanic.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnMechanicMouseEntered(evt);
+            }
+        });
         btnMechanic.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMechanicActionPerformed(evt);
@@ -714,6 +754,11 @@ public class HomeWindow extends javax.swing.JFrame {
         btnEventManager.setkPressedColor(new java.awt.Color(207, 233, 250));
         btnEventManager.setkStartColor(new java.awt.Color(180, 225, 255));
         btnEventManager.setPreferredSize(new java.awt.Dimension(119, 125));
+        btnEventManager.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnEventManagerMouseEntered(evt);
+            }
+        });
         btnEventManager.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEventManagerActionPerformed(evt);
@@ -734,6 +779,11 @@ public class HomeWindow extends javax.swing.JFrame {
         btnLabour.setkPressedColor(new java.awt.Color(207, 233, 250));
         btnLabour.setkStartColor(new java.awt.Color(180, 225, 255));
         btnLabour.setPreferredSize(new java.awt.Dimension(119, 125));
+        btnLabour.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnLabourMouseEntered(evt);
+            }
+        });
         btnLabour.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLabourActionPerformed(evt);
@@ -754,6 +804,11 @@ public class HomeWindow extends javax.swing.JFrame {
         btnUnavailable.setkPressedColor(new java.awt.Color(207, 233, 250));
         btnUnavailable.setkStartColor(new java.awt.Color(180, 225, 255));
         btnUnavailable.setPreferredSize(new java.awt.Dimension(119, 125));
+        btnUnavailable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnUnavailableMouseEntered(evt);
+            }
+        });
         btnUnavailable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUnavailableActionPerformed(evt);
@@ -1313,6 +1368,72 @@ public class HomeWindow extends javax.swing.JFrame {
         Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
         signOutBtn1.setCursor(cursor);
     }//GEN-LAST:event_signOutBtn1MouseEntered
+
+    private void btnElectricianMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnElectricianMouseEntered
+        // TODO add your handling code here:
+        Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
+        btnElectrician.setCursor(cursor);
+    }//GEN-LAST:event_btnElectricianMouseEntered
+
+    private void btnMechanicMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMechanicMouseEntered
+        // TODO add your handling code here:
+        Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
+        btnMechanic.setCursor(cursor);
+    }//GEN-LAST:event_btnMechanicMouseEntered
+
+    private void btnLabourMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLabourMouseEntered
+        // TODO add your handling code here:
+        Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
+        btnLabour.setCursor(cursor);
+    }//GEN-LAST:event_btnLabourMouseEntered
+
+    private void btnPlumberMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPlumberMouseEntered
+        // TODO add your handling code here:
+        Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
+        btnPlumber.setCursor(cursor);
+    }//GEN-LAST:event_btnPlumberMouseEntered
+
+    private void btnEventManagerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEventManagerMouseEntered
+        // TODO add your handling code here:
+        Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
+        btnEventManager.setCursor(cursor);
+    }//GEN-LAST:event_btnEventManagerMouseEntered
+
+    private void btnUnavailableMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUnavailableMouseEntered
+        // TODO add your handling code here:
+        Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
+        btnUnavailable.setCursor(cursor);
+    }//GEN-LAST:event_btnUnavailableMouseEntered
+
+    private void btnJobType1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnJobType1MouseEntered
+        // TODO add your handling code here:
+        Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
+        btnJobType1.setCursor(cursor);
+    }//GEN-LAST:event_btnJobType1MouseEntered
+
+    private void btnJobType2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnJobType2MouseEntered
+        // TODO add your handling code here:
+        Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
+        btnJobType2.setCursor(cursor);
+    }//GEN-LAST:event_btnJobType2MouseEntered
+
+    private void btnJobType3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnJobType3MouseEntered
+        // TODO add your handling code here:
+        Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
+        btnJobType3.setCursor(cursor);
+    }//GEN-LAST:event_btnJobType3MouseEntered
+
+    private void btnJobType4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnJobType4MouseEntered
+        // TODO add your handling code here:
+        Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
+        btnJobType4.setCursor(cursor);
+    }//GEN-LAST:event_btnJobType4MouseEntered
+
+    private void btnGoToReceiptMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGoToReceiptMouseEntered
+        // TODO add your handling code here:
+        Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
+        btnGoToReceipt.setCursor(cursor);
+    }//GEN-LAST:event_btnGoToReceiptMouseEntered
 
     /**
      * @param args the command line arguments
