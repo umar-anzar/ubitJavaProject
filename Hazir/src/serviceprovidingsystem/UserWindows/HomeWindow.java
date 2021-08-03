@@ -7,6 +7,7 @@ package serviceprovidingsystem.UserWindows;
 import serviceprovidingsystem.MapAndAnimation.Animations;
 import serviceprovidingsystem.*;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import javax.swing.SpinnerModel;
 import javax.swing.SpinnerNumberModel;
@@ -242,6 +243,11 @@ public class HomeWindow extends javax.swing.JFrame {
         signOutBtn1.setkHoverForeGround(new java.awt.Color(0, 0, 0));
         signOutBtn1.setkHoverStartColor(new java.awt.Color(240, 239, 239));
         signOutBtn1.setkStartColor(new java.awt.Color(255, 255, 255));
+        signOutBtn1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                signOutBtn1MouseEntered(evt);
+            }
+        });
         signOutBtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 signOutBtn1ActionPerformed(evt);
@@ -258,6 +264,11 @@ public class HomeWindow extends javax.swing.JFrame {
         btnSettingPassword.setkHoverForeGround(new java.awt.Color(0, 0, 0));
         btnSettingPassword.setkHoverStartColor(new java.awt.Color(240, 239, 239));
         btnSettingPassword.setkStartColor(new java.awt.Color(255, 255, 255));
+        btnSettingPassword.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSettingPasswordMouseEntered(evt);
+            }
+        });
         btnSettingPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSettingPasswordActionPerformed(evt);
@@ -274,6 +285,11 @@ public class HomeWindow extends javax.swing.JFrame {
         btnAddressWindow.setkHoverForeGround(new java.awt.Color(0, 0, 0));
         btnAddressWindow.setkHoverStartColor(new java.awt.Color(240, 239, 239));
         btnAddressWindow.setkStartColor(new java.awt.Color(255, 255, 255));
+        btnAddressWindow.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAddressWindowMouseEntered(evt);
+            }
+        });
         btnAddressWindow.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddressWindowActionPerformed(evt);
@@ -290,6 +306,11 @@ public class HomeWindow extends javax.swing.JFrame {
         btnSettingNumber.setkHoverForeGround(new java.awt.Color(0, 0, 0));
         btnSettingNumber.setkHoverStartColor(new java.awt.Color(240, 239, 239));
         btnSettingNumber.setkStartColor(new java.awt.Color(255, 255, 255));
+        btnSettingNumber.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSettingNumberMouseEntered(evt);
+            }
+        });
         btnSettingNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSettingNumberActionPerformed(evt);
@@ -1268,6 +1289,30 @@ public class HomeWindow extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnGoToReceiptActionPerformed
+
+    private void btnSettingPasswordMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSettingPasswordMouseEntered
+        // TODO add your handling code here:
+        Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
+        btnSettingPassword.setCursor(cursor);
+    }//GEN-LAST:event_btnSettingPasswordMouseEntered
+
+    private void btnSettingNumberMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSettingNumberMouseEntered
+        // TODO add your handling code here:
+        Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
+        btnSettingNumber.setCursor(cursor);
+    }//GEN-LAST:event_btnSettingNumberMouseEntered
+
+    private void btnAddressWindowMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddressWindowMouseEntered
+        // TODO add your handling code here:
+        Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
+        btnAddressWindow.setCursor(cursor);
+    }//GEN-LAST:event_btnAddressWindowMouseEntered
+
+    private void signOutBtn1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signOutBtn1MouseEntered
+        // TODO add your handling code here:
+        Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
+        signOutBtn1.setCursor(cursor);
+    }//GEN-LAST:event_signOutBtn1MouseEntered
 
     /**
      * @param args the command line arguments

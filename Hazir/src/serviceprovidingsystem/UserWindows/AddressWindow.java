@@ -6,6 +6,7 @@
 package serviceprovidingsystem.UserWindows;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.util.Scanner;
 import serviceprovidingsystem.MapAndAnimation.GoogleMapsClass;
 import serviceprovidingsystem.MapAndAnimation.Animations;
@@ -220,6 +221,11 @@ public class AddressWindow extends javax.swing.JFrame {
         btnSettingPassword.setkHoverForeGround(new java.awt.Color(0, 0, 0));
         btnSettingPassword.setkHoverStartColor(new java.awt.Color(240, 239, 239));
         btnSettingPassword.setkStartColor(new java.awt.Color(255, 255, 255));
+        btnSettingPassword.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSettingPasswordMouseEntered(evt);
+            }
+        });
         btnSettingPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSettingPasswordActionPerformed(evt);
@@ -236,6 +242,11 @@ public class AddressWindow extends javax.swing.JFrame {
         btnSettingNumber.setkHoverForeGround(new java.awt.Color(0, 0, 0));
         btnSettingNumber.setkHoverStartColor(new java.awt.Color(240, 239, 239));
         btnSettingNumber.setkStartColor(new java.awt.Color(255, 255, 255));
+        btnSettingNumber.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSettingNumberMouseEntered(evt);
+            }
+        });
         btnSettingNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSettingNumberActionPerformed(evt);
@@ -252,6 +263,11 @@ public class AddressWindow extends javax.swing.JFrame {
         signOutBtn1.setkHoverForeGround(new java.awt.Color(0, 0, 0));
         signOutBtn1.setkHoverStartColor(new java.awt.Color(240, 239, 239));
         signOutBtn1.setkStartColor(new java.awt.Color(255, 255, 255));
+        signOutBtn1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                signOutBtn1MouseEntered(evt);
+            }
+        });
         signOutBtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 signOutBtn1ActionPerformed(evt);
@@ -332,6 +348,11 @@ public class AddressWindow extends javax.swing.JFrame {
         btnSetMarker.setkHoverForeGround(new java.awt.Color(0, 0, 0));
         btnSetMarker.setkHoverStartColor(new java.awt.Color(255, 255, 255));
         btnSetMarker.setkStartColor(new java.awt.Color(226, 226, 226));
+        btnSetMarker.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSetMarkerMouseEntered(evt);
+            }
+        });
         btnSetMarker.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSetMarkerActionPerformed(evt);
@@ -347,6 +368,11 @@ public class AddressWindow extends javax.swing.JFrame {
         btnAvailableAreas.setkHoverForeGround(new java.awt.Color(0, 0, 0));
         btnAvailableAreas.setkHoverStartColor(new java.awt.Color(255, 255, 255));
         btnAvailableAreas.setkStartColor(new java.awt.Color(226, 226, 226));
+        btnAvailableAreas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAvailableAreasMouseEntered(evt);
+            }
+        });
         btnAvailableAreas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAvailableAreasActionPerformed(evt);
@@ -362,6 +388,11 @@ public class AddressWindow extends javax.swing.JFrame {
         btnShowLocatio.setkHoverForeGround(new java.awt.Color(0, 0, 0));
         btnShowLocatio.setkHoverStartColor(new java.awt.Color(255, 255, 255));
         btnShowLocatio.setkStartColor(new java.awt.Color(226, 226, 226));
+        btnShowLocatio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnShowLocatioMouseEntered(evt);
+            }
+        });
         btnShowLocatio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnShowLocatioActionPerformed(evt);
@@ -455,6 +486,11 @@ public class AddressWindow extends javax.swing.JFrame {
         btnGoToHome.setkHoverStartColor(new java.awt.Color(255, 255, 255));
         btnGoToHome.setkStartColor(new java.awt.Color(255, 255, 255));
         btnGoToHome.setLabel("GO");
+        btnGoToHome.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGoToHomeMouseEntered(evt);
+            }
+        });
         btnGoToHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGoToHomeActionPerformed(evt);
@@ -674,6 +710,48 @@ public class AddressWindow extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnGoToHomeActionPerformed
+
+    private void btnSetMarkerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSetMarkerMouseEntered
+        // TODO add your handling code here:
+        Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
+        btnSetMarker.setCursor(cursor);
+    }//GEN-LAST:event_btnSetMarkerMouseEntered
+
+    private void btnShowLocatioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnShowLocatioMouseEntered
+        // TODO add your handling code here:
+        Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
+        btnShowLocatio.setCursor(cursor);
+    }//GEN-LAST:event_btnShowLocatioMouseEntered
+
+    private void btnAvailableAreasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAvailableAreasMouseEntered
+        // TODO add your handling code here:
+        Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
+        btnAvailableAreas.setCursor(cursor);
+    }//GEN-LAST:event_btnAvailableAreasMouseEntered
+
+    private void btnGoToHomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGoToHomeMouseEntered
+        // TODO add your handling code here:
+        Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
+        btnGoToHome.setCursor(cursor);
+    }//GEN-LAST:event_btnGoToHomeMouseEntered
+
+    private void btnSettingPasswordMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSettingPasswordMouseEntered
+        // TODO add your handling code here:
+        Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
+        btnSettingPassword.setCursor(cursor);
+    }//GEN-LAST:event_btnSettingPasswordMouseEntered
+
+    private void btnSettingNumberMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSettingNumberMouseEntered
+        // TODO add your handling code here:
+        Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
+        btnSettingNumber.setCursor(cursor);
+    }//GEN-LAST:event_btnSettingNumberMouseEntered
+
+    private void signOutBtn1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signOutBtn1MouseEntered
+        // TODO add your handling code here:
+        Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
+        signOutBtn1.setCursor(cursor);
+    }//GEN-LAST:event_signOutBtn1MouseEntered
 
     public void addressAlreadyFilled(String address){
         Scanner input = new Scanner(address);
