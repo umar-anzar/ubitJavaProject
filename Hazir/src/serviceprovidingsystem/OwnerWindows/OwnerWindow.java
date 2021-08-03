@@ -159,6 +159,18 @@ public class OwnerWindow extends javax.swing.JFrame {
             }
         });
 
+        Cnic_Text.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                Cnic_TextKeyTyped(evt);
+            }
+        });
+
+        Contact_Text.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                Contact_TextKeyTyped(evt);
+            }
+        });
+
         Experience_Text.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Experience_TextActionPerformed(evt);
@@ -301,17 +313,23 @@ public class OwnerWindow extends javax.swing.JFrame {
         if(!(Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE) ||(c == KeyEvent.VK_DELETE)     )){
             evt.consume();
         }
-            
-        
-        
-        
-        
-        
-        
-        
-        
+                    
     }//GEN-LAST:event_Experience_TextKeyTyped
 
+    private void Cnic_TextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Cnic_TextKeyTyped
+         char c = evt.getKeyChar();
+        if(!(Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE) ||(c == KeyEvent.VK_DELETE)     )){
+            evt.consume();
+    }//GEN-LAST:event_Cnic_TextKeyTyped
+    }
+    
+    private void Contact_TextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Contact_TextKeyTyped
+        // TODO add your handling code here:
+         char c = evt.getKeyChar();
+        if(!(Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE) ||(c == KeyEvent.VK_DELETE)     )){
+            evt.consume();}
+    }//GEN-LAST:event_Contact_TextKeyTyped
+    
     /**
      * @param args the command line arguments
      */

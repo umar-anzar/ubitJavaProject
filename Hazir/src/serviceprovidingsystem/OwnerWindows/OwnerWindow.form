@@ -162,8 +162,14 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="Cnic_Text">
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="Cnic_TextKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="Contact_Text">
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="Contact_TextKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="Experience_Text">
           <Events>
