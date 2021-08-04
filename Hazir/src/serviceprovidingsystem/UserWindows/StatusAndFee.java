@@ -90,7 +90,7 @@ public class StatusAndFee extends javax.swing.JFrame {
         pendingLoading = new javax.swing.JLabel();
         PendingLabel = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        messageLabel = new javax.swing.JLabel();
         homeBackgroundPanel = new com.k33ptoo.components.KGradientPanel();
         kGradientPanel5 = new com.k33ptoo.components.KGradientPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -295,8 +295,8 @@ public class StatusAndFee extends javax.swing.JFrame {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/SlipWindow/reloadWindowIcon_32px.png"))); // NOI18N
         jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("a");
+        messageLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        messageLabel.setText("a");
 
         javax.swing.GroupLayout PendingBackgroundLayout = new javax.swing.GroupLayout(PendingBackground);
         PendingBackground.setLayout(PendingBackgroundLayout);
@@ -309,7 +309,7 @@ public class StatusAndFee extends javax.swing.JFrame {
                         .addComponent(jLabel4))
                     .addGroup(PendingBackgroundLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(messageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(PendingBackgroundLayout.createSequentialGroup()
                 .addGap(353, 353, 353)
@@ -330,7 +330,7 @@ public class StatusAndFee extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pendingLoading, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(156, 156, 156)
-                .addComponent(jLabel5)
+                .addComponent(messageLabel)
                 .addGap(39, 39, 39))
         );
 
@@ -606,11 +606,11 @@ public class StatusAndFee extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JScrollPane jScrollPane1;
     private com.k33ptoo.components.KGradientPanel kGradientPanel5;
     private com.k33ptoo.components.KGradientPanel logoBar;
+    private javax.swing.JLabel messageLabel;
     private javax.swing.JLabel pendingLoading;
     private com.k33ptoo.components.KGradientPanel receiptBackground;
     private javax.swing.JTextArea receiptTextArea;
