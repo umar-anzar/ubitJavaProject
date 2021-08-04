@@ -222,15 +222,7 @@ public class DatabaseConnection{
             String sql = "SELECT * FROM Workers WHERE id ='" + id + "'";
             st = connection.createStatement();
             FinalDb = st.executeQuery(sql);
-  
-            
-            System.out.println(FinalDb.getString(1));
-            System.out.println(FinalDb.getString(2));
-            System.out.println(FinalDb.getString(3));
-            System.out.println(FinalDb.getString(4));
-            System.out.println(FinalDb.getString(5));
-            
-            
+      
             
             //SWITCH ON PROFESSIONS ON FIELD 2
             switch(FinalDb.getString(2)){
@@ -257,7 +249,7 @@ public class DatabaseConnection{
                 default -> {
                 }
             }
-
+            System.out.println("GetWorkerById");
         } catch (Exception e) {
             System.out.println(e);
         } finally {
@@ -270,7 +262,7 @@ public class DatabaseConnection{
         //1id,2profession,3name,4cnic,5contactNumber,6experience,7date,8addressLink,9rating,10hireStatus,11available,12pocket,13paidTotal
         connectionOn();
         try {
-            String sql = "UPDATE Workers SET addressLink = ? , rating = ? , hireStatus = ? , available = ? , pocket = ? , paidTotal = ? WHERE id = '"+ w.getId() +"'";
+            String sql = "UPDATE Workers SET addressLink = ? , rating = ? , hireStatus = ? , available = ? , pocket = ? , paidTotal = ? WHERE id = ? ";
             
             pst = connection.prepareStatement(sql);
             
@@ -279,10 +271,10 @@ public class DatabaseConnection{
             pst.setString(3, w.getHireStatus());
             pst.setString(4, w.getAvailable());
             pst.setDouble(5, w.getPocket());
-            pst.setDouble(2, w.getPaidTotal());
-            
-            FinalDb = pst.executeQuery();
-
+            pst.setDouble(6, w.getPaidTotal());
+            pst.setInt(7, w.getId());
+            pst.executeUpdate();
+            System.out.println("Update Worker");
         } catch (Exception e) {
             System.out.println(e);
         } finally {
@@ -378,11 +370,11 @@ public class DatabaseConnection{
     
     
     
-    public void UPDATE_HIRE_STATUS(){
+    public void UPDATE_HIRE_STATUS(JTable table){
         connectionOn();
         ArrayList id_Array = new ArrayList();
     
-        String sql = "Select id from Workers where hireStatus = 'false'";
+        String sql = "Select id from Workers where hireStatus = 'true'";
         try {
             pst = connection.prepareStatement(sql);
             FinalDb = pst.executeQuery();
@@ -394,16 +386,28 @@ public class DatabaseConnection{
             
             System.out.println(id_Array.toString());
             
+            ArrayList<Worker> workerArrayList = new ArrayList<>();
+            
+            for (int i = 0; i < id_Array.size(); i++) {
+                int id = (int) id_Array.get(i);
+                GET_WORKER_BY_ID(id);
+                workerArrayList.add(worker);
+            }
+            for (int i = 0; i < workerArrayList.size(); i++) {
+                workerArrayList.get(i).setHireStatus("false");
+                UPDATE_WORKER(workerArrayList.get(i));
+                
+            }
+            
+            UpdateWorkerTable(table);
             
             
             
-            
-            
-            
-            
-        } catch (SQLException ex) {
-            
-        }connectionOff();
+        } catch (Exception ex) {
+            System.out.println(ex);
+        } finally {
+            connectionOff();
+        }
         
     }
     
