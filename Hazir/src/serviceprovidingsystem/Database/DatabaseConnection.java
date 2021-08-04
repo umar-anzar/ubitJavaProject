@@ -375,4 +375,52 @@ public class DatabaseConnection{
         }
     }
 
+    
+    
+    
+    public void UPDATE_HIRE_STATUS(){
+        ArrayList id_Array = new ArrayList();
+    
+        String sql = "Select id from Workers where hireStatus = 'false'";
+        try {
+            pst = connection.prepareStatement(sql);
+            FinalDb = pst.executeQuery();
+            
+            while(FinalDb.next()){
+            
+                id_Array.add(FinalDb.getInt("id"));
+            }
+            
+            System.out.println(id_Array.toString());
+            
+            
+            
+            
+            
+            
+            
+            
+        } catch (SQLException ex) {
+            
+        }
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
