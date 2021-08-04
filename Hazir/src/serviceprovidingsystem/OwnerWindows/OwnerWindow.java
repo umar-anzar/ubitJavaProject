@@ -49,6 +49,7 @@ public class OwnerWindow extends javax.swing.JFrame {
         initComponents();
         this.database = database;
         database.UpdateWorkerTable(WorkerTable);
+        database.UPDATE_HIRE_STATUS();
     }
 
     
