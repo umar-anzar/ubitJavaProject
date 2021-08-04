@@ -405,8 +405,44 @@ public class DatabaseConnection{
         
     }
     
-    public void Pay(JTable table) {
-        
+    public void PAY_WORKER(JTable table) {
+        connectionOn();
+        ArrayList id_Array = new ArrayList();
+    
+        String sql = "Select id from Workers where pocket != 0 ";
+        try {
+            pst = connection.prepareStatement(sql);
+            FinalDb = pst.executeQuery();
+            
+            while(FinalDb.next()){
+            
+                id_Array.add(FinalDb.getInt("id"));
+            }
+            
+            System.out.println(id_Array.toString());
+            
+            ArrayList<Worker> workerArrayList = new ArrayList<>();
+            
+            for (int i = 0; i < id_Array.size(); i++) {
+                int id = (int) id_Array.get(i);
+                GET_WORKER_BY_ID(id);
+                workerArrayList.add(worker);
+            }
+            double total=0;
+            for (int i = 0; i < workerArrayList.size(); i++) {
+                total += workerArrayList.get(i).pay();
+                UPDATE_WORKER(workerArrayList.get(i));
+                
+            }
+            System.out.println(total);
+            //UPDATE OWNER>>>>>>>>>>>>>>>>>>>>>>
+            UpdateWorkerTable(table);
+            
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            
+        }
     }
     
 
