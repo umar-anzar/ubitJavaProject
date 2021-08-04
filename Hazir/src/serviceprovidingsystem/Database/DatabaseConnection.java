@@ -30,6 +30,12 @@ public class DatabaseConnection{
     public User currentUser;
     public Worker worker;
     
+    //WorkerSelection
+        private boolean isElectrician = true;
+        private boolean isLabour = false;
+        private boolean isEventManager = false;
+        private boolean isMechanic = false;
+        private boolean isPlumber = false;
 
     public DatabaseConnection(){
         ConnectingDataBase();
@@ -38,6 +44,37 @@ public class DatabaseConnection{
         //FinalDb = pst.executeQuery();
 
     }
+    
+    //WORKER SELECTION BOOLEAN
+
+    public boolean isIsElectrician() {
+        return isElectrician;
+    }
+
+    public boolean isIsLabour() {
+        return isLabour;
+    }
+
+    public boolean isIsEventManager() {
+        return isEventManager;
+    }
+
+    public boolean isIsMechanic() {
+        return isMechanic;
+    }
+
+    public boolean isIsPlumber() {
+        return isPlumber;
+    }
+    
+    public void setAllWorkers(boolean electrician, boolean mechanic, boolean plumber, boolean eventManager, boolean labour) {
+        this.isElectrician = electrician;
+        this.isEventManager = eventManager;
+        this.isMechanic = mechanic;
+        this.isLabour = labour;
+        this.isPlumber = plumber;
+    }
+    
     
     //ConnectingDatabase function
     public void ConnectingDataBase(){
@@ -281,6 +318,41 @@ public class DatabaseConnection{
             connectionOff();
         }
     }
+    
+    public boolean GET_SINGLE_WORKER_BY_PROFESSION() {
+        connectionOn();
+        
+        boolean workerAvailable = false;
+        
+        String profession = ((isElectrician)? "Electrician" : "") + ((isLabour)? "Electrician" : "") + ((isEventManager)? "Electrician" : "")
+                + ((isMechanic)? "Electrician" : "") + ((isPlumber)? "Electrician" : "");
+        
+       
+        String sql = "SELECT * from Workers WHERE profession = '"+ profession +"' and available = 'true' ";
+        
+        
+        try {
+            pst = connection.prepareStatement(sql);
+            FinalDb = pst.executeQuery();
+            workerAvailable = FinalDb.next();
+            int id = FinalDb.getInt("id");
+            connectionOff();
+            
+            GET_WORKER_BY_ID(id);
+            
+            currentUser.hiredWorker = worker;
+            worker = null;
+            
+            return workerAvailable;
+        
+        } catch (Exception e) {
+            
+            System.out.println(e);
+            return workerAvailable;
+        
+        } 
+    }
+    
     
     //OWNER WINDOW FUNCTIONS
     

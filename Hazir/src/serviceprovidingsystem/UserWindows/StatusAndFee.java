@@ -32,7 +32,7 @@ public class StatusAndFee extends javax.swing.JFrame {
         private boolean isSandwhichSettingPanelOpen = false;
         private int widthOfSettingPanel;
         private int heightOfSettingPanel;
-
+        
     //Movable HomeBarPanel
         int XMouse;
         int YMouse;
@@ -48,6 +48,7 @@ public class StatusAndFee extends javax.swing.JFrame {
         this.setBackground(new Color(0,0,0,0));
         this.setOpacity(0f);
         this.setLocationRelativeTo(null);
+        this.receiptBackground.setVisible(false);
         this.sandwichSettingPanel.setVisible(false);
         widthOfSettingPanel =  this.sandwichSettingPanel.getWidth();
         heightOfSettingPanel = this.sandwichSettingPanel.getHeight();
@@ -294,6 +295,11 @@ public class StatusAndFee extends javax.swing.JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/SlipWindow/reloadWindowIcon_32px.png"))); // NOI18N
         jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
 
         messageLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         messageLabel.setText("a");
@@ -476,6 +482,10 @@ public class StatusAndFee extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         Animations.windowAppearAnimation(this, 1f);
+        //GET WORKER WHICH IS AVAILABLE AND TYPE OF WORKER BOOLEAN PASS
+        if (database.GET_SINGLE_WORKER_BY_PROFESSION()) {
+            
+        }
         
     }//GEN-LAST:event_formWindowOpened
 
@@ -554,6 +564,10 @@ public class StatusAndFee extends javax.swing.JFrame {
         Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
         signOutBtn1.setCursor(cursor);
     }//GEN-LAST:event_signOutBtn1MouseEntered
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel4MouseClicked
 
     /**
      * @param args the command line arguments
