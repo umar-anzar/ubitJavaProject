@@ -297,11 +297,7 @@ public class DatabaseConnection{
          //Adding all element of database worker(Table)
          
          table.setModel(DbUtils.resultSetToTableModel(FinalDb));
-         
-         
-         
-            
-     
+
      } catch (Exception ex) {
          System.out.println(ex);
      } finally {
@@ -367,9 +363,7 @@ public class DatabaseConnection{
         }
     }
 
-    
-    
-    
+
     public void UPDATE_HIRE_STATUS(JTable table){
         connectionOn();
         ArrayList id_Array = new ArrayList();
@@ -411,20 +405,11 @@ public class DatabaseConnection{
         
     }
     
+    public void Pay(JTable table) {
+        
+    }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
     
     
