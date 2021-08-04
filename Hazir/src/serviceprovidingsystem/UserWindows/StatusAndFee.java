@@ -563,6 +563,12 @@ public class StatusAndFee extends javax.swing.JFrame {
 
     private void reloadPendingLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reloadPendingLabelMouseClicked
         // TODO add your handling code here:
+        
+        if (database.currentUser.hiredWorker != null && database.currentUser.hiredWorker.getId() != 0) {
+            database.GET_WORKER_BY_ID(database.currentUser.hiredWorker.getId());
+            database.currentUser.hiredWorker = database.worker;
+            database.worker = null;
+        }
         if (database.currentUser.hiredWorker != null && !(database.currentUser.hiredWorker.isHireStatus())) {
             System.out.println("pending close");
             PendingBackground.setVisible(false);
@@ -580,6 +586,8 @@ public class StatusAndFee extends javax.swing.JFrame {
             database.currentUser.hiredWorker.setPocket(database.currentUser.getCost());//setting cost in hire worker
             
             database.currentUser.hiredWorker.setHireStatus(true);//setting hire status true for worker
+            
+            database.currentUser.hiredWorker.setAvailable(false);
             
             database.UPDATE_USER();
             database.UPDATE_WORKER(database.currentUser.hiredWorker);

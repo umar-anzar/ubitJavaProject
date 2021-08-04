@@ -31,7 +31,7 @@ public class DatabaseConnection{
     public Worker worker;
     
     //WorkerSelection
-        private boolean isElectrician = true;
+        private boolean isElectrician = false;
         private boolean isLabour = false;
         private boolean isEventManager = false;
         private boolean isMechanic = false;
@@ -252,7 +252,7 @@ public class DatabaseConnection{
         }
      }
     
-    private void GET_WORKER_BY_ID(int id) { //used in login
+    public void GET_WORKER_BY_ID(int id) { //used in login
         connectionOn();
         //1id,2profession,3name,4cnic,5contactNumber,6experience,7date,8addressLink,9rating,10hireStatus,11available,12pocket,13paidTotal
         try {
@@ -324,8 +324,8 @@ public class DatabaseConnection{
         
         boolean workerAvailable = false;
         
-        String profession = ((isElectrician)? "Electrician" : "") + ((isLabour)? "Electrician" : "") + ((isEventManager)? "Electrician" : "")
-                + ((isMechanic)? "Electrician" : "") + ((isPlumber)? "Electrician" : "");
+        String profession = ((isElectrician)? "Electrician" : "") + ((isLabour)? "Labour" : "") + ((isEventManager)? "EventManager" : "")
+                + ((isMechanic)? "Mechanic" : "") + ((isPlumber)? "Plumber" : "");
         
        
         String sql = "SELECT * from Workers WHERE profession = '"+ profession +"' and available = 'true' ";
