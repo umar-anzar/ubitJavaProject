@@ -53,17 +53,17 @@ public class StatusAndFee extends javax.swing.JFrame {
         widthOfSettingPanel =  this.sandwichSettingPanel.getWidth();
         heightOfSettingPanel = this.sandwichSettingPanel.getHeight();
         receiptTextArea.setText("Your Details\n\n" +
-"Username\t\t"+"name"+"\n" +
-"Mobile Number\t"+"customerNumber"+"\n" +
-"Address\t\t"+"address"+"\n\n" +
-"_________________________________________________________\n\n" +
-"Your Worker's Details\n\n" +
-"Name\t\t"+"name"+"\n" +
-"Cnic no.\t\t"+"cnic"+"\n" +
-"profession\t\t"+"jobType"+"\n" +
-"Fee\t\tcost\n" +
-"Experience\t\t"+"experience"+"\n" +
-"Rating\t\t"+"rating");
+        "Username\t\t"+"name"+"\n" +
+        "Mobile Number\t"+"customerNumber"+"\n" +
+        "Address\t\t"+"address"+"\n\n" +
+        "_________________________________________________________\n\n" +
+        "Your Worker's Details\n\n" +
+        "Name\t\t"+"name"+"\n" +
+        "Cnic no.\t\t"+"cnic"+"\n" +
+        "profession\t\t"+"jobType"+"\n" +
+        "Fee\t\tcost\n" +
+        "Experience\t\t"+"experience"+"\n" +
+        "Rating\t\t"+"rating");
         
     }
 
@@ -563,11 +563,18 @@ public class StatusAndFee extends javax.swing.JFrame {
 
     private void reloadPendingLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reloadPendingLabelMouseClicked
         // TODO add your handling code here:
-        
-        //GET WORKER WHICH IS AVAILABLE AND TYPE OF WORKER BOOLEAN PASS
-        if (database.GET_SINGLE_WORKER_BY_PROFESSION()) {
+        if (database.currentUser.hiredWorker != null && !(database.currentUser.hiredWorker.isHireStatus())) {
+            System.out.println("pending close");
+            PendingBackground.setVisible(false);
+            receiptBackground.setVisible(true);
             
-            messageLabel.setForeground(Color.green);
+        } else if (database.currentUser.hiredWorker != null) {
+            messageLabel.setForeground(Color.black);
+            messageLabel.setText(database.currentUser.hiredWorker.toString());//display toString to get details of worker
+            
+        } else if (database.GET_SINGLE_WORKER_BY_PROFESSION()) { //GET WORKER WHICH IS AVAILABLE AND TYPE OF WORKER BOOLEAN PASS
+            
+            messageLabel.setForeground(Color.black);
             messageLabel.setText(database.currentUser.hiredWorker.toString());//display toString to get details of worker
             
             database.currentUser.hiredWorker.setPocket(database.currentUser.getCost());//setting cost in hire worker
