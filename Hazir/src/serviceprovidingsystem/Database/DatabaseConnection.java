@@ -379,6 +379,7 @@ public class DatabaseConnection{
     
     
     public void UPDATE_HIRE_STATUS(){
+        connectionOn();
         ArrayList id_Array = new ArrayList();
     
         String sql = "Select id from Workers where hireStatus = 'false'";
@@ -402,7 +403,7 @@ public class DatabaseConnection{
             
         } catch (SQLException ex) {
             
-        }
+        }connectionOff();
         
     }
     
