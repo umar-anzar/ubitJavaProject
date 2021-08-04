@@ -17,6 +17,6 @@ public class Electrician extends Worker {
         super(name, cnic, contactNumber, experience, dateofbirth);
     }
 
-
+ 
     
 }

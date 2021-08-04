@@ -141,7 +141,13 @@ public abstract class Worker extends Person {
     
     @Override
     public String toString() {
-        return "Worker{" + "cnic=" + cnic + ", experience=" + experience + ", status=" + hireStatus + ", pay=" + payPercentage + ", rating=" + rating + '}';
+        return this.getProfession()+" {"
+                + " " + super.getName()
+                + ", " + this.getCnic()
+                + ", " + super.getContactNumber()
+                + ", " + this.getExperience()
+                + ", " + this.getRating()
+                + "}";
     }
      
      

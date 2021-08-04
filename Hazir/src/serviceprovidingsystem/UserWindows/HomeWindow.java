@@ -1337,7 +1337,7 @@ public class HomeWindow extends javax.swing.JFrame {
             database.currentUser.setCost(totalCost);
             database.currentUser.setOrderStatus(true);
             database.UPDATE_USER();
-            database.setAllWorkers(isElectrician, isMechanic, isPlumber, isEventManager, isLabour);
+            database.setAllWorkers(isElectrician, isMechanic, isPlumber, isEventManager, isLabour);//the one which is true will become the worker in hired worker
             Animations.windowCloseAnimation(this, 1f);
             new StatusAndFee(database).setVisible(true);
         } else {

@@ -90,7 +90,7 @@ public class StatusAndFee extends javax.swing.JFrame {
         PendingBackground = new com.k33ptoo.components.KGradientPanel();
         pendingLoading = new javax.swing.JLabel();
         PendingLabel = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        reloadPendingLabel = new javax.swing.JLabel();
         messageLabel = new javax.swing.JLabel();
         homeBackgroundPanel = new com.k33ptoo.components.KGradientPanel();
         kGradientPanel5 = new com.k33ptoo.components.KGradientPanel();
@@ -293,16 +293,17 @@ public class StatusAndFee extends javax.swing.JFrame {
         PendingLabel.setText("Pending");
         PendingLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/SlipWindow/reloadWindowIcon_32px.png"))); // NOI18N
-        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+        reloadPendingLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/SlipWindow/reloadWindowIcon_32px.png"))); // NOI18N
+        reloadPendingLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        reloadPendingLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
+                reloadPendingLabelMouseClicked(evt);
             }
         });
 
+        messageLabel.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
         messageLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        messageLabel.setText("a");
+        messageLabel.setText("-");
 
         javax.swing.GroupLayout PendingBackgroundLayout = new javax.swing.GroupLayout(PendingBackground);
         PendingBackground.setLayout(PendingBackgroundLayout);
@@ -312,7 +313,7 @@ public class StatusAndFee extends javax.swing.JFrame {
                 .addGroup(PendingBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PendingBackgroundLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel4))
+                        .addComponent(reloadPendingLabel))
                     .addGroup(PendingBackgroundLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(messageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -330,14 +331,14 @@ public class StatusAndFee extends javax.swing.JFrame {
             PendingBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PendingBackgroundLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
+                .addComponent(reloadPendingLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
                 .addComponent(PendingLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pendingLoading, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(156, 156, 156)
-                .addComponent(messageLabel)
-                .addGap(39, 39, 39))
+                .addGap(119, 119, 119)
+                .addComponent(messageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
         );
 
         jLayeredPane1.add(PendingBackground);
@@ -482,11 +483,6 @@ public class StatusAndFee extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         Animations.windowAppearAnimation(this, 1f);
-        //GET WORKER WHICH IS AVAILABLE AND TYPE OF WORKER BOOLEAN PASS
-        if (database.GET_SINGLE_WORKER_BY_PROFESSION()) {
-            
-        }
-        
     }//GEN-LAST:event_formWindowOpened
 
     private void signOutBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signOutBtn1ActionPerformed
@@ -565,9 +561,28 @@ public class StatusAndFee extends javax.swing.JFrame {
         signOutBtn1.setCursor(cursor);
     }//GEN-LAST:event_signOutBtn1MouseEntered
 
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+    private void reloadPendingLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reloadPendingLabelMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel4MouseClicked
+        
+        //GET WORKER WHICH IS AVAILABLE AND TYPE OF WORKER BOOLEAN PASS
+        if (database.GET_SINGLE_WORKER_BY_PROFESSION()) {
+            
+            messageLabel.setForeground(Color.green);
+            messageLabel.setText(database.currentUser.hiredWorker.toString());//display toString to get details of worker
+            
+            database.currentUser.hiredWorker.setPocket(database.currentUser.getCost());//setting cost in hire worker
+            
+            database.currentUser.hiredWorker.setHireStatus(true);//setting hire status true for worker
+            
+            database.UPDATE_USER();
+            database.UPDATE_WORKER(database.currentUser.hiredWorker);
+            
+        } else {
+            messageLabel.setForeground(Color.red);
+            messageLabel.setText("Worker Not Available");
+
+        }
+    }//GEN-LAST:event_reloadPendingLabelMouseClicked
 
     /**
      * @param args the command line arguments
@@ -619,7 +634,6 @@ public class StatusAndFee extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JScrollPane jScrollPane1;
     private com.k33ptoo.components.KGradientPanel kGradientPanel5;
@@ -628,6 +642,7 @@ public class StatusAndFee extends javax.swing.JFrame {
     private javax.swing.JLabel pendingLoading;
     private com.k33ptoo.components.KGradientPanel receiptBackground;
     private javax.swing.JTextArea receiptTextArea;
+    private javax.swing.JLabel reloadPendingLabel;
     private com.k33ptoo.components.KGradientPanel sandwichSettingPanel;
     private com.k33ptoo.components.KButton signOutBtn1;
     private com.k33ptoo.components.KGradientPanel tItleBar;
