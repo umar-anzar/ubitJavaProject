@@ -16,10 +16,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
-import net.proteanit.sql.DbUtils;
-import serviceprovidingsystem.Accounts.User;
 import serviceprovidingsystem.Database.DatabaseConnection;
-import serviceprovidingsystem.ParentElements.Worker;
 import serviceprovidingsystem.Workers.Electrician;
 import serviceprovidingsystem.Workers.EventManager;
 import serviceprovidingsystem.Workers.Labour;
@@ -33,7 +30,8 @@ import serviceprovidingsystem.Workers.Plumber;
 
 
 public class OwnerWindow extends javax.swing.JFrame {
-      public Connection connection = null;
+    
+    public Connection connection = null;
     public ResultSet FinalDb =null;
     public PreparedStatement pst = null;
     public Statement st = null;
@@ -86,7 +84,6 @@ public class OwnerWindow extends javax.swing.JFrame {
         btnUpdateHireStatus = new javax.swing.JButton();
         payWorker = new javax.swing.JButton();
         ownerTotalTextField = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
         btnrefreshTable = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -208,10 +205,6 @@ public class OwnerWindow extends javax.swing.JFrame {
         ownerTotalTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         ownerTotalTextField.setOpaque(false);
 
-        jButton3.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
-        jButton3.setText("Delete");
-        jButton3.setOpaque(false);
-
         btnrefreshTable.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
         btnrefreshTable.setText("Refresh Database");
         btnrefreshTable.setOpaque(false);
@@ -256,11 +249,6 @@ public class OwnerWindow extends javax.swing.JFrame {
                             .addComponent(btnrefreshTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(33, 33, 33)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 701, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jButton3)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -299,11 +287,6 @@ public class OwnerWindow extends javax.swing.JFrame {
                 .addComponent(btnrefreshTable)
                 .addGap(16, 16, 16))
             .addComponent(jScrollPane1)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jButton3)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -491,7 +474,6 @@ public class OwnerWindow extends javax.swing.JFrame {
     private javax.swing.JButton btnrefreshTable;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

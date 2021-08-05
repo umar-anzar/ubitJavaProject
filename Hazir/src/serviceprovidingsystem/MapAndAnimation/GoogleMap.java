@@ -16,6 +16,7 @@ import serviceprovidingsystem.Database.DatabaseConnection;
  * @author omer
  */
 public class GoogleMap {
+    
     DatabaseConnection database;
     private static JFrame mapWindow;
     private static WebEngine engineLink;
@@ -75,7 +76,6 @@ public class GoogleMap {
         mapWindow.setVisible(true);
         
     }    
-    
     
     private void sliceLink() throws StringIndexOutOfBoundsException{
         if (link != null) {

@@ -11,6 +11,7 @@ import java.util.*;
  * @author Ahmed
  */
 public abstract class Person {
+    
     private String name, contactNumber, address;
     private Date dateOfBirth;
     private String addressLink = null;

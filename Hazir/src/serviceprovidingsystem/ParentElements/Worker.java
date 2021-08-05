@@ -12,6 +12,7 @@ import java.util.*;
  * @author Ahmed
  */
 public abstract class Worker extends Person {
+    
     private int id;
     private final String cnic;
     private final int experience;
@@ -123,6 +124,7 @@ public abstract class Worker extends Person {
     }
     
     public void giveRating(double r) {
+        
         if (this.rating != 0) {
             this.rating = (this.rating + r)/2;
         } else {
@@ -132,6 +134,7 @@ public abstract class Worker extends Person {
     }
 
     public double pay() {
+        
         this.paidTotal += pocket * payPercentage;
         double owner_return = pocket - pocket * payPercentage;
         pocket = 0;
@@ -144,7 +147,7 @@ public abstract class Worker extends Person {
         return this.getProfession()+" {"
                 + " Name: " + super.getName()
                 + ", Contact no.: " + super.getContactNumber()
-                + ", Experience: " + this.getExperience()
+                + ", Experience(yrs): " + this.getExperience()
                 + ", Rating: " + this.getRating()
                 + "}";
     }
