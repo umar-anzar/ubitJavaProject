@@ -53,17 +53,17 @@ public class StatusAndFee extends javax.swing.JFrame {
         widthOfSettingPanel =  this.sandwichSettingPanel.getWidth();
         heightOfSettingPanel = this.sandwichSettingPanel.getHeight();
         receiptTextArea.setText("Your Details\n\n" +
-        "Username\t\t"+"name"+"\n" +
-        "Mobile Number\t"+"customerNumber"+"\n" +
-        "Address\t\t"+"address"+"\n\n" +
+        "Username\t\t"+database.currentUser.getName()+"\n" +
+        "Mobile Number\t"+database.currentUser.getContactNumber()+"\n" +
+        "Address\t\t"+database.currentUser.getAddress()+"\n\n" +
         "_________________________________________________________\n\n" +
         "Your Worker's Details\n\n" +
-        "Name\t\t"+"name"+"\n" +
-        "Cnic no.\t\t"+"cnic"+"\n" +
-        "profession\t\t"+"jobType"+"\n" +
-        "Fee\t\tcost\n" +
-        "Experience\t\t"+"experience"+"\n" +
-        "Rating\t\t"+"rating");
+        "Name\t\t"+database.currentUser.hiredWorker.getName()+"\n" +
+        "Cnic no.\t\t"+database.currentUser.hiredWorker.getCnic()+"\n" +
+        "profession\t\t"+database.currentUser.hiredWorker.getProfession()+"\n" +
+        "Fee\t\t"+database.currentUser.hiredWorker.getPocket()+"\n" +
+        "Experience\t\t"+database.currentUser.hiredWorker.getExperience()+"\n" +
+        "Rating\t\t"+database.currentUser.hiredWorker.getRating());
         
     }
 
@@ -99,8 +99,11 @@ public class StatusAndFee extends javax.swing.JFrame {
         receiptBackground = new com.k33ptoo.components.KGradientPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         receiptTextArea = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnNotePad = new com.k33ptoo.components.KButton();
+        btnGenerateSlip = new com.k33ptoo.components.KButton();
+        ratingPanel = new com.k33ptoo.components.KGradientPanel();
+        btnRate = new com.k33ptoo.components.KButton();
+        ratingBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -407,21 +410,96 @@ public class StatusAndFee extends javax.swing.JFrame {
 
         receiptBackground.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(434, 41, 340, 355));
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        btnNotePad.setText("Open Receipt");
+        btnNotePad.setBorderPainted(false);
+        btnNotePad.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 14)); // NOI18N
+        btnNotePad.setkEndColor(new java.awt.Color(255, 255, 255));
+        btnNotePad.setkForeGround(new java.awt.Color(0, 0, 0));
+        btnNotePad.setkHoverEndColor(new java.awt.Color(204, 204, 204));
+        btnNotePad.setkHoverForeGround(new java.awt.Color(0, 0, 0));
+        btnNotePad.setkHoverStartColor(new java.awt.Color(255, 255, 255));
+        btnNotePad.setkStartColor(new java.awt.Color(255, 255, 255));
+        btnNotePad.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnNotePadMouseEntered(evt);
             }
         });
-        receiptBackground.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, -1, -1));
+        btnNotePad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNotePadActionPerformed(evt);
+            }
+        });
+        receiptBackground.add(btnNotePad, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 360, 120, 30));
 
-        jButton2.setText("jButton2");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+        btnGenerateSlip.setText("Generate Receipt");
+        btnGenerateSlip.setBorderPainted(false);
+        btnGenerateSlip.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 14)); // NOI18N
+        btnGenerateSlip.setkEndColor(new java.awt.Color(255, 255, 255));
+        btnGenerateSlip.setkForeGround(new java.awt.Color(0, 0, 0));
+        btnGenerateSlip.setkHoverEndColor(new java.awt.Color(204, 204, 204));
+        btnGenerateSlip.setkHoverForeGround(new java.awt.Color(0, 0, 0));
+        btnGenerateSlip.setkHoverStartColor(new java.awt.Color(255, 255, 255));
+        btnGenerateSlip.setkStartColor(new java.awt.Color(255, 255, 255));
+        btnGenerateSlip.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGenerateSlipMouseEntered(evt);
             }
         });
-        receiptBackground.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 370, -1, -1));
+        btnGenerateSlip.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerateSlipActionPerformed(evt);
+            }
+        });
+        receiptBackground.add(btnGenerateSlip, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, 120, 30));
+
+        ratingPanel.setkEndColor(new java.awt.Color(231, 231, 231));
+        ratingPanel.setkStartColor(new java.awt.Color(231, 231, 231));
+        ratingPanel.setOpaque(false);
+
+        btnRate.setText("Rate");
+        btnRate.setBorderPainted(false);
+        btnRate.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 14)); // NOI18N
+        btnRate.setkEndColor(new java.awt.Color(255, 255, 255));
+        btnRate.setkForeGround(new java.awt.Color(0, 0, 0));
+        btnRate.setkHoverEndColor(new java.awt.Color(204, 204, 204));
+        btnRate.setkHoverForeGround(new java.awt.Color(0, 0, 0));
+        btnRate.setkHoverStartColor(new java.awt.Color(255, 255, 255));
+        btnRate.setkStartColor(new java.awt.Color(255, 255, 255));
+        btnRate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRateMouseEntered(evt);
+            }
+        });
+        btnRate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRateActionPerformed(evt);
+            }
+        });
+
+        ratingBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
+
+        javax.swing.GroupLayout ratingPanelLayout = new javax.swing.GroupLayout(ratingPanel);
+        ratingPanel.setLayout(ratingPanelLayout);
+        ratingPanelLayout.setHorizontalGroup(
+            ratingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ratingPanelLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(btnRate, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addComponent(ratingBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
+        );
+        ratingPanelLayout.setVerticalGroup(
+            ratingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ratingPanelLayout.createSequentialGroup()
+                .addContainerGap(75, Short.MAX_VALUE)
+                .addGroup(ratingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ratingBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(85, 85, 85))
+        );
+
+        receiptBackground.add(ratingPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 230, 190));
 
         homeBackgroundPanel.add(receiptBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 52, 800, 440));
 
@@ -469,13 +547,15 @@ public class StatusAndFee extends javax.swing.JFrame {
         if(isSandwhichSettingPanelOpen){
             Animations.panelCloseAnimation(this.sandwichSettingPanel,widthOfSettingPanel,heightOfSettingPanel);
             isSandwhichSettingPanelOpen = false;
-            jButton2.setVisible(true);
-            jButton1.setVisible(true);
+            ratingPanel.setVisible(true);
+            btnGenerateSlip.setVisible(true);
+            btnNotePad.setVisible(true);
         } else{
             Animations.panelAppearAnimation(this.sandwichSettingPanel,widthOfSettingPanel,heightOfSettingPanel);
             isSandwhichSettingPanelOpen = true;
-            jButton2.setVisible(false);
-            jButton1.setVisible(false);
+            btnGenerateSlip.setVisible(false);
+            btnNotePad.setVisible(false);
+            ratingPanel.setVisible(false);
         }
 
     }//GEN-LAST:event_jLabel2MouseClicked
@@ -501,47 +581,6 @@ public class StatusAndFee extends javax.swing.JFrame {
         // TODO add your handling code here:
         btnSettingPasswordActionPerformed(evt);//open same setting panel
     }//GEN-LAST:event_btnSettingNumberActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
-            // TODO add your handling code here:
-            PrintWriter writer1 = new PrintWriter(new File("testout.txt"));
-            writer1.write("Your Details\n" +
-                "\n" +
-                "Username        name\n" +
-                "Mobile Number   customerNumber\n" +
-                "Address         address\n" +
-                "_________________________________________________________\n" +
-                "\n" +
-                "Your Worker's Details\n" +
-                "\n" +
-                "Name            name\n" +
-                "Cnic no.        cnic\n" +
-                "profession      jobType\n" +
-                "Fee             cost\n" +
-                "Experience      experience\n" +
-                "Rating          rating");
-            writer1.flush();
-            writer1.close();
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(StatusAndFee.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        File file = new File("testout.txt");
-        try {
-            if(file.exists()){
-                Desktop desktop = Desktop.getDesktop();
-                desktop.open(file);
-            } else {
-                throw new NullPointerException("file not exist");
-            }
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnSettingPasswordMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSettingPasswordMouseEntered
         // TODO add your handling code here:
@@ -599,6 +638,83 @@ public class StatusAndFee extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_reloadPendingLabelMouseClicked
 
+    private void btnNotePadMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNotePadMouseEntered
+        // TODO add your handling code here:
+        Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
+        btnNotePad.setCursor(cursor);
+    }//GEN-LAST:event_btnNotePadMouseEntered
+
+    private void btnNotePadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNotePadActionPerformed
+        // TODO add your handling code here:
+        File file = new File("testout.txt");
+        try {
+            if(file.exists()){
+                Desktop desktop = Desktop.getDesktop();
+                desktop.open(file);
+            } else {
+                throw new NullPointerException("file not exist");
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_btnNotePadActionPerformed
+
+    private void btnGenerateSlipMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGenerateSlipMouseEntered
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnGenerateSlipMouseEntered
+
+    private void btnGenerateSlipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateSlipActionPerformed
+        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            PrintWriter writer1 = new PrintWriter(new File("testout.txt"));
+            writer1.write("Your Details\n" +
+                "\n" +
+                "Username        "+database.currentUser.getName()+"\n" +
+                "Mobile Number   "+database.currentUser.getContactNumber()+"\n" +
+                "Address         "+database.currentUser.getAddress()+"\n" +
+                "_________________________________________________________\n" +
+                "\n" +
+                "Your Worker's Details\n" +
+                "\n" +
+                "Name            "+database.currentUser.hiredWorker.getName()+"\n" +
+                "Cnic no.        "+database.currentUser.hiredWorker.getCnic()+"\n" +
+                "profession      "+database.currentUser.hiredWorker.getProfession()+"\n" +
+                "Fee             "+database.currentUser.hiredWorker.getPocket()+"\n" +
+                "Experience      "+database.currentUser.hiredWorker.getExperience()+"\n" +
+                "Rating          "+database.currentUser.hiredWorker.getRating());
+            writer1.flush();
+            writer1.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(StatusAndFee.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    
+    }//GEN-LAST:event_btnGenerateSlipActionPerformed
+
+    private void btnRateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRateMouseEntered
+        // TODO add your handling code here:
+        Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
+        btnRate.setCursor(cursor);
+    }//GEN-LAST:event_btnRateMouseEntered
+
+    private void btnRateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRateActionPerformed
+        // TODO add your handling code here:
+        database.currentUser.setOrderStatus(false);
+        database.currentUser.setCost(0);
+        database.currentUser.hiredWorker.setAvailable(true);
+        database.currentUser.hiredWorker.giveRating(Double.parseDouble(((String)ratingBox.getSelectedItem())));
+        
+        database.UPDATE_WORKER(database.currentUser.hiredWorker);
+        database.currentUser.hiredWorker = null;
+        
+        database.UPDATE_USER();
+        
+        Animations.windowCloseAnimation(this, 1f);
+        new HomeWindow(database).setVisible(true);
+    }//GEN-LAST:event_btnRateActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -638,13 +754,14 @@ public class StatusAndFee extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.k33ptoo.components.KGradientPanel PendingBackground;
     private javax.swing.JLabel PendingLabel;
+    private com.k33ptoo.components.KButton btnGenerateSlip;
+    private com.k33ptoo.components.KButton btnNotePad;
+    private com.k33ptoo.components.KButton btnRate;
     private com.k33ptoo.components.KButton btnSettingNumber;
     private com.k33ptoo.components.KButton btnSettingPassword;
     private com.k33ptoo.components.KGradientPanel closeBar;
     private com.k33ptoo.components.KGradientPanel homeBackgroundPanel;
     private javax.swing.JLabel homeBar;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
@@ -655,6 +772,8 @@ public class StatusAndFee extends javax.swing.JFrame {
     private com.k33ptoo.components.KGradientPanel logoBar;
     private javax.swing.JLabel messageLabel;
     private javax.swing.JLabel pendingLoading;
+    private javax.swing.JComboBox<String> ratingBox;
+    private com.k33ptoo.components.KGradientPanel ratingPanel;
     private com.k33ptoo.components.KGradientPanel receiptBackground;
     private javax.swing.JTextArea receiptTextArea;
     private javax.swing.JLabel reloadPendingLabel;
