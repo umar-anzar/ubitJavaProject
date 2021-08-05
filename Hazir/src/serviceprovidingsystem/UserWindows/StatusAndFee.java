@@ -52,18 +52,7 @@ public class StatusAndFee extends javax.swing.JFrame {
         this.sandwichSettingPanel.setVisible(false);
         widthOfSettingPanel =  this.sandwichSettingPanel.getWidth();
         heightOfSettingPanel = this.sandwichSettingPanel.getHeight();
-        receiptTextArea.setText("Your Details\n\n" +
-        "Username\t\t"+database.currentUser.getName()+"\n" +
-        "Mobile Number\t"+database.currentUser.getContactNumber()+"\n" +
-        "Address\t\t"+database.currentUser.getAddress()+"\n\n" +
-        "_________________________________________________________\n\n" +
-        "Your Worker's Details\n\n" +
-        "Name\t\t"+database.currentUser.hiredWorker.getName()+"\n" +
-        "Cnic no.\t\t"+database.currentUser.hiredWorker.getCnic()+"\n" +
-        "profession\t\t"+database.currentUser.hiredWorker.getProfession()+"\n" +
-        "Fee\t\t"+database.currentUser.hiredWorker.getPocket()+"\n" +
-        "Experience\t\t"+database.currentUser.hiredWorker.getExperience()+"\n" +
-        "Rating\t\t"+database.currentUser.hiredWorker.getRating());
+        
         
     }
 
@@ -666,6 +655,19 @@ public class StatusAndFee extends javax.swing.JFrame {
 
     private void btnGenerateSlipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateSlipActionPerformed
         // TODO add your handling code here:
+        receiptTextArea.setText("Your Details\n\n" +
+        "Username\t\t"+database.currentUser.getName()+"\n" +
+        "Mobile Number\t"+database.currentUser.getContactNumber()+"\n" +
+        "Address\t\t"+database.currentUser.getAddress()+"\n\n" +
+        "_________________________________________________________\n\n" +
+        "Your Worker's Details\n\n" +
+        "Name\t\t"+database.currentUser.hiredWorker.getName()+"\n" +
+        "Cnic no.\t\t"+database.currentUser.hiredWorker.getCnic()+"\n" +
+        "profession\t\t"+database.currentUser.hiredWorker.getProfession()+"\n" +
+        "Fee\t\t"+database.currentUser.hiredWorker.getPocket()+"\n" +
+        "Experience\t\t"+database.currentUser.hiredWorker.getExperience()+"\n" +
+        "Rating\t\t"+database.currentUser.hiredWorker.getRating());
+        
         try {
             // TODO add your handling code here:
             PrintWriter writer1 = new PrintWriter(new File("testout.txt"));
