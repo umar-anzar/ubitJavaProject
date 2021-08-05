@@ -28,7 +28,9 @@ public class DatabaseConnection{
     
     //aggregation
     public User currentUser;
+    public Owner owner;
     public Worker worker;
+    
     
     //WorkerSelection
         private boolean isElectrician = false;
@@ -192,9 +194,11 @@ public class DatabaseConnection{
             
             FinalDb = pst.executeQuery();
             
-            if (name == "admin" && password=="admin"){
-            
+            if (name.equals("admin") && password.equals("admin")){
                 // new frame for owner
+                owner = new Owner(FinalDb.getString(1), FinalDb.getString(2), FinalDb.getString(3), null);
+                owner.setTotalAmount(FinalDb.getDouble(7));
+                return true;
                 
             }else   { if (FinalDb.next()){
                 //1name,2password,3contactNumber,4address,5dateOfRegistration,6orderStatus,7cost,8address,9workerId

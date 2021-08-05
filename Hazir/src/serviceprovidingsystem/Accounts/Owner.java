@@ -12,17 +12,26 @@ import java.util.*;
  */
 public class Owner extends Account {
     
+    private double totalAmount = 0.0;
+    
     public Owner(String name, String password, String contactNumber, Date dateOfBirth){
         super(name, password, contactNumber, dateOfBirth);
     }
+
+    public double getTotalAmount() {
+        return totalAmount;
+    }
+
+    public void setTotalAmount(double totalAmount) {
+        this.totalAmount = totalAmount;
+    }
+    
+    
+    
     public String toString() {
         return "User,"+super.getName()+","+super.getPassword()+","
                 +super.getContactNumber()+","+super.getAddress()+","+
                 super.getDate();
     }
-    /*public static void main(String[] args) {
-        Owner a= new Owner("abc", "...", "03423", "asdsa,adsad", new Date());
-        
-        System.out.println(a.toString());
-    }*/
+    
 }

@@ -15,7 +15,7 @@ import serviceprovidingsystem.Workers.Electrician;
  */
 public class User extends Account {
     
-    private Boolean orderStatus = false;
+    private boolean orderStatus = false;
     private double cost = 0.0;
     public Worker hiredWorker;
     

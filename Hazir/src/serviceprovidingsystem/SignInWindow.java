@@ -10,6 +10,7 @@ import java.util.Date;
 import serviceprovidingsystem.Accounts.User;
 import serviceprovidingsystem.UserWindows.AddressWindow;
 import serviceprovidingsystem.Database.DatabaseConnection;
+import serviceprovidingsystem.OwnerWindows.OwnerWindow;
 import serviceprovidingsystem.UserWindows.HomeWindow;
 import serviceprovidingsystem.UserWindows.StatusAndFee;
 
@@ -311,13 +312,20 @@ public class SignInWindow extends javax.swing.JFrame {
         if (usernameField.getText().isEmpty()){
             
             errorRegister.setText("User name is empty !");
-        }else if (passwordField.getText().isEmpty()){
+        } else if (passwordField.getText().isEmpty()){
         
             errorRegister.setText("Password is empty !");
         }  else if (database.LOGIN(usernameField.getText(), passwordField.getText())){         
 
             //Animations.windowCloseAnimation(this, 1f);
-            
+            //if Admin login
+            if(usernameField.getText().equals("admin")) {
+                System.out.println("e");
+                this.dispose();
+                new OwnerWindow(database).setVisible(true);
+                return;
+                
+            } else
             //IF ORDER STATUS IS TRUE THEN JUMP TO STATUS FEE WINDOW ELSE HOME WINDOW
             if(database.currentUser.isOrderStatus()) {
                 this.dispose();         //if true then open slip window
