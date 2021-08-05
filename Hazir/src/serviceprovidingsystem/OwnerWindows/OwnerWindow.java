@@ -53,7 +53,7 @@ public class OwnerWindow extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         database.UpdateWorkerTable(WorkerTable);
         if(database.owner != null) {
-            database.refreshingOwnerTotalLabel(ownerTotalTextField);
+            database.refreshingOwnerTotalField(ownerTotalTextField);
         }
         
     }

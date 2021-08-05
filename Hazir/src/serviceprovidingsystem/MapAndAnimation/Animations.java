@@ -32,6 +32,10 @@ import java.awt.*;
             and vice versa
         */
 public class Animations {
+    
+    
+    
+    
     public static void windowAppearAnimation(javax.swing.JFrame window, float opty){
         Thread th = new Thread(){
             @Override
@@ -116,7 +120,6 @@ public class Animations {
             public void run(){
                 panel.setVisible(true);
                 int w = tempWidth;
-                int h = tempHeight;
                 for (int i = 0; i < 40; i++) {
                     try {
                         Thread.sleep(1);

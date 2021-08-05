@@ -20,7 +20,6 @@ public class GoogleMap {
     private static JFrame mapWindow;
     private static WebEngine engineLink;
     private static String address;
-    private static String coordinate;
     private String link = "https://www.google.com/maps/";
 
     public GoogleMap() {
@@ -91,7 +90,6 @@ public class GoogleMap {
                 String slicedLink = location.substring(intialIndex, finalIndex); //slices example from South to 14z in example link
                 int finalAdressIndex = slicedLink.indexOf("/@"); // index of last element of address
                 address = slicedLink.substring(0, finalAdressIndex); //slices from South to Hospital
-                coordinate = slicedLink.substring(finalAdressIndex + 2); //slices from /@ till the end (2 is added because /@ are 2 char)
 
                 address = address.replace("+", ", ");//removes + from ,
                 address = address.replace(",,", ",");//sometimes there are two commas so we replace it from only one
@@ -113,11 +111,6 @@ public class GoogleMap {
         return address;
     }
 
-    public String getCoordinate() {
-        sliceLink();
-        return coordinate;
-    }
-    
     public void updateAddress(){
         database.currentUser.setAddressLink(getLink());
     }    
