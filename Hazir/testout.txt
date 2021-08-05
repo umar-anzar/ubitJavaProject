@@ -7,9 +7,9 @@ _________________________________________________________
 
 Your Worker's Details
 
-Name            majnu
-Cnic no.        42101011
-profession      Mechanic
-Fee             4800.0
-Experience      12
+Name            Tony stark
+Cnic no.        42506
+profession      Labour
+Fee             5000.0
+Experience      2
 Rating          0.0
