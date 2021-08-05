@@ -9,6 +9,7 @@ import serviceprovidingsystem.*;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
+import javax.swing.ImageIcon;
 import javax.swing.SpinnerModel;
 import javax.swing.SpinnerNumberModel;
 import serviceprovidingsystem.Database.DatabaseConnection;
@@ -51,6 +52,7 @@ public class HomeWindow extends javax.swing.JFrame {
         btnRefreshJobOptions.setVisible(false);//not show close btn until selection
         this.setBackground(new Color(0,0,0,0));
         this.setOpacity(0f);
+        this.setIconImage(new ImageIcon("src\\serviceprovidingsystem\\images\\short\\taskbarIcon.png").getImage());
         this.setLocationRelativeTo(null);
         this.sandwichSettingPanel.setVisible(false);
         widthOfSettingPanel =  this.sandwichSettingPanel.getWidth();

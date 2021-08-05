@@ -49,6 +49,7 @@ public class OwnerWindow extends javax.swing.JFrame {
     public OwnerWindow(DatabaseConnection database) {
         initComponents();
         this.database = database;
+        this.setIconImage(new ImageIcon("src\\serviceprovidingsystem\\images\\short\\taskbarIcon.png").getImage());
         this.setLocationRelativeTo(null);
         database.UpdateWorkerTable(WorkerTable);
         if(database.owner != null) {
@@ -89,6 +90,7 @@ public class OwnerWindow extends javax.swing.JFrame {
         btnrefreshTable = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Haazir-Owner");
 
         jPanel1.setBackground(new java.awt.Color(229, 229, 229));
 

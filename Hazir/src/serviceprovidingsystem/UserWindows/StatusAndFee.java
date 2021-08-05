@@ -13,6 +13,7 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import serviceprovidingsystem.MapAndAnimation.Animations;
 import serviceprovidingsystem.Database.DatabaseConnection;
 import serviceprovidingsystem.SignInWindow;
@@ -47,6 +48,7 @@ public class StatusAndFee extends javax.swing.JFrame {
         this.database = database;
         this.setBackground(new Color(0,0,0,0));
         this.setOpacity(0f);
+        this.setIconImage(new ImageIcon("src\\serviceprovidingsystem\\images\\short\\taskbarIcon.png").getImage());
         this.setLocationRelativeTo(null);
         this.receiptBackground.setVisible(false);
         this.sandwichSettingPanel.setVisible(false);

@@ -7,6 +7,7 @@ package serviceprovidingsystem;
 import serviceprovidingsystem.MapAndAnimation.Animations;
 import java.awt.*;
 import java.util.Date;
+import javax.swing.ImageIcon;
 import serviceprovidingsystem.Accounts.User;
 import serviceprovidingsystem.UserWindows.AddressWindow;
 import serviceprovidingsystem.Database.DatabaseConnection;
@@ -44,6 +45,7 @@ public class SignInWindow extends javax.swing.JFrame {
         passwordAlreadyEmpty = false;
         this.setBackground(new Color(0, 0, 0, 0));//and tick off from opaque in Kgradient Panel
         this.setOpacity(0f);//set opacity transparency
+        this.setIconImage(new ImageIcon("src\\serviceprovidingsystem\\images\\short\\taskbarIcon.png").getImage());
         this.setLocationRelativeTo(null);
     }
 

@@ -8,6 +8,7 @@ import serviceprovidingsystem.MapAndAnimation.Animations;
 import java.awt.*;
 import serviceprovidingsystem.Database.DatabaseConnection;
 import java.util.*;
+import javax.swing.ImageIcon;
 import serviceprovidingsystem.Accounts.User;
 /**
  *
@@ -37,6 +38,7 @@ public class SignUp extends javax.swing.JFrame {
         this.movablePanelY = movingRegisterPanel.getY();
         this.setBackground(new Color(0, 0, 0, 0));//and tick off from opaque in Kgradient Panel
         this.setOpacity(0f);
+        this.setIconImage(new ImageIcon("src\\serviceprovidingsystem\\images\\short\\taskbarIcon.png").getImage());
         this.setLocationRelativeTo(null);
     }
 

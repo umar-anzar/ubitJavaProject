@@ -8,6 +8,7 @@ package serviceprovidingsystem.UserWindows;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.util.Scanner;
+import javax.swing.ImageIcon;
 import serviceprovidingsystem.MapAndAnimation.GoogleMap;
 import serviceprovidingsystem.MapAndAnimation.Animations;
 import serviceprovidingsystem.Database.DatabaseConnection;
@@ -46,6 +47,7 @@ public class AddressWindow extends javax.swing.JFrame {
         this.database = database;
         this.setBackground(new Color(0,0,0,0));
         this.setOpacity(0f);
+        this.setIconImage(new ImageIcon("src\\serviceprovidingsystem\\images\\short\\taskbarIcon.png").getImage());
         this.setLocationRelativeTo(null);
         this.sandwichSettingPanel.setVisible(false);
         widthOfSettingPanel =  this.sandwichSettingPanel.getWidth();

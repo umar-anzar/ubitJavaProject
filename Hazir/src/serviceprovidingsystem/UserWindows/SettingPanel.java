@@ -6,6 +6,7 @@
 package serviceprovidingsystem.UserWindows;
 
 import java.awt.Cursor;
+import javax.swing.ImageIcon;
 import serviceprovidingsystem.Database.DatabaseConnection;
 import serviceprovidingsystem.MapAndAnimation.Animations;
 
@@ -38,6 +39,7 @@ public class SettingPanel extends javax.swing.JFrame {
             this.passwordField.setText(database.currentUser.getPassword());
         }
         this.setOpacity(0.85f);
+        this.setIconImage(new ImageIcon("src\\serviceprovidingsystem\\images\\short\\taskbarIcon.png").getImage());
         this.setLocationRelativeTo(null);
     }
 
