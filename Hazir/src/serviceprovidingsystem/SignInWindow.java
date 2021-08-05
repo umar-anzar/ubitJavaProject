@@ -320,7 +320,7 @@ public class SignInWindow extends javax.swing.JFrame {
             //Animations.windowCloseAnimation(this, 1f);
             //if Admin login
             if(usernameField.getText().equals("admin")) {
-                System.out.println("e");
+                System.out.println(database.owner.getTotalAmount());
                 this.dispose();
                 new OwnerWindow(database).setVisible(true);
                 return;

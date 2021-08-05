@@ -51,6 +51,10 @@ public class OwnerWindow extends javax.swing.JFrame {
         this.database = database;
         this.setLocationRelativeTo(null);
         database.UpdateWorkerTable(WorkerTable);
+        if(database.owner != null) {
+            database.refreshingOwnerTotalLabel(ownerTotalTextField);
+        }
+        
     }
 
     
@@ -81,6 +85,8 @@ public class OwnerWindow extends javax.swing.JFrame {
         btnUpdateHireStatus = new javax.swing.JButton();
         payWorker = new javax.swing.JButton();
         ownerTotalTextField = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
+        btnrefreshTable = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -117,7 +123,7 @@ public class OwnerWindow extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(WorkerTable);
 
-        jButton1.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
         jButton1.setText("Add New Worker");
         jButton1.setOpaque(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -166,8 +172,11 @@ public class OwnerWindow extends javax.swing.JFrame {
         jLabel4.setText("Experience");
 
         Delete_ID_Text.setEditable(false);
+        Delete_ID_Text.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
+        Delete_ID_Text.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         Delete_ID_Text.setOpaque(false);
 
+        jButton2.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
         jButton2.setText("Delete");
         jButton2.setOpaque(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -176,6 +185,7 @@ public class OwnerWindow extends javax.swing.JFrame {
             }
         });
 
+        btnUpdateHireStatus.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
         btnUpdateHireStatus.setText("Update Hire Status");
         btnUpdateHireStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,6 +193,7 @@ public class OwnerWindow extends javax.swing.JFrame {
             }
         });
 
+        payWorker.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
         payWorker.setText("Pay Worker");
         payWorker.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -191,7 +202,22 @@ public class OwnerWindow extends javax.swing.JFrame {
         });
 
         ownerTotalTextField.setEditable(false);
+        ownerTotalTextField.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
+        ownerTotalTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         ownerTotalTextField.setOpaque(false);
+
+        jButton3.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
+        jButton3.setText("Delete");
+        jButton3.setOpaque(false);
+
+        btnrefreshTable.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 14)); // NOI18N
+        btnrefreshTable.setText("Refresh Database");
+        btnrefreshTable.setOpaque(false);
+        btnrefreshTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnrefreshTableActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -208,7 +234,7 @@ public class OwnerWindow extends javax.swing.JFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(39, 39, 39)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox1, 0, 116, Short.MAX_VALUE)
+                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(Name_Text)
                             .addComponent(Cnic_Text)
@@ -218,17 +244,21 @@ public class OwnerWindow extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(ownerTotalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(btnUpdateHireStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
+                                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(Delete_ID_Text, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(payWorker, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(payWorker, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ownerTotalTextField)
+                            .addComponent(btnrefreshTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(33, 33, 33)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 701, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jButton3)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -256,15 +286,22 @@ public class OwnerWindow extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Delete_ID_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(24, 24, 24)
                 .addComponent(btnUpdateHireStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(payWorker, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ownerTotalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnrefreshTable)
+                .addGap(16, 16, 16))
             .addComponent(jScrollPane1)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jButton3)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -394,8 +431,13 @@ public class OwnerWindow extends javax.swing.JFrame {
 
     private void payWorkerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payWorkerActionPerformed
         // TODO add your handling code here:
-        database.PAY_WORKER(WorkerTable);
+        database.PAY_WORKER(WorkerTable, ownerTotalTextField);
     }//GEN-LAST:event_payWorkerActionPerformed
+
+    private void btnrefreshTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrefreshTableActionPerformed
+        // TODO add your handling code here:
+        database.UpdateWorkerTable(WorkerTable);
+    }//GEN-LAST:event_btnrefreshTableActionPerformed
     
     /**
      * @param args the command line arguments
@@ -444,8 +486,10 @@ public class OwnerWindow extends javax.swing.JFrame {
     private javax.swing.JTextField Name_Text;
     private javax.swing.JTable WorkerTable;
     private javax.swing.JButton btnUpdateHireStatus;
+    private javax.swing.JButton btnrefreshTable;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

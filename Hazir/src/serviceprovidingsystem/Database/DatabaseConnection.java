@@ -9,7 +9,9 @@ import java.util.*;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JLabel;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import net.proteanit.sql.DbUtils;
 import serviceprovidingsystem.Accounts.*;
 import serviceprovidingsystem.ParentElements.Worker;
@@ -371,7 +373,7 @@ public class DatabaseConnection{
          FinalDb = pst.executeQuery();
          
          //Adding all element of database worker(Table)
-         
+         System.out.println("TABLE UPDATED");
          table.setModel(DbUtils.resultSetToTableModel(FinalDb));
 
      } catch (Exception ex) {
@@ -481,7 +483,11 @@ public class DatabaseConnection{
         
     }
     
-    public void PAY_WORKER(JTable table) {
+    public void refreshingOwnerTotalLabel(JTextField textField) {
+        textField.setText(Double.toString(owner.getTotalAmount()));
+    }
+    
+    public void PAY_WORKER(JTable table, JTextField textField) {
         connectionOn();
         ArrayList id_Array = new ArrayList();
     
@@ -514,6 +520,11 @@ public class DatabaseConnection{
             //UPDATE OWNER>>>>>>>>>>>>>>>>>>>>>>
             UpdateWorkerTable(table);
             
+            owner.setTotalAmount(owner.getTotalAmount() + total);
+            UPDATE_OWNER();
+            
+            refreshingOwnerTotalLabel(textField);
+            
         } catch (Exception e) {
             System.out.println(e);
         } finally {
@@ -521,7 +532,20 @@ public class DatabaseConnection{
         }
     }
     
-
+    public void UPDATE_OWNER() {
+        connectionOn();
+        String sql = "UPDATE Users SET cost = ? WHERE name = 'admin' ";
+        try {
+            pst = connection.prepareStatement(sql);
+            pst.setDouble(1, owner.getTotalAmount());
+            pst.executeUpdate();
+            
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            connectionOff();
+        }
+    }
     
     
     
