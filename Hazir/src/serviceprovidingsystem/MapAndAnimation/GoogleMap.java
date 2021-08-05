@@ -17,6 +17,7 @@ import serviceprovidingsystem.Database.DatabaseConnection;
  */
 public class GoogleMap {
     DatabaseConnection database;
+    private static JFrame mapWindow;
     private static WebEngine engineLink;
     private static String address;
     private static String coordinate;
@@ -33,15 +34,13 @@ public class GoogleMap {
     }
     
     public static void showServiceArea() {
-        final JFrame mapWindow=new JFrame("Google Map");//window bar name
+        mapWindow=new JFrame("Google Map");//window bar name
         mapWindow.setIconImage(new ImageIcon("src\\serviceprovidingsystem\\images\\MapWindow\\mapIcon.png").getImage());//window Icon
         //mapWindow.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE); //This will end program if only map window is close
         mapWindow.setSize(1066,600);//resolution size
         mapWindow.setLocationRelativeTo(null);//open in center
-        final JFXPanel fxpanel=new JFXPanel();
+        JFXPanel fxpanel=new JFXPanel();
         mapWindow.add(fxpanel);
-        
-
         Platform.runLater(new Runnable() {
         @Override
         public void run()
@@ -57,12 +56,12 @@ public class GoogleMap {
     }
     
     public void setPinLocation() {
-        final JFrame mapWindow=new JFrame("Google Map");//window bar name
+        mapWindow=new JFrame("Google Map");//window bar name
         mapWindow.setIconImage(new ImageIcon("src\\serviceprovidingsystem\\images\\MapWindow\\mapIcon.png").getImage());//window Icon
         //mapWindow.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE); //DISPOSE HERE
         mapWindow.setSize(1066,600);//resolution size
         mapWindow.setLocationRelativeTo(null);//open in center
-        final JFXPanel fxpanel=new JFXPanel();
+        JFXPanel fxpanel=new JFXPanel();
         mapWindow.add(fxpanel);
         Platform.runLater(new Runnable() {
         @Override
@@ -75,6 +74,7 @@ public class GoogleMap {
             }
             });
         mapWindow.setVisible(true);
+        
     }    
     
     
