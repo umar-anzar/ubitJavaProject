@@ -540,7 +540,7 @@ public class DatabaseConnection {
     
     public void refreshingOwnerTotalField(JTextField textField) {
         
-        textField.setText(Double.toString(owner.getTotalAmount()));
+        textField.setText("Profit : " + Double.toString(owner.getTotalAmount()));
         
     }
     
