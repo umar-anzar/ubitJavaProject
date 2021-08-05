@@ -239,7 +239,7 @@ public class SignUp extends javax.swing.JFrame {
         backgroundPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/SignInWindow/SignWindowpic1.png"))); // NOI18N
-        backgroundPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 120, -1, -1));
+        backgroundPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 240, -1, -1));
 
         logoLabel.setForeground(new java.awt.Color(0, 0, 0));
         logoLabel.setText("LOGO");

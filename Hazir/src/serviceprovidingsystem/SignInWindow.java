@@ -271,11 +271,11 @@ public class SignInWindow extends javax.swing.JFrame {
         backGroundPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/SignInWindow/SignWindowpic1.png"))); // NOI18N
-        backGroundPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, -1, -1));
+        backGroundPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, -1, -1));
 
         logoLabel.setForeground(new java.awt.Color(0, 0, 0));
-        logoLabel.setText("LOGO");
-        backGroundPanel.add(logoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, -1, -1));
+        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/SignInWindow/SignInLogo.png"))); // NOI18N
+        backGroundPanel.add(logoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 30, -1, -1));
 
         jLayeredPane1.add(backGroundPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 13, 930, 480));
 

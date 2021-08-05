@@ -68,7 +68,6 @@ public class StatusAndFee extends javax.swing.JFrame {
     private void initComponents() {
 
         jLayeredPane1 = new javax.swing.JLayeredPane();
-        logoBar = new com.k33ptoo.components.KGradientPanel();
         closeBar = new com.k33ptoo.components.KGradientPanel();
         jLabel3 = new javax.swing.JLabel();
         tItleBar = new com.k33ptoo.components.KGradientPanel();
@@ -105,25 +104,6 @@ public class StatusAndFee extends javax.swing.JFrame {
         });
 
         jLayeredPane1.setPreferredSize(new java.awt.Dimension(1066, 600));
-
-        logoBar.setkEndColor(new java.awt.Color(24, 25, 25));
-        logoBar.setkGradientFocus(50);
-        logoBar.setkStartColor(new java.awt.Color(28, 40, 51));
-        logoBar.setOpaque(false);
-
-        javax.swing.GroupLayout logoBarLayout = new javax.swing.GroupLayout(logoBar);
-        logoBar.setLayout(logoBarLayout);
-        logoBarLayout.setHorizontalGroup(
-            logoBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
-        );
-        logoBarLayout.setVerticalGroup(
-            logoBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-        );
-
-        jLayeredPane1.add(logoBar);
-        logoBar.setBounds(10, 0, 50, 40);
 
         closeBar.setkEndColor(new java.awt.Color(24, 25, 25));
         closeBar.setkGradientFocus(50);
@@ -773,7 +753,6 @@ public class StatusAndFee extends javax.swing.JFrame {
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JScrollPane jScrollPane1;
     private com.k33ptoo.components.KGradientPanel kGradientPanel5;
-    private com.k33ptoo.components.KGradientPanel logoBar;
     private javax.swing.JLabel messageLabel;
     private javax.swing.JLabel pendingLoading;
     private javax.swing.JComboBox<String> ratingBox;
