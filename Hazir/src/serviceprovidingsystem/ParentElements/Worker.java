@@ -17,7 +17,7 @@ public abstract class Worker extends Person {
     private final String cnic;
     private final int experience;
     private boolean available = true, hireStatus = false;
-    private double payPercentage = 0.7, rating, pocket=0, paidTotal=0;
+    private double payPercentage = 0.7, rating=0, pocket=0, paidTotal=0;
 
     public Worker(String name, String cnic, String contactNumber,  int experience, Date dateofbirth){
         super(name, contactNumber, dateofbirth);

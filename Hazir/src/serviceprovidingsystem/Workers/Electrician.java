@@ -13,12 +13,13 @@ import serviceprovidingsystem.ParentElements.Worker;
  */
 public class Electrician extends Worker {
 
-    private double payPercentage = 0.75;
+    private final double payPercentage = 0.75;
     
     public Electrician(String name, String cnic, String contactNumber, int experience, Date dateofbirth) {
         super(name, cnic, contactNumber, experience, dateofbirth);
     }
 
+    @Override
     public double pay() {
         
         super.setPaidTotal(super.getPaidTotal() + super.getPocket() * payPercentage);

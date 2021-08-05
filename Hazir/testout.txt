@@ -7,9 +7,9 @@ _________________________________________________________
 
 Your Worker's Details
 
-Name            Tony stark
-Cnic no.        42506
-profession      Labour
-Fee             5000.0
+Name            shizuka
+Cnic no.        42505
+profession      EventManager
+Fee             50000.0
 Experience      2
 Rating          0.0
