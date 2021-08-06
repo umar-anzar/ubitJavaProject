@@ -676,7 +676,7 @@ public class AddressWindow extends javax.swing.JFrame {
             System.out.println("Field(s) are empty");
             errorLabel1.setText("Field(s) are empty");
         } else {
-            if(markLocation){
+            if(markLocation || !markLocation){
                 //CODE HERE
                 errorLabel1.setText("");
                 addressField = houseField.getText() + "," + streetField.getText() + "," + phaseField.getText() + "," + areaField.getText();
@@ -686,8 +686,8 @@ public class AddressWindow extends javax.swing.JFrame {
                 Animations.windowCloseAnimation(this, 1f);
                 new HomeWindow(database).setVisible(true);
             } else {
-                System.out.println("Location not marked");
-                errorLabel2.setText("Location not marked");
+                System.out.println("Location not marked");//wont work due to condition
+                errorLabel2.setText("Location not marked");//wont work due to condition
                 
             }
         }

@@ -1,15 +1,15 @@
 Your Details
 
-Username        omer
-Mobile Number   03333333333
-Address         29-e,7,5,defence
+Username        osama
+Mobile Number   11111111111
+Address         22,5,1,defence view
 _________________________________________________________
 
 Your Worker's Details
 
-Name            shizuka
-Cnic no.        42505
-profession      EventManager
-Fee             50000.0
+Name            Sham 
+Cnic no.        42502
+profession      Plumber
+Fee             3000.0
 Experience      2
-Rating          0.0
+Rating          3.25
