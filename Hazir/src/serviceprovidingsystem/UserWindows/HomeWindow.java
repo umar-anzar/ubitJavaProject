@@ -92,10 +92,13 @@ public class HomeWindow extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         kGradientPanel18 = new com.k33ptoo.components.KGradientPanel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
         kGradientPanel13 = new com.k33ptoo.components.KGradientPanel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
         kGradientPanel17 = new com.k33ptoo.components.KGradientPanel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
         SelectOptionsWindow = new com.k33ptoo.components.KGradientPanel();
         btnJobType3 = new com.k33ptoo.components.KButton();
         workderJobLabel = new javax.swing.JLabel();
@@ -115,6 +118,7 @@ public class HomeWindow extends javax.swing.JFrame {
         btnGoToReceipt = new com.k33ptoo.components.KButton();
         kGradientPanel19 = new com.k33ptoo.components.KGradientPanel();
         jLabel8 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
         btnElectrician = new com.k33ptoo.components.KButton();
         btnPlumber = new com.k33ptoo.components.KButton();
         btnMechanic = new com.k33ptoo.components.KButton();
@@ -399,12 +403,18 @@ public class HomeWindow extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/HomeWindow/5rating.png"))); // NOI18N
 
+        jLabel16.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel16.setText("Asif Kamran         Electrician              12yrs");
+
         javax.swing.GroupLayout kGradientPanel18Layout = new javax.swing.GroupLayout(kGradientPanel18);
         kGradientPanel18.setLayout(kGradientPanel18Layout);
         kGradientPanel18Layout.setHorizontalGroup(
             kGradientPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel18Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(36, 36, 36)
+                .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
                 .addContainerGap())
         );
@@ -412,7 +422,9 @@ public class HomeWindow extends javax.swing.JFrame {
             kGradientPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel18Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel5)
+                .addGroup(kGradientPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -423,12 +435,18 @@ public class HomeWindow extends javax.swing.JFrame {
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/HomeWindow/45rating.png"))); // NOI18N
 
+        jLabel23.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel23.setText("Asif Kamran         Electrician              12yrs");
+
         javax.swing.GroupLayout kGradientPanel13Layout = new javax.swing.GroupLayout(kGradientPanel13);
         kGradientPanel13.setLayout(kGradientPanel13Layout);
         kGradientPanel13Layout.setHorizontalGroup(
             kGradientPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel13Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(35, 35, 35)
+                .addComponent(jLabel23)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel6)
                 .addContainerGap())
         );
@@ -436,7 +454,9 @@ public class HomeWindow extends javax.swing.JFrame {
             kGradientPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel13Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel6)
+                .addGroup(kGradientPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -447,12 +467,18 @@ public class HomeWindow extends javax.swing.JFrame {
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/HomeWindow/4rating.png"))); // NOI18N
 
+        jLabel24.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel24.setText("Asif Kamran         Electrician              12yrs");
+
         javax.swing.GroupLayout kGradientPanel17Layout = new javax.swing.GroupLayout(kGradientPanel17);
         kGradientPanel17.setLayout(kGradientPanel17Layout);
         kGradientPanel17Layout.setHorizontalGroup(
             kGradientPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel17Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(34, 34, 34)
+                .addComponent(jLabel24)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel7)
                 .addContainerGap())
         );
@@ -460,7 +486,9 @@ public class HomeWindow extends javax.swing.JFrame {
             kGradientPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel17Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel7)
+                .addGroup(kGradientPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -630,12 +658,18 @@ public class HomeWindow extends javax.swing.JFrame {
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/HomeWindow/4rating.png"))); // NOI18N
 
+        jLabel25.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel25.setText("Asif Kamran         Electrician              12yrs");
+
         javax.swing.GroupLayout kGradientPanel19Layout = new javax.swing.GroupLayout(kGradientPanel19);
         kGradientPanel19.setLayout(kGradientPanel19Layout);
         kGradientPanel19Layout.setHorizontalGroup(
             kGradientPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel19Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(34, 34, 34)
+                .addComponent(jLabel25)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel8)
                 .addContainerGap())
         );
@@ -643,7 +677,9 @@ public class HomeWindow extends javax.swing.JFrame {
             kGradientPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel19Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel8)
+                .addGroup(kGradientPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1480,8 +1516,12 @@ public class HomeWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
