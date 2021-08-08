@@ -8,10 +8,7 @@ import serviceprovidingsystem.MapAndAnimation.Animations;
 import serviceprovidingsystem.*;
 import java.awt.Color;
 import java.awt.Cursor;
-import java.awt.Dimension;
 import javax.swing.ImageIcon;
-import javax.swing.SpinnerModel;
-import javax.swing.SpinnerNumberModel;
 import serviceprovidingsystem.Database.DatabaseConnection;
 
 /**
@@ -405,16 +402,16 @@ public class HomeWindow extends javax.swing.JFrame {
 
         jLabel16.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel16.setText("Asif Kamran         Electrician              12yrs");
+        jLabel16.setText("Asif Kamran           Electrician              12yrs");
 
         javax.swing.GroupLayout kGradientPanel18Layout = new javax.swing.GroupLayout(kGradientPanel18);
         kGradientPanel18.setLayout(kGradientPanel18Layout);
         kGradientPanel18Layout.setHorizontalGroup(
             kGradientPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel18Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5)
                 .addContainerGap())
         );
@@ -437,14 +434,14 @@ public class HomeWindow extends javax.swing.JFrame {
 
         jLabel23.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel23.setText("Asif Kamran         Electrician              12yrs");
+        jLabel23.setText("Shizuka Minamoto  Event Manager       10yrs");
 
         javax.swing.GroupLayout kGradientPanel13Layout = new javax.swing.GroupLayout(kGradientPanel13);
         kGradientPanel13.setLayout(kGradientPanel13Layout);
         kGradientPanel13Layout.setHorizontalGroup(
             kGradientPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel13Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addGap(29, 29, 29)
                 .addComponent(jLabel23)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel6)
@@ -469,14 +466,14 @@ public class HomeWindow extends javax.swing.JFrame {
 
         jLabel24.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel24.setText("Asif Kamran         Electrician              12yrs");
+        jLabel24.setText("Baburao                Labour                  6yrs");
 
         javax.swing.GroupLayout kGradientPanel17Layout = new javax.swing.GroupLayout(kGradientPanel17);
         kGradientPanel17.setLayout(kGradientPanel17Layout);
         kGradientPanel17Layout.setHorizontalGroup(
             kGradientPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel17Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel24)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel7)
@@ -660,14 +657,14 @@ public class HomeWindow extends javax.swing.JFrame {
 
         jLabel25.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 12)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel25.setText("Asif Kamran         Electrician              12yrs");
+        jLabel25.setText("Eren Yeager           Mechanic              8yrs");
 
         javax.swing.GroupLayout kGradientPanel19Layout = new javax.swing.GroupLayout(kGradientPanel19);
         kGradientPanel19.setLayout(kGradientPanel19Layout);
         kGradientPanel19Layout.setHorizontalGroup(
             kGradientPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel19Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel25)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel8)
