@@ -60,7 +60,8 @@ public class MainIntro extends javax.swing.JFrame{
         kGradientPanel1.setkStartColor(new java.awt.Color(180, 225, 255));
         kGradientPanel1.setOpaque(false);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/GIF_project_5_with_text.gif"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/short/ICONi.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
 
         jLabel2.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -138,7 +139,7 @@ public class MainIntro extends javax.swing.JFrame{
             public void run(){
                 try {
                     for (int i = 1; i < 101; i++) {
-                        Thread.sleep(50);
+                        Thread.sleep(20);
                     }
                     Animations.windowCloseAnimation(window, 0.9f);
                     new SignInWindow(new DatabaseConnection()).setVisible(true);
