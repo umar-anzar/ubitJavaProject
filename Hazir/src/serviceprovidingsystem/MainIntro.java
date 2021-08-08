@@ -130,7 +130,7 @@ public class MainIntro extends javax.swing.JFrame{
             public void run(){
                 try {
                     for (int i = 1; i < 101; i++) {
-                        Thread.sleep(70);
+                        Thread.sleep(74);
                     }
                     Animations.windowCloseAnimation(window, 0.9f);
                     new SignInWindow(new DatabaseConnection()).setVisible(true);
