@@ -43,7 +43,6 @@ public class MainIntro extends javax.swing.JFrame{
 
         kGradientPanel1 = new com.k33ptoo.components.KGradientPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         loading = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -60,13 +59,8 @@ public class MainIntro extends javax.swing.JFrame{
         kGradientPanel1.setkStartColor(new java.awt.Color(180, 225, 255));
         kGradientPanel1.setOpaque(false);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/short/ICONi.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/output-onlinegiftools (5).gif"))); // NOI18N
         jLabel1.setText("jLabel1");
-
-        jLabel2.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("H  A  A  Z  I  R");
 
         loading.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/short/loading.gif"))); // NOI18N
 
@@ -77,24 +71,21 @@ public class MainIntro extends javax.swing.JFrame{
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addGap(182, 182, 182)
-                        .addComponent(loading))
-                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
                         .addGap(57, 57, 57)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                        .addGap(185, 185, 185)
+                        .addComponent(loading)))
                 .addContainerGap(66, Short.MAX_VALUE))
-            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(loading, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
+                .addGap(52, 52, 52))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -139,7 +130,7 @@ public class MainIntro extends javax.swing.JFrame{
             public void run(){
                 try {
                     for (int i = 1; i < 101; i++) {
-                        Thread.sleep(20);
+                        Thread.sleep(70);
                     }
                     Animations.windowCloseAnimation(window, 0.9f);
                     new SignInWindow(new DatabaseConnection()).setVisible(true);
@@ -203,7 +194,6 @@ public class MainIntro extends javax.swing.JFrame{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private com.k33ptoo.components.KGradientPanel kGradientPanel1;
     private javax.swing.JLabel loading;
     // End of variables declaration//GEN-END:variables
