@@ -76,6 +76,7 @@ public class SignInWindow extends javax.swing.JFrame {
         backGroundPanel = new com.k33ptoo.components.KGradientPanel();
         jLabel1 = new javax.swing.JLabel();
         logoLabel = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 204, 255));
@@ -271,11 +272,17 @@ public class SignInWindow extends javax.swing.JFrame {
         backGroundPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/SignInWindow/SignWindowpic1.png"))); // NOI18N
-        backGroundPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, -1, -1));
+        backGroundPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, -1, -1));
 
         logoLabel.setForeground(new java.awt.Color(0, 0, 0));
         logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/SignInWindow/SignInLogo.png"))); // NOI18N
         backGroundPanel.add(logoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 30, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Haazir");
+        backGroundPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 160, -1));
 
         jLayeredPane1.add(backGroundPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 13, 930, 480));
 
@@ -440,6 +447,7 @@ public class SignInWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;

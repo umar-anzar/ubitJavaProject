@@ -72,7 +72,8 @@ public class SignUp extends javax.swing.JFrame {
         backToSignInBtn = new javax.swing.JLabel();
         errorRegister = new javax.swing.JLabel();
         backgroundPanel = new com.k33ptoo.components.KGradientPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         logoLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -238,12 +239,18 @@ public class SignUp extends javax.swing.JFrame {
         backgroundPanel.setPreferredSize(new java.awt.Dimension(926, 503));
         backgroundPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/SignInWindow/SignWindowpic1.png"))); // NOI18N
-        backgroundPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 240, -1, -1));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/SignInWindow/SignWindowpic1.png"))); // NOI18N
+        backgroundPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 260, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Haazir");
+        backgroundPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 190, 160, -1));
 
         logoLabel.setForeground(new java.awt.Color(0, 0, 0));
-        logoLabel.setText("LOGO");
-        backgroundPanel.add(logoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 50, -1, -1));
+        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serviceprovidingsystem/images/SignInWindow/SignInLogo.png"))); // NOI18N
+        backgroundPanel.add(logoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 30, -1, -1));
 
         jLayeredPane1.add(backgroundPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 13, 930, 480));
 
@@ -424,7 +431,6 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JLabel closeWindow;
     private javax.swing.JPasswordField confirmPasswordField;
     private javax.swing.JLabel errorRegister;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -433,6 +439,8 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
