@@ -404,7 +404,7 @@ public class OwnerWindow extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
-            database.DELETE_USER(WorkerTable);
+            database.DELETE_WORKER(WorkerTable);
             Delete_ID_Text.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
 

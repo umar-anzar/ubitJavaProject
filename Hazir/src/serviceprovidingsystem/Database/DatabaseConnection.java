@@ -466,7 +466,7 @@ public class DatabaseConnection {
 
     }
    
-    public void DELETE_USER(JTable table) {
+    public void DELETE_WORKER(JTable table) {
         
         connectionOn();
         try {
