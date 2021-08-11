@@ -1,15 +1,15 @@
 Your Details
 
-Username        osama
-Mobile Number   11111111111
-Address         22,5,1,defence view
+Username        huzaifa
+Mobile Number   03254682154
+Address         C,110,D,north nazimabad
 _________________________________________________________
 
 Your Worker's Details
 
-Name            Sham 
-Cnic no.        42502
-profession      Plumber
-Fee             3000.0
-Experience      2
-Rating          3.25
+Name            Tony Stank
+Cnic no.        42154121
+profession      Electrician
+Fee             1000.0
+Experience      13
+Rating          0.0

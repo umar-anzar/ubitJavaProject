@@ -593,7 +593,9 @@ public class StatusAndFee extends javax.swing.JFrame {
             messageLabel.setForeground(Color.black);
             messageLabel.setText(database.currentUser.hiredWorker.toString());//display toString to get details of worker
             
-            database.currentUser.hiredWorker.setPocket(database.currentUser.getCost());//setting cost in hire worker
+            database.currentUser.hiredWorker.setPocket(database.currentUser.hiredWorker.getPocket() + database.currentUser.getCost());//setting cost in hire worker
+            
+            database.currentUser.hiredWorker.setAddressLink(database.currentUser.getAddressLink());//save marker location of user in hire worker
             
             database.currentUser.hiredWorker.setHireStatus(true);//setting hire status true for worker
             
@@ -632,7 +634,8 @@ public class StatusAndFee extends javax.swing.JFrame {
 
     private void btnGenerateSlipMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGenerateSlipMouseEntered
         // TODO add your handling code here:
-        
+        Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
+        btnGenerateSlip.setCursor(cursor);
     }//GEN-LAST:event_btnGenerateSlipMouseEntered
 
     private void btnGenerateSlipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateSlipActionPerformed
@@ -687,6 +690,7 @@ public class StatusAndFee extends javax.swing.JFrame {
         // TODO add your handling code here:
         database.currentUser.setOrderStatus(false);
         database.currentUser.setCost(0);
+        database.currentUser.hiredWorker.setAddressLink(null);//when work is done hire worker forgets the marker location(null)
         database.currentUser.hiredWorker.setAvailable(true);
         database.currentUser.hiredWorker.giveRating(Double.parseDouble(((String)ratingBox.getSelectedItem())));
         
