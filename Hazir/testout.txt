@@ -1,15 +1,15 @@
 Your Details
 
-Username        huzaifa
-Mobile Number   03254682154
-Address         C,110,D,north nazimabad
+Username        ahmed
+Mobile Number   03132238660
+Address         302,14,1,Shadman
 _________________________________________________________
 
 Your Worker's Details
 
-Name            Tony Stank
-Cnic no.        42154121
-profession      Electrician
-Fee             1000.0
-Experience      13
-Rating          0.0
+Name            shizuka
+Cnic no.        42505
+profession      EventManager
+Fee             50000.0
+Experience      2
+Rating          3.0
