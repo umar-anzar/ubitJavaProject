@@ -1,15 +1,15 @@
 Your Details
 
-Username        ahmed
-Mobile Number   03132238660
-Address         302,14,1,Shadman
+Username        anas
+Mobile Number   00000000000
+Address         H/19/11,11,1,Ext colony
 _________________________________________________________
 
 Your Worker's Details
 
-Name            shizuka
-Cnic no.        42505
-profession      EventManager
-Fee             50000.0
+Name            Tony stark
+Cnic no.        42506
+profession      Labour
+Fee             0.0
 Experience      2
-Rating          3.0
+Rating          4.0
