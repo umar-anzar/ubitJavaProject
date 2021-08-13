@@ -6,7 +6,6 @@
 package serviceprovidingsystem;
 import serviceprovidingsystem.MapAndAnimation.Animations;
 import java.awt.Color;
-import java.awt.Dimension;
 import javax.swing.ImageIcon;
 import serviceprovidingsystem.Database.DatabaseConnection;
 

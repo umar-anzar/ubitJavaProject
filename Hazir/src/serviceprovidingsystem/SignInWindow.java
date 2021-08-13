@@ -6,13 +6,10 @@
 package serviceprovidingsystem;
 import serviceprovidingsystem.MapAndAnimation.Animations;
 import java.awt.*;
-import java.util.Date;
 import javax.swing.ImageIcon;
-import serviceprovidingsystem.Accounts.User;
 import serviceprovidingsystem.UserWindows.AddressWindow;
 import serviceprovidingsystem.Database.DatabaseConnection;
 import serviceprovidingsystem.OwnerWindows.OwnerWindow;
-import serviceprovidingsystem.UserWindows.HomeWindow;
 import serviceprovidingsystem.UserWindows.StatusAndFee;
 
 /**

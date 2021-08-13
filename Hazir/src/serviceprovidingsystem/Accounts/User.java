@@ -6,8 +6,6 @@
 package serviceprovidingsystem.Accounts;
 import java.util.*;
 import serviceprovidingsystem.ParentElements.*;
-import serviceprovidingsystem.Database.DatabaseConnection;
-import serviceprovidingsystem.Workers.Electrician;
 
 /**
  *
