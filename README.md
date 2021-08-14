@@ -13,7 +13,7 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 
 ## Animations
 <!--Description of animation-->
-As we all know java swing is a old platform so using multi threading concept. We created animations by overriding `run()` method, having a loop inside it and use of `thread.sleep()` to change opactiy gradually and at some places increase the size of window or moving it left and right to animate our ui design.
+As we all know java swing is an old framework and there is no concept of built-in animation in it. So using multi threading concept, we created animations by overriding `run()` method, having a loop inside it and use of `thread.sleep()` to change opactiy gradually and at some places increase the size of window or moving it left and right to animate our ui design.
 
 
 <h4 align="center">Main Introduction Animation<hr></h4>
