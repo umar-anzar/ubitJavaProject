@@ -3,4 +3,4 @@
 
 **Service Providing App**
 
-![Alt Text](markdownData\animation\intro.gif)
+![Alt Text](markdownData/animation/intro.gif)
