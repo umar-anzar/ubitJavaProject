@@ -3,4 +3,4 @@
 
 **Service Providing App**
 
-<img src="markdownData/animation/intro.gif" width="250"/>
+<img src="markdownData/animation/intro.gif" width="500"/>
