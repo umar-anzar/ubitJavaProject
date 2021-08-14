@@ -26,6 +26,6 @@ As we all know java swing is an old framework and there is no concept of built-i
 
 <br>
 
-<h4 align="center">Main Introduction Animation<hr></h4>
+<h4 align="center">Setting Panel<hr></h4>
 <p align="center"><img src="markdownData/animation/menu-slide.gif" width="800" alt="menu-slide"/></p> <!--menu slider animation-->
 
