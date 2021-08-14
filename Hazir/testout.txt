@@ -1,15 +1,15 @@
 Your Details
 
-Username        anas
-Mobile Number   00000000000
-Address         H/19/11,11,1,Ext colony
+Username        omer
+Mobile Number   03333333333
+Address         29-e,7,5,defence
 _________________________________________________________
 
 Your Worker's Details
 
-Name            Tony stark
-Cnic no.        42506
-profession      Labour
-Fee             0.0
-Experience      2
-Rating          4.0
+Name            Tony Stank
+Cnic no.        42154121
+profession      Electrician
+Fee             6000.0
+Experience      13
+Rating          4.5

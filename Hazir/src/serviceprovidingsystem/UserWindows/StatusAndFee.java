@@ -379,7 +379,7 @@ public class StatusAndFee extends javax.swing.JFrame {
         receiptTextArea.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jScrollPane1.setViewportView(receiptTextArea);
 
-        receiptBackground.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(434, 41, 340, 355));
+        receiptBackground.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(334, 41, 440, 355));
 
         btnNotePad.setText("Open Receipt");
         btnNotePad.setBorderPainted(false);
@@ -400,7 +400,7 @@ public class StatusAndFee extends javax.swing.JFrame {
                 btnNotePadActionPerformed(evt);
             }
         });
-        receiptBackground.add(btnNotePad, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 360, 120, 30));
+        receiptBackground.add(btnNotePad, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, 120, 30));
 
         btnGenerateSlip.setText("Generate Receipt");
         btnGenerateSlip.setBorderPainted(false);
@@ -421,7 +421,7 @@ public class StatusAndFee extends javax.swing.JFrame {
                 btnGenerateSlipActionPerformed(evt);
             }
         });
-        receiptBackground.add(btnGenerateSlip, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, 120, 30));
+        receiptBackground.add(btnGenerateSlip, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 120, 30));
 
         ratingPanel.setkEndColor(new java.awt.Color(231, 231, 231));
         ratingPanel.setkStartColor(new java.awt.Color(231, 231, 231));
