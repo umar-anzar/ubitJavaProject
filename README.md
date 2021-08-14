@@ -14,7 +14,7 @@
 
 <p align="center"><img src="markdownData/animation/intro.gif" width="500" alt="intro"/></p> <!--Intro animation-->
 
-<p align="center"><img src="markdownData/animation/signup-register.gif" width="500" alt="Kitten"/></p><!--signup/register animation-->
+<p align="center"><img src="markdownData/animation/signup-register.gif" width="800" alt="Kitten"/></p><!--signup/register animation-->
 
-<p align="center"><img src="markdownData/animation/intro.gif" width="500" alt="Kitten"/></p> <!--menu slider animation-->
+<p align="center"><img src="markdownData/animation/menu-slide.gif" width="800" alt="Kitten"/></p> <!--menu slider animation-->
 
