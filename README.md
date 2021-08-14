@@ -3,4 +3,4 @@
 
 **Service Providing App**
 
-![Alt Text](markdownData/animation/intro.gif)
+<img src="markdownData/animation/intro.gif" width="250"/>
