@@ -1,8 +1,8 @@
 Your Details
 
-Username        omer
-Mobile Number   03333333333
-Address         29-e,7,5,defence
+Username        rehmat
+Mobile Number   03126585478
+Address         B,11,1,Defence view
 _________________________________________________________
 
 Your Worker's Details
@@ -12,4 +12,4 @@ Cnic no.        42154121
 profession      Electrician
 Fee             6000.0
 Experience      13
-Rating          4.5
+Rating          4.75
