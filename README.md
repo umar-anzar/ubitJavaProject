@@ -12,9 +12,9 @@
 
 ## Animations
 
-<img src="markdownData/animation/intro.gif" width="500" align="right" style="padding-bottom: 1em;" alt="intro"/> <!--Intro animation-->
+<img src="markdownData/animation/intro.gif" width="500" align="right" alt="intro"/> <!--Intro animation-->
 
-<img src="markdownData/animation/intro.gif" width="500" align="right" style="padding: 20px" alt="Kitten"/> <!--signup/register animation-->
+<img src="markdownData/animation/intro.gif" width="500" align="right" alt="Kitten"/> <!--signup/register animation-->
 
-<img src="markdownData/animation/intro.gif" width="500" align="right" style="padding: 20px" alt="Kitten"/> <!--menu slider animation-->
+<img src="markdownData/animation/intro.gif" width="500" align="right" alt="Kitten"/> <!--menu slider animation-->
 
