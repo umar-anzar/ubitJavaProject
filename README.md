@@ -12,7 +12,7 @@
 
 ## Animations
 
-<img src="markdownData/animation/intro.gif" width="500" align="right" style="padding: 20px" alt="intro"/> <!--Intro animation-->
+<img src="markdownData/animation/intro.gif" width="500" align="right" style="margin: 20px" alt="intro"/> <!--Intro animation-->
 
 <img src="markdownData/animation/intro.gif" width="500" align="right" style="padding: 20px" alt="Kitten"/> <!--signup/register animation-->
 
