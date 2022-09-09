@@ -23,7 +23,6 @@ As we already know that masses are becoming civilized, getting accustomed to eve
 - Vehicle Maintenance
 
 ### Objectives
-
 For all these problems we introduce one stop solution HAAZIR, an all-in-one service providing application.
 HAAZIR provides solution for all these kinds of hectic time-consuming tasks with some distinguish features such as, 
 - Transparent dealing between Client and HAAZIR
@@ -43,7 +42,6 @@ Reasons:
 - Sequential Damage (if treated by an unskilled person) 
 
 ## Use Case Diagram
-
 <div align="center"><img src="markdownData/images/UseCase.png" width="90%" alt="use case diagram"/></div> <!--Usecase-->
 
 ## Animations
