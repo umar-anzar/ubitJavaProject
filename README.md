@@ -1,10 +1,13 @@
-
 # Haazir App
 
 ### Service Providing App
-
-
-<br><br>
+> - By 
+>   - **B19102104 Muhammad Umar Anzar**
+>   - **B19102068 Muhammad Anas Rashid**
+>   - **B19102010 Ahmed Haseeb**
+> - University Of Karachi 
+> - UBIT department of computer science
+> - Subject Object Oriented Programming
 
 ## Description
 <!--Description of program-->
