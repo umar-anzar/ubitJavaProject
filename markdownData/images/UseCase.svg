@@ -235,16 +235,16 @@
 			<v:textRect cx="54" cy="577.276" width="108" height="36"/>
 			<ellipse cx="54" cy="577.276" rx="54" ry="18" class="st1"/>
 			<text x="34.69" y="580.88" class="st2" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Works()</text>		</g>
-		<g id="shape37-82" v:mID="37" v:groupContext="shape" transform="translate(279.902,-235.406)">
+		<g id="shape37-82" v:mID="37" v:groupContext="shape" transform="translate(283.055,-235.406)">
 			<title>Use Case.37</title>
-			<desc>Workder Status Change()</desc>
+			<desc>Worker Status Change()</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
-			<v:textRect cx="66.5978" cy="577.276" width="133.2" height="36"/>
-			<ellipse cx="66.5978" cy="577.276" rx="66.5978" ry="18" class="st1"/>
-			<text x="5.36" y="580.88" class="st2" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Workder Status Change()</text>		</g>
+			<v:textRect cx="63.4454" cy="577.276" width="126.9" height="36"/>
+			<ellipse cx="63.4454" cy="577.276" rx="63.4454" ry="18" class="st1"/>
+			<text x="5.36" y="580.88" class="st2" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Worker Status Change()</text>		</g>
 		<g id="shape38-85" v:mID="38" v:groupContext="shape" v:layerMember="0" transform="translate(337.5,-235.406)">
 			<title>Include.38</title>
 			<desc>&#60;&#60;include&#62;&#62;</desc>
@@ -331,17 +331,17 @@
 			<v:textRect cx="54" cy="577.276" width="108" height="36"/>
 			<ellipse cx="54" cy="577.276" rx="54" ry="18" class="st1"/>
 			<text x="40.32" y="580.88" class="st2" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Pay ()</text>		</g>
-		<g id="shape47-117" v:mID="47" v:groupContext="shape" v:layerMember="0" transform="translate(413.094,-262.108)">
+		<g id="shape47-117" v:mID="47" v:groupContext="shape" v:layerMember="0" transform="translate(409.942,-262.112)">
 			<title>Include.47</title>
 			<desc>&#60;&#60;include&#62;&#62;</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
-			<v:textRect cx="41.3288" cy="604.276" width="49.4" height="17.6036"/>
-			<path d="M0 604.16 L82.66 604.39" class="st4"/>
-			<rect v:rectContext="textBkgnd" x="21.538" y="599.476" width="39.5818" height="9.59985" class="st6"/>
-			<text x="21.54" y="606.68" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>&#60;&#60;include&#62;&#62;</text>		</g>
+			<v:textRect cx="42.9047" cy="604.276" width="49.4" height="17.6036"/>
+			<path d="M0 604.16 L85.81 604.39" class="st4"/>
+			<rect v:rectContext="textBkgnd" x="23.1139" y="599.476" width="39.5818" height="9.59985" class="st6"/>
+			<text x="23.11" y="606.68" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>&#60;&#60;include&#62;&#62;</text>		</g>
 		<g id="shape49-124" v:mID="49" v:groupContext="shape" v:layerMember="0" transform="translate(539.625,-305.157)">
 			<title>Include.49</title>
 			<desc>&#60;&#60;include&#62;&#62;</desc>
