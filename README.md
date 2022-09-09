@@ -41,7 +41,7 @@ Reasons:
 
 ## Use Case Diagram
 
-<div align="center"><img src="markdownData/images/UseCase.svg" width="500" alt="use case diagram"/></div> <!--Usecase-->
+<div align="center"><img src="markdownData/images/UseCase.png" width="500" alt="use case diagram"/></div> <!--Usecase-->
 
 ## Animations
 <!--Description of animation-->
