@@ -42,7 +42,7 @@ Reasons:
 - Sequential Damage (if treated by an unskilled person) 
 
 ## Use Case Diagram
-<div align="center"><img src="markdownData/images/UseCase.svg" width="90%" alt="use case diagram"/></div> <!--Usecase-->
+<div align="center"><img src="markdownData/images/use_case.png" width="90%" alt="use case diagram"/></div> <!--Usecase-->
 
 ## Animations
 <!--Description of animation-->
